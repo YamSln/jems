@@ -12,4 +12,5 @@ export interface GameState {
   turnTime: number;
   password: string;
   maxPlayers: number;
+  winningTeam?: Team;
 }

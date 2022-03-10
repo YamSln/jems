@@ -4,6 +4,8 @@ import { GameService } from '../../service/game.service';
 import {
   createGame,
   createGameApproved,
+  joinGame,
+  joinGameSuccess,
   newGame,
   roleChanged,
   teamChanged,
@@ -18,6 +20,7 @@ import { GameEvent } from 'src/app/model/game.event';
 import { GameState } from './game.state';
 import { io, Socket } from 'socket.io-client';
 import { Participant } from 'src/app/model/participant.model';
+import { WordClicked } from 'src/app/model/word.clicked.mode';
 
 @Injectable()
 export class GameEffect {
@@ -43,6 +46,21 @@ export class GameEffect {
             this.sharedFacade.hideLoading();
             // Dispatch game loaded action
             return createGameApproved(createdGame);
+          })
+        );
+      })
+    )
+  );
+
+  joinGame$ = createEffect(() =>
+    this.action$.pipe(
+      ofType(joinGame),
+      exhaustMap((action) => {
+        this.sharedFacade.displayLoading();
+        return this.gameService.join(action).pipe(
+          map((token) => {
+            this.sharedFacade.hideLoading();
+            return joinGameSuccess({ token });
           })
         );
       })
@@ -110,8 +128,8 @@ export class GameEffect {
               this.gameFacade.gameLoaded(game, room, player);
             }
           );
-          socket.on(GameEvent.WORD_CLICK, (index: number) => {
-            this.gameFacade.wordClicked(index);
+          socket.on(GameEvent.WORD_CLICK, (wordClicked: WordClicked) => {
+            this.gameFacade.wordClicked(wordClicked);
           });
           socket.on(GameEvent.ROLE_CHANGE, (player: string) => {
             if (player == socket.id) {
@@ -132,5 +150,24 @@ export class GameEffect {
         })
       ),
     { dispatch: false }
+  );
+
+  joinGameSuccess$ = createEffect(() =>
+    this.action$.pipe(
+      ofType(joinGameSuccess),
+      tap((action) => {
+        this.gameFacade.navigateToGame();
+        const socket = io(environment.api, {
+          auth: { token: `Bearer ${action.token}` },
+          query: { join: JoinType.JOIN },
+        });
+        socket.on(
+          'joinGame',
+          (game: GameState, room: string, player: Participant) => {
+            this.gameFacade.gameLoaded(game, room, player);
+          }
+        );
+      })
+    )
   );
 }

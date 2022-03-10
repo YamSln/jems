@@ -33,6 +33,7 @@
         <mat-label> Max Players </mat-label>
         <div fxLayout="row">
           <mat-slider
+            *ngIf="create"
             [value]="sliderValue"
             (input)="sliderValue = $event.value || 4"
             class="full-width"

@@ -21,7 +21,6 @@ import { GameState, initialState } from './game.state';
 const _gameReducer = createReducer(
   initialState,
   on(createGameSuccess, (state: GameState, action: any): GameState => {
-    console.log(state);
     return {
       ...action.game,
       roomId: action.room,
@@ -48,7 +47,7 @@ const _gameReducer = createReducer(
     return { ...state, participants };
   }),
   on(wordClickedSuccess, (state: GameState, action: any): GameState => {
-    const clickedWord: Word = state.words[action.index];
+    const clickedWord: Word = state.words[action.wordIndex];
     switch (clickedWord.type) {
       case WordType.BLUE:
         if (state.currentTeam === Team.SAPPHIRE) {
@@ -87,13 +86,14 @@ const _gameReducer = createReducer(
     return {
       ...state,
       words: state.words.map((word) =>
-        word.index == action.index
+        word.index == action.wordIndex
           ? {
               ...word,
               selected: true,
             }
           : word
       ),
+      winningTeam: action.winningTeam,
     };
   }),
   on(teamChangedSuccess, (state: GameState, action: any): GameState => {

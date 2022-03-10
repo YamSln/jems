@@ -20,6 +20,7 @@
     </div>
     <app-game-board
       [words]="game.words"
+      [winningTeam]="game.winningTeam"
       [hideColors]="game.playerRole === role.OPERATIVE"
       (wordClicked)="onWordClicked($event)"
     ></app-game-board>

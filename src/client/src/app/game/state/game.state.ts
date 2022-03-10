@@ -15,6 +15,7 @@ export interface GameState {
   playerId: string;
   playerRole: Role;
   playerTeam: Team;
+  winningTeam?: Team;
 }
 
 export const initialState: GameState = {

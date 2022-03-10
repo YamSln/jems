@@ -5,6 +5,7 @@ import { GameEvent } from "../event/game.event";
 import { JoinEvent } from "../event/join.event";
 import { CreateGamePayload } from "../model/create-game.payload";
 import { JoinPayload } from "../model/join.payload";
+import { WordClicked } from "../model/word.clicked.payload";
 import handler from "./game.handler";
 
 const onConnection = (socket: Socket, io: Server) => {
@@ -34,13 +35,13 @@ const onConnection = (socket: Socket, io: Server) => {
     const room = getSocketRoom(socket);
     // Handle word click event
     try {
-      const word: number | null = handler.onWordClick(
+      const wordClicked: WordClicked | null = handler.onWordClick(
         wordIndex,
         socket.id,
         room
       ); // Emit received event
-      if (word) {
-        io.to(room).emit(GameEvent.WORD_CLICK, wordIndex);
+      if (wordClicked) {
+        io.to(room).emit(GameEvent.WORD_CLICK, wordClicked);
       }
     } catch (err) {
       socket.emit("err", err);

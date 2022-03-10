@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { WordClicked } from 'src/app/model/word.clicked.mode';
 import { CreateGamePayload } from '../../model/create-game.payload';
 import { CreateGameResponse } from '../../model/create-game.response';
 import { JoinGamePayload } from '../../model/join-game.payload';
@@ -40,7 +41,7 @@ export const wordClicked = createAction(
 );
 export const wordClickedSuccess = createAction(
   WORD_CLICKED_SUCCESS,
-  props<{ index: number }>()
+  props<WordClicked>()
 );
 
 export const joinGame = createAction(JOIN_GAME, props<JoinGamePayload>());

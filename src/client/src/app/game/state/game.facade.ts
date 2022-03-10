@@ -3,10 +3,13 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { CreateGamePayload } from 'src/app/model/create-game.payload';
+import { JoinGamePayload } from 'src/app/model/join-game.payload';
 import { Participant } from 'src/app/model/participant.model';
+import { WordClicked } from 'src/app/model/word.clicked.mode';
 import {
   createGame,
   createGameSuccess,
+  joinGame,
   newGame,
   newGameSuccess,
   playerRoleChanged,
@@ -29,6 +32,10 @@ export class GameFacade {
     this.store.dispatch(createGame(game));
   }
 
+  joinGame(joinPayload: JoinGamePayload): void {
+    this.store.dispatch(joinGame(joinPayload));
+  }
+
   newGame(): void {
     this.store.dispatch(newGame());
   }
@@ -37,8 +44,8 @@ export class GameFacade {
     this.store.dispatch(wordClicked({ index }));
   }
 
-  wordClicked(index: number): void {
-    this.store.dispatch(wordClickedSuccess({ index }));
+  wordClicked(wordClicked: WordClicked): void {
+    this.store.dispatch(wordClickedSuccess(wordClicked));
   }
 
   changeRole(): void {

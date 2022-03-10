@@ -102,7 +102,8 @@ const onWordClick = (
     player.team !== state.currentTeam || // Check if clicking player is in current selecting team
     player.role !== Role.OPERATIVE || // Check if selecting player is operative
     state.blueTeamPoints === 0 || // Either of the points is 0
-    state.redTeamPoints === 0
+    state.redTeamPoints === 0 ||
+    state.winningTeam
   ) {
     return null;
   }
@@ -131,7 +132,7 @@ const onWordClick = (
       break;
     case WordType.BOMB:
       const winningTeam =
-        player.team === Team.SAPPHIRE ? Team.SAPPHIRE : Team.RUBY;
+        player.team === Team.SAPPHIRE ? Team.RUBY : Team.SAPPHIRE;
       return { wordIndex, winningTeam };
   }
   const gameWon = state.blueTeamPoints === 0 || state.redTeamPoints === 0;
