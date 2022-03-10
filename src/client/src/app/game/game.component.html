@@ -1,0 +1,29 @@
+<div *ngIf="gameState | async as game" class="game">
+  <app-action-board
+    class="action-board"
+    [currentTeam]="game.currentTeam"
+    [participants]="game.participants"
+    [playerTeam]="game.playerTeam"
+    [playerRole]="game.playerRole"
+    (changeTeamEvent)="onTeamChange()"
+    (changeRoleEvent)="onRoleChange()"
+  ></app-action-board>
+  <div fxLayout="column" fxLayoutGap="1rem">
+    <div
+      fxLayout="row"
+      fxLayoutAlign="space-between center"
+      style="font-size: 2rem; padding: 1rem"
+    >
+      <span color="primary">{{ game.blueTeamPoints }}</span>
+      <mat-label *ngIf="game.turnTime">Time</mat-label>
+      <mat-label color="warn">{{ game.redTeamPoints }}</mat-label>
+    </div>
+    <app-game-board
+      [words]="game.words"
+      [hideColors]="game.playerRole === role.OPERATIVE"
+      (wordClicked)="onWordClicked($event)"
+    ></app-game-board>
+    <button mat-raised-button (click)="onNewGame()">New Game</button>
+    <button mat-raised-button>Quit Game</button>
+  </div>
+</div>

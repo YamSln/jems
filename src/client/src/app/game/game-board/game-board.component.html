@@ -1,0 +1,10 @@
+<div class="game-board">
+  <div *ngFor="let word of words">
+    <app-word
+      class="word"
+      [word]="word"
+      [hideColor]="hideColors"
+      (wordClickEvent)="onWordClicked(word.index)"
+    ></app-word>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<mat-card fxLayout="column" fxLayoutAlign="space-around stretch">
+  <div>
+    <mat-icon
+      style="margin-bottom: 10px"
+      [svgIcon]="currentTeam === team.SAPPHIRE ? 'sapphire' : 'ruby'"
+    ></mat-icon>
+  </div>
+  <button
+    (click)="changePlayerTeam()"
+    [color]="playerTeam === team.SAPPHIRE ? 'warn' : 'primary'"
+    mat-flat-button
+  >
+    Change Team
+  </button>
+  <div fxLayout="row" fxLayoutAlign="center center" style="min-height: 11rem">
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <span *ngFor="let participant of participants">
+        <span *ngIf="participant.team === team.RUBY">
+          <mat-icon
+            color="warn"
+            matSuffix
+            *ngIf="participant.role === role.SPY_MASTER"
+            >zoom_in</mat-icon
+          >
+          <span style="color: pink">
+            {{ participant.nick }}
+          </span>
+        </span>
+      </span>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <span *ngFor="let participant of participants">
+        <span *ngIf="participant.team === team.SAPPHIRE">
+          <mat-icon
+            color="primary"
+            matSuffix
+            *ngIf="participant.role === role.SPY_MASTER"
+            >zoom_in</mat-icon
+          >
+          <span style="color: lightblue">
+            {{ participant.nick }}
+          </span>
+        </span>
+      </span>
+    </div>
+  </div>
+  <mat-card-actions>
+    <mat-button-toggle-group
+      [(ngModel)]="playerRole"
+      (change)="changePlayerRole()"
+    >
+      <mat-button-toggle [value]="role.OPERATIVE">
+        Operative
+      </mat-button-toggle>
+      <mat-button-toggle [value]="role.SPY_MASTER">
+        Spy-Master
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </mat-card-actions>
+</mat-card>

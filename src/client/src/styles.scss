@@ -1,0 +1,86 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "~@angular/material/theming";
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$jems-web-client-primary: mat-palette($mat-light-blue);
+$jems-web-client-accent: mat-palette($mat-light-blue, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$jems-web-client-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$jems-web-client-theme: mat-light-theme(
+  (
+    color: (
+      primary: $jems-web-client-primary,
+      accent: $jems-web-client-accent,
+      warn: $jems-web-client-warn,
+    ),
+  )
+);
+
+$jems-web-client-primary-dark: mat-palette($jems-web-client-primary);
+$jems-web-client-accent-dark: mat-palette($mat-blue-grey, A200, A100, A400);
+
+// Dark theme object
+$jems-web-client-theme-dark: mat-dark-theme(
+  (
+    color: (
+      primary: $jems-web-client-primary-dark,
+      accent: $jems-web-client-accent-dark,
+      warn: $jems-web-client-warn,
+    ),
+  )
+);
+
+$fontConfig: (
+  display-4: mat-typography-level(112px, 112px, 300, "Open Sans", -0.0134em),
+  display-3: mat-typography-level(56px, 56px, 400, "Open Sans", -0.0089em),
+  display-2: mat-typography-level(45px, 48px, 400, "Open Sans", 0em),
+  display-1: mat-typography-level(34px, 40px, 400, "Open Sans", 0.0074em),
+  headline: mat-typography-level(24px, 32px, 400, "Open Sans", 0em),
+  title: mat-typography-level(20px, 32px, 500, "Open Sans", 0.0075em),
+  subheading-2: mat-typography-level(16px, 28px, 400, "Open Sans", 0.0094em),
+  subheading-1: mat-typography-level(15px, 24px, 500, "Open Sans", 0.0067em),
+  body-2: mat-typography-level(14px, 24px, 500, "Open Sans", 0.0179em),
+  body-1: mat-typography-level(14px, 20px, 400, "Open Sans", 0.0179em),
+  button: mat-typography-level(14px, 14px, 500, "Open Sans", 0.0893em),
+  caption: mat-typography-level(12px, 20px, 400, "Open Sans", 0.0333em),
+  input: mat-typography-level(inherit, 1.125, 400, "Open Sans", 1.5px),
+);
+
+@include mat-core($fontConfig);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($jems-web-client-theme);
+
+.theme-dark {
+  @include angular-material-theme($jems-web-client-theme-dark);
+}
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.full-width {
+  width: 100%;
+}

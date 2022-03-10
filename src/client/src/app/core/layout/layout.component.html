@@ -1,0 +1,21 @@
+<div
+  class="mat-app-background"
+  style="height: 100%"
+  [ngClass]="{ 'theme-dark': !isLightTheme }"
+>
+  <mat-toolbar fxLayout="row" fxLayoutAlign="end center">
+    <button
+      *ngIf="roomUrl | async as url"
+      mat-icon-button
+      [matTooltip]="'Get invitation link'"
+      (click)="copyUrlToClipboard(url)"
+    >
+      <mat-icon matSuffix>link</mat-icon>
+    </button>
+    <app-theme-toggle
+      style="width: 100%"
+      (themeToggle)="themeToggleChanged()"
+    ></app-theme-toggle>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</div>

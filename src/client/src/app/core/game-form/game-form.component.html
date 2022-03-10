@@ -1,0 +1,54 @@
+<div class="login-container" fxLayout="row" fxLayoutAlign="center center">
+  <form
+    (ngSubmit)="submit()"
+    [formGroup]="gameForm"
+    fxFlex="30%"
+    fxFlex.sm="50%"
+    fxFlex.xs="90%"
+  >
+    <mat-card>
+      <mat-card-title>
+        <h1 style="font-weight: bold">{{ formHeading }}</h1>
+      </mat-card-title>
+      <mat-card-content>
+        <mat-form-field class="full-width">
+          <mat-label> Nick </mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="In-game nick"
+            formControlName="nick"
+          />
+          <mat-error *ngIf="gameForm.controls['nick'].hasError('required')">
+            Nick is <b>required</b>
+          </mat-error>
+          <mat-error *ngIf="gameForm.controls['nick'].hasError('minLength')">
+            Nick must contain at least 2 characters
+          </mat-error>
+          <mat-error *ngIf="gameForm.controls['nick'].hasError('maxLength')">
+            Nick cannot contain more than 15 characters
+          </mat-error>
+        </mat-form-field>
+        <app-password-field formControlName="password"> </app-password-field>
+        <mat-label> Max Players </mat-label>
+        <div fxLayout="row">
+          <mat-slider
+            [value]="sliderValue"
+            (input)="sliderValue = $event.value || 4"
+            class="full-width"
+            min="4"
+            max="8"
+            step="1"
+            value="4"
+          ></mat-slider>
+          {{ sliderValue }}
+        </div>
+      </mat-card-content>
+      <mat-card-actions fxLayout="row" fxLayoutAlign="center center">
+        <button fxFlex="50" mat-raised-button color="primary" type="submit">
+          {{ formButtonText }}
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

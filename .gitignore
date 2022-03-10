@@ -1,0 +1,9 @@
+node_modules
+src/client/node_modules
+
+.env
+
+private.key
+public.key
+
+dist
