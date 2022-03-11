@@ -30,15 +30,10 @@ const _gameReducer = createReducer(
     };
   }),
   on(joinGameSuccess, (state: GameState, action: any): GameState => {
+    console.log(action);
+    console.log(state);
     return {
-      ...state,
-      currentTeam: action.currentTeam,
-      words: action.words,
-      blueTeamPoints: action.blueTeamPoints,
-      redTeamPoints: action.redTeamPoints,
-      maxPlayers: action.maxPlayers,
-      participants: action.participants,
-      turnTime: action.turnTime,
+      ...action.game,
     };
   }),
   on(playerJoinedGame, (state: GameState, action: any): GameState => {

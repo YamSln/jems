@@ -15,6 +15,11 @@ import { LoadingComponent } from './loading/loading.component';
     LoadingComponent,
   ],
   imports: [CommonModule, MaterialModule, FormsModule, ReactiveFormsModule],
-  exports: [MaterialModule, PasswordFieldComponent, LoadingComponent],
+  exports: [
+    MaterialModule,
+    PasswordFieldComponent,
+    LoadingComponent,
+    ErrorComponent,
+  ],
 })
 export class SharedModule {}

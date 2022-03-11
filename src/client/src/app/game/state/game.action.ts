@@ -13,6 +13,7 @@ export const WORD_CLICKED_SUCCESS = `${GAME_PAGE} word clicked success`;
 
 export const JOIN_GAME = `${GAME_PAGE} join game`;
 export const PLAYER_JOINED = `${GAME_PAGE} player joined`;
+export const JOIN_GAME_APPROVED = `${GAME_PAGE} player join approved`;
 export const JOIN_GAME_SUCCESS = `${GAME_PAGE} join game success`;
 
 export const CREATE_GAME = `${GAME_PAGE} create game`;
@@ -45,9 +46,13 @@ export const wordClickedSuccess = createAction(
 );
 
 export const joinGame = createAction(JOIN_GAME, props<JoinGamePayload>());
+export const joinGameApproved = createAction(
+  JOIN_GAME_APPROVED,
+  props<{ token: string }>()
+);
 export const joinGameSuccess = createAction(
   JOIN_GAME_SUCCESS,
-  props<{ token: string }>()
+  props<{ game: GameState; room: string; player: Participant }>()
 );
 export const playerJoinedGame = createAction(
   PLAYER_JOINED,

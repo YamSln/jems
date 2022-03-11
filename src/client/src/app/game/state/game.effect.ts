@@ -5,13 +5,14 @@ import {
   createGame,
   createGameApproved,
   joinGame,
+  joinGameApproved,
   joinGameSuccess,
   newGame,
   roleChanged,
   teamChanged,
   wordClicked,
 } from './game.action';
-import { exhaustMap, map, tap } from 'rxjs/operators';
+import { catchError, exhaustMap, finalize, map, tap } from 'rxjs/operators';
 import { SharedFacade } from 'src/app/shared/state/shared.facade';
 import { GameFacade } from './game.facade';
 import { environment } from 'src/environments/environment';
@@ -21,6 +22,8 @@ import { GameState } from './game.state';
 import { io, Socket } from 'socket.io-client';
 import { Participant } from 'src/app/model/participant.model';
 import { WordClicked } from 'src/app/model/word.clicked.mode';
+import { Observable, of, throwError } from 'rxjs';
+import { displayErrorMessage } from 'src/app/shared/state/shared.action';
 
 @Injectable()
 export class GameEffect {
@@ -46,7 +49,9 @@ export class GameEffect {
             this.sharedFacade.hideLoading();
             // Dispatch game loaded action
             return createGameApproved(createdGame);
-          })
+          }),
+          catchError((err) => this.handleError(err)),
+          finalize(() => this.sharedFacade.hideLoading())
         );
       })
     )
@@ -60,8 +65,10 @@ export class GameEffect {
         return this.gameService.join(action).pipe(
           map((token) => {
             this.sharedFacade.hideLoading();
-            return joinGameSuccess({ token });
-          })
+            return joinGameApproved({ token });
+          }),
+          catchError((err) => this.handleError(err)),
+          finalize(() => this.sharedFacade.hideLoading())
         );
       })
     )
@@ -83,7 +90,7 @@ export class GameEffect {
       this.action$.pipe(
         ofType(wordClicked),
         tap((action) => {
-          console.log('here');
+          console.log(action.index);
           this.socket.emit(GameEvent.WORD_CLICK, action.index);
         })
       ),
@@ -117,57 +124,73 @@ export class GameEffect {
       this.action$.pipe(
         ofType(createGameApproved),
         tap((action) => {
+          this.sharedFacade.displayLoading();
           this.gameFacade.navigateToGame();
           const socket = io(environment.api, {
             auth: { token: `Bearer ${action.token}` },
             query: { join: JoinType.CREATE },
           });
-          socket.on(
-            'createGame',
-            (game: GameState, room: string, player: Participant) => {
-              this.gameFacade.gameLoaded(game, room, player);
-            }
-          );
-          socket.on(GameEvent.WORD_CLICK, (wordClicked: WordClicked) => {
-            this.gameFacade.wordClicked(wordClicked);
-          });
-          socket.on(GameEvent.ROLE_CHANGE, (player: string) => {
-            if (player == socket.id) {
-              this.gameFacade.changePlayerRole();
-            }
-            this.gameFacade.roleChanged(player);
-          });
-          socket.on(GameEvent.TEAM_CHANGE, (player: string) => {
-            if (player == socket.id) {
-              this.gameFacade.changePlayerTeam();
-            }
-            this.gameFacade.teamChanged(player);
-          });
-          socket.on(GameEvent.NEW_GAME, (game: GameState) => {
-            this.gameFacade.newGameReceived(game);
-          });
-          this.socket = socket;
+          this.handleSocketActions(socket);
         })
       ),
     { dispatch: false }
   );
 
-  joinGameSuccess$ = createEffect(() =>
-    this.action$.pipe(
-      ofType(joinGameSuccess),
-      tap((action) => {
-        this.gameFacade.navigateToGame();
-        const socket = io(environment.api, {
-          auth: { token: `Bearer ${action.token}` },
-          query: { join: JoinType.JOIN },
-        });
-        socket.on(
-          'joinGame',
-          (game: GameState, room: string, player: Participant) => {
-            this.gameFacade.gameLoaded(game, room, player);
-          }
-        );
-      })
-    )
+  joinGameSuccess$ = createEffect(
+    () =>
+      this.action$.pipe(
+        ofType(joinGameApproved),
+        tap((action) => {
+          this.sharedFacade.displayLoading();
+          this.gameFacade.navigateToGame();
+          const socket = io(environment.api, {
+            auth: { token: `Bearer ${action.token}` },
+            query: { join: JoinType.JOIN },
+          });
+          this.handleSocketActions(socket);
+        })
+      ),
+    { dispatch: false }
   );
+
+  private handleSocketActions(socket: Socket): void {
+    socket.on(
+      GameEvent.CREATE_GAME,
+      (game: GameState, room: string, player: Participant) => {
+        this.gameFacade.gameLoaded(game, room, player);
+        this.sharedFacade.hideLoading();
+      }
+    );
+    socket.on(
+      GameEvent.JOIN_GAME,
+      (game: GameState, room: string, player: Participant) => {
+        console.log(player);
+        this.gameFacade.gameReceived(game, room, player);
+        this.sharedFacade.hideLoading();
+      }
+    );
+    socket.on(GameEvent.WORD_CLICK, (wordClicked: WordClicked) => {
+      this.gameFacade.wordClicked(wordClicked);
+    });
+    socket.on(GameEvent.ROLE_CHANGE, (player: string) => {
+      if (player == socket.id) {
+        this.gameFacade.changePlayerRole();
+      }
+      this.gameFacade.roleChanged(player);
+    });
+    socket.on(GameEvent.TEAM_CHANGE, (player: string) => {
+      if (player == socket.id) {
+        this.gameFacade.changePlayerTeam();
+      }
+      this.gameFacade.teamChanged(player);
+    });
+    socket.on(GameEvent.NEW_GAME, (game: GameState) => {
+      this.gameFacade.newGameReceived(game);
+    });
+    this.socket = socket;
+  }
+
+  private handleError(err: any): Observable<any> {
+    return of(displayErrorMessage({ message: err.message }));
+  }
 }

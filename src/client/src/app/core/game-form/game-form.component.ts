@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { GameFacade } from 'src/app/game/state/game.facade';
 import { CreateGamePayload } from 'src/app/model/create-game.payload';
 import { JoinGamePayload } from 'src/app/model/join-game.payload';
@@ -20,13 +20,13 @@ export class GameFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private gameFacade: GameFacade,
-    private router: Router
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.create = !this.router.url.includes('join');
-    this.formHeading = this.create ? 'Create Game' : 'Join Game';
-    this.formButtonText = this.create ? 'Create' : 'join';
+    this.create = !this.activatedRoute.snapshot.url.toString().includes('join');
+    this.formHeading = this.create ? 'Create Game' : '';
+    this.formButtonText = this.create ? 'Create' : 'Join';
     this.gameForm = this.formBuilder.group({
       nick: [
         '',
@@ -55,7 +55,7 @@ export class GameFormComponent implements OnInit {
       const game: JoinGamePayload = {
         nick: this.gameForm.controls['nick'].value,
         password: this.gameForm.controls['password'].value,
-        room: this.router.url,
+        room: this.activatedRoute.snapshot.params['roomId'],
       };
       this.gameFacade.joinGame(game);
     }

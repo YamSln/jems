@@ -8,14 +8,15 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-      { path: '', redirectTo: 'create' },
+      { path: '', redirectTo: 'create', pathMatch: 'full' },
       { path: 'create', component: GameFormComponent },
-      { path: 'join', component: GameFormComponent },
+      { path: 'join/:roomId', component: GameFormComponent },
       {
         path: 'game',
         loadChildren: () =>
           import('../game/game.module').then((m) => m.GameModule),
       },
+      { path: '**', pathMatch: 'full', redirectTo: 'create' },
     ],
   },
 ];

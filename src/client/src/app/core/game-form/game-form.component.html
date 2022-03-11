@@ -7,7 +7,19 @@
     fxFlex.xs="90%"
   >
     <mat-card>
-      <mat-card-title>
+      <div
+        *ngIf="!create"
+        style="width: 100%; display: flex; justify-content: center"
+      >
+        <img src="../../../assets/logo.svg" alt="logo" style="max-width: 12%" />
+      </div>
+      <mat-card-title style="display: flex">
+        <img
+          *ngIf="create"
+          src="../../../assets/logo.svg"
+          alt="logo"
+          style="max-height: 3vh; margin-right: 1vh"
+        />
         <h1 style="font-weight: bold">{{ formHeading }}</h1>
       </mat-card-title>
       <mat-card-content>
@@ -30,10 +42,9 @@
           </mat-error>
         </mat-form-field>
         <app-password-field formControlName="password"> </app-password-field>
-        <mat-label> Max Players </mat-label>
-        <div fxLayout="row">
+        <mat-label *ngIf="create"> Max Players </mat-label>
+        <div fxLayout="row" *ngIf="create">
           <mat-slider
-            *ngIf="create"
             [value]="sliderValue"
             (input)="sliderValue = $event.value || 4"
             class="full-width"

@@ -10,6 +10,7 @@ import {
   createGame,
   createGameSuccess,
   joinGame,
+  joinGameSuccess,
   newGame,
   newGameSuccess,
   playerRoleChanged,
@@ -74,6 +75,10 @@ export class GameFacade {
 
   gameLoaded(game: GameState, room: string, player: Participant): void {
     this.store.dispatch(createGameSuccess({ game, room, player }));
+  }
+
+  gameReceived(game: GameState, room: string, player: Participant): void {
+    this.store.dispatch(joinGameSuccess({ game, room, player }));
   }
 
   newGameReceived(game: GameState): void {

@@ -6,12 +6,14 @@
   [ngSwitch]="dialogData.dialogDefinition"
 >
   <mat-icon color="warn">{{ dialogIcon }}</mat-icon>
-  <div>{{ dialogData.dialogMessage }}</div>
+  <div style="font-size: 2vh; display: inline-block; line-height: 50px">
+    {{ dialogData.dialogMessage }}
+  </div>
   <button
     *ngSwitchCase="dialogDefinition.OK"
     fxFlexAlign="stretch"
     (click)="closeDialog()"
-    mat-flat-button
+    mat-stroked-button
   >
     OK
   </button>
