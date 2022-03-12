@@ -85,8 +85,6 @@ const onConnection = (socket: Socket, io: Server) => {
   });
 
   socket.on(GameEvent.DISCONNECT, () => {
-    // Get room
-    const room = getSocketRoom(socket);
     // Disconnect player from its room
     const disconnected = handler.onDisconnectGame(socket.id, room);
     // Emit player disconnected event
@@ -100,10 +98,15 @@ const joinGame = (socket: Socket, joinPayload: JoinPayload) => {
   try {
     const event: JoinEvent = handler.onJoinGame(socket.id, joinPayload);
     socket.join(joinPayload.room);
+    socket.emit(
+      GameEvent.JOIN_GAME,
+      event.state,
+      joinPayload.room,
+      event.joined
+    );
     socket.broadcast
       .to(joinPayload.room)
-      .emit(GameEvent.PLAYER_JOINED, JSON.stringify(event.joined));
-    socket.emit(GameEvent.JOIN_GAME, event.state);
+      .emit(GameEvent.PLAYER_JOINED, event.state.participants);
   } catch (err) {
     disconnect(socket, err.message);
   }

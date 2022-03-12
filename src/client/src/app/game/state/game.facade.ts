@@ -13,6 +13,7 @@ import {
   joinGameSuccess,
   newGame,
   newGameSuccess,
+  playerJoinedGame,
   playerRoleChanged,
   playerTeamChanged,
   roleChanged,
@@ -43,6 +44,10 @@ export class GameFacade {
 
   clickWord(index: number): void {
     this.store.dispatch(wordClicked({ index }));
+  }
+
+  playerJoined(players: Participant[]): void {
+    this.store.dispatch(playerJoinedGame({ players }));
   }
 
   wordClicked(wordClicked: WordClicked): void {

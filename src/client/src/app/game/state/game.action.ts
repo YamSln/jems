@@ -56,7 +56,7 @@ export const joinGameSuccess = createAction(
 );
 export const playerJoinedGame = createAction(
   PLAYER_JOINED,
-  props<Participant>()
+  props<{ players: Participant[] }>()
 );
 
 export const createGame = createAction(CREATE_GAME, props<CreateGamePayload>());

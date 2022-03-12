@@ -30,16 +30,17 @@ const _gameReducer = createReducer(
     };
   }),
   on(joinGameSuccess, (state: GameState, action: any): GameState => {
-    console.log(action);
-    console.log(state);
     return {
       ...action.game,
+      roomId: action.room,
+      playerId: action.player.id,
+      playerRole: action.player.role,
+      playerTeam: action.player.team,
     };
   }),
   on(playerJoinedGame, (state: GameState, action: any): GameState => {
-    const participants: Participant[] = state.participants;
-    participants.push(action.player);
-    return { ...state, participants };
+    console.log(action.players);
+    return { ...state, participants: action.players };
   }),
   on(wordClickedSuccess, (state: GameState, action: any): GameState => {
     const clickedWord: Word = state.words[action.wordIndex];

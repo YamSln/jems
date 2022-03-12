@@ -6,13 +6,19 @@ import {
   createGameApproved,
   joinGame,
   joinGameApproved,
-  joinGameSuccess,
   newGame,
   roleChanged,
   teamChanged,
   wordClicked,
 } from './game.action';
-import { catchError, exhaustMap, finalize, map, tap } from 'rxjs/operators';
+import {
+  catchError,
+  debounceTime,
+  exhaustMap,
+  finalize,
+  map,
+  tap,
+} from 'rxjs/operators';
 import { SharedFacade } from 'src/app/shared/state/shared.facade';
 import { GameFacade } from './game.facade';
 import { environment } from 'src/environments/environment';
@@ -24,6 +30,11 @@ import { Participant } from 'src/app/model/participant.model';
 import { WordClicked } from 'src/app/model/word.clicked.mode';
 import { Observable, of, throwError } from 'rxjs';
 import { displayErrorMessage } from 'src/app/shared/state/shared.action';
+import {
+  INCORRECT_PASSWORD,
+  NOT_FOUND,
+  ROOM_FULL,
+} from '../../../../../error/error.util';
 
 @Injectable()
 export class GameEffect {
@@ -169,6 +180,9 @@ export class GameEffect {
         this.sharedFacade.hideLoading();
       }
     );
+    socket.on(GameEvent.PLAYER_JOINED, (players: Participant[]) => {
+      this.gameFacade.playerJoined(players);
+    });
     socket.on(GameEvent.WORD_CLICK, (wordClicked: WordClicked) => {
       this.gameFacade.wordClicked(wordClicked);
     });
@@ -187,10 +201,27 @@ export class GameEffect {
     socket.on(GameEvent.NEW_GAME, (game: GameState) => {
       this.gameFacade.newGameReceived(game);
     });
+    socket.on(GameEvent.PLAYER_DISCONNECTED, (disconnected: string) => {
+      console.log('here');
+    });
     this.socket = socket;
   }
 
   private handleError(err: any): Observable<any> {
-    return of(displayErrorMessage({ message: err.message }));
+    let message = err.error.message;
+    switch (message) {
+      case INCORRECT_PASSWORD:
+        message = 'Incorrect Password';
+        break;
+      case NOT_FOUND:
+        message = 'Game does not exist';
+        break;
+      case ROOM_FULL:
+        message = 'Game is Full';
+        break;
+      default:
+        message = 'An unexpected error occurred';
+    }
+    return of(displayErrorMessage({ message }));
   }
 }

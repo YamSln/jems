@@ -12,11 +12,16 @@
   >
     Change Team
   </button>
-  <div fxLayout="row" fxLayoutAlign="center center" style="min-height: 11rem">
-    <div fxLayout="column" fxLayoutAlign="center center">
+  <div
+    fxLayout="row"
+    fxLayoutAlign="space-between start"
+    style="min-height: 11rem; padding-top: 3vh"
+  >
+    <div class="team" fxLayout="column" fxLayoutAlign="center center">
       <span *ngFor="let participant of participants">
         <span *ngIf="participant.team === team.RUBY">
           <mat-icon
+            style="position: absolute; left: 1.5vh"
             color="warn"
             matSuffix
             *ngIf="participant.role === role.SPY_MASTER"
@@ -28,10 +33,14 @@
         </span>
       </span>
     </div>
-    <div fxLayout="column" fxLayoutAlign="center center">
+    <div class="team" fxLayout="column" fxLayoutAlign="center center">
       <span *ngFor="let participant of participants">
-        <span *ngIf="participant.team === team.SAPPHIRE">
+        <span
+          style="max-width: 5px; overflow: hidden"
+          *ngIf="participant.team === team.SAPPHIRE"
+        >
           <mat-icon
+            style="position: absolute; left: 8vh"
             color="primary"
             matSuffix
             *ngIf="participant.role === role.SPY_MASTER"
