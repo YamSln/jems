@@ -1,5 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
-import { displayErrorMessage, displayLoading } from './shared.action';
+import {
+  displayErrorMessage,
+  displayLoading,
+  displayPlayerAction,
+} from './shared.action';
 import { sharedInitialState, SharedState } from './shared.state';
 
 const _sharedReducer = createReducer(
@@ -9,6 +13,9 @@ const _sharedReducer = createReducer(
   }),
   on(displayErrorMessage, (state: SharedState, action: any): SharedState => {
     return { ...state, errorMessage: action.message };
+  }),
+  on(displayPlayerAction, (state: SharedState, action: any): SharedState => {
+    return { ...state, playerAction: action.message };
   })
 );
 

@@ -39,7 +39,6 @@ const _gameReducer = createReducer(
     };
   }),
   on(playerJoinedGame, (state: GameState, action: any): GameState => {
-    console.log(action.players);
     return { ...state, participants: action.players };
   }),
   on(wordClickedSuccess, (state: GameState, action: any): GameState => {
@@ -149,12 +148,7 @@ const _gameReducer = createReducer(
     };
   }),
   on(playerDisconnect, (state: GameState, action: any): GameState => {
-    const participants: Participant[] = state.participants;
-    const index = participants.findIndex(
-      (participant) => participant.id == action.player
-    );
-    participants.splice(index, 1);
-    return { ...state, participants };
+    return { ...state, participants: action.players };
   })
 );
 

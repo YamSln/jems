@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { CreateGamePayload } from 'src/app/model/create-game.payload';
 import { JoinGamePayload } from 'src/app/model/join-game.payload';
 import { Participant } from 'src/app/model/participant.model';
+import { PlayerAction } from 'src/app/model/player.action.payload';
 import { WordClicked } from 'src/app/model/word.clicked.mode';
+import { displayPlayerAction } from 'src/app/shared/state/shared.action';
 import {
   createGame,
   createGameSuccess,
@@ -13,9 +15,11 @@ import {
   joinGameSuccess,
   newGame,
   newGameSuccess,
+  playerDisconnect,
   playerJoinedGame,
   playerRoleChanged,
   playerTeamChanged,
+  quitGame,
   roleChanged,
   roleChangedSuccess,
   teamChanged,
@@ -28,7 +32,11 @@ import { GameState } from './game.state';
 
 @Injectable({ providedIn: 'root' })
 export class GameFacade {
-  constructor(private store: Store<GameState>, private router: Router) {}
+  constructor(
+    private store: Store<GameState>,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   createGame(game: CreateGamePayload): void {
     this.store.dispatch(createGame(game));
@@ -42,12 +50,30 @@ export class GameFacade {
     this.store.dispatch(newGame());
   }
 
+  quitGame(): void {
+    this.store.dispatch(quitGame());
+  }
+
   clickWord(index: number): void {
     this.store.dispatch(wordClicked({ index }));
   }
 
-  playerJoined(players: Participant[]): void {
-    this.store.dispatch(playerJoinedGame({ players }));
+  playerJoined(playerAction: PlayerAction): void {
+    this.store.dispatch(
+      playerJoinedGame({ players: playerAction.updatedPlayers })
+    );
+    this.store.dispatch(
+      displayPlayerAction({ message: playerAction.nick + ' Joined!' })
+    );
+  }
+
+  playerDisconnected(playerAction: PlayerAction): void {
+    this.store.dispatch(
+      playerDisconnect({ players: playerAction.updatedPlayers })
+    );
+    this.store.dispatch(
+      displayPlayerAction({ message: playerAction.nick + ' Left' })
+    );
   }
 
   wordClicked(wordClicked: WordClicked): void {
@@ -100,5 +126,9 @@ export class GameFacade {
 
   navigateToGame(): void {
     this.router.navigate(['/game']);
+  }
+
+  navigateToMain(): void {
+    this.router.navigate(['/']);
   }
 }

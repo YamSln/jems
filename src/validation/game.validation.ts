@@ -1,17 +1,15 @@
 import { check } from "express-validator";
-
-export const NICK_REQUIRED = "Nick name is required";
-export const NICK_MIN_LENGTH = "Nick name must contain at least 2 characters";
-export const NICK_MAX_LENGTH =
-  "Nick name cannot contain more that 15 characters";
-export const PASSWORD_REQUIRED = "Password is required";
-export const PASSWORD_MIN_LENGTH =
-  "Password must contain at least 3 characters";
-export const PASSWORD_MAX_LENGTH =
-  "Password cannot contain more that 10 characters";
-export const MAX_PLAYERS_REQUIRED = "Maximum number of players is required";
-export const MAX_PLAYERS_MIN = "Minimum number of players is 4";
-export const MAX_PLAYERS_MAX = "Maximum number of players is 8";
+import {
+  MAX_PLAYERS_MAX,
+  MAX_PLAYERS_MIN,
+  MAX_PLAYERS_REQUIRED,
+  NICK_MAX_LENGTH,
+  NICK_MIN_LENGTH,
+  NICK_REQUIRED,
+  PASSWORD_MAX_LENGTH,
+  PASSWORD_MIN_LENGTH,
+  PASSWORD_REQUIRED,
+} from "./validation.messages";
 
 const validateNick = check("nick")
   .exists()

@@ -35,4 +35,8 @@ export class GameComponent implements OnInit {
   onNewGame(): void {
     this.gameFacade.newGame();
   }
+
+  onQuitGame(): void {
+    this.gameFacade.quitGame();
+  }
 }

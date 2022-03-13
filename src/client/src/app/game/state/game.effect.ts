@@ -7,17 +7,18 @@ import {
   joinGame,
   joinGameApproved,
   newGame,
+  quitGame,
   roleChanged,
   teamChanged,
   wordClicked,
 } from './game.action';
 import {
   catchError,
-  debounceTime,
   exhaustMap,
   finalize,
   map,
   tap,
+  withLatestFrom,
 } from 'rxjs/operators';
 import { SharedFacade } from 'src/app/shared/state/shared.facade';
 import { GameFacade } from './game.facade';
@@ -28,13 +29,25 @@ import { GameState } from './game.state';
 import { io, Socket } from 'socket.io-client';
 import { Participant } from 'src/app/model/participant.model';
 import { WordClicked } from 'src/app/model/word.clicked.mode';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { displayErrorMessage } from 'src/app/shared/state/shared.action';
 import {
   INCORRECT_PASSWORD,
   NOT_FOUND,
   ROOM_FULL,
 } from '../../../../../error/error.util';
+import {
+  MAX_PLAYERS_MAX,
+  MAX_PLAYERS_MIN,
+  MAX_PLAYERS_REQUIRED,
+  NICK_MAX_LENGTH,
+  NICK_MIN_LENGTH,
+  NICK_REQUIRED,
+  PASSWORD_MAX_LENGTH,
+  PASSWORD_MIN_LENGTH,
+  PASSWORD_REQUIRED,
+} from '../../../../../validation/validation.messages';
+import { PlayerAction } from 'src/app/model/player.action.payload';
 
 @Injectable()
 export class GameEffect {
@@ -130,6 +143,19 @@ export class GameEffect {
     { dispatch: false }
   );
 
+  quitGame = createEffect(
+    () =>
+      this.action$.pipe(
+        ofType(quitGame),
+        withLatestFrom(this.gameFacade.getGameState()),
+        tap(([action, latest]) => {
+          this.gameFacade.navigateToMain();
+          this.socket.emit(GameEvent.DISCONNECT_SELF);
+        })
+      ),
+    { dispatch: false }
+  );
+
   createGameApproved$ = createEffect(
     () =>
       this.action$.pipe(
@@ -180,8 +206,8 @@ export class GameEffect {
         this.sharedFacade.hideLoading();
       }
     );
-    socket.on(GameEvent.PLAYER_JOINED, (players: Participant[]) => {
-      this.gameFacade.playerJoined(players);
+    socket.on(GameEvent.PLAYER_JOINED, (playerAction: PlayerAction) => {
+      this.gameFacade.playerJoined(playerAction);
     });
     socket.on(GameEvent.WORD_CLICK, (wordClicked: WordClicked) => {
       this.gameFacade.wordClicked(wordClicked);
@@ -201,8 +227,8 @@ export class GameEffect {
     socket.on(GameEvent.NEW_GAME, (game: GameState) => {
       this.gameFacade.newGameReceived(game);
     });
-    socket.on(GameEvent.PLAYER_DISCONNECTED, (disconnected: string) => {
-      console.log('here');
+    socket.on(GameEvent.PLAYER_DISCONNECTED, (playerAction: PlayerAction) => {
+      this.gameFacade.playerDisconnected(playerAction);
     });
     this.socket = socket;
   }
@@ -218,6 +244,33 @@ export class GameEffect {
         break;
       case ROOM_FULL:
         message = 'Game is Full';
+        break;
+      case MAX_PLAYERS_MAX:
+        message = MAX_PLAYERS_MAX;
+        break;
+      case MAX_PLAYERS_MIN:
+        message = MAX_PLAYERS_MIN;
+        break;
+      case MAX_PLAYERS_REQUIRED:
+        message = MAX_PLAYERS_REQUIRED;
+        break;
+      case NICK_MAX_LENGTH:
+        message = NICK_MAX_LENGTH;
+        break;
+      case NICK_MIN_LENGTH:
+        message = NICK_MIN_LENGTH;
+        break;
+      case NICK_REQUIRED:
+        message = NICK_REQUIRED;
+        break;
+      case PASSWORD_MAX_LENGTH:
+        message = PASSWORD_MAX_LENGTH;
+        break;
+      case PASSWORD_MIN_LENGTH:
+        message = PASSWORD_MIN_LENGTH;
+        break;
+      case PASSWORD_REQUIRED:
+        message = PASSWORD_REQUIRED;
         break;
       default:
         message = 'An unexpected error occurred';

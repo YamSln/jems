@@ -11,6 +11,7 @@ import { WordType } from "../model/word.type";
 import { Team } from "../model/team.model";
 import { CreateGamePayload } from "../model/create-game.payload";
 import { WordClicked } from "../model/word.clicked.payload";
+import { PlayerAction } from "../model/player.action.payload";
 
 const rooms: Map<string, GameState> = new Map<string, GameState>();
 
@@ -175,15 +176,28 @@ const onTimerSet = (room: string, timeSpan: number): number => {
   return timeSpan;
 };
 
-const onDisconnectGame = (socketId: string, room: string): string | null => {
+const onDisconnectGame = (
+  socketId: string,
+  room: string
+): PlayerAction | null => {
+  // Fetch game
   const game = rooms.get(room);
   if (game) {
     const index = game.participants.findIndex(
       (participant) => participant.id === socketId
-    );
+    ); // Find and remove participant
     if (index !== -1) {
+      const player = game.participants[index];
       game.participants.splice(index, 1);
-      return room;
+      if (game.participants.length === 0) {
+        // Remove game upon 0 participants
+        rooms.delete(room);
+        return null;
+      }
+      return {
+        nick: player.nick,
+        updatedPlayers: Array.from(game.participants),
+      };
     }
   }
   return null;

@@ -24,7 +24,9 @@
       [hideColors]="game.playerRole === role.OPERATIVE"
       (wordClicked)="onWordClicked($event)"
     ></app-game-board>
-    <button mat-raised-button (click)="onNewGame()">New Game</button>
-    <button mat-raised-button>Quit Game</button>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <button mat-raised-button (click)="onNewGame()">New Game</button>
+      <button mat-raised-button (click)="onQuitGame()">Quit Game</button>
+    </div>
   </div>
 </div>

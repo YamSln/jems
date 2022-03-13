@@ -13,7 +13,7 @@ import { SharedFacade } from '../state/shared.facade';
 })
 export class ErrorComponent implements OnInit, OnDestroy {
   errorMessage!: Observable<string>;
-  subscriptions: Subscription[] = [];
+  dialogSubscription!: Subscription;
   dialogData!: MatDialogData;
   constructor(
     private facade: SharedFacade,
@@ -31,33 +31,25 @@ export class ErrorComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.errorMessage = this.facade.getErrorMessage();
-    this.insertSubscription(
-      this.errorMessage.subscribe((message: string) => {
-        // Listen to error messages
-        if (message) {
-          // Open error message dialog for non empty error messages
-          this.openErrorDialog(message);
-        }
-      })
-    );
+    this.dialogSubscription = this.errorMessage.subscribe((message: string) => {
+      // Listen to error messages
+      if (message) {
+        // Open error message dialog for non empty error messages
+        this.openErrorDialog(message);
+      }
+    });
   }
 
   private openErrorDialog(errorMessage: string) {
     this.dialogData.data.dialogMessage = errorMessage;
-    const dialogSubscription = this.dialogService
+    return this.dialogService
       .openDialog(this.dialogData)
       .subscribe(() => this.facade.clearError());
-    this.insertSubscription(dialogSubscription);
   }
 
   ngOnDestroy(): void {
-    if (this.subscriptions) {
-      this.subscriptions.forEach((subscription) => subscription.unsubscribe());
-      this.subscriptions = [];
+    if (this.dialogSubscription) {
+      this.dialogSubscription.unsubscribe();
     }
-  }
-
-  insertSubscription(subscriptionToInsert: Subscription): void {
-    this.subscriptions.push(subscriptionToInsert);
   }
 }

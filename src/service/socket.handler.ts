@@ -84,12 +84,17 @@ const onConnection = (socket: Socket, io: Server) => {
     io.to(room).emit(GameEvent.NEW_GAME, newGame);
   });
 
-  socket.on(GameEvent.DISCONNECT, () => {
+  socket.on(GameEvent.DISCONNECT_SELF, () => {
+    disconnect(socket);
+  });
+
+  socket.on(GameEvent.DISCONNECTING, () => {
+    const room = getSocketRoom(socket);
     // Disconnect player from its room
-    const disconnected = handler.onDisconnectGame(socket.id, room);
+    const playerAction = handler.onDisconnectGame(socket.id, room);
     // Emit player disconnected event
-    if (disconnected) {
-      io.to(room).emit(GameEvent.PLAYER_DISCONNECTED, disconnected);
+    if (playerAction) {
+      io.to(room).emit(GameEvent.PLAYER_DISCONNECTED, playerAction);
     }
   });
 };
@@ -104,9 +109,10 @@ const joinGame = (socket: Socket, joinPayload: JoinPayload) => {
       joinPayload.room,
       event.joined
     );
-    socket.broadcast
-      .to(joinPayload.room)
-      .emit(GameEvent.PLAYER_JOINED, event.state.participants);
+    socket.broadcast.to(joinPayload.room).emit(GameEvent.PLAYER_JOINED, {
+      nick: event.joined.nick,
+      updatedPlayers: event.state.participants,
+    });
   } catch (err) {
     disconnect(socket, err.message);
   }
@@ -127,7 +133,7 @@ const createGame = (socket: Socket, payload: CreateGamePayload) => {
   }
 };
 
-const disconnect = (socket: Socket, message: string) => {
+const disconnect = (socket: Socket, message?: string) => {
   socket.emit("error", message);
   socket.disconnect(true);
 };

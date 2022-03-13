@@ -2,7 +2,11 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { displayErrorMessage, displayLoading } from './shared.action';
-import { getErrorMessage, getLoadingStatus } from './shared.selector';
+import {
+  getErrorMessage,
+  getLoadingStatus,
+  getPlayerAction,
+} from './shared.selector';
 import { SharedState } from './shared.state';
 
 @Injectable({ providedIn: 'root' })
@@ -15,6 +19,10 @@ export class SharedFacade {
 
   getErrorMessage(): Observable<string> {
     return this.store.select(getErrorMessage);
+  }
+
+  getPlayerAction(): Observable<string> {
+    return this.store.select(getPlayerAction);
   }
 
   displayLoading(): void {

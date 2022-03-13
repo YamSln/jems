@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorComponent } from './error/error.component';
 import { GeneralDialogComponent } from './dialog/general-dialog/general-dialog.component';
 import { LoadingComponent } from './loading/loading.component';
+import { PlayerActionComponent } from './player-action/player-action/player-action.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { LoadingComponent } from './loading/loading.component';
     ErrorComponent,
     GeneralDialogComponent,
     LoadingComponent,
+    PlayerActionComponent,
   ],
   imports: [CommonModule, MaterialModule, FormsModule, ReactiveFormsModule],
   exports: [
@@ -20,6 +22,7 @@ import { LoadingComponent } from './loading/loading.component';
     PasswordFieldComponent,
     LoadingComponent,
     ErrorComponent,
+    PlayerActionComponent,
   ],
 })
 export class SharedModule {}

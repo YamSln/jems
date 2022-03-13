@@ -14,3 +14,8 @@ export const getErrorMessage = createSelector(
   getSharedState,
   (state: SharedState) => state.errorMessage
 );
+
+export const getPlayerAction = createSelector(
+  getSharedState,
+  (state: SharedState) => state.playerAction
+);

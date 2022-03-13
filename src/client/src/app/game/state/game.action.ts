@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { PlayerAction } from 'src/app/model/player.action.payload';
 import { WordClicked } from 'src/app/model/word.clicked.mode';
 import { CreateGamePayload } from '../../model/create-game.payload';
 import { CreateGameResponse } from '../../model/create-game.response';
@@ -35,6 +36,8 @@ export const TIME_CHANGED = `${GAME_PAGE} time changed`;
 export const TIME_CHANGED_SUCCESS = `${GAME_PAGE} time changed success`;
 
 export const PLAYER_DISCONNECT = `${GAME_PAGE} player disconnect`;
+
+export const QUIT_GAME = `${GAME_PAGE} quit game`;
 
 export const wordClicked = createAction(
   WORD_CLICKED,
@@ -91,5 +94,7 @@ export const newGameSuccess = createAction(
 
 export const playerDisconnect = createAction(
   PLAYER_DISCONNECT,
-  props<{ player: string }>()
+  props<{ players: Participant[] }>()
 );
+
+export const quitGame = createAction(QUIT_GAME);
