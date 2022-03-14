@@ -5,6 +5,7 @@ import { Team } from '../../model/team.model';
 import { Word } from '../../model/word.model';
 import { WordType } from '../../model/word.type';
 import {
+  clearState,
   createGameSuccess,
   joinGameSuccess,
   newGameSuccess,
@@ -149,6 +150,9 @@ const _gameReducer = createReducer(
   }),
   on(playerDisconnect, (state: GameState, action: any): GameState => {
     return { ...state, participants: action.players };
+  }),
+  on(clearState, (state: GameState, action: any): GameState => {
+    return { ...initialState };
   })
 );
 

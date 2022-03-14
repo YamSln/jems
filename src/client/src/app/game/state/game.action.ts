@@ -38,6 +38,7 @@ export const TIME_CHANGED_SUCCESS = `${GAME_PAGE} time changed success`;
 export const PLAYER_DISCONNECT = `${GAME_PAGE} player disconnect`;
 
 export const QUIT_GAME = `${GAME_PAGE} quit game`;
+export const CLEAR_STATE = `${GAME_PAGE} clear state`;
 
 export const wordClicked = createAction(
   WORD_CLICKED,
@@ -98,3 +99,4 @@ export const playerDisconnect = createAction(
 );
 
 export const quitGame = createAction(QUIT_GAME);
+export const clearState = createAction(CLEAR_STATE);

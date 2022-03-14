@@ -9,6 +9,7 @@ import { PlayerAction } from 'src/app/model/player.action.payload';
 import { WordClicked } from 'src/app/model/word.clicked.mode';
 import { displayPlayerAction } from 'src/app/shared/state/shared.action';
 import {
+  clearState,
   createGame,
   createGameSuccess,
   joinGame,
@@ -129,6 +130,11 @@ export class GameFacade {
   }
 
   navigateToMain(): void {
+    this.clearGame();
     this.router.navigate(['/']);
+  }
+
+  clearGame(): void {
+    this.store.dispatch(clearState());
   }
 }

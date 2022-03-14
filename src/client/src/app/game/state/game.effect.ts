@@ -69,8 +69,6 @@ export class GameEffect {
         return this.gameService.createGame(action).pipe(
           // On created game loaded
           map((createdGame) => {
-            // Hide loading
-            this.sharedFacade.hideLoading();
             // Dispatch game loaded action
             return createGameApproved(createdGame);
           }),
@@ -147,8 +145,7 @@ export class GameEffect {
     () =>
       this.action$.pipe(
         ofType(quitGame),
-        withLatestFrom(this.gameFacade.getGameState()),
-        tap(([action, latest]) => {
+        tap(() => {
           this.gameFacade.navigateToMain();
           this.socket.emit(GameEvent.DISCONNECT_SELF);
         })
