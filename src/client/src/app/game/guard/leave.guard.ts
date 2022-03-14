@@ -23,7 +23,7 @@ export class LeaveGuard implements CanDeactivate<unknown> {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    this.gameFacade.clearGame();
+    this.gameFacade.quitGame();
     return true;
   }
 }

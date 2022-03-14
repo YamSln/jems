@@ -18,6 +18,7 @@ import { Team } from 'src/app/model/team.model';
 export class ActionBoardComponent implements OnInit {
   team = Team;
   role = Role;
+  timeInputs: number[] = [0, 60, 90, 120];
 
   @Input() currentTeam!: Team;
   @Input() participants!: Participant[];
@@ -27,6 +28,7 @@ export class ActionBoardComponent implements OnInit {
 
   @Output() changeTeamEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() changeRoleEvent: EventEmitter<any> = new EventEmitter<any>();
+  @Output() setTimeEvent: EventEmitter<number> = new EventEmitter<number>();
   constructor() {}
 
   ngOnInit(): void {}
@@ -37,5 +39,13 @@ export class ActionBoardComponent implements OnInit {
 
   changePlayerRole(): void {
     this.changeRoleEvent.emit();
+  }
+
+  setTime(event: any): void {
+    this.setTimeEvent.emit(this.timeInputs[event.value]);
+  }
+
+  getTime(): number {
+    return this.timeInputs.findIndex((time) => time === this.turnTime);
   }
 }

@@ -73,6 +73,9 @@ const onConnection = (socket: Socket, io: Server) => {
     const time = handler.onTimerSet(room, timeSpan);
     // Emit timer time span set event
     io.to(room).emit(GameEvent.TIME_SET, time);
+    if (timeSpan > 0) {
+      // Implement
+    }
   });
 
   socket.on(GameEvent.NEW_GAME, () => {

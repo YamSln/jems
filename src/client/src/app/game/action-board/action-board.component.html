@@ -53,6 +53,14 @@
       </span>
     </div>
   </div>
+  <mat-slider
+    min="0"
+    max="3"
+    step="1"
+    value="0"
+    (change)="setTime($event)"
+    (input)="getTime()"
+  ></mat-slider>
   <mat-card-actions>
     <mat-button-toggle-group
       [(ngModel)]="playerRole"

@@ -132,8 +132,7 @@ const onWordClick = (
       changeTurn(state);
       break;
     case WordType.BOMB:
-      const winningTeam =
-        player.team === Team.SAPPHIRE ? Team.RUBY : Team.SAPPHIRE;
+      const winningTeam = otherTeam(player.team);
       return { wordIndex, winningTeam };
   }
   const gameWon = state.blueTeamPoints === 0 || state.redTeamPoints === 0;
@@ -150,8 +149,7 @@ const onRoleChange = (socketId: string, room: string): string => {
   // Get clicking player
   const player = getPlayer(socketId, state);
   // Change player role
-  player.role =
-    player.role === Role.OPERATIVE ? Role.SPY_MASTER : Role.OPERATIVE;
+  player.role = otherRole(player.role);
   // Return player id
   return socketId;
 };
@@ -162,7 +160,7 @@ const onTeamChange = (socketId: string, room: string): string => {
   // Get clicking player
   const player = getPlayer(socketId, state);
   // Change player team
-  player.team = player.team === Team.SAPPHIRE ? Team.RUBY : Team.SAPPHIRE;
+  player.team = otherTeam(player.team);
   // Return player id
   return socketId;
 };
@@ -174,6 +172,11 @@ const onTimerSet = (room: string, timeSpan: number): number => {
   state.turnTime = timeSpan;
   // Return new time span
   return timeSpan;
+};
+
+const onTimeOut = (room: string): void => {
+  const state = getGame(room);
+  changeTurn(state);
 };
 
 const onDisconnectGame = (
@@ -205,8 +208,7 @@ const onDisconnectGame = (
 
 const changeTurn = (room: GameState): void => {
   // change current turn
-  room.currentTeam =
-    room.currentTeam === Team.SAPPHIRE ? Team.RUBY : Team.SAPPHIRE;
+  room.currentTeam = otherTeam(room.currentTeam);
 };
 
 const getGame = (room: string): GameState => {
@@ -229,6 +231,14 @@ const getPlayer = (playerId: string, game: GameState): Participant => {
   return player;
 };
 
+const otherTeam = (team: Team): Team => {
+  return team === Team.SAPPHIRE ? Team.RUBY : Team.SAPPHIRE;
+};
+
+const otherRole = (role: Role): Role => {
+  return role === Role.OPERATIVE ? Role.SPY_MASTER : Role.OPERATIVE;
+};
+
 export default {
   createGame,
   joinGame,
@@ -238,6 +248,7 @@ export default {
   onRoleChange,
   onTeamChange,
   onTimerSet,
+  onTimeOut,
   onNewGame,
   onDisconnectGame,
 };

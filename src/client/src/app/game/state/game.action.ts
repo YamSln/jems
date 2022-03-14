@@ -87,6 +87,15 @@ export const roleChangedSuccess = createAction(
 );
 export const playerRoleChanged = createAction(PLAYER_ROLE_CHANGED);
 
+export const timeChanged = createAction(
+  TIME_CHANGED,
+  props<{ timeSpan: number }>()
+);
+export const timeChangedSuccess = createAction(
+  TIME_CHANGED_SUCCESS,
+  props<{ timeSpan: number }>()
+);
+
 export const newGame = createAction(NEW_GAME);
 export const newGameSuccess = createAction(
   NEW_GAME_SUCCESS,

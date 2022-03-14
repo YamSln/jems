@@ -32,11 +32,11 @@ export class GameComponent implements OnInit {
     this.gameFacade.changeRole();
   }
 
-  onNewGame(): void {
-    this.gameFacade.newGame();
+  onTimeSet(timeSpan: number): void {
+    this.gameFacade.setTime(timeSpan);
   }
 
-  onQuitGame(): void {
-    this.gameFacade.quitGame();
+  onNewGame(): void {
+    this.gameFacade.newGame();
   }
 }

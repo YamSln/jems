@@ -25,6 +25,8 @@ import {
   roleChangedSuccess,
   teamChanged,
   teamChangedSuccess,
+  timeChanged,
+  timeChangedSuccess,
   wordClicked,
   wordClickedSuccess,
 } from './game.action';
@@ -52,6 +54,7 @@ export class GameFacade {
   }
 
   quitGame(): void {
+    this.clearGame();
     this.store.dispatch(quitGame());
   }
 
@@ -93,6 +96,14 @@ export class GameFacade {
     this.store.dispatch(playerRoleChanged());
   }
 
+  setTime(timeSpan: number): void {
+    this.store.dispatch(timeChanged({ timeSpan }));
+  }
+
+  timeSet(timeSpan: number): void {
+    this.store.dispatch(timeChangedSuccess({ timeSpan }));
+  }
+
   changeTeam(): void {
     this.store.dispatch(teamChanged());
   }
@@ -106,10 +117,12 @@ export class GameFacade {
   }
 
   gameLoaded(game: GameState, room: string, player: Participant): void {
+    this.navigateToGame();
     this.store.dispatch(createGameSuccess({ game, room, player }));
   }
 
   gameReceived(game: GameState, room: string, player: Participant): void {
+    this.navigateToGame();
     this.store.dispatch(joinGameSuccess({ game, room, player }));
   }
 
@@ -130,7 +143,6 @@ export class GameFacade {
   }
 
   navigateToMain(): void {
-    this.clearGame();
     this.router.navigate(['/']);
   }
 

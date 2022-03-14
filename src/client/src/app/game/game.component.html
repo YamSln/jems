@@ -7,6 +7,7 @@
     [playerRole]="game.playerRole"
     (changeTeamEvent)="onTeamChange()"
     (changeRoleEvent)="onRoleChange()"
+    (setTimeEvent)="onTimeSet($event)"
   ></app-action-board>
   <div fxLayout="column" fxLayoutGap="1rem">
     <div
@@ -14,8 +15,8 @@
       fxLayoutAlign="space-between center"
       style="font-size: 2rem; padding: 1rem"
     >
-      <span color="primary">{{ game.blueTeamPoints }}</span>
-      <mat-label *ngIf="game.turnTime">Time</mat-label>
+      <mat-label id="blue-points">{{ game.blueTeamPoints }}</mat-label>
+      <app-timer [time]="game.turnTime"></app-timer>
       <mat-label color="warn">{{ game.redTeamPoints }}</mat-label>
     </div>
     <app-game-board
@@ -26,7 +27,7 @@
     ></app-game-board>
     <div fxLayout="row" fxLayoutAlign="space-between center">
       <button mat-raised-button (click)="onNewGame()">New Game</button>
-      <button mat-raised-button (click)="onQuitGame()">Quit Game</button>
+      <button mat-raised-button routerLink="\">Quit Game</button>
     </div>
   </div>
 </div>

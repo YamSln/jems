@@ -10,6 +10,7 @@ import {
   quitGame,
   roleChanged,
   teamChanged,
+  timeChanged,
   wordClicked,
 } from './game.action';
 import {
@@ -119,7 +120,7 @@ export class GameEffect {
     { dispatch: false }
   );
 
-  changeRole = createEffect(
+  changeRole$ = createEffect(
     () =>
       this.action$.pipe(
         ofType(roleChanged),
@@ -130,7 +131,7 @@ export class GameEffect {
     { dispatch: false }
   );
 
-  changeTeam = createEffect(
+  changeTeam$ = createEffect(
     () =>
       this.action$.pipe(
         ofType(teamChanged),
@@ -141,12 +142,22 @@ export class GameEffect {
     { dispatch: false }
   );
 
-  quitGame = createEffect(
+  changeTime$ = createEffect(
+    () =>
+      this.action$.pipe(
+        ofType(timeChanged),
+        tap((action) => {
+          this.socket.emit(GameEvent.TIME_SET, action.timeSpan);
+        })
+      ),
+    { dispatch: false }
+  );
+
+  quitGame$ = createEffect(
     () =>
       this.action$.pipe(
         ofType(quitGame),
         tap(() => {
-          this.gameFacade.navigateToMain();
           this.socket.emit(GameEvent.DISCONNECT_SELF);
         })
       ),
@@ -159,7 +170,6 @@ export class GameEffect {
         ofType(createGameApproved),
         tap((action) => {
           this.sharedFacade.displayLoading();
-          this.gameFacade.navigateToGame();
           const socket = io(environment.api, {
             auth: { token: `Bearer ${action.token}` },
             query: { join: JoinType.CREATE },
@@ -176,7 +186,6 @@ export class GameEffect {
         ofType(joinGameApproved),
         tap((action) => {
           this.sharedFacade.displayLoading();
-          this.gameFacade.navigateToGame();
           const socket = io(environment.api, {
             auth: { token: `Bearer ${action.token}` },
             query: { join: JoinType.JOIN },
@@ -220,6 +229,9 @@ export class GameEffect {
         this.gameFacade.changePlayerTeam();
       }
       this.gameFacade.teamChanged(player);
+    });
+    socket.on(GameEvent.TIME_SET, (timeSpan: number) => {
+      this.gameFacade.timeSet(timeSpan);
     });
     socket.on(GameEvent.NEW_GAME, (game: GameState) => {
       this.gameFacade.newGameReceived(game);

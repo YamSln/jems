@@ -15,6 +15,7 @@ import {
   playerTeamChanged,
   roleChangedSuccess,
   teamChangedSuccess,
+  timeChangedSuccess,
   wordClickedSuccess,
 } from './game.action';
 import { GameState, initialState } from './game.state';
@@ -135,6 +136,9 @@ const _gameReducer = createReducer(
       playerRole:
         state.playerRole === Role.OPERATIVE ? Role.SPY_MASTER : Role.OPERATIVE,
     };
+  }),
+  on(timeChangedSuccess, (state: GameState, action: any): GameState => {
+    return { ...state, turnTime: action.timeSpan };
   }),
   on(newGameSuccess, (state: GameState, action: any): GameState => {
     const game: GameState = action.game;
