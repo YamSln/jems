@@ -5,6 +5,7 @@ import { Team } from '../../model/team.model';
 import { Word } from '../../model/word.model';
 import { WordType } from '../../model/word.type';
 import {
+  turnChange,
   clearState,
   createGameSuccess,
   joinGameSuccess,
@@ -17,6 +18,7 @@ import {
   teamChangedSuccess,
   timeChangedSuccess,
   wordClickedSuccess,
+  timeUpdate,
 } from './game.action';
 import { GameState, initialState } from './game.state';
 
@@ -114,6 +116,9 @@ const _gameReducer = createReducer(
         state.playerTeam === Team.SAPPHIRE ? Team.RUBY : Team.SAPPHIRE,
     };
   }),
+  on(turnChange, (state: GameState, action: any): GameState => {
+    return changeTurn(state);
+  }),
   on(roleChangedSuccess, (state: GameState, action: any): GameState => {
     return {
       ...state,
@@ -138,7 +143,14 @@ const _gameReducer = createReducer(
     };
   }),
   on(timeChangedSuccess, (state: GameState, action: any): GameState => {
-    return { ...state, turnTime: action.timeSpan };
+    return {
+      ...state,
+      turnTime: action.timeSpan,
+      currentTime: action.timeSpan,
+    };
+  }),
+  on(timeUpdate, (state: GameState, action: any): GameState => {
+    return { ...state, currentTime: action.currentTime };
   }),
   on(newGameSuccess, (state: GameState, action: any): GameState => {
     const game: GameState = action.game;

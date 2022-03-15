@@ -13,6 +13,7 @@ import {
 })
 export class TimerComponent implements OnInit {
   @Input() time!: number;
+  @Input() display: boolean = false;
   constructor() {}
 
   ngOnInit(): void {}

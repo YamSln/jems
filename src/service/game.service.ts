@@ -33,6 +33,7 @@ const createGame = (
       startingTeam === Team.RUBY ? STARTING_TEAM_WORDS : OTHER_TEAM_WORDS,
     participants: currentGame ? currentGame.participants : [],
     turnTime: 0,
+    currentTime: 0,
     maxPlayers,
     password,
     words,

@@ -10,6 +10,8 @@ export interface GameState {
   blueTeamPoints: number;
   redTeamPoints: number;
   turnTime: number;
+  currentTime: number;
+  turnInterval?: NodeJS.Timeout;
   password: string;
   maxPlayers: number;
   winningTeam?: Team;

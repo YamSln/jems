@@ -1,5 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { PlayerAction } from 'src/app/model/player.action.payload';
+import { Team } from 'src/app/model/team.model';
 import { WordClicked } from 'src/app/model/word.clicked.mode';
 import { CreateGamePayload } from '../../model/create-game.payload';
 import { CreateGameResponse } from '../../model/create-game.response';
@@ -28,12 +29,14 @@ export const PLAYER_ROLE_CHANGED = `${GAME_PAGE} player role changed`;
 export const TEAM_CHANGED = `${GAME_PAGE} team changed`;
 export const TEAM_CHANGED_SUCCESS = `${GAME_PAGE} team changed success`;
 export const PLAYER_TEAM_CHANGED = `${GAME_PAGE} player team changed`;
+export const CHANGE_TURN = `${GAME_PAGE} change turn`;
 
 export const NEW_GAME = `${GAME_PAGE} new game`;
 export const NEW_GAME_SUCCESS = `${GAME_PAGE} new game success`;
 
 export const TIME_CHANGED = `${GAME_PAGE} time changed`;
 export const TIME_CHANGED_SUCCESS = `${GAME_PAGE} time changed success`;
+export const TIME_UPDATE = `${GAME_PAGE} time update`;
 
 export const PLAYER_DISCONNECT = `${GAME_PAGE} player disconnect`;
 
@@ -79,6 +82,7 @@ export const teamChangedSuccess = createAction(
   props<{ player: string }>()
 );
 export const playerTeamChanged = createAction(PLAYER_TEAM_CHANGED);
+export const turnChange = createAction(CHANGE_TURN, props<{ next: Team }>());
 
 export const roleChanged = createAction(ROLE_CHANGED);
 export const roleChangedSuccess = createAction(
@@ -94,6 +98,10 @@ export const timeChanged = createAction(
 export const timeChangedSuccess = createAction(
   TIME_CHANGED_SUCCESS,
   props<{ timeSpan: number }>()
+);
+export const timeUpdate = createAction(
+  TIME_UPDATE,
+  props<{ currentTime: number }>()
 );
 
 export const newGame = createAction(NEW_GAME);

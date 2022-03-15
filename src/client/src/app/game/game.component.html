@@ -5,6 +5,7 @@
     [participants]="game.participants"
     [playerTeam]="game.playerTeam"
     [playerRole]="game.playerRole"
+    [turnTime]="game.turnTime"
     (changeTeamEvent)="onTeamChange()"
     (changeRoleEvent)="onRoleChange()"
     (setTimeEvent)="onTimeSet($event)"
@@ -16,7 +17,10 @@
       style="font-size: 2rem; padding: 1rem"
     >
       <mat-label id="blue-points">{{ game.blueTeamPoints }}</mat-label>
-      <app-timer [time]="game.turnTime"></app-timer>
+      <app-timer
+        [display]="!!game.turnTime"
+        [time]="game.currentTime"
+      ></app-timer>
       <mat-label color="warn">{{ game.redTeamPoints }}</mat-label>
     </div>
     <app-game-board

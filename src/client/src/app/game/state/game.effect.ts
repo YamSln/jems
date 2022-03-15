@@ -13,14 +13,7 @@ import {
   timeChanged,
   wordClicked,
 } from './game.action';
-import {
-  catchError,
-  exhaustMap,
-  finalize,
-  map,
-  tap,
-  withLatestFrom,
-} from 'rxjs/operators';
+import { catchError, exhaustMap, finalize, map, tap } from 'rxjs/operators';
 import { SharedFacade } from 'src/app/shared/state/shared.facade';
 import { GameFacade } from './game.facade';
 import { environment } from 'src/environments/environment';
@@ -49,6 +42,7 @@ import {
   PASSWORD_REQUIRED,
 } from '../../../../../validation/validation.messages';
 import { PlayerAction } from 'src/app/model/player.action.payload';
+import { Team } from 'src/app/model/team.model';
 
 @Injectable()
 export class GameEffect {
@@ -232,6 +226,12 @@ export class GameEffect {
     });
     socket.on(GameEvent.TIME_SET, (timeSpan: number) => {
       this.gameFacade.timeSet(timeSpan);
+    });
+    socket.on(GameEvent.TIME_TICK, (time: number) => {
+      this.gameFacade.timeUpdate(time);
+    });
+    socket.on(GameEvent.CHANGE_TURN, (next: Team) => {
+      this.gameFacade.changeTurn(next);
     });
     socket.on(GameEvent.NEW_GAME, (game: GameState) => {
       this.gameFacade.newGameReceived(game);

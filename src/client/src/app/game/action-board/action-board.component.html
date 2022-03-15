@@ -59,7 +59,7 @@
     step="1"
     value="0"
     (change)="setTime($event)"
-    (input)="getTime()"
+    [value]="getTime()"
   ></mat-slider>
   <mat-card-actions>
     <mat-button-toggle-group

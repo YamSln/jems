@@ -6,9 +6,11 @@ import { CreateGamePayload } from 'src/app/model/create-game.payload';
 import { JoinGamePayload } from 'src/app/model/join-game.payload';
 import { Participant } from 'src/app/model/participant.model';
 import { PlayerAction } from 'src/app/model/player.action.payload';
+import { Team } from 'src/app/model/team.model';
 import { WordClicked } from 'src/app/model/word.clicked.mode';
 import { displayPlayerAction } from 'src/app/shared/state/shared.action';
 import {
+  turnChange,
   clearState,
   createGame,
   createGameSuccess,
@@ -27,6 +29,7 @@ import {
   teamChangedSuccess,
   timeChanged,
   timeChangedSuccess,
+  timeUpdate,
   wordClicked,
   wordClickedSuccess,
 } from './game.action';
@@ -102,6 +105,14 @@ export class GameFacade {
 
   timeSet(timeSpan: number): void {
     this.store.dispatch(timeChangedSuccess({ timeSpan }));
+  }
+
+  timeUpdate(currentTime: number): void {
+    this.store.dispatch(timeUpdate({ currentTime }));
+  }
+
+  changeTurn(next: Team): void {
+    this.store.dispatch(turnChange({ next }));
   }
 
   changeTeam(): void {

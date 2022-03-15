@@ -10,7 +10,7 @@ export enum GameEvent {
   ROLE_CHANGE = 'roleChange',
   TEAM_CHANGE = 'teamChange',
   TIME_SET = 'timeSet',
-  TIME_OUT = 'timeOut',
+  TIME_TICK = 'timeTick',
   CHANGE_TURN = 'changeTurn',
   PLAYER_DISCONNECTED = 'playerDisconnected',
 }

@@ -70,12 +70,9 @@ const onConnection = (socket: Socket, io: Server) => {
     // Get socket room
     const room = getSocketRoom(socket);
     // Set new timer time span
-    const time = handler.onTimerSet(room, timeSpan);
+    const time = handler.onTimerSet(room, timeSpan, io);
     // Emit timer time span set event
     io.to(room).emit(GameEvent.TIME_SET, time);
-    if (timeSpan > 0) {
-      // Implement
-    }
   });
 
   socket.on(GameEvent.NEW_GAME, () => {

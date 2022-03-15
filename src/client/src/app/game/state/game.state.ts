@@ -11,6 +11,7 @@ export interface GameState {
   blueTeamPoints: number;
   redTeamPoints: number;
   turnTime: number;
+  currentTime: number;
   maxPlayers: number;
   playerId: string;
   playerRole: Role;
@@ -26,6 +27,7 @@ export const initialState: GameState = {
   blueTeamPoints: 0,
   redTeamPoints: 0,
   turnTime: 0,
+  currentTime: 0,
   maxPlayers: 4,
   playerId: '',
   playerRole: Role.OPERATIVE,

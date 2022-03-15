@@ -12,6 +12,7 @@ import { Team } from "../model/team.model";
 import { CreateGamePayload } from "../model/create-game.payload";
 import { WordClicked } from "../model/word.clicked.payload";
 import { PlayerAction } from "../model/player.action.payload";
+import { GameEvent } from "../event/game.event";
 
 const rooms: Map<string, GameState> = new Map<string, GameState>();
 
@@ -165,18 +166,31 @@ const onTeamChange = (socketId: string, room: string): string => {
   return socketId;
 };
 
-const onTimerSet = (room: string, timeSpan: number): number => {
+const onTimerSet = (room: string, timeSpan: number, io: any): number => {
   // Get game state
   const state = getGame(room);
   // Set game timer
   state.turnTime = timeSpan;
+  state.currentTime = state.turnTime;
+  // Clear timer interval
+  if (state.turnInterval) {
+    clearInterval(state.turnInterval);
+  }
+  if (timeSpan > 0) {
+    state.turnInterval = setInterval(() => {
+      state.currentTime--;
+      if (state.currentTime >= 0) {
+        // Timer ticking
+        io.to(room).emit(GameEvent.TIME_TICK, state.currentTime);
+      } else {
+        // TimeOut - reset timer and change turn
+        changeTurn(state);
+        io.to(room).emit(GameEvent.CHANGE_TURN, state.currentTeam);
+      }
+    }, 1000);
+  }
   // Return new time span
   return timeSpan;
-};
-
-const onTimeOut = (room: string): void => {
-  const state = getGame(room);
-  changeTurn(state);
 };
 
 const onDisconnectGame = (
@@ -206,9 +220,14 @@ const onDisconnectGame = (
   return null;
 };
 
-const changeTurn = (room: GameState): void => {
+const changeTurn = (room: GameState): Team => {
   // change current turn
   room.currentTeam = otherTeam(room.currentTeam);
+  // Reset timer if exists
+  if (room.turnTime) {
+    room.currentTime = room.turnTime;
+  }
+  return room.currentTeam;
 };
 
 const getGame = (room: string): GameState => {
@@ -248,7 +267,6 @@ export default {
   onRoleChange,
   onTeamChange,
   onTimerSet,
-  onTimeOut,
   onNewGame,
   onDisconnectGame,
 };

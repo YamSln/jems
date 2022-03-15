@@ -25,6 +25,15 @@ export class GameGuard implements CanActivate {
     | boolean
     | UrlTree {
     this.gameState = this.facade.getGameState();
-    return this.gameState.pipe(map((state) => !!state.roomId));
+    return this.gameState.pipe(
+      map((state) => {
+        if (state.roomId) {
+          return true;
+        } else {
+          this.facade.navigateToMain();
+          return false;
+        }
+      })
+    );
   }
 }
