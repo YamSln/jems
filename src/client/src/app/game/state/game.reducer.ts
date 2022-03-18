@@ -178,6 +178,7 @@ const changeTurn = (state: GameState): GameState => {
     ...state,
     currentTeam:
       state.currentTeam === Team.SAPPHIRE ? Team.RUBY : Team.SAPPHIRE,
+    currentTime: state.turnTime ? state.turnTime : 0,
   };
 };
 

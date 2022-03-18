@@ -94,7 +94,9 @@ const onConnection = (socket: Socket, io: Server) => {
     const playerAction = handler.onDisconnectGame(socket.id, room);
     // Emit player disconnected event
     if (playerAction) {
-      io.to(room).emit(GameEvent.PLAYER_DISCONNECTED, playerAction);
+      socket.broadcast
+        .to(room)
+        .emit(GameEvent.PLAYER_DISCONNECTED, playerAction);
     }
   });
 };
@@ -105,7 +107,7 @@ const joinGame = (socket: Socket, joinPayload: JoinPayload) => {
     socket.join(joinPayload.room);
     socket.emit(
       GameEvent.JOIN_GAME,
-      event.state,
+      { ...event.state, turnInterval: "" },
       joinPayload.room,
       event.joined
     );
@@ -114,6 +116,7 @@ const joinGame = (socket: Socket, joinPayload: JoinPayload) => {
       updatedPlayers: event.state.participants,
     });
   } catch (err) {
+    handler.onDisconnectGame(socket.id, joinPayload.room);
     disconnect(socket, err.message);
   }
 };
@@ -129,6 +132,7 @@ const createGame = (socket: Socket, payload: CreateGamePayload) => {
     );
     socket.join(payload.room);
   } catch (err) {
+    handler.onDisconnectGame(socket.id, payload.room);
     disconnect(socket, err.message);
   }
 };

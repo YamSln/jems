@@ -6,7 +6,7 @@ import { Word } from "../model/word.model";
 import { WordType } from "../model/word.type";
 import wordsBase from "../words/words.json";
 
-const WORDS_COUNT = 36;
+const WORDS_COUNT = 25;
 const STARTING_TEAM_WORDS = 9;
 const OTHER_TEAM_WORDS = 8;
 
@@ -34,6 +34,7 @@ const createGame = (
     participants: currentGame ? currentGame.participants : [],
     turnTime: 0,
     currentTime: 0,
+    winningTeam: undefined,
     maxPlayers,
     password,
     words,

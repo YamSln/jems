@@ -4,11 +4,11 @@
 @include mat-core();
 
 .word-container {
-  height: 100px;
-  width: 100px;
+  height: 90px;
+  width: 90px;
   margin: 10px;
   border-radius: 10%;
-  font-size: 1.2rem;
+  font-size: 1.2em;
   text-align: center;
   padding: auto;
   display: flex;
@@ -25,17 +25,6 @@
   );
 }
 
-@-o-keyframes blueFadeIn {
-  to {
-    background-color: mat-color($jems-web-client-primary);
-  }
-}
-@keyframes blueFadeIn {
-  to {
-    background-color: mat-color($jems-web-client-primary);
-  }
-}
-
 .blue-word-selected {
   background-color: mat-color($jems-web-client-primary);
   animation: blueFadeIn 0.3s;
@@ -49,17 +38,6 @@
   );
 }
 
-@-o-keyframes redFadeIn {
-  to {
-    background-color: mat-color($jems-web-client-warn);
-  }
-}
-@keyframes redFadeIn {
-  to {
-    background-color: mat-color($jems-web-client-warn);
-  }
-}
-
 .red-word-selected {
   background-color: mat-color($jems-web-client-warn);
   animation: redFadeIn 0.3s;
@@ -68,17 +46,6 @@
 $bomb-color: mat-palette($mat-gray);
 .bomb-word {
   background-color: mat-color($bomb-color, $hue: default, $opacity: 0.5);
-}
-
-@-o-keyframes bombFadeIn {
-  to {
-    background-color: mat-color($bomb-color);
-  }
-}
-@keyframes bombFadeIn {
-  to {
-    background-color: mat-color($bomb-color);
-  }
 }
 
 .red-word-selected {
@@ -92,17 +59,11 @@ $bomb-color: mat-palette($mat-gray);
 }
 
 $word-selected: mat-palette($mat-gray, 400);
-@-o-keyframes fadeIn {
-  to {
-    background-color: mat-color($word-selected);
-  }
-}
-@keyframes fadeIn {
-  to {
-    background-color: mat-color($word-selected);
-  }
-}
+
 .neutral-selected {
   background-color: mat-color($word-selected);
-  animation: fadeIn 0.3s;
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  transition-timing-function: ease-in-out;
 }

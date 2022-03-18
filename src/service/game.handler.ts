@@ -134,14 +134,21 @@ const onWordClick = (
       break;
     case WordType.BOMB:
       const winningTeam = otherTeam(player.team);
+      winGame(state, winningTeam);
       return { wordIndex, winningTeam };
   }
   const gameWon = state.blueTeamPoints === 0 || state.redTeamPoints === 0;
   if (gameWon) {
     const winningTeam = state.blueTeamPoints === 0 ? Team.SAPPHIRE : Team.RUBY;
+    winGame(state, winningTeam);
     return { wordIndex, winningTeam };
   }
   return { wordIndex };
+};
+
+const winGame = (state: GameState, winningTeam: Team): void => {
+  state.winningTeam = winningTeam;
+  clearTimer(state, true);
 };
 
 const onRoleChange = (socketId: string, room: string): string => {
@@ -173,9 +180,7 @@ const onTimerSet = (room: string, timeSpan: number, io: any): number => {
   state.turnTime = timeSpan;
   state.currentTime = state.turnTime;
   // Clear timer interval
-  if (state.turnInterval) {
-    clearInterval(state.turnInterval);
-  }
+  clearTimer(state);
   if (timeSpan > 0) {
     state.turnInterval = setInterval(() => {
       state.currentTime--;
@@ -191,6 +196,16 @@ const onTimerSet = (room: string, timeSpan: number, io: any): number => {
   }
   // Return new time span
   return timeSpan;
+};
+
+const clearTimer = (state: GameState, erase: boolean = false): void => {
+  if (state.turnInterval) {
+    clearInterval(state.turnInterval);
+  }
+  if (erase) {
+    state.turnTime = 0;
+    state.currentTime = 0;
+  }
 };
 
 const onDisconnectGame = (

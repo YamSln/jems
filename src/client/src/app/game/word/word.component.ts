@@ -6,7 +6,6 @@ import {
   EventEmitter,
   Output,
 } from '@angular/core';
-import { Role } from 'src/app/model/role.model';
 import { Word } from 'src/app/model/word.model';
 import { WordType } from 'src/app/model/word.type';
 

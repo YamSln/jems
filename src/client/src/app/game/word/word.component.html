@@ -5,11 +5,13 @@
     'blue-word': word.type === wordType.BLUE && !word.selected && !hideColor,
     'red-word-selected': word.type === wordType.RED && word.selected,
     'blue-word-selected': word.type === wordType.BLUE && word.selected,
+    'blue-word-selected-spy': word.type === wordType.BLUE && word.selected,
     'bomb-word': word.type === wordType.BOMB && !word.selected && !hideColor,
     'bomb-word-selected': word.type === wordType.BOMB && word.selected,
     'neutral-selected': word.type === wordType.NEUTRAL && word.selected
   }"
+  [ngStyle]="{ 'font-size': word.content.length < 11 ? '1.2rem' : '1.0rem' }"
   (click)="onWordClick()"
 >
-  {{ word.content }}
+  <span class="container">{{ word.content }}</span>
 </mat-card>

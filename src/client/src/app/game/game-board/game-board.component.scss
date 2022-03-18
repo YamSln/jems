@@ -1,7 +1,7 @@
 .game-board {
   display: inline-grid;
-  grid-template-rows: repeat(6, 150px);
-  grid-template-columns: repeat(6, 150px);
+  grid-template-rows: repeat(5, 135px);
+  grid-template-columns: repeat(5, 135px);
   grid-gap: 3px;
 }
 
