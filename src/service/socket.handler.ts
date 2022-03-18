@@ -99,6 +99,10 @@ const onConnection = (socket: Socket, io: Server) => {
         .emit(GameEvent.PLAYER_DISCONNECTED, playerAction);
     }
   });
+
+  socket.on("reconnect", () => {
+    console.log("here");
+  });
 };
 
 const joinGame = (socket: Socket, joinPayload: JoinPayload) => {

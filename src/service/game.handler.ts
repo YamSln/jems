@@ -83,7 +83,10 @@ const onNewGame = (room: string): GameState => {
   // Get room
   const state = getGame(room);
   // Get new game
-  const newGame = service.newGame({ ...state, roomId: room });
+  const newGame = service.newGame({
+    ...state,
+    roomId: room,
+  });
   rooms.set(room, newGame);
   return newGame;
 };

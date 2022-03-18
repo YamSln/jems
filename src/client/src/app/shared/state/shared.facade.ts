@@ -33,6 +33,10 @@ export class SharedFacade {
     this.alterLoadingStatus(false);
   }
 
+  displayError(message: string): void {
+    this.store.dispatch(displayErrorMessage({ message }));
+  }
+
   clearError(): void {
     this.store.dispatch(displayErrorMessage({ message: '' }));
   }

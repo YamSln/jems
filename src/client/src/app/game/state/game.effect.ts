@@ -107,7 +107,6 @@ export class GameEffect {
       this.action$.pipe(
         ofType(wordClicked),
         tap((action) => {
-          console.log(action.index);
           this.socket.emit(GameEvent.WORD_CLICK, action.index);
         })
       ),
@@ -183,6 +182,11 @@ export class GameEffect {
           const socket = io(environment.api, {
             auth: { token: `Bearer ${action.token}` },
             query: { join: JoinType.JOIN },
+            reconnection: true,
+            reconnectionDelay: 1000,
+            reconnectionDelayMax: 5000,
+            reconnectionAttempts: 10,
+            requestTimeout: 10000,
           });
           this.handleSocketActions(socket);
         })
@@ -195,17 +199,18 @@ export class GameEffect {
       GameEvent.CREATE_GAME,
       (game: GameState, room: string, player: Participant) => {
         this.gameFacade.gameLoaded(game, room, player);
-        this.sharedFacade.hideLoading();
       }
     );
     socket.on(
       GameEvent.JOIN_GAME,
       (game: GameState, room: string, player: Participant) => {
-        console.log(player);
         this.gameFacade.gameReceived(game, room, player);
-        this.sharedFacade.hideLoading();
       }
     );
+    socket.on(GameEvent.CONNECT, () => {
+      socket.sendBuffer = [];
+      this.sharedFacade.hideLoading();
+    });
     socket.on(GameEvent.PLAYER_JOINED, (playerAction: PlayerAction) => {
       this.gameFacade.playerJoined(playerAction);
     });
@@ -238,6 +243,22 @@ export class GameEffect {
     });
     socket.on(GameEvent.PLAYER_DISCONNECTED, (playerAction: PlayerAction) => {
       this.gameFacade.playerDisconnected(playerAction);
+    });
+    socket.on(GameEvent.ERROR, (err) => {
+      this.handleError(err);
+    });
+    socket.on('connect_error', (err) => {
+      this.gameFacade.navigateToMain();
+    });
+    socket.io.on('reconnect_attempt', (err) => {
+      console.log('attempt');
+      this.sharedFacade.displayLoading();
+    });
+    socket.io.on('reconnect_error', () => {
+      this.gameFacade.navigateToMain();
+      this.sharedFacade.hideLoading();
+      this.sharedFacade.displayError('An unexpected error occurred');
+      socket.disconnect();
     });
     this.socket = socket;
   }

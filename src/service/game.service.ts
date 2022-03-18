@@ -31,10 +31,13 @@ const createGame = (
       startingTeam === Team.SAPPHIRE ? STARTING_TEAM_WORDS : OTHER_TEAM_WORDS,
     redTeamPoints:
       startingTeam === Team.RUBY ? STARTING_TEAM_WORDS : OTHER_TEAM_WORDS,
-    participants: currentGame ? currentGame.participants : [],
+    participants: currentGame
+      ? shuffleAndResetParticipants(currentGame.participants)
+      : [],
     turnTime: 0,
     currentTime: 0,
     winningTeam: undefined,
+    turnInterval: undefined,
     maxPlayers,
     password,
     words,
@@ -120,23 +123,13 @@ const shuffleWords = (words: Word[]): Word[] => {
 const shuffleAndResetParticipants = (
   participants: Participant[]
 ): Participant[] => {
-  let currentIndex = participants.length - 1,
-    temp,
-    random;
-  while (currentIndex !== -1) {
-    // Get random index
-    random = Math.floor(Math.random() * currentIndex);
-    // Set current index participant to temp variable
-    temp = participants[currentIndex];
-    // Swap participant in random index with current index
-    participants[currentIndex] = participants[random];
-    participants[random] = temp;
-    // Set role to OPERATIVE and random team
-    participants[currentIndex].role = Role.OPERATIVE;
-    participants[currentIndex].team =
-      currentIndex % 2 === 0 ? Team.SAPPHIRE : Team.RUBY;
-    currentIndex--;
-  } // Return shuffled participants
+  const teams = Object.values(Team);
+  let random;
+  for (let player of participants) {
+    random = Math.random() > 0.5 ? 1 : 0;
+    player.team = teams[random];
+    player.role = Role.OPERATIVE;
+  }
   return participants;
 };
 

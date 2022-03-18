@@ -8,7 +8,10 @@ import { Participant } from 'src/app/model/participant.model';
 import { PlayerAction } from 'src/app/model/player.action.payload';
 import { Team } from 'src/app/model/team.model';
 import { WordClicked } from 'src/app/model/word.clicked.mode';
-import { displayPlayerAction } from 'src/app/shared/state/shared.action';
+import {
+  displayErrorMessage,
+  displayPlayerAction,
+} from 'src/app/shared/state/shared.action';
 import {
   turnChange,
   clearState,
