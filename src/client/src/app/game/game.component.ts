@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Participant } from '../model/participant.model';
 import { Role } from '../model/role.model';
+import { Team } from '../model/team.model';
 import { GameFacade } from './state/game.facade';
 import { GameState } from './state/game.state';
 

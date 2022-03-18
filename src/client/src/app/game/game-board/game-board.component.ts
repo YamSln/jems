@@ -25,6 +25,8 @@ export class GameBoardComponent implements OnInit {
   ngOnInit(): void {}
 
   onWordClicked(wordIndex: number): void {
-    this.wordClicked.emit(wordIndex);
+    if (this.hideColors && !this.winningTeam) {
+      this.wordClicked.emit(wordIndex);
+    }
   }
 }

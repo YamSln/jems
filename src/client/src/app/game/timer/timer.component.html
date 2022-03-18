@@ -1,1 +1,9 @@
-<div *ngIf="display">{{ time | timer }}</div>
+<div
+  [ngClass]="{
+    'raw-blue': currentTeam === team.SAPPHIRE,
+    'raw-red': currentTeam === team.RUBY
+  }"
+  *ngIf="display"
+>
+  {{ time | timer }}
+</div>

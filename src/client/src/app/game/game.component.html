@@ -16,12 +16,15 @@
       fxLayoutAlign="space-between center"
       style="font-size: 2rem; padding: 1rem"
     >
-      <mat-label id="blue-points">{{ game.blueTeamPoints }}</mat-label>
+      <mat-label class="raw-blue" id="blue-points">{{
+        game.blueTeamPoints
+      }}</mat-label>
       <app-timer
+        [currentTeam]="game.currentTeam"
         [display]="!!game.turnTime"
         [time]="game.currentTime"
       ></app-timer>
-      <mat-label color="warn">{{ game.redTeamPoints }}</mat-label>
+      <mat-label class="raw-red">{{ game.redTeamPoints }}</mat-label>
     </div>
     <app-game-board
       [words]="game.words"
@@ -30,7 +33,9 @@
       (wordClicked)="onWordClicked($event)"
     ></app-game-board>
     <div fxLayout="row" fxLayoutAlign="space-between center">
-      <button mat-raised-button (click)="onNewGame()">New Game</button>
+      <button style="margin-left: 7px" mat-raised-button (click)="onNewGame()">
+        New Game
+      </button>
       <button mat-raised-button routerLink="\">Quit Game</button>
     </div>
   </div>

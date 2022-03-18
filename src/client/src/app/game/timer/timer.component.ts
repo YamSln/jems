@@ -4,6 +4,7 @@ import {
   ChangeDetectionStrategy,
   Input,
 } from '@angular/core';
+import { Team } from 'src/app/model/team.model';
 
 @Component({
   selector: 'app-timer',
@@ -14,6 +15,8 @@ import {
 export class TimerComponent implements OnInit {
   @Input() time!: number;
   @Input() display: boolean = false;
+  @Input() currentTeam!: Team;
+  team = Team;
   constructor() {}
 
   ngOnInit(): void {}

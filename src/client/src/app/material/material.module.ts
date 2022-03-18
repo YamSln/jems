@@ -136,6 +136,10 @@ export class MaterialModule {
       name: 'ruby',
       path: `${this.iconsUrl}ruby.svg`,
     },
+    {
+      name: 'github',
+      path: `${this.iconsUrl}github.svg`,
+    },
   ];
 
   constructor(

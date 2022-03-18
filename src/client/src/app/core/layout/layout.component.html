@@ -18,10 +18,16 @@
     >
       <mat-icon matSuffix>link</mat-icon>
     </button>
-    <app-theme-toggle
-      style="width: 100%"
-      (themeToggle)="themeToggleChanged()"
-    ></app-theme-toggle>
+    <div style="width: 100%" fxLayout="row" fxLayoutAlign="end center">
+      <button
+        [matTooltip]="'Github'"
+        style="top: -1px; margin-right: 5px"
+        mat-icon-button
+      >
+        <mat-icon svgIcon="github" matSuffix></mat-icon>
+      </button>
+      <app-theme-toggle (themeToggle)="themeToggleChanged()"></app-theme-toggle>
+    </div>
   </mat-toolbar>
   <div style="margin-top: 70px"><router-outlet></router-outlet></div>
 </div>
