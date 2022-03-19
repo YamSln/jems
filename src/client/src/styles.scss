@@ -67,7 +67,7 @@ $fontConfig: (
 @include angular-material-theme($jems-web-client-theme);
 
 .theme-dark {
-  @include angular-material-theme($jems-web-client-theme-dark);
+  @include angular-material-color($jems-web-client-theme-dark);
 }
 
 /* You can add global styles to this file, and also import other style files */
@@ -84,9 +84,9 @@ body {
 }
 
 .raw-blue {
-  color: #03a9f4;
+  color: mat-color($jems-web-client-primary);
 }
 
 .raw-red {
-  color: #ff5252;
+  color: mat-color($jems-web-client-warn);
 }

@@ -36,8 +36,4 @@ export class GameComponent implements OnInit {
   onTimeSet(timeSpan: number): void {
     this.gameFacade.setTime(timeSpan);
   }
-
-  onNewGame(): void {
-    this.gameFacade.newGame();
-  }
 }

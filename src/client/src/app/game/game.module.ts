@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { TimerComponent } from './timer/timer.component';
 import { TimerPipe } from './pipe/timer.pipe';
+import { ActionButtonsComponent } from './action-buttons/action-buttons.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { TimerPipe } from './pipe/timer.pipe';
     ActionBoardComponent,
     TimerComponent,
     TimerPipe,
+    ActionButtonsComponent,
   ],
   imports: [CommonModule, GameRoutingModule, SharedModule, FormsModule],
 })

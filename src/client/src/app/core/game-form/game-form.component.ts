@@ -36,7 +36,14 @@ export class GameFormComponent implements OnInit {
           Validators.maxLength(15),
         ],
       ],
-      password: ['', [Validators.required]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(10),
+        ],
+      ],
     });
   }
 

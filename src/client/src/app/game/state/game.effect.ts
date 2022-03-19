@@ -245,19 +245,18 @@ export class GameEffect {
       this.gameFacade.playerDisconnected(playerAction);
     });
     socket.on(GameEvent.ERROR, (err) => {
-      this.handleError(err);
+      this.gameFacade.navigateToMain();
     });
     socket.on('connect_error', (err) => {
       this.gameFacade.navigateToMain();
     });
     socket.io.on('reconnect_attempt', (err) => {
-      console.log('attempt');
       this.sharedFacade.displayLoading();
     });
     socket.io.on('reconnect_error', () => {
       this.gameFacade.navigateToMain();
       this.sharedFacade.hideLoading();
-      this.sharedFacade.displayError('An unexpected error occurred');
+      this.sharedFacade.displayError('Lost connection to server');
       socket.disconnect();
     });
     this.socket = socket;
