@@ -6,6 +6,7 @@ export enum GameEvent {
   DISCONNECT = 'disconnect',
   DISCONNECT_SELF = 'disconnect_self',
   NEW_GAME = 'newGame',
+  END_TURN = 'endTurn',
   WORD_CLICK = 'wordClick',
   ROLE_CHANGE = 'roleChange',
   TEAM_CHANGE = 'teamChange',

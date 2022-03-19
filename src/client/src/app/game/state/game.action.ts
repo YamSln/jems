@@ -29,6 +29,7 @@ export const PLAYER_ROLE_CHANGED = `${GAME_PAGE} player role changed`;
 export const TEAM_CHANGED = `${GAME_PAGE} team changed`;
 export const TEAM_CHANGED_SUCCESS = `${GAME_PAGE} team changed success`;
 export const PLAYER_TEAM_CHANGED = `${GAME_PAGE} player team changed`;
+export const END_TURN = `${GAME_PAGE} end turn`;
 export const CHANGE_TURN = `${GAME_PAGE} change turn`;
 
 export const NEW_GAME = `${GAME_PAGE} new game`;
@@ -82,6 +83,7 @@ export const teamChangedSuccess = createAction(
   props<{ player: string }>()
 );
 export const playerTeamChanged = createAction(PLAYER_TEAM_CHANGED);
+export const endTurn = createAction(END_TURN);
 export const turnChange = createAction(CHANGE_TURN, props<{ next: Team }>());
 
 export const roleChanged = createAction(ROLE_CHANGED);

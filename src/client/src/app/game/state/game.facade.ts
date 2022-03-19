@@ -35,6 +35,7 @@ import {
   timeUpdate,
   wordClicked,
   wordClickedSuccess,
+  endTurn,
 } from './game.action';
 import { getGameState, getRoomUrl } from './game.selector';
 import { GameState } from './game.state';
@@ -57,6 +58,10 @@ export class GameFacade {
 
   newGame(): void {
     this.store.dispatch(newGame());
+  }
+
+  endTurn(): void {
+    this.store.dispatch(endTurn());
   }
 
   quitGame(): void {

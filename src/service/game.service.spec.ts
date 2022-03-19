@@ -136,6 +136,7 @@ describe("Game Service Unit Tests", () => {
         password: "password",
         turnTime: 0,
         maxPlayers: 4,
+        currentTime: 0,
         words,
       };
 

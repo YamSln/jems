@@ -28,6 +28,7 @@ export class ActionBoardComponent implements OnInit {
 
   @Output() changeTeamEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() changeRoleEvent: EventEmitter<any> = new EventEmitter<any>();
+  @Output() endTurnEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() setTimeEvent: EventEmitter<number> = new EventEmitter<number>();
   constructor() {}
 
@@ -43,6 +44,10 @@ export class ActionBoardComponent implements OnInit {
 
   setTime(event: any): void {
     this.setTimeEvent.emit(this.timeInputs[event.value]);
+  }
+
+  endTurn(): void {
+    this.endTurnEvent.emit();
   }
 
   getTime(): number {

@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { TimerComponent } from './timer/timer.component';
 import { TimerPipe } from './pipe/timer.pipe';
 import { ActionButtonsComponent } from './action-buttons/action-buttons.component';
+import { ConfettiComponent } from './confetti/confetti.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ActionButtonsComponent } from './action-buttons/action-buttons.componen
     TimerComponent,
     TimerPipe,
     ActionButtonsComponent,
+    ConfettiComponent,
   ],
   imports: [CommonModule, GameRoutingModule, SharedModule, FormsModule],
 })

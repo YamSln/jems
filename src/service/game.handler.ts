@@ -13,6 +13,8 @@ import { CreateGamePayload } from "../model/create-game.payload";
 import { WordClicked } from "../model/word.clicked.payload";
 import { PlayerAction } from "../model/player.action.payload";
 import { GameEvent } from "../event/game.event";
+import log from "../config/log";
+const REQUESTOR = "GAME_HANDLER";
 
 const rooms: Map<string, GameState> = new Map<string, GameState>();
 
@@ -59,6 +61,7 @@ const onCreateGame = (
   };
   gameState.participants.push(newParticipant);
   rooms.set(joinPayload.room, gameState);
+  log.info(REQUESTOR, `Room ${joinPayload.room} created`);
   return gameState;
 };
 
@@ -82,6 +85,7 @@ const onJoinGame = (socketId: string, joinPayload: JoinPayload): JoinEvent => {
 const onNewGame = (room: string): GameState => {
   // Get room
   const state = getGame(room);
+  clearTimer(state);
   // Get new game
   const newGame = service.newGame({
     ...state,
@@ -201,6 +205,18 @@ const onTimerSet = (room: string, timeSpan: number, io: any): number => {
   return timeSpan;
 };
 
+const onEndTurn = (socketId: string, room: string): Team | null => {
+  // Get game state
+  const state = getGame(room);
+  // Get clicking player
+  const player = getPlayer(socketId, state);
+  // Check turn ending permissions
+  if (player.team !== state.currentTeam || player.role === Role.SPY_MASTER) {
+    return null;
+  } // Change turn
+  return changeTurn(state);
+};
+
 const clearTimer = (state: GameState, erase: boolean = false): void => {
   if (state.turnInterval) {
     clearInterval(state.turnInterval);
@@ -226,7 +242,9 @@ const onDisconnectGame = (
       game.participants.splice(index, 1);
       if (game.participants.length === 0) {
         // Remove game upon 0 participants
+        clearTimer(game, true);
         rooms.delete(room);
+        log.info(REQUESTOR, `Room ${room} removed`);
         return null;
       }
       return {
@@ -286,5 +304,6 @@ export default {
   onTeamChange,
   onTimerSet,
   onNewGame,
+  onEndTurn,
   onDisconnectGame,
 };

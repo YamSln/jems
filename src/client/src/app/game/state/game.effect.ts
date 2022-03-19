@@ -4,6 +4,7 @@ import { GameService } from '../../service/game.service';
 import {
   createGame,
   createGameApproved,
+  endTurn,
   joinGame,
   joinGameApproved,
   newGame,
@@ -141,6 +142,17 @@ export class GameEffect {
         ofType(timeChanged),
         tap((action) => {
           this.socket.emit(GameEvent.TIME_SET, action.timeSpan);
+        })
+      ),
+    { dispatch: false }
+  );
+
+  endTurn$ = createEffect(
+    () =>
+      this.action$.pipe(
+        ofType(endTurn),
+        tap(() => {
+          this.socket.emit(GameEvent.END_TURN);
         })
       ),
     { dispatch: false }

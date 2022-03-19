@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Participant } from '../model/participant.model';
 import { Role } from '../model/role.model';
-import { Team } from '../model/team.model';
 import { GameFacade } from './state/game.facade';
 import { GameState } from './state/game.state';
 
@@ -15,6 +14,7 @@ export class GameComponent implements OnInit {
   gameState!: Observable<GameState>;
   user!: Participant;
   role = Role;
+
   constructor(private gameFacade: GameFacade) {}
 
   ngOnInit(): void {
@@ -35,5 +35,9 @@ export class GameComponent implements OnInit {
 
   onTimeSet(timeSpan: number): void {
     this.gameFacade.setTime(timeSpan);
+  }
+
+  onEndTurn(): void {
+    this.gameFacade.endTurn();
   }
 }

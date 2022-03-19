@@ -9,13 +9,7 @@
       [svgIcon]="currentTeam === team.SAPPHIRE ? 'sapphire' : 'ruby'"
     ></mat-icon>
   </div>
-  <button
-    (click)="changePlayerTeam()"
-    [color]="playerTeam === team.SAPPHIRE ? 'warn' : 'primary'"
-    mat-flat-button
-  >
-    Change Team
-  </button>
+  <button (click)="changePlayerTeam()" mat-stroked-button>Change Team</button>
   <div
     fxLayout="row"
     fxLayoutAlign="space-between start"
@@ -23,7 +17,12 @@
   >
     <div class="team" fxLayout="column" fxLayoutAlign="center start">
       <span *ngFor="let participant of participants">
-        <span class="player" *ngIf="participant.team === team.RUBY">
+        <span
+          class="player"
+          *ngIf="participant.team === team.RUBY"
+          [matTooltip]="participant.nick"
+          appTruncatedTooltip
+        >
           <mat-icon
             style="position: absolute; left: 5%"
             color="warn"
@@ -39,7 +38,12 @@
     </div>
     <div class="team" fxLayout="column" fxLayoutAlign="center start">
       <span *ngFor="let participant of participants">
-        <span class="player" *ngIf="participant.team === team.SAPPHIRE">
+        <span
+          class="player"
+          *ngIf="participant.team === team.SAPPHIRE"
+          [matTooltip]="participant.nick"
+          appTruncatedTooltip
+        >
           <mat-icon
             style="position: absolute; left: 48%"
             color="primary"
@@ -78,4 +82,12 @@
       </mat-button-toggle>
     </mat-button-toggle-group>
   </mat-card-actions>
+  <button
+    mat-raised-button
+    [color]="playerTeam === team.SAPPHIRE ? 'primary' : 'warn'"
+    [disabled]="playerRole === role.SPY_MASTER || playerTeam !== currentTeam"
+    (click)="endTurn()"
+  >
+    End Turn
+  </button>
 </mat-card>

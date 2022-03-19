@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  github: '',
   api: 'http://localhost:3000',
 };
 

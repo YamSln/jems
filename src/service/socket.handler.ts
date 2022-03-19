@@ -7,6 +7,9 @@ import { CreateGamePayload } from "../model/create-game.payload";
 import { JoinPayload } from "../model/join.payload";
 import { WordClicked } from "../model/word.clicked.payload";
 import handler from "./game.handler";
+import log from "../config/log";
+
+const REQUESTOR = "SOCKET_HANDLER";
 
 const onConnection = (socket: Socket, io: Server) => {
   console.log(`${socket.id} connected!`);
@@ -84,6 +87,15 @@ const onConnection = (socket: Socket, io: Server) => {
     io.to(room).emit(GameEvent.NEW_GAME, newGame);
   });
 
+  socket.on(GameEvent.END_TURN, () => {
+    // Get socket room
+    const room = getSocketRoom(socket);
+    // Get new game state
+    const next = handler.onEndTurn(socket.id, room);
+    // Emit new game state
+    io.to(room).emit(GameEvent.CHANGE_TURN, next);
+  });
+
   socket.on(GameEvent.DISCONNECT_SELF, () => {
     disconnect(socket);
   });
@@ -115,7 +127,7 @@ const joinGame = (socket: Socket, joinPayload: JoinPayload) => {
       nick: event.joined.nick,
       updatedPlayers: event.state.participants,
     });
-  } catch (err) {
+  } catch (err: any) {
     handler.onDisconnectGame(socket.id, joinPayload.room);
     disconnect(socket, err.message);
   }
@@ -131,14 +143,20 @@ const createGame = (socket: Socket, payload: CreateGamePayload) => {
       game.participants[0]
     );
     socket.join(payload.room);
-  } catch (err) {
+  } catch (err: any) {
     handler.onDisconnectGame(socket.id, payload.room);
     disconnect(socket, err.message);
   }
 };
 
 const disconnect = (socket: Socket, message?: string) => {
-  socket.emit("error", message);
+  if (message) {
+    socket.emit("error", message);
+    log.error(
+      REQUESTOR,
+      `Client id: ${socket.id} - ${socket.handshake.address} disconnected due to and error - ${message}`
+    );
+  }
   socket.disconnect(true);
 };
 

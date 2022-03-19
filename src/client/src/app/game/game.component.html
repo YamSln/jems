@@ -8,6 +8,7 @@
     [turnTime]="game.turnTime"
     (changeTeamEvent)="onTeamChange()"
     (changeRoleEvent)="onRoleChange()"
+    (endTurnEvent)="onEndTurn()"
     (setTimeEvent)="onTimeSet($event)"
   ></app-action-board>
   <div fxLayout="column" fxLayoutGap="1rem">
@@ -27,6 +28,7 @@
       <mat-label class="raw-red">{{ game.redTeamPoints }}</mat-label>
     </div>
     <app-game-board
+      style="z-index: 2"
       [words]="game.words"
       [winningTeam]="game.winningTeam"
       [hideColors]="game.playerRole === role.OPERATIVE"
@@ -34,4 +36,8 @@
     ></app-game-board>
     <app-action-buttons></app-action-buttons>
   </div>
+  <app-confetti
+    style="position: absolute; z-index: 0"
+    [winningTeam]="!!game.winningTeam"
+  ></app-confetti>
 </div>

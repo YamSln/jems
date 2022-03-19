@@ -7,7 +7,19 @@
       (wordClickEvent)="onWordClicked(word.index)"
     ></app-word>
   </div>
-</div>
-<div *ngIf="winningTeam">
-  {{ winningTeam }}
+  <div
+    class="winning-banner"
+    *ngIf="winningTeam"
+    [@jackInTheBoxOnEnter]
+    [@flipOutXOnLeave]
+  >
+    <img
+      class="winning-content"
+      [src]="
+        'assets/' +
+        (winningTeam === team.SAPPHIRE ? 'sapphire_wins.svg' : 'ruby_wins.svg')
+      "
+      alt="wining"
+    />
+  </div>
 </div>

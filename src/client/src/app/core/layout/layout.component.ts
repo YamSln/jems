@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClipboardService } from 'ngx-clipboard';
 import { Observable } from 'rxjs';
 import { GameFacade } from 'src/app/game/state/game.facade';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-layout',
@@ -28,5 +29,9 @@ export class LayoutComponent implements OnInit {
 
   copyUrlToClipboard(url: string): void {
     this.clipboardService.copy(url);
+  }
+
+  openGithub(): void {
+    window.open(environment.github, '_blank');
   }
 }

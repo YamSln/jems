@@ -9,6 +9,7 @@ import jwtManager from "./auth/jwt.manager";
 import { handleErrors } from "./error/error.handler";
 import morgan from "morgan";
 import { serverConfig } from "./config/server-config";
+import path from "path";
 
 export const app = express();
 
@@ -23,6 +24,14 @@ app.use(express.urlencoded({ extended: true }));
 if (process.env.ENV === "dev") {
   // Morgan logging
   app.use(morgan("combined"));
+} else {
+  // Static app root endpoint
+  app.use("/", express.static(__dirname + "/client/dist/jems-web-client"));
+  app.use("*", function (req, res) {
+    res.sendFile(
+      path.join(__dirname, "/client/dist/jems-web-client/index.html")
+    );
+  });
 }
 
 // Http endpoint
