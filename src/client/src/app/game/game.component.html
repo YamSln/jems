@@ -1,5 +1,6 @@
 <div *ngIf="gameState | async as game" class="game">
   <app-action-board
+    id="action-board"
     class="action-board"
     [currentTeam]="game.currentTeam"
     [participants]="game.participants"
@@ -11,7 +12,7 @@
     (endTurnEvent)="onEndTurn()"
     (setTimeEvent)="onTimeSet($event)"
   ></app-action-board>
-  <div fxLayout="column" fxLayoutGap="1rem">
+  <div id="score-board" fxLayout="column" fxLayoutGap="1rem">
     <div
       fxLayout="row"
       fxLayoutAlign="space-between center"
@@ -28,6 +29,7 @@
       <mat-label class="raw-red">{{ game.redTeamPoints }}</mat-label>
     </div>
     <app-game-board
+      id="game-board"
       style="z-index: 2"
       [words]="game.words"
       [winningTeam]="game.winningTeam"

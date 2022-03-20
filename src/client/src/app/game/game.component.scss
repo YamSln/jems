@@ -7,6 +7,29 @@
   height: 90%;
 }
 
-.action-board {
-  float: left;
+@media screen and (max-width: 920px) {
+  .game {
+    flex-direction: column;
+    #action-board {
+      order: 3;
+    }
+    #action-board {
+      order: 1;
+    }
+    #action-board {
+      order: 2;
+    }
+  }
+}
+
+@media screen and (max-width: 920px) {
+  #action-board {
+    margin-right: 6px;
+  }
+}
+
+@media screen and (min-width: 920px) {
+  .action-board {
+    float: left;
+  }
 }

@@ -4,17 +4,42 @@
 @include mat-core();
 
 .word-container {
-  height: 90px;
-  width: 90px;
-  margin: 10px;
+  height: 50px;
+  width: 50px;
   border-radius: 10%;
-  font-size: 1.2em;
+  font-size: 0.8rem;
   text-align: center;
   padding: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+
+.regular-word {
+  font-size: 0.8rem;
+}
+
+.long-word {
+  font-size: 0.6rem;
+}
+
+@media screen and (min-width: 920px) {
+  .word-container {
+    height: 90px;
+    width: 90px;
+    margin: 10px;
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .word-container {
+    height: 110px;
+    width: 110px;
+    margin: 10px;
+    font-size: 1.4rem;
+  }
 }
 
 .blue-word {

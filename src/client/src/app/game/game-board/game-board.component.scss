@@ -1,8 +1,22 @@
 .game-board {
   display: inline-grid;
-  grid-template-rows: repeat(5, 135px);
-  grid-template-columns: repeat(5, 135px);
+  grid-template-rows: repeat(5, 90px);
+  grid-template-columns: repeat(5, 90px);
   grid-gap: 3px;
+}
+
+@media screen and (min-width: 920px) {
+  .game-board {
+    grid-template-rows: repeat(5, 135px);
+    grid-template-columns: repeat(5, 135px);
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .game-board {
+    grid-template-rows: repeat(5, 155px);
+    grid-template-columns: repeat(5, 155px);
+  }
 }
 
 .word {
