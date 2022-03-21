@@ -38,6 +38,7 @@ describe("Game Handler Unit Tests", () => {
         participants: [],
         maxPlayers: 4,
         password: "password",
+        currentTime: 0,
         turnTime: 0,
         words: [],
       };
@@ -76,6 +77,7 @@ describe("Game Handler Unit Tests", () => {
         participants: [],
         maxPlayers: 4,
         password: "password",
+        currentTime: 0,
         turnTime: 0,
         words: [],
       };
@@ -107,6 +109,7 @@ describe("Game Handler Unit Tests", () => {
         participants: [],
         maxPlayers: 4,
         password: "password",
+        currentTime: 0,
         turnTime: 0,
         words: [],
       };
@@ -142,6 +145,7 @@ describe("Game Handler Unit Tests", () => {
         participants,
         maxPlayers: 4,
         password: "password",
+        currentTime: 0,
         turnTime: 0,
         words: [],
       };
@@ -168,6 +172,7 @@ describe("Game Handler Unit Tests", () => {
         participants: [],
         maxPlayers: 4,
         password: "password",
+        currentTime: 0,
         turnTime: 0,
         words: [],
       };

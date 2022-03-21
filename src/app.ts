@@ -20,22 +20,25 @@ app.options("*", (request, response, next) => response.end());
 // Body and url parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// Http endpoint
+app.use("/", gameRoutes);
 
 if (process.env.ENV === "dev") {
   // Morgan logging
   app.use(morgan("combined"));
-} else {
-  // Static app root endpoint
   app.use("/", express.static(__dirname + "/client/dist/jems-web-client"));
   app.use("*", function (req, res) {
     res.sendFile(
       path.join(__dirname, "/client/dist/jems-web-client/index.html")
     );
   });
+} else {
+  // Static app root endpoint
+  app.use("/", express.static(__dirname + "/client"));
+  app.use("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "/client/index.html"));
+  });
 }
-
-// Http endpoint
-app.use("/", gameRoutes);
 
 // Error handling
 app.use(

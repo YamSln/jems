@@ -13,9 +13,10 @@
     ]
   },
   "scripts": {
-    "start": "ts-node src/index.ts",
     "dev": "nodemon src/index.ts",
-    "build": "tsc src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsc -p .",
+    "postinstall": "ng-buil --prod src/client",
     "test": "jest --testPathIgnorePatterns=src/client dist"
   },
   "author": "Jam",
@@ -32,7 +33,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.10",
     "@types/express": "^4.17.11",
-    "@types/jest": "^26.0.23",
+    "@types/jest": "^26.0.24",
     "@types/jsonwebtoken": "^8.5.1",
     "@types/morgan": "^1.9.2",
     "@types/node": "^15.0.2",

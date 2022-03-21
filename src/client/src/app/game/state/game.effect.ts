@@ -14,7 +14,14 @@ import {
   timeChanged,
   wordClicked,
 } from './game.action';
-import { catchError, exhaustMap, finalize, map, tap } from 'rxjs/operators';
+import {
+  catchError,
+  exhaustMap,
+  finalize,
+  map,
+  tap,
+  throttleTime,
+} from 'rxjs/operators';
 import { SharedFacade } from 'src/app/shared/state/shared.facade';
 import { GameFacade } from './game.facade';
 import { environment } from 'src/environments/environment';
@@ -96,6 +103,7 @@ export class GameEffect {
     () =>
       this.action$.pipe(
         ofType(newGame),
+        throttleTime(1500),
         tap(() => {
           this.socket.emit(GameEvent.NEW_GAME);
         })
@@ -107,6 +115,7 @@ export class GameEffect {
     () =>
       this.action$.pipe(
         ofType(wordClicked),
+        throttleTime(500),
         tap((action) => {
           this.socket.emit(GameEvent.WORD_CLICK, action.index);
         })
@@ -129,6 +138,7 @@ export class GameEffect {
     () =>
       this.action$.pipe(
         ofType(teamChanged),
+        throttleTime(1000),
         tap(() => {
           this.socket.emit(GameEvent.TEAM_CHANGE, this.socket.id);
         })
@@ -162,6 +172,7 @@ export class GameEffect {
     () =>
       this.action$.pipe(
         ofType(quitGame),
+        throttleTime(1000),
         tap(() => {
           this.socket.emit(GameEvent.DISCONNECT_SELF);
         })

@@ -8,7 +8,7 @@ import {
   PASSWORD_MAX_LENGTH,
   PASSWORD_MIN_LENGTH,
   PASSWORD_REQUIRED,
-} from "../validation/game.validation";
+} from "../validation/validation.messages";
 import { INCORRECT_PASSWORD, NOT_FOUND } from "../error/error.util";
 import { HttpStatusCode } from "../util/http-status-code";
 import handler from "../service/game.handler";

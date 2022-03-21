@@ -4,3 +4,138 @@
 [2022-03-21T11:44:05.496Z] [INFO] [LOGGER] - Initializing Log
 [2022-03-21T11:44:05.498Z] [INFO] [SERVER] - Server is Starting
 [2022-03-21T11:44:05.763Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T14:03:11.417Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T14:03:11.418Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T14:03:11.676Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T14:04:03.590Z] [DEBUG] [SOCKET_HANDLER] - lZuw9eFNPIIeqQt_AAAB connected!
+[2022-03-21T14:04:03.591Z] [INFO] [GAME_HANDLER] - Room d3af5e6f-1279-46e5-bdee-6be1025c9f67 created
+[2022-03-21T14:04:25.573Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T14:04:25.574Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T14:04:25.819Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T14:04:26.962Z] [DEBUG] [SOCKET_HANDLER] - SqAnoZnznAzTRZVPAAAB connected!
+[2022-03-21T14:04:26.963Z] [INFO] [GAME_HANDLER] - Room 90e408a7-6364-46d2-8e93-3720947b862a created
+[2022-03-21T14:06:08.387Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T14:06:08.388Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T14:06:08.626Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T14:06:10.389Z] [DEBUG] [SOCKET_HANDLER] - vG5apUoa0-miZCA4AAAB connected!
+[2022-03-21T14:06:10.390Z] [INFO] [GAME_HANDLER] - Room 7f6d6a5b-dc2e-42ef-beda-97a894714298 created
+[2022-03-21T14:07:17.702Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T14:07:17.703Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T14:07:17.944Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T14:07:20.909Z] [DEBUG] [SOCKET_HANDLER] - KeFHti8BhEJprv53AAAB connected!
+[2022-03-21T14:07:20.910Z] [INFO] [GAME_HANDLER] - Room 3027b973-03bf-4d5b-849b-5a83a01ea28a created
+[2022-03-21T14:07:59.064Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T14:07:59.065Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T14:07:59.304Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T14:10:23.943Z] [DEBUG] [SOCKET_HANDLER] - doGloRH1WUnLVHyFAAAB connected!
+[2022-03-21T14:10:23.945Z] [INFO] [GAME_HANDLER] - Room 1ece43c1-111e-4a6f-8c9c-cc411dfa2da1 created
+[2022-03-21T14:11:53.056Z] [INFO] [GAME_HANDLER] - Room 1ece43c1-111e-4a6f-8c9c-cc411dfa2da1 removed
+[2022-03-21T14:11:55.970Z] [DEBUG] [SOCKET_HANDLER] - nzHIj1XUbJxAcS4gAAAD connected!
+[2022-03-21T14:11:55.970Z] [INFO] [GAME_HANDLER] - Room 360ccef5-ef4a-4c3e-8e22-0184ee0ef3fa created
+[2022-03-21T14:13:12.670Z] [INFO] [GAME_HANDLER] - Room 360ccef5-ef4a-4c3e-8e22-0184ee0ef3fa removed
+[2022-03-21T17:21:43.666Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T17:21:43.667Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T17:21:43.920Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T17:22:20.691Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T17:22:20.692Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T17:22:20.933Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T17:56:58.025Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T17:56:58.027Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T17:56:58.334Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T18:43:22.348Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T18:43:22.350Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T18:43:22.525Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T18:43:42.107Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T18:43:42.109Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T18:43:42.245Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T18:58:16.888Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T18:58:16.890Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T18:58:17.024Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T19:00:39.697Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T19:00:39.699Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T19:00:39.832Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T19:00:42.499Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
+[2022-03-21T19:00:42.564Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
+[2022-03-21T19:08:56.632Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
+[2022-03-21T19:08:56.730Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
+[2022-03-21T19:08:57.659Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
+[2022-03-21T19:08:57.713Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
+[2022-03-21T19:09:42.194Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T19:09:42.195Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T19:09:42.329Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T19:09:45.543Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
+[2022-03-21T19:09:46.227Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
+[2022-03-21T19:09:46.283Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
+[2022-03-21T19:10:04.579Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T19:10:04.581Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T19:10:04.717Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T19:10:05.871Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
+[2022-03-21T19:10:05.973Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
+[2022-03-21T19:10:17.574Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
+[2022-03-21T19:10:17.671Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
+[2022-03-21T19:10:50.484Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T19:10:50.485Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T19:10:50.629Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T19:10:51.609Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
+[2022-03-21T19:10:51.713Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
+[2022-03-21T19:11:44.074Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T19:11:44.075Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T19:11:44.214Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T19:11:44.957Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
+[2022-03-21T19:11:45.061Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
+[2022-03-21T19:11:51.127Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
+[2022-03-21T19:11:51.189Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
+[2022-03-21T19:12:13.188Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T19:12:13.190Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T19:12:13.336Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T19:20:35.129Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T19:20:35.130Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T19:20:35.264Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T19:20:48.765Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T19:20:48.766Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T19:20:48.912Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T19:23:08.624Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T19:23:08.626Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T19:23:08.774Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T19:34:51.177Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T19:34:51.178Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T19:34:51.417Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T19:34:57.153Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /styles.css : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\src\client\index.html'
+[2022-03-21T19:34:57.214Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /runtime.js : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\src\client\index.html'
+[2022-03-21T19:34:57.215Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /polyfills.js : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\src\client\index.html'
+[2022-03-21T19:34:57.217Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /vendor.js : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\src\client\index.html'
+[2022-03-21T19:34:57.218Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /main.js : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\src\client\index.html'
+[2022-03-21T19:36:04.762Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T19:36:04.763Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T19:36:05.013Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T19:36:06.154Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\src\client\index.html'
+[2022-03-21T19:36:06.231Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\src\client\index.html'
+[2022-03-21T19:36:41.232Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T19:36:41.233Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T19:36:41.475Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T19:36:41.732Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\src\client\index.html'
+[2022-03-21T19:36:41.832Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\src\client\index.html'
+[2022-03-21T19:36:59.689Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T19:36:59.691Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T19:36:59.960Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T19:37:08.628Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T19:37:08.630Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T19:37:08.867Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T19:37:54.065Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T19:37:54.067Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T19:37:54.301Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T19:37:58.582Z] [DEBUG] [SOCKET_HANDLER] - oRLWjVnHQdMmHzbOAAAB connected!
+[2022-03-21T19:37:58.583Z] [INFO] [GAME_HANDLER] - Room d8a709e6-9c26-479c-86f8-e4f721978e97 created
+[2022-03-21T19:38:14.456Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T19:38:14.458Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T19:38:14.700Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T19:38:14.750Z] [DEBUG] [SOCKET_HANDLER] - Dhq5CxXNK13uf0qEAAAB connected!
+[2022-03-21T19:38:14.751Z] [INFO] [GAME_HANDLER] - Room d8a709e6-9c26-479c-86f8-e4f721978e97 created
+[2022-03-21T19:38:19.247Z] [INFO] [GAME_HANDLER] - Room d8a709e6-9c26-479c-86f8-e4f721978e97 removed
+[2022-03-21T19:38:46.162Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-21T19:38:46.164Z] [INFO] [SERVER] - Server is Starting
+[2022-03-21T19:38:46.308Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-21T19:39:19.942Z] [DEBUG] [SOCKET_HANDLER] - kjylMb66qyOVhBdvAAAB connected!
+[2022-03-21T19:39:19.943Z] [INFO] [GAME_HANDLER] - Room 3c5740b8-9444-499a-b8f6-093dc4cffcdb created
+[2022-03-21T19:44:00.308Z] [DEBUG] [SOCKET_HANDLER] - 2MS-NQUMbjZaJ0auAAAD connected!
+[2022-03-21T19:45:07.455Z] [INFO] [GAME_HANDLER] - Room 3c5740b8-9444-499a-b8f6-093dc4cffcdb removed
