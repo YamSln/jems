@@ -1,4 +1,4 @@
-import { Response } from "express";
+import { Request, Response } from "express";
 import { HttpStatusCode } from "../util/http-status-code";
 import { ClientError } from "./client.error";
 import { ClientValidationError } from "./client.validation-error";
@@ -9,11 +9,17 @@ import {
   UNAUTHORIZED,
 } from "./error.util";
 import { CustomValidationError } from "./validation.error";
+import log from "../config/log";
 
+const REQUESTOR = "ERROR_HANDLER";
 const ERROR_MESSAGE = "Errors during parameters validation";
 
 // Handles errors from api endpoints, sending matching error response
-export const handleErrors = (err: Error, response: Response) => {
+export const handleErrors = (
+  request: Request,
+  err: Error,
+  response: Response
+) => {
   if (err instanceof CustomValidationError) {
     return response // Validation errors
       .status(HttpStatusCode.BAD_REQUEST)
@@ -43,6 +49,7 @@ export const handleErrors = (err: Error, response: Response) => {
         .status(HttpStatusCode.BAD_REQUEST)
         .send(new ClientError(err.message, HttpStatusCode.BAD_REQUEST));
     default:
+      log.error(REQUESTOR, "Unhandled Error at - " + request.url, err);
       return response // Default server error
         .status(HttpStatusCode.ERROR)
         .send(new ClientError(err.message, HttpStatusCode.ERROR));

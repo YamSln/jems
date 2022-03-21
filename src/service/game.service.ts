@@ -90,11 +90,11 @@ const getRandomWords = (wordsCount: number = WORDS_COUNT): string[] => {
   const indexes: number[] = []; // Random indexes array
   // Iterate given number of times
   while (words.length < wordsCount) {
-    // Get gandom number
+    // Get random number
     const random = getRandomNumber(wordsBase.data.length);
     // If it does not taken, add new word in its index
     if (indexes.indexOf(random) === -1) {
-      words.push(wordsBase.data[random]);
+      words.push(wordsBase.data[random - 1]);
       indexes.push(random);
     }
   } // Return words array

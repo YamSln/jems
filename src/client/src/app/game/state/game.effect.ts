@@ -256,22 +256,26 @@ export class GameEffect {
     socket.on(GameEvent.PLAYER_DISCONNECTED, (playerAction: PlayerAction) => {
       this.gameFacade.playerDisconnected(playerAction);
     });
-    socket.on(GameEvent.ERROR, (err) => {
-      this.gameFacade.navigateToMain();
-    });
-    socket.on('connect_error', (err) => {
-      this.gameFacade.navigateToMain();
-    });
     socket.io.on('reconnect_attempt', (err) => {
       this.sharedFacade.displayLoading();
     });
+    socket.on(GameEvent.ERROR, (err) => {
+      this.errorDisconnection(socket);
+    });
+    socket.on('connect_error', (err) => {
+      this.errorDisconnection(socket);
+    });
     socket.io.on('reconnect_error', () => {
-      this.gameFacade.navigateToMain();
-      this.sharedFacade.hideLoading();
-      this.sharedFacade.displayError('Lost connection to server');
-      socket.disconnect();
+      this.errorDisconnection(socket);
     });
     this.socket = socket;
+  }
+
+  private errorDisconnection(socket: Socket) {
+    this.gameFacade.navigateToMain();
+    this.sharedFacade.hideLoading();
+    this.sharedFacade.displayError('Lost connection to server');
+    socket.disconnect();
   }
 
   private handleError(err: any): Observable<any> {

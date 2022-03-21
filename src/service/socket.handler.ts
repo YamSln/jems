@@ -12,7 +12,7 @@ import log from "../config/log";
 const REQUESTOR = "SOCKET_HANDLER";
 
 const onConnection = (socket: Socket, io: Server) => {
-  console.log(`${socket.id} connected!`);
+  log.debug(REQUESTOR, `${socket.id} connected!`);
   // On socket connection
   const auth: CreateGamePayload = socket.handshake.auth as CreateGamePayload;
   const joinType = socket.handshake.query.join;
@@ -37,17 +37,13 @@ const onConnection = (socket: Socket, io: Server) => {
     // Get socket room
     const room = getSocketRoom(socket);
     // Handle word click event
-    try {
-      const wordClicked: WordClicked | null = handler.onWordClick(
-        wordIndex,
-        socket.id,
-        room
-      ); // Emit received event
-      if (wordClicked) {
-        io.to(room).emit(GameEvent.WORD_CLICK, wordClicked);
-      }
-    } catch (err) {
-      socket.emit("err", err);
+    const wordClicked: WordClicked | null = handler.onWordClick(
+      wordIndex,
+      socket.id,
+      room
+    ); // Emit received event
+    if (wordClicked) {
+      io.to(room).emit(GameEvent.WORD_CLICK, wordClicked);
     }
   });
 

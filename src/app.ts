@@ -40,7 +40,7 @@ app.use("/", gameRoutes);
 // Error handling
 app.use(
   (err: Error, request: Request, response: Response, next: NextFunction) => {
-    handleErrors(err, response);
+    handleErrors(request, err, response);
   }
 );
 

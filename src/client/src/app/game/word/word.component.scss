@@ -7,7 +7,6 @@
   height: 50px;
   width: 50px;
   border-radius: 10%;
-  font-size: 0.8rem;
   text-align: center;
   padding: auto;
   display: flex;
@@ -17,11 +16,11 @@
 }
 
 .regular-word {
-  font-size: 0.8rem;
+  font-size: 1em;
 }
 
-.long-word {
-  font-size: 0.6rem;
+.large-word {
+  font-size: 0.8em;
 }
 
 @media screen and (min-width: 920px) {
@@ -29,7 +28,13 @@
     height: 90px;
     width: 90px;
     margin: 10px;
-    font-size: 1.2rem;
+  }
+  .regular-word {
+    font-size: 1.4em;
+  }
+
+  .large-word {
+    font-size: 1.2em;
   }
 }
 
@@ -38,7 +43,13 @@
     height: 110px;
     width: 110px;
     margin: 10px;
-    font-size: 1.4rem;
+  }
+  .regular-word {
+    font-size: 1.6em;
+  }
+
+  .large-word {
+    font-size: 1.4em;
   }
 }
 
