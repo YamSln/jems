@@ -16,7 +16,6 @@
     "dev": "nodemon src/index.ts",
     "start": "node dist/index.js",
     "build": "tsc -p .",
-    "postinstall": "ng-buil --prod src/client",
     "test": "jest --testPathIgnorePatterns=src/client dist"
   },
   "author": "Jam",
