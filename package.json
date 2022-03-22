@@ -15,6 +15,7 @@
   "scripts": {
     "dev": "nodemon src/index.ts",
     "start": "node dist/index.js",
+    "preinstall": "npm i -g @angular/cli",
     "build": "tsc",
     "postbuild": "cd src/client && npm install",
     "test": "jest --testPathIgnorePatterns=src/client dist"
