@@ -1,17 +1,16 @@
-import dotenv from "dotenv";
+import { configEnv, devEnv } from "./env";
 
-dotenv.config();
+configEnv();
 
 const SERVER_HOST = process.env.SERVER_HOST || "localhost";
 const SERVER_PORT = process.env.SERVER_PORT || 3000;
-const IS_DEV = process.env.ENV == "dev";
 const ALLOWED_ORIGIN = "*";
 
 const SERVER = {
   hostName: SERVER_HOST,
   port: SERVER_PORT,
-  allowedOrigin: IS_DEV ? ALLOWED_ORIGIN : undefined,
-  corsOptions: IS_DEV
+  allowedOrigin: devEnv() ? ALLOWED_ORIGIN : undefined,
+  corsOptions: devEnv()
     ? {
         allowedHeaders: [
           "Origin",
@@ -27,7 +26,7 @@ const SERVER = {
   ioOptions: {
     pingInterval: 2000,
     pingTimeout: 5000,
-    cors: IS_DEV ? { origin: ALLOWED_ORIGIN } : undefined,
+    cors: devEnv() ? { origin: ALLOWED_ORIGIN } : undefined,
   },
 };
 
