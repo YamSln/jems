@@ -16,7 +16,7 @@
     "dev": "nodemon src/index.ts",
     "start": "node dist/index.js",
     "build": "npx tsc",
-    "postbuild": "cd src/client",
+    "heroku-postbuild": "cd src/client && ng build --prod",
     "test": "jest --testPathIgnorePatterns=src/client dist"
   },
   "author": "Jam",
