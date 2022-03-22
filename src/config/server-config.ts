@@ -1,6 +1,4 @@
-import { configEnv, devEnv } from "./env";
-
-configEnv();
+import { devEnv } from "./env";
 
 const SERVER_HOST = process.env.SERVER_HOST || "localhost";
 const SERVER_PORT = process.env.SERVER_PORT || 3000;
