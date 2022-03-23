@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class LayoutComponent implements OnInit {
   isLightTheme: boolean = false;
-
+  version: string = environment.version;
   roomUrl!: Observable<string>;
 
   constructor(

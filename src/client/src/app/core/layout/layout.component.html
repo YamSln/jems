@@ -1,15 +1,11 @@
 <div
-  class="mat-app-background"
+  class="mat-app-background layout"
   style="min-height: 100%"
   [ngClass]="{ 'theme-dark': !isLightTheme }"
   fxLayout="column"
   fxLayoutAlign="center none"
 >
-  <mat-toolbar
-    style="position: fixed; top: 0; z-index: 7"
-    fxLayout="row"
-    fxLayoutAlign="end center"
-  >
+  <mat-toolbar fxLayout="row" fxLayoutAlign="end center">
     <button
       *ngIf="roomUrl | async as url"
       mat-icon-button
@@ -30,5 +26,6 @@
       <app-theme-toggle (themeToggle)="themeToggleChanged()"></app-theme-toggle>
     </div>
   </mat-toolbar>
-  <div style="margin-top: 70px"><router-outlet></router-outlet></div>
+  <router-outlet style="margin-top: auto"></router-outlet>
+  <div class="footer">jems {{ version }}</div>
 </div>
