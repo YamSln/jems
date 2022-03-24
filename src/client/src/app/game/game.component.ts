@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  bounceInOnEnterAnimation,
+  bounceOutOnLeaveAnimation,
+  rubberBandAnimation,
+} from 'angular-animations';
 import { Observable } from 'rxjs';
 import { Participant } from '../model/participant.model';
 import { Role } from '../model/role.model';
@@ -9,6 +14,11 @@ import { GameState } from './state/game.state';
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss'],
+  animations: [
+    bounceInOnEnterAnimation(),
+    bounceOutOnLeaveAnimation(),
+    rubberBandAnimation(),
+  ],
 })
 export class GameComponent implements OnInit {
   gameState!: Observable<GameState>;

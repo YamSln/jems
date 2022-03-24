@@ -1,5 +1,5 @@
 <div class="game-board">
-  <div *ngFor="let word of words">
+  <div *ngFor="let word of words" [@flipInYOnEnter]>
     <app-word
       class="word"
       [word]="word"

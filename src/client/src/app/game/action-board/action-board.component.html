@@ -7,6 +7,10 @@
     <mat-icon
       style="margin-bottom: 10px"
       [svgIcon]="currentTeam === team.SAPPHIRE ? 'sapphire' : 'ruby'"
+      [@flip]="{
+        value: currentTeam === team.SAPPHIRE,
+        params: { duration: 500 }
+      }"
     ></mat-icon>
   </div>
   <button (click)="changePlayerTeam()" mat-stroked-button>Change Team</button>

@@ -18,10 +18,16 @@
       fxLayoutAlign="space-between center"
       style="font-size: 2rem; padding: 1rem"
     >
-      <mat-label class="raw-blue" id="blue-points">{{
-        game.blueTeamPoints
-      }}</mat-label>
+      <mat-label
+        [@rubberBand]="game.blueTeamPoints"
+        class="raw-blue"
+        id="blue-points"
+        >{{ game.blueTeamPoints }}</mat-label
+      >
       <app-timer
+        *ngIf="game.turnTime"
+        [@bounceInOnEnter]
+        [@bounceOutOnLeave]
         [currentTeam]="game.currentTeam"
         [display]="!!game.turnTime"
         [time]="game.currentTime"

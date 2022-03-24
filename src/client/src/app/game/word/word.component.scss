@@ -53,15 +53,6 @@
   }
 }
 
-@keyframes blueFadeIn {
-  from {
-    opacity: 0.8;
-  }
-  to {
-    background-color: mat-color($jems-web-client-primary);
-  }
-}
-
 .blue-word {
   background-color: mat-color(
     $jems-web-client-primary,
@@ -70,9 +61,17 @@
   );
 }
 
+@keyframes blue-fade-in {
+  from {
+  }
+  to {
+    background-color: mat-color($jems-web-client-primary);
+  }
+}
+
 .blue-word-selected {
+  transition: all 0.3s ease-out;
   background-color: mat-color($jems-web-client-primary);
-  animation: blueFadeIn 0.3s;
 }
 
 .red-word {
@@ -95,7 +94,7 @@ $bomb-color: mat-palette($mat-gray);
 
 .red-word-selected {
   background-color: mat-color($jems-web-client-warn);
-  animation: redFadeIn 0.3s;
+  transition: background-color 0.3s ease-out;
 }
 
 .bomb-word-selected {
@@ -107,5 +106,5 @@ $word-selected: mat-palette($mat-gray, 400);
 
 .neutral-selected {
   background-color: mat-color($word-selected);
-  transition: all 0.5s 0s ease-in !important;
+  transition: background-color 0.5s ease-out !important;
 }

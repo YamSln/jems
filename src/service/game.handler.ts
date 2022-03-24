@@ -121,18 +121,14 @@ const onWordClick = (
   // Return word event according to word type and word - player relation
   switch (word.type) {
     case WordType.BLUE:
-      if (player.team === Team.SAPPHIRE) {
-        state.blueTeamPoints -= 1;
-      } else {
-        state.redTeamPoints -= 1;
+      state.blueTeamPoints -= 1;
+      if (player.team !== Team.SAPPHIRE) {
         changeTurn(state);
       }
       break;
     case WordType.RED:
-      if (player.team === Team.RUBY) {
-        state.redTeamPoints -= 1;
-      } else {
-        state.blueTeamPoints -= 1;
+      state.redTeamPoints -= 1;
+      if (player.team !== Team.RUBY) {
         changeTurn(state);
       }
       break;

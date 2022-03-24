@@ -49,30 +49,20 @@ const _gameReducer = createReducer(
     const clickedWord: Word = state.words[action.wordIndex];
     switch (clickedWord.type) {
       case WordType.BLUE:
-        if (state.currentTeam === Team.SAPPHIRE) {
-          state = {
-            ...state,
-            blueTeamPoints: state.blueTeamPoints - 1,
-          };
-        } else {
-          state = {
-            ...state,
-            redTeamPoints: state.redTeamPoints - 1,
-          };
+        state = {
+          ...state,
+          blueTeamPoints: state.blueTeamPoints - 1,
+        };
+        if (state.currentTeam !== Team.SAPPHIRE) {
           state = changeTurn(state);
         }
         break;
       case WordType.RED:
-        if (state.currentTeam === Team.RUBY) {
-          state = {
-            ...state,
-            redTeamPoints: state.redTeamPoints - 1,
-          };
-        } else {
-          state = {
-            ...state,
-            blueTeamPoints: state.blueTeamPoints - 1,
-          };
+        state = {
+          ...state,
+          redTeamPoints: state.redTeamPoints - 1,
+        };
+        if (state.currentTeam !== Team.RUBY) {
           state = changeTurn(state);
         }
         break;

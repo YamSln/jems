@@ -1,4 +1,3 @@
-import { animate, transition, trigger } from '@angular/animations';
 import {
   Component,
   OnInit,

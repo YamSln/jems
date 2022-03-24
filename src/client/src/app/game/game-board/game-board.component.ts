@@ -6,11 +6,13 @@ import {
   EventEmitter,
   Output,
   AfterViewInit,
-  ViewChildren,
 } from '@angular/core';
 import { Team } from 'src/app/model/team.model';
 import { Word } from 'src/app/model/word.model';
 import {
+  bounceInAnimation,
+  flipInYAnimation,
+  flipInYOnEnterAnimation,
   flipOutXOnLeaveAnimation,
   jackInTheBoxOnEnterAnimation,
 } from 'angular-animations';
@@ -19,7 +21,11 @@ import {
   selector: 'app-game-board',
   templateUrl: './game-board.component.html',
   styleUrls: ['./game-board.component.scss'],
-  animations: [jackInTheBoxOnEnterAnimation(), flipOutXOnLeaveAnimation()],
+  animations: [
+    jackInTheBoxOnEnterAnimation(),
+    flipOutXOnLeaveAnimation(),
+    flipInYOnEnterAnimation(),
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GameBoardComponent implements OnInit, AfterViewInit {

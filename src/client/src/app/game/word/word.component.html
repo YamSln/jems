@@ -1,4 +1,5 @@
 <mat-card
+  [style]="'transition: background-color 0.3s ease-out'"
   class="word-container mat-elevation-z1"
   [ngClass]="{
     'red-word': word.type === wordType.RED && !word.selected && !hideColor,

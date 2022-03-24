@@ -1,11 +1,9 @@
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
-  AfterViewChecked,
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-} from '@angular/core';
+  flipAnimation,
+  flipInYOnEnterAnimation,
+  flipOutYOnLeaveAnimation,
+} from 'angular-animations';
 import { Participant } from 'src/app/model/participant.model';
 import { Role } from 'src/app/model/role.model';
 import { Team } from 'src/app/model/team.model';
@@ -14,6 +12,11 @@ import { Team } from 'src/app/model/team.model';
   selector: 'app-action-board',
   templateUrl: './action-board.component.html',
   styleUrls: ['./action-board.component.scss'],
+  animations: [
+    flipAnimation(),
+    flipInYOnEnterAnimation(),
+    flipOutYOnLeaveAnimation(),
+  ],
 })
 export class ActionBoardComponent implements OnInit {
   team = Team;
