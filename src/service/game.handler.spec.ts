@@ -30,7 +30,7 @@ describe("Game Handler Unit Tests", () => {
       expect(uuid(decoded.room)).toBeTruthy();
     });
 
-    it("should create new game state and insert creator as paritcipant", () => {
+    it("should create new game state and insert creator as participant", () => {
       const gameState: GameState = {
         blueTeamPoints: 9,
         redTeamPoints: 8,

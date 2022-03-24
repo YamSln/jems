@@ -6,14 +6,14 @@ import { FORBIDDEN } from "../error/error.util";
 import { JoinPayload } from "../model/join.payload";
 import { ExtendedError } from "socket.io/dist/namespace";
 import { CreateGamePayload } from "../client/src/app/model/create-game.payload";
-import { devEnv } from "../config/env";
+import env from "../config/env";
 
 export const TOKEN_PREFIX = "Bearer";
 
-const privateKey = devEnv()
+const privateKey = env.devEnv()
   ? fs.readFileSync("private.key", "utf8")
   : process.env.PRIVATE_KEY;
-const publicKey = devEnv()
+const publicKey = env.devEnv()
   ? fs.readFileSync("public.key", "utf8")
   : process.env.PUBLIC_KEY;
 

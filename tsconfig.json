@@ -72,5 +72,5 @@
     "suppressImplicitAnyIndexErrors": true,
 
   },
-  "exclude": ["node_modules", "./src/client"]
+  "exclude": ["node_modules", "./src/client", "**/*.spec.ts"]
 }

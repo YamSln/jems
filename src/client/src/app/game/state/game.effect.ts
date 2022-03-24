@@ -35,6 +35,7 @@ import { Observable, of } from 'rxjs';
 import { displayErrorMessage } from 'src/app/shared/state/shared.action';
 import {
   INCORRECT_PASSWORD,
+  NICK_TAKEN,
   NOT_FOUND,
   ROOM_FULL,
 } from '../../../../../error/error.util';
@@ -300,6 +301,9 @@ export class GameEffect {
         break;
       case ROOM_FULL:
         message = 'Game is Full';
+        break;
+      case NICK_TAKEN:
+        message = 'Nick is already taken';
         break;
       case MAX_PLAYERS_MAX:
         message = MAX_PLAYERS_MAX;

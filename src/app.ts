@@ -10,7 +10,7 @@ import { handleErrors } from "./error/error.handler";
 import morgan from "morgan";
 import { serverConfig } from "./config/server-config";
 import path from "path";
-import { devEnv } from "./config/env";
+import env from "./config/env";
 
 export const app = express();
 
@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 // Http endpoint
 app.use("/", gameRoutes);
 
-if (devEnv()) {
+if (env.devEnv()) {
   // Morgan logging
   app.use(morgan("combined"));
   app.use("/", express.static(__dirname + "/client/dist/jems-web-client"));

@@ -1,4 +1,4 @@
-import { devEnv } from "./env";
+import env from "./env";
 
 const SERVER_HOST = process.env.HOST || "localhost";
 const SERVER_PORT = process.env.PORT || 3000;
@@ -7,8 +7,8 @@ const ALLOWED_ORIGIN = "*";
 const SERVER = {
   hostName: SERVER_HOST,
   port: SERVER_PORT,
-  allowedOrigin: devEnv() ? ALLOWED_ORIGIN : undefined,
-  corsOptions: devEnv()
+  allowedOrigin: env.devEnv() ? ALLOWED_ORIGIN : undefined,
+  corsOptions: env.devEnv()
     ? {
         allowedHeaders: [
           "Origin",
@@ -24,7 +24,7 @@ const SERVER = {
   ioOptions: {
     pingInterval: 2000,
     pingTimeout: 5000,
-    cors: devEnv() ? { origin: ALLOWED_ORIGIN } : undefined,
+    cors: env.devEnv() ? { origin: ALLOWED_ORIGIN } : undefined,
   },
 };
 

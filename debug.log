@@ -1,923 +1,228 @@
-[2022-03-21T11:43:30.089Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T11:43:30.090Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T11:43:30.330Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T11:44:05.496Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T11:44:05.498Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T11:44:05.763Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T14:03:11.417Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T14:03:11.418Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T14:03:11.676Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T14:04:03.590Z] [DEBUG] [SOCKET_HANDLER] - lZuw9eFNPIIeqQt_AAAB connected!
-[2022-03-21T14:04:03.591Z] [INFO] [GAME_HANDLER] - Room d3af5e6f-1279-46e5-bdee-6be1025c9f67 created
-[2022-03-21T14:04:25.573Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T14:04:25.574Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T14:04:25.819Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T14:04:26.962Z] [DEBUG] [SOCKET_HANDLER] - SqAnoZnznAzTRZVPAAAB connected!
-[2022-03-21T14:04:26.963Z] [INFO] [GAME_HANDLER] - Room 90e408a7-6364-46d2-8e93-3720947b862a created
-[2022-03-21T14:06:08.387Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T14:06:08.388Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T14:06:08.626Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T14:06:10.389Z] [DEBUG] [SOCKET_HANDLER] - vG5apUoa0-miZCA4AAAB connected!
-[2022-03-21T14:06:10.390Z] [INFO] [GAME_HANDLER] - Room 7f6d6a5b-dc2e-42ef-beda-97a894714298 created
-[2022-03-21T14:07:17.702Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T14:07:17.703Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T14:07:17.944Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T14:07:20.909Z] [DEBUG] [SOCKET_HANDLER] - KeFHti8BhEJprv53AAAB connected!
-[2022-03-21T14:07:20.910Z] [INFO] [GAME_HANDLER] - Room 3027b973-03bf-4d5b-849b-5a83a01ea28a created
-[2022-03-21T14:07:59.064Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T14:07:59.065Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T14:07:59.304Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T14:10:23.943Z] [DEBUG] [SOCKET_HANDLER] - doGloRH1WUnLVHyFAAAB connected!
-[2022-03-21T14:10:23.945Z] [INFO] [GAME_HANDLER] - Room 1ece43c1-111e-4a6f-8c9c-cc411dfa2da1 created
-[2022-03-21T14:11:53.056Z] [INFO] [GAME_HANDLER] - Room 1ece43c1-111e-4a6f-8c9c-cc411dfa2da1 removed
-[2022-03-21T14:11:55.970Z] [DEBUG] [SOCKET_HANDLER] - nzHIj1XUbJxAcS4gAAAD connected!
-[2022-03-21T14:11:55.970Z] [INFO] [GAME_HANDLER] - Room 360ccef5-ef4a-4c3e-8e22-0184ee0ef3fa created
-[2022-03-21T14:13:12.670Z] [INFO] [GAME_HANDLER] - Room 360ccef5-ef4a-4c3e-8e22-0184ee0ef3fa removed
-[2022-03-21T17:21:43.666Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T17:21:43.667Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T17:21:43.920Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T17:22:20.691Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T17:22:20.692Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T17:22:20.933Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T17:56:58.025Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T17:56:58.027Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T17:56:58.334Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T18:43:22.348Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T18:43:22.350Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T18:43:22.525Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T18:43:42.107Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T18:43:42.109Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T18:43:42.245Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T18:58:16.888Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T18:58:16.890Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T18:58:17.024Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T19:00:39.697Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T19:00:39.699Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T19:00:39.832Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T19:00:42.499Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
-[2022-03-21T19:00:42.564Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
-[2022-03-21T19:08:56.632Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
-[2022-03-21T19:08:56.730Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
-[2022-03-21T19:08:57.659Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
-[2022-03-21T19:08:57.713Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
-[2022-03-21T19:09:42.194Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T19:09:42.195Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T19:09:42.329Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T19:09:45.543Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
-[2022-03-21T19:09:46.227Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
-[2022-03-21T19:09:46.283Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
-[2022-03-21T19:10:04.579Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T19:10:04.581Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T19:10:04.717Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T19:10:05.871Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
-[2022-03-21T19:10:05.973Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
-[2022-03-21T19:10:17.574Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
-[2022-03-21T19:10:17.671Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
-[2022-03-21T19:10:50.484Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T19:10:50.485Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T19:10:50.629Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T19:10:51.609Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
-[2022-03-21T19:10:51.713Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
-[2022-03-21T19:11:44.074Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T19:11:44.075Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T19:11:44.214Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T19:11:44.957Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
-[2022-03-21T19:11:45.061Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
-[2022-03-21T19:11:51.127Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
-[2022-03-21T19:11:51.189Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\dist\jems-web-client\index.html'
-[2022-03-21T19:12:13.188Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T19:12:13.190Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T19:12:13.336Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T19:20:35.129Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T19:20:35.130Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T19:20:35.264Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T19:20:48.765Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T19:20:48.766Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T19:20:48.912Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T19:23:08.624Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T19:23:08.626Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T19:23:08.774Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T19:34:51.177Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T19:34:51.178Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T19:34:51.417Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T19:34:57.153Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /styles.css : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\src\client\index.html'
-[2022-03-21T19:34:57.214Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /runtime.js : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\src\client\index.html'
-[2022-03-21T19:34:57.215Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /polyfills.js : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\src\client\index.html'
-[2022-03-21T19:34:57.217Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /vendor.js : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\src\client\index.html'
-[2022-03-21T19:34:57.218Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /main.js : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\src\client\index.html'
-[2022-03-21T19:36:04.762Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T19:36:04.763Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T19:36:05.013Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T19:36:06.154Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\src\client\index.html'
-[2022-03-21T19:36:06.231Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\src\client\index.html'
-[2022-03-21T19:36:41.232Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T19:36:41.233Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T19:36:41.475Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T19:36:41.732Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\src\client\index.html'
-[2022-03-21T19:36:41.832Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\src\client\index.html'
-[2022-03-21T19:36:59.689Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T19:36:59.691Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T19:36:59.960Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T19:37:08.628Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T19:37:08.630Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T19:37:08.867Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T19:37:54.065Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T19:37:54.067Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T19:37:54.301Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T19:37:58.582Z] [DEBUG] [SOCKET_HANDLER] - oRLWjVnHQdMmHzbOAAAB connected!
-[2022-03-21T19:37:58.583Z] [INFO] [GAME_HANDLER] - Room d8a709e6-9c26-479c-86f8-e4f721978e97 created
-[2022-03-21T19:38:14.456Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T19:38:14.458Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T19:38:14.700Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T19:38:14.750Z] [DEBUG] [SOCKET_HANDLER] - Dhq5CxXNK13uf0qEAAAB connected!
-[2022-03-21T19:38:14.751Z] [INFO] [GAME_HANDLER] - Room d8a709e6-9c26-479c-86f8-e4f721978e97 created
-[2022-03-21T19:38:19.247Z] [INFO] [GAME_HANDLER] - Room d8a709e6-9c26-479c-86f8-e4f721978e97 removed
-[2022-03-21T19:38:46.162Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T19:38:46.164Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T19:38:46.308Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T19:39:19.942Z] [DEBUG] [SOCKET_HANDLER] - kjylMb66qyOVhBdvAAAB connected!
-[2022-03-21T19:39:19.943Z] [INFO] [GAME_HANDLER] - Room 3c5740b8-9444-499a-b8f6-093dc4cffcdb created
-[2022-03-21T19:44:00.308Z] [DEBUG] [SOCKET_HANDLER] - 2MS-NQUMbjZaJ0auAAAD connected!
-[2022-03-21T19:45:07.455Z] [INFO] [GAME_HANDLER] - Room 3c5740b8-9444-499a-b8f6-093dc4cffcdb removed
-[2022-03-21T21:45:05.209Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-21T21:45:05.210Z] [INFO] [SERVER] - Server is Starting
-[2022-03-21T21:45:05.415Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-21T21:45:36.580Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - / : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\index.html'
-[2022-03-21T21:45:37.387Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\index.html'
-[2022-03-22T16:49:11.088Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-22T16:49:11.090Z] [INFO] [SERVER] - Server is Starting
-[2022-03-22T16:49:12.667Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-22T16:49:21.096Z] [DEBUG] [SOCKET_HANDLER] - YcfdWdRZARhOE0aVAAAB connected!
-[2022-03-22T16:49:21.097Z] [INFO] [GAME_HANDLER] - Room b4786c9c-edc0-4e42-8e13-a28fd45ca3e3 created
-[2022-03-22T16:49:38.855Z] [INFO] [GAME_HANDLER] - Room b4786c9c-edc0-4e42-8e13-a28fd45ca3e3 removed
-[2022-03-23T06:34:00.702Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-23T06:34:00.704Z] [INFO] [SERVER] - Server is Starting
-[2022-03-23T06:34:00.856Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-23T07:02:48.311Z] [DEBUG] [SOCKET_HANDLER] - h5lgHJw6ft3krhHxAAAB connected!
-[2022-03-23T07:02:48.312Z] [INFO] [GAME_HANDLER] - Room 96d950f2-4549-4507-822a-cf2cd47a7db6 created
-[2022-03-23T07:03:17.590Z] [INFO] [GAME_HANDLER] - Room 96d950f2-4549-4507-822a-cf2cd47a7db6 removed
-[2022-03-23T07:03:22.557Z] [DEBUG] [SOCKET_HANDLER] - aKDL8KOOufqrqty4AAAD connected!
-[2022-03-23T07:03:22.557Z] [INFO] [GAME_HANDLER] - Room 64c8764f-53a7-45b9-88df-3be841890842 created
-[2022-03-23T07:03:57.633Z] [INFO] [GAME_HANDLER] - Room 64c8764f-53a7-45b9-88df-3be841890842 removed
-[2022-03-23T07:04:03.678Z] [DEBUG] [SOCKET_HANDLER] - ZAC6J3I6hiuCCfnSAAAF connected!
-[2022-03-23T07:04:03.679Z] [INFO] [GAME_HANDLER] - Room b8072a4d-2c80-4ab4-b4ef-898ee62f12b1 created
-[2022-03-23T07:05:05.752Z] [INFO] [GAME_HANDLER] - Room b8072a4d-2c80-4ab4-b4ef-898ee62f12b1 removed
-[2022-03-23T07:06:03.263Z] [DEBUG] [SOCKET_HANDLER] - _-E5dv8O2eFYpCibAAAH connected!
-[2022-03-23T07:06:03.263Z] [INFO] [GAME_HANDLER] - Room 8218b26d-f1fd-4f80-a587-205b953b1611 created
-[2022-03-23T07:06:57.650Z] [INFO] [GAME_HANDLER] - Room 8218b26d-f1fd-4f80-a587-205b953b1611 removed
-[2022-03-23T07:13:34.192Z] [DEBUG] [SOCKET_HANDLER] - L0bsrrqvwhj_-lcqAAAJ connected!
-[2022-03-23T07:13:34.193Z] [INFO] [GAME_HANDLER] - Room f9d8a0f9-3e56-4c0e-a5ea-022f48e725f2 created
-[2022-03-23T07:14:43.937Z] [INFO] [GAME_HANDLER] - Room f9d8a0f9-3e56-4c0e-a5ea-022f48e725f2 removed
-[2022-03-23T07:14:47.407Z] [DEBUG] [SOCKET_HANDLER] - i7Bb_2dJzmW6iIdpAAAL connected!
-[2022-03-23T07:14:47.408Z] [INFO] [GAME_HANDLER] - Room ee7a30d4-bc90-4eb0-ae2b-3ce03ebc11f4 created
-[2022-03-23T07:15:06.302Z] [INFO] [GAME_HANDLER] - Room ee7a30d4-bc90-4eb0-ae2b-3ce03ebc11f4 removed
-[2022-03-23T07:15:08.989Z] [DEBUG] [SOCKET_HANDLER] - yNiDoqYbrCBqCGq2AAAN connected!
-[2022-03-23T07:15:08.989Z] [INFO] [GAME_HANDLER] - Room 522a6f65-471a-4dab-a41e-f1493532b0b7 created
-[2022-03-23T07:16:50.720Z] [INFO] [GAME_HANDLER] - Room 522a6f65-471a-4dab-a41e-f1493532b0b7 removed
-[2022-03-23T07:17:03.678Z] [DEBUG] [SOCKET_HANDLER] - 5JY_5C4_WsNucyqAAAAP connected!
-[2022-03-23T07:17:03.679Z] [INFO] [GAME_HANDLER] - Room 24347afb-c1b5-4cf4-9d87-39b2ef16f5cf created
-[2022-03-23T07:17:53.658Z] [INFO] [GAME_HANDLER] - Room 24347afb-c1b5-4cf4-9d87-39b2ef16f5cf removed
-[2022-03-23T07:18:03.187Z] [DEBUG] [SOCKET_HANDLER] - CWMKFNNNHcIVJx6nAAAR connected!
-[2022-03-23T07:18:03.187Z] [INFO] [GAME_HANDLER] - Room 1257278f-f24a-44c8-b73a-5e7731ca9380 created
-[2022-03-23T07:18:50.037Z] [INFO] [GAME_HANDLER] - Room 1257278f-f24a-44c8-b73a-5e7731ca9380 removed
-[2022-03-23T07:19:02.586Z] [DEBUG] [SOCKET_HANDLER] - t51vDTajLqxDe4HlAAAT connected!
-[2022-03-23T07:19:02.586Z] [INFO] [GAME_HANDLER] - Room ac631c94-5f58-4afd-af00-9267da62274d created
-[2022-03-23T07:19:15.921Z] [INFO] [GAME_HANDLER] - Room ac631c94-5f58-4afd-af00-9267da62274d removed
-[2022-03-23T07:19:18.655Z] [DEBUG] [SOCKET_HANDLER] - O0cpQ3YmwxMPA7yqAAAV connected!
-[2022-03-23T07:19:18.656Z] [INFO] [GAME_HANDLER] - Room 5c354ddf-7d57-4f6d-b412-fea780b49483 created
-[2022-03-23T07:19:30.276Z] [INFO] [GAME_HANDLER] - Room 5c354ddf-7d57-4f6d-b412-fea780b49483 removed
-[2022-03-23T07:20:52.383Z] [DEBUG] [SOCKET_HANDLER] - 1BhIG6B9JPCAmGXSAAAX connected!
-[2022-03-23T07:20:52.384Z] [INFO] [GAME_HANDLER] - Room 5c296ce9-4113-412b-bc14-1a14bcd28922 created
-[2022-03-23T07:21:00.805Z] [INFO] [GAME_HANDLER] - Room 5c296ce9-4113-412b-bc14-1a14bcd28922 removed
-[2022-03-23T07:32:28.765Z] [DEBUG] [SOCKET_HANDLER] - H3B5Ea3VsOHYW5AIAAAZ connected!
-[2022-03-23T07:32:28.765Z] [INFO] [GAME_HANDLER] - Room 8d761454-f2e2-4478-b4c2-bbd6a57b0b61 created
-[2022-03-23T07:33:38.295Z] [INFO] [GAME_HANDLER] - Room 8d761454-f2e2-4478-b4c2-bbd6a57b0b61 removed
-[2022-03-23T07:33:42.640Z] [DEBUG] [SOCKET_HANDLER] - e1r41VSuQEOZywiRAAAb connected!
-[2022-03-23T07:33:42.640Z] [INFO] [GAME_HANDLER] - Room 1e3887a6-adc4-40f8-8ed2-04d978f422fe created
-[2022-03-23T07:34:02.426Z] [INFO] [GAME_HANDLER] - Room 1e3887a6-adc4-40f8-8ed2-04d978f422fe removed
-[2022-03-23T07:34:11.336Z] [DEBUG] [SOCKET_HANDLER] - qpy2PFEwwSlf_H7zAAAd connected!
-[2022-03-23T07:34:11.336Z] [INFO] [GAME_HANDLER] - Room de7130ad-2496-4302-a2a5-3c9a56778ad3 created
-[2022-03-23T07:36:08.393Z] [INFO] [GAME_HANDLER] - Room de7130ad-2496-4302-a2a5-3c9a56778ad3 removed
-[2022-03-23T07:36:17.295Z] [DEBUG] [SOCKET_HANDLER] - bL7Vy4s6CtdhhcgeAAAf connected!
-[2022-03-23T07:36:17.295Z] [INFO] [GAME_HANDLER] - Room eb9bea19-743b-44b3-9c46-7b03c8d2fbfc created
-[2022-03-23T07:36:42.418Z] [INFO] [GAME_HANDLER] - Room eb9bea19-743b-44b3-9c46-7b03c8d2fbfc removed
-[2022-03-23T07:40:43.533Z] [DEBUG] [SOCKET_HANDLER] - hh7ENeKJX1W8GLn4AAAh connected!
-[2022-03-23T07:40:43.533Z] [INFO] [GAME_HANDLER] - Room faa5ec63-6244-4638-ae4a-cb521e531269 created
-[2022-03-23T07:40:54.596Z] [INFO] [GAME_HANDLER] - Room faa5ec63-6244-4638-ae4a-cb521e531269 removed
-[2022-03-23T07:40:59.302Z] [DEBUG] [SOCKET_HANDLER] - cp3AOmVZ7Ai736z0AAAj connected!
-[2022-03-23T07:40:59.302Z] [INFO] [GAME_HANDLER] - Room a5315675-3f9f-47b5-a9f8-8d583bf65901 created
-[2022-03-23T07:43:11.130Z] [INFO] [GAME_HANDLER] - Room a5315675-3f9f-47b5-a9f8-8d583bf65901 removed
-[2022-03-23T07:45:57.733Z] [DEBUG] [SOCKET_HANDLER] - xPN6zzT7wNvlRGq8AAAl connected!
-[2022-03-23T07:45:57.734Z] [INFO] [GAME_HANDLER] - Room 1f438719-9cac-4503-b9f3-79f84b369c83 created
-[2022-03-23T07:46:11.093Z] [INFO] [GAME_HANDLER] - Room 1f438719-9cac-4503-b9f3-79f84b369c83 removed
-[2022-03-23T07:47:03.374Z] [DEBUG] [SOCKET_HANDLER] - dE_fRmLne6caNhWpAAAn connected!
-[2022-03-23T07:47:03.375Z] [INFO] [GAME_HANDLER] - Room 462db3ae-cf3e-4cf2-b74a-8de302c04043 created
-[2022-03-23T07:47:55.063Z] [INFO] [GAME_HANDLER] - Room 462db3ae-cf3e-4cf2-b74a-8de302c04043 removed
-[2022-03-23T07:48:14.675Z] [DEBUG] [SOCKET_HANDLER] - 7WWXCRMtijzO1MNXAAAp connected!
-[2022-03-23T07:48:14.676Z] [INFO] [GAME_HANDLER] - Room f72fadfc-ca57-4cc9-b319-579c7010f824 created
-[2022-03-23T07:49:39.758Z] [INFO] [GAME_HANDLER] - Room f72fadfc-ca57-4cc9-b319-579c7010f824 removed
-[2022-03-23T07:49:43.943Z] [DEBUG] [SOCKET_HANDLER] - N4pEfKx6m6ksEeDCAAAr connected!
-[2022-03-23T07:49:43.943Z] [INFO] [GAME_HANDLER] - Room f7768785-7ee1-451a-8859-eb339e2469c7 created
-[2022-03-23T07:51:29.484Z] [INFO] [GAME_HANDLER] - Room f7768785-7ee1-451a-8859-eb339e2469c7 removed
-[2022-03-23T07:51:34.795Z] [DEBUG] [SOCKET_HANDLER] - DWYQioExPxRAIOVOAAAt connected!
-[2022-03-23T07:51:34.796Z] [INFO] [GAME_HANDLER] - Room d66f1e91-d762-43ef-8a9c-6264ee156b01 created
-[2022-03-23T07:51:48.449Z] [INFO] [GAME_HANDLER] - Room d66f1e91-d762-43ef-8a9c-6264ee156b01 removed
-[2022-03-23T07:51:54.370Z] [DEBUG] [SOCKET_HANDLER] - lvl-bgwZvX55Ak98AAAv connected!
-[2022-03-23T07:51:54.370Z] [INFO] [GAME_HANDLER] - Room fdc6737a-d13f-47bd-9466-4a869675d2ba created
-[2022-03-23T07:53:27.899Z] [INFO] [GAME_HANDLER] - Room fdc6737a-d13f-47bd-9466-4a869675d2ba removed
-[2022-03-23T07:53:40.830Z] [DEBUG] [SOCKET_HANDLER] - 11x4nCchX-iIdf4uAAAx connected!
-[2022-03-23T07:53:40.831Z] [INFO] [GAME_HANDLER] - Room 91592092-3309-46b7-8587-d45ccd374c09 created
-[2022-03-23T07:54:54.217Z] [INFO] [GAME_HANDLER] - Room 91592092-3309-46b7-8587-d45ccd374c09 removed
-[2022-03-23T07:55:18.843Z] [DEBUG] [SOCKET_HANDLER] - aYdyvr3aQFsoDZcPAAAz connected!
-[2022-03-23T07:55:18.843Z] [INFO] [GAME_HANDLER] - Room 1f625ca1-12f8-4c05-a997-4616b781964c created
-[2022-03-23T07:55:30.717Z] [INFO] [GAME_HANDLER] - Room 1f625ca1-12f8-4c05-a997-4616b781964c removed
-[2022-03-23T07:55:34.846Z] [DEBUG] [SOCKET_HANDLER] - WIp9Yh8-WylVr_4JAAA1 connected!
-[2022-03-23T07:55:34.847Z] [INFO] [GAME_HANDLER] - Room fd944ea9-76e1-4d9d-b674-9908a1030b2d created
-[2022-03-23T07:55:46.809Z] [INFO] [GAME_HANDLER] - Room fd944ea9-76e1-4d9d-b674-9908a1030b2d removed
-[2022-03-23T07:55:49.760Z] [DEBUG] [SOCKET_HANDLER] - 7CNDg1bbUF8B3iqRAAA3 connected!
-[2022-03-23T07:55:49.760Z] [INFO] [GAME_HANDLER] - Room 516cddd5-a762-4591-b539-ed3ce145c98b created
-[2022-03-23T07:56:11.427Z] [INFO] [GAME_HANDLER] - Room 516cddd5-a762-4591-b539-ed3ce145c98b removed
-[2022-03-23T07:56:19.392Z] [DEBUG] [SOCKET_HANDLER] - ZiF-E2XbjiuC7d8DAAA5 connected!
-[2022-03-23T07:56:19.392Z] [INFO] [GAME_HANDLER] - Room bbdd1e00-d987-42a6-861e-b32ac55465dd created
-[2022-03-23T07:57:18.291Z] [INFO] [GAME_HANDLER] - Room bbdd1e00-d987-42a6-861e-b32ac55465dd removed
-[2022-03-23T07:59:42.529Z] [DEBUG] [SOCKET_HANDLER] - gTusO76X7klCVW3VAAA7 connected!
-[2022-03-23T07:59:42.530Z] [INFO] [GAME_HANDLER] - Room 3553d48c-bc17-48a8-9c67-7f6f9fa6a5f9 created
-[2022-03-23T08:00:21.714Z] [INFO] [GAME_HANDLER] - Room 3553d48c-bc17-48a8-9c67-7f6f9fa6a5f9 removed
-[2022-03-23T08:00:25.329Z] [DEBUG] [SOCKET_HANDLER] - 5fEYLAbIsbBvLG0aAAA9 connected!
-[2022-03-23T08:00:25.329Z] [INFO] [GAME_HANDLER] - Room cae603c7-91d2-4534-8e7c-a7c16af262d7 created
-[2022-03-23T08:00:42.122Z] [INFO] [GAME_HANDLER] - Room cae603c7-91d2-4534-8e7c-a7c16af262d7 removed
-[2022-03-23T08:09:53.639Z] [DEBUG] [SOCKET_HANDLER] - aqasZ0bmOdIczFwQAAA_ connected!
-[2022-03-23T08:09:53.639Z] [INFO] [GAME_HANDLER] - Room d5ed3c6a-2c6b-4aac-9906-a1449aa1cc14 created
-[2022-03-23T08:10:03.501Z] [INFO] [GAME_HANDLER] - Room d5ed3c6a-2c6b-4aac-9906-a1449aa1cc14 removed
-[2022-03-23T08:10:07.459Z] [DEBUG] [SOCKET_HANDLER] - RJgxB_sP3vJgmhTSAABB connected!
-[2022-03-23T08:10:07.460Z] [INFO] [GAME_HANDLER] - Room c68dc6e8-e650-4318-89e1-b4a28ea1ce34 created
-[2022-03-23T08:10:39.055Z] [INFO] [GAME_HANDLER] - Room c68dc6e8-e650-4318-89e1-b4a28ea1ce34 removed
-[2022-03-23T08:10:57.311Z] [DEBUG] [SOCKET_HANDLER] - CET7uoJ_u5lvJ9zoAABD connected!
-[2022-03-23T08:10:57.311Z] [INFO] [GAME_HANDLER] - Room 72a81a33-1315-4b8f-8a38-88f910af91af created
-[2022-03-23T08:11:16.617Z] [INFO] [GAME_HANDLER] - Room 72a81a33-1315-4b8f-8a38-88f910af91af removed
-[2022-03-23T08:11:26.802Z] [DEBUG] [SOCKET_HANDLER] - E8bcNxw80LRr6dBJAABF connected!
-[2022-03-23T08:11:26.802Z] [INFO] [GAME_HANDLER] - Room 8f297914-f68e-4ef9-85b4-7997cd8a4ac1 created
-[2022-03-23T08:12:13.895Z] [INFO] [GAME_HANDLER] - Room 8f297914-f68e-4ef9-85b4-7997cd8a4ac1 removed
-[2022-03-23T08:12:18.408Z] [DEBUG] [SOCKET_HANDLER] - NBb-oT6qykllUY25AABH connected!
-[2022-03-23T08:12:18.408Z] [INFO] [GAME_HANDLER] - Room 3dcc51e4-4a23-4d0d-9f50-c5bfce2724ec created
-[2022-03-23T08:14:13.367Z] [INFO] [GAME_HANDLER] - Room 3dcc51e4-4a23-4d0d-9f50-c5bfce2724ec removed
-[2022-03-23T08:17:46.105Z] [DEBUG] [SOCKET_HANDLER] - eQkFi9bXw94eSp1OAABJ connected!
-[2022-03-23T08:17:46.106Z] [INFO] [GAME_HANDLER] - Room 48e56c92-02b9-4dd0-b658-d795b0a9a7a9 created
-[2022-03-23T08:17:58.453Z] [INFO] [GAME_HANDLER] - Room 48e56c92-02b9-4dd0-b658-d795b0a9a7a9 removed
-[2022-03-23T08:18:01.319Z] [DEBUG] [SOCKET_HANDLER] - E0xbnKyj2lhJHqDkAABL connected!
-[2022-03-23T08:18:01.319Z] [INFO] [GAME_HANDLER] - Room 0340893f-502c-4e8a-82b1-cc044745e3d2 created
-[2022-03-23T08:19:04.373Z] [INFO] [GAME_HANDLER] - Room 0340893f-502c-4e8a-82b1-cc044745e3d2 removed
-[2022-03-23T08:19:35.580Z] [DEBUG] [SOCKET_HANDLER] - FOIIHDxpdSTCyOS9AABN connected!
-[2022-03-23T08:19:35.581Z] [INFO] [GAME_HANDLER] - Room 1060aebe-4785-4e0c-ac5a-24b1413885d4 created
-[2022-03-23T08:20:05.053Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /join/1060aebe-4785-4e0c-ac5a-24b1413885d4 : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\index.html'
-[2022-03-23T08:20:05.195Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /favicon.ico : Error: ENOENT: no such file or directory, stat 'D:\Programming\Projects\jems\Server\dist\client\index.html'
-[2022-03-23T08:20:11.369Z] [DEBUG] [SOCKET_HANDLER] - RaeNFrbM_Bad1ZdWAABP connected!
-[2022-03-23T08:21:49.455Z] [INFO] [GAME_HANDLER] - Room 1060aebe-4785-4e0c-ac5a-24b1413885d4 removed
-[2022-03-23T08:23:06.038Z] [DEBUG] [SOCKET_HANDLER] - hC7jCKiigHWApgdcAABR connected!
-[2022-03-23T08:23:06.038Z] [INFO] [GAME_HANDLER] - Room 22da9a13-1cd9-4cf9-a6d0-374f8c2ce9e9 created
-[2022-03-23T08:23:17.195Z] [DEBUG] [SOCKET_HANDLER] - JeGQI8UAzSG8O0Z5AABT connected!
-[2022-03-23T08:24:08.095Z] [INFO] [GAME_HANDLER] - Room 22da9a13-1cd9-4cf9-a6d0-374f8c2ce9e9 removed
-[2022-03-23T08:24:11.041Z] [DEBUG] [SOCKET_HANDLER] - cJx9RtVwE-p4XNN9AABV connected!
-[2022-03-23T08:24:11.041Z] [INFO] [GAME_HANDLER] - Room c128fcf1-4ebd-4683-b7bf-83343e497633 created
-[2022-03-23T08:24:26.560Z] [INFO] [GAME_HANDLER] - Room c128fcf1-4ebd-4683-b7bf-83343e497633 removed
-[2022-03-23T08:24:28.523Z] [DEBUG] [SOCKET_HANDLER] - TDDnP7xt82gDapJyAABX connected!
-[2022-03-23T08:24:28.523Z] [INFO] [GAME_HANDLER] - Room cd3c48f2-620e-4aaa-846f-5cab7ac1e48c created
-[2022-03-23T08:24:51.881Z] [DEBUG] [SOCKET_HANDLER] - bWUkGKfh6xcqEmKKAABZ connected!
-[2022-03-23T08:26:23.437Z] [INFO] [GAME_HANDLER] - Room cd3c48f2-620e-4aaa-846f-5cab7ac1e48c removed
-[2022-03-23T08:27:21.139Z] [DEBUG] [SOCKET_HANDLER] - WGHrs5b4QXJvV_XfAABb connected!
-[2022-03-23T08:27:21.139Z] [INFO] [GAME_HANDLER] - Room 7615c783-2e90-4139-8ead-5f9b99a4ddee created
-[2022-03-23T08:27:49.201Z] [INFO] [GAME_HANDLER] - Room 7615c783-2e90-4139-8ead-5f9b99a4ddee removed
-[2022-03-23T08:29:17.765Z] [DEBUG] [SOCKET_HANDLER] - 3yTccX9XkBr9FtmhAABd connected!
-[2022-03-23T08:29:17.765Z] [INFO] [GAME_HANDLER] - Room 18b6ecca-68f5-4a58-8092-896c94f47f30 created
-[2022-03-23T08:30:20.692Z] [INFO] [GAME_HANDLER] - Room 18b6ecca-68f5-4a58-8092-896c94f47f30 removed
-[2022-03-23T08:30:26.472Z] [DEBUG] [SOCKET_HANDLER] - Tb80yIboeVlaHVZ4AABf connected!
-[2022-03-23T08:30:26.473Z] [INFO] [GAME_HANDLER] - Room 9ff6d228-0bbf-4ad0-a59b-917888903aea created
-[2022-03-23T08:30:44.036Z] [INFO] [GAME_HANDLER] - Room 9ff6d228-0bbf-4ad0-a59b-917888903aea removed
-[2022-03-23T08:30:46.190Z] [DEBUG] [SOCKET_HANDLER] - Yfr8hoL23AubEVl3AABh connected!
-[2022-03-23T08:30:46.190Z] [INFO] [GAME_HANDLER] - Room 98198b04-40b8-4128-87cf-62fb339fd1b2 created
-[2022-03-23T08:31:28.568Z] [INFO] [GAME_HANDLER] - Room 98198b04-40b8-4128-87cf-62fb339fd1b2 removed
-[2022-03-23T08:31:40.963Z] [DEBUG] [SOCKET_HANDLER] - OvNd-V4SYSEWV-9mAABj connected!
-[2022-03-23T08:31:40.963Z] [INFO] [GAME_HANDLER] - Room b27bdc45-57f8-42e1-84b7-3da0096f25f1 created
-[2022-03-23T08:31:49.338Z] [DEBUG] [SOCKET_HANDLER] - SBk7hUwdbIbAziVqAABl connected!
-[2022-03-23T08:34:57.229Z] [INFO] [GAME_HANDLER] - Room b27bdc45-57f8-42e1-84b7-3da0096f25f1 removed
-[2022-03-23T08:35:04.990Z] [DEBUG] [SOCKET_HANDLER] - lyS6xvJZswPU9fkUAABn connected!
-[2022-03-23T08:35:04.990Z] [INFO] [GAME_HANDLER] - Room 5d71273f-b0d0-4a26-a871-032ced8dad61 created
-[2022-03-23T08:35:09.157Z] [INFO] [GAME_HANDLER] - Room 5d71273f-b0d0-4a26-a871-032ced8dad61 removed
-[2022-03-23T08:36:14.396Z] [DEBUG] [SOCKET_HANDLER] - Bul67sSeq8J3DGjXAABp connected!
-[2022-03-23T08:36:14.397Z] [INFO] [GAME_HANDLER] - Room 768f1141-e324-4762-a376-4b289a3cbb6d created
-[2022-03-23T08:37:52.907Z] [INFO] [GAME_HANDLER] - Room 768f1141-e324-4762-a376-4b289a3cbb6d removed
-[2022-03-23T08:37:55.484Z] [DEBUG] [SOCKET_HANDLER] - 3-bgN2uli3Mcn7lOAABr connected!
-[2022-03-23T08:37:55.484Z] [INFO] [GAME_HANDLER] - Room 85ad086b-8001-4f4d-b334-381bc4e59570 created
-[2022-03-23T08:38:03.888Z] [DEBUG] [SOCKET_HANDLER] - jczxZ66MN3jfHqdIAABt connected!
-[2022-03-23T08:38:19.228Z] [INFO] [GAME_HANDLER] - Room 85ad086b-8001-4f4d-b334-381bc4e59570 removed
-[2022-03-23T08:38:21.507Z] [DEBUG] [SOCKET_HANDLER] - Kx1bbtIdIpC2LWznAABv connected!
-[2022-03-23T08:38:21.507Z] [INFO] [GAME_HANDLER] - Room ad0c0e0c-125c-43c6-a409-53b2b0826cdc created
-[2022-03-23T08:38:30.734Z] [DEBUG] [SOCKET_HANDLER] - EAf3ouro_ndZ9b_MAABx connected!
-[2022-03-23T08:39:18.116Z] [INFO] [GAME_HANDLER] - Room ad0c0e0c-125c-43c6-a409-53b2b0826cdc removed
-[2022-03-23T08:39:31.448Z] [DEBUG] [SOCKET_HANDLER] - GsfHM1gfEbIxvRuSAABz connected!
-[2022-03-23T08:39:31.448Z] [INFO] [GAME_HANDLER] - Room 885aa005-f904-40db-9ee2-1b47747e76c1 created
-[2022-03-23T08:39:40.003Z] [DEBUG] [SOCKET_HANDLER] - J2SFvkVXmNyN7eAeAAB1 connected!
-[2022-03-23T08:40:23.078Z] [INFO] [GAME_HANDLER] - Room 885aa005-f904-40db-9ee2-1b47747e76c1 removed
-[2022-03-23T08:40:25.402Z] [DEBUG] [SOCKET_HANDLER] - jPwVaaG1oA3STP9qAAB3 connected!
-[2022-03-23T08:40:25.402Z] [INFO] [GAME_HANDLER] - Room 44f9c1fd-3294-4cef-ae8a-4ac1b418578e created
-[2022-03-23T08:40:39.679Z] [INFO] [GAME_HANDLER] - Room 44f9c1fd-3294-4cef-ae8a-4ac1b418578e removed
-[2022-03-23T08:40:42.528Z] [DEBUG] [SOCKET_HANDLER] - ioG1eHHrm6ZMwkAaAAB5 connected!
-[2022-03-23T08:40:42.528Z] [INFO] [GAME_HANDLER] - Room e875a56a-8ecd-4cdc-ba8a-b78ba654afc3 created
-[2022-03-23T08:40:53.743Z] [INFO] [GAME_HANDLER] - Room e875a56a-8ecd-4cdc-ba8a-b78ba654afc3 removed
-[2022-03-23T08:40:55.661Z] [DEBUG] [SOCKET_HANDLER] - W-E5PoiW28KtNjqFAAB7 connected!
-[2022-03-23T08:40:55.661Z] [INFO] [GAME_HANDLER] - Room beef8d08-66d6-49bc-8747-af8d56d0482a created
-[2022-03-23T08:41:49.370Z] [INFO] [GAME_HANDLER] - Room beef8d08-66d6-49bc-8747-af8d56d0482a removed
-[2022-03-23T08:41:51.245Z] [DEBUG] [SOCKET_HANDLER] - ga8jv382h8VlJovfAAB9 connected!
-[2022-03-23T08:41:51.245Z] [INFO] [GAME_HANDLER] - Room 5e46a9f5-7938-424b-8634-18177dae8106 created
-[2022-03-23T08:41:56.155Z] [DEBUG] [SOCKET_HANDLER] - zwvMzlCMHJhjSd8OAAB_ connected!
-[2022-03-23T08:41:56.155Z] [INFO] [GAME_HANDLER] - Room 0f76ebca-1ba6-49ba-bf08-12decc144910 created
-[2022-03-23T08:41:58.978Z] [INFO] [GAME_HANDLER] - Room 0f76ebca-1ba6-49ba-bf08-12decc144910 removed
-[2022-03-23T08:42:07.571Z] [DEBUG] [SOCKET_HANDLER] - eDB22BBhzsI33djnAACB connected!
-[2022-03-23T08:44:13.915Z] [INFO] [GAME_HANDLER] - Room 5e46a9f5-7938-424b-8634-18177dae8106 removed
-[2022-03-23T08:44:25.065Z] [DEBUG] [SOCKET_HANDLER] - is1VJbsrLmStDGv0AACD connected!
-[2022-03-23T08:44:25.065Z] [INFO] [GAME_HANDLER] - Room 85c7aeaf-aefe-4870-89d2-a5421e815395 created
-[2022-03-23T08:44:49.347Z] [INFO] [GAME_HANDLER] - Room 85c7aeaf-aefe-4870-89d2-a5421e815395 removed
-[2022-03-23T08:44:51.947Z] [DEBUG] [SOCKET_HANDLER] - PDXKlWLfivqTs8c3AACF connected!
-[2022-03-23T08:44:51.947Z] [INFO] [GAME_HANDLER] - Room ff2ab61a-d378-488d-a2f0-d6807ffd1e9d created
-[2022-03-23T08:44:59.596Z] [DEBUG] [SOCKET_HANDLER] - ZsqV-U3BN8BqWh_9AACH connected!
-[2022-03-23T08:45:13.113Z] [INFO] [GAME_HANDLER] - Room ff2ab61a-d378-488d-a2f0-d6807ffd1e9d removed
-[2022-03-23T08:45:15.067Z] [DEBUG] [SOCKET_HANDLER] - 8ZMXMhl3xQZsB8xZAACJ connected!
-[2022-03-23T08:45:15.067Z] [INFO] [GAME_HANDLER] - Room 2a134c7e-30d4-4eea-8959-245bf053dee1 created
-[2022-03-23T08:45:33.796Z] [DEBUG] [SOCKET_HANDLER] - YLVht5S1FWGpIfp9AACL connected!
-[2022-03-23T08:46:07.556Z] [INFO] [GAME_HANDLER] - Room 2a134c7e-30d4-4eea-8959-245bf053dee1 removed
-[2022-03-23T08:46:09.554Z] [DEBUG] [SOCKET_HANDLER] - zyf3nVeTDFuWED3nAACN connected!
-[2022-03-23T08:46:09.555Z] [INFO] [GAME_HANDLER] - Room b96430e1-a52a-4a15-a3f3-48fdd139a175 created
-[2022-03-23T08:46:20.090Z] [DEBUG] [SOCKET_HANDLER] - f2kP80XKTZWi842gAACP connected!
-[2022-03-23T08:46:55.635Z] [INFO] [GAME_HANDLER] - Room b96430e1-a52a-4a15-a3f3-48fdd139a175 removed
-[2022-03-23T08:46:57.883Z] [DEBUG] [SOCKET_HANDLER] - 2BxOlAIaPCGkvphyAACR connected!
-[2022-03-23T08:46:57.884Z] [INFO] [GAME_HANDLER] - Room 4ff68823-ffde-4646-8b83-9b34e63f56c1 created
-[2022-03-23T08:47:19.545Z] [INFO] [GAME_HANDLER] - Room 4ff68823-ffde-4646-8b83-9b34e63f56c1 removed
-[2022-03-23T08:48:07.751Z] [DEBUG] [SOCKET_HANDLER] - kZyBn1nBwmCT9MF6AACT connected!
-[2022-03-23T08:48:07.751Z] [INFO] [GAME_HANDLER] - Room c44db26d-bd2e-430a-8689-61d402670968 created
-[2022-03-23T08:49:50.170Z] [INFO] [GAME_HANDLER] - Room c44db26d-bd2e-430a-8689-61d402670968 removed
-[2022-03-23T08:49:52.459Z] [DEBUG] [SOCKET_HANDLER] - bhCWKPUB5yTjr62sAACV connected!
-[2022-03-23T08:49:52.460Z] [INFO] [GAME_HANDLER] - Room 1331098e-4cf8-4ee8-be37-e4224050f15a created
-[2022-03-23T08:50:03.575Z] [DEBUG] [SOCKET_HANDLER] - w3jDRdiUwPxngjZOAACX connected!
-[2022-03-23T08:50:03.575Z] [INFO] [GAME_HANDLER] - Room 78129af6-7ff9-4488-a8e0-dd6848e842e1 created
-[2022-03-23T08:50:14.504Z] [INFO] [GAME_HANDLER] - Room 78129af6-7ff9-4488-a8e0-dd6848e842e1 removed
-[2022-03-23T08:50:18.291Z] [DEBUG] [SOCKET_HANDLER] - qAkavdpOxS2ZMC_yAACZ connected!
-[2022-03-23T08:51:44.362Z] [INFO] [GAME_HANDLER] - Room 1331098e-4cf8-4ee8-be37-e4224050f15a removed
-[2022-03-23T08:51:46.806Z] [DEBUG] [SOCKET_HANDLER] - mmAs3sluoMF7ulUMAACb connected!
-[2022-03-23T08:51:46.806Z] [INFO] [GAME_HANDLER] - Room 918bc473-fc66-49d8-9f13-bd6a72517ed6 created
-[2022-03-23T08:52:29.657Z] [INFO] [GAME_HANDLER] - Room 918bc473-fc66-49d8-9f13-bd6a72517ed6 removed
-[2022-03-23T08:56:36.749Z] [DEBUG] [SOCKET_HANDLER] - i3a7jXOknao7X_9qAACd connected!
-[2022-03-23T08:56:36.749Z] [INFO] [GAME_HANDLER] - Room d376e4bf-2c9a-4576-88c1-aae7c714f9d2 created
-[2022-03-23T08:56:58.434Z] [INFO] [GAME_HANDLER] - Room d376e4bf-2c9a-4576-88c1-aae7c714f9d2 removed
-[2022-03-23T08:57:00.778Z] [DEBUG] [SOCKET_HANDLER] - AeT0T4tUqNpPjWy8AACf connected!
-[2022-03-23T08:57:00.779Z] [INFO] [GAME_HANDLER] - Room bc9ec9b7-6e5d-495b-981a-ba378b13a268 created
-[2022-03-23T08:57:26.552Z] [INFO] [GAME_HANDLER] - Room bc9ec9b7-6e5d-495b-981a-ba378b13a268 removed
-[2022-03-23T08:57:29.092Z] [DEBUG] [SOCKET_HANDLER] - jyEoSsKTHQNG7gpEAACh connected!
-[2022-03-23T08:57:29.092Z] [INFO] [GAME_HANDLER] - Room ca06a10d-5cfc-4d43-9810-17cf2afd9a54 created
-[2022-03-23T09:00:14.488Z] [INFO] [GAME_HANDLER] - Room ca06a10d-5cfc-4d43-9810-17cf2afd9a54 removed
-[2022-03-23T09:00:16.815Z] [DEBUG] [SOCKET_HANDLER] - OOs8mDKKJRZF-TCYAACj connected!
-[2022-03-23T09:00:16.816Z] [INFO] [GAME_HANDLER] - Room 1352a634-e6f5-4307-a1ce-2e0b5c692c7a created
-[2022-03-23T09:00:28.878Z] [INFO] [GAME_HANDLER] - Room 1352a634-e6f5-4307-a1ce-2e0b5c692c7a removed
-[2022-03-23T09:04:25.221Z] [DEBUG] [SOCKET_HANDLER] - T5gDtUO7xZyjgvmDAACl connected!
-[2022-03-23T09:04:25.221Z] [INFO] [GAME_HANDLER] - Room a090b2e6-465c-4b68-8c85-49d3f50ed450 created
-[2022-03-23T09:06:25.934Z] [INFO] [GAME_HANDLER] - Room a090b2e6-465c-4b68-8c85-49d3f50ed450 removed
-[2022-03-23T11:45:49.765Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-23T11:45:49.767Z] [INFO] [SERVER] - Server is Starting
-[2022-03-23T11:45:49.913Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-23T11:46:31.017Z] [DEBUG] [SOCKET_HANDLER] - KrRZ4_QZRDVqLOseAAAB connected!
-[2022-03-23T11:46:31.018Z] [INFO] [GAME_HANDLER] - Room 7af3cbfb-2191-4cfa-a6a7-029e101e7136 created
-[2022-03-23T11:46:48.344Z] [INFO] [GAME_HANDLER] - Room 7af3cbfb-2191-4cfa-a6a7-029e101e7136 removed
-[2022-03-23T11:47:06.272Z] [DEBUG] [SOCKET_HANDLER] - 8NhV7SQDq4QuD8KgAAAD connected!
-[2022-03-23T11:47:06.273Z] [INFO] [GAME_HANDLER] - Room ec66c7e3-7910-4f34-866b-898ac57a8ea4 created
-[2022-03-23T11:47:41.466Z] [INFO] [GAME_HANDLER] - Room ec66c7e3-7910-4f34-866b-898ac57a8ea4 removed
-[2022-03-23T11:47:56.383Z] [DEBUG] [SOCKET_HANDLER] - NdlpQbS9WxTBrz99AAAF connected!
-[2022-03-23T11:47:56.383Z] [INFO] [GAME_HANDLER] - Room 51896372-5454-42e6-bc2b-69ab617b5c1e created
-[2022-03-23T11:48:24.470Z] [INFO] [GAME_HANDLER] - Room 51896372-5454-42e6-bc2b-69ab617b5c1e removed
-[2022-03-23T11:48:30.867Z] [DEBUG] [SOCKET_HANDLER] - ygIvrFdvD4o_z7y6AAAH connected!
-[2022-03-23T11:48:30.867Z] [INFO] [GAME_HANDLER] - Room c1be7eae-9fed-4022-b43d-d1a95d33a823 created
-[2022-03-23T11:49:51.546Z] [INFO] [GAME_HANDLER] - Room c1be7eae-9fed-4022-b43d-d1a95d33a823 removed
-[2022-03-23T12:04:15.933Z] [DEBUG] [SOCKET_HANDLER] - ifVDQarB88t9Sb0yAAAJ connected!
-[2022-03-23T12:04:15.934Z] [INFO] [GAME_HANDLER] - Room e3559db0-d046-4f5e-9cc9-0e9ca5ad0098 created
-[2022-03-23T12:05:12.242Z] [INFO] [GAME_HANDLER] - Room e3559db0-d046-4f5e-9cc9-0e9ca5ad0098 removed
-[2022-03-23T12:08:00.299Z] [DEBUG] [SOCKET_HANDLER] - th7-wx7x5YlWWpc_AAAL connected!
-[2022-03-23T12:08:00.299Z] [INFO] [GAME_HANDLER] - Room 014bd988-60e7-4667-afe3-45d020c4c299 created
-[2022-03-23T12:16:05.831Z] [INFO] [GAME_HANDLER] - Room 014bd988-60e7-4667-afe3-45d020c4c299 removed
-[2022-03-23T12:23:19.357Z] [DEBUG] [SOCKET_HANDLER] - XQ-hZHtjuFMdOwjZAAAN connected!
-[2022-03-23T12:23:19.358Z] [INFO] [GAME_HANDLER] - Room 909550c9-6811-4780-8281-5ee8b28280f2 created
-[2022-03-23T12:25:08.576Z] [INFO] [GAME_HANDLER] - Room 909550c9-6811-4780-8281-5ee8b28280f2 removed
-[2022-03-23T12:26:04.971Z] [DEBUG] [SOCKET_HANDLER] - myZZxWq4N2uoOHhAAAAP connected!
-[2022-03-23T12:26:04.971Z] [INFO] [GAME_HANDLER] - Room 37abb584-a59d-42ff-a7de-a47ecf20fa52 created
-[2022-03-23T12:26:14.391Z] [DEBUG] [SOCKET_HANDLER] - iKyOm0trGPjYrnnXAAAR connected!
-[2022-03-23T12:26:40.495Z] [INFO] [GAME_HANDLER] - Room 37abb584-a59d-42ff-a7de-a47ecf20fa52 removed
-[2022-03-23T12:26:43.865Z] [DEBUG] [SOCKET_HANDLER] - vp-hiZ0UDQXp4SwSAAAT connected!
-[2022-03-23T12:26:43.866Z] [INFO] [GAME_HANDLER] - Room 2d6aacb5-dc3f-4193-a8ba-6e46c50858b4 created
-[2022-03-23T12:26:53.531Z] [DEBUG] [SOCKET_HANDLER] - WRFc0f7f3CdfxIJeAAAV connected!
-[2022-03-23T12:27:18.848Z] [INFO] [GAME_HANDLER] - Room 2d6aacb5-dc3f-4193-a8ba-6e46c50858b4 removed
-[2022-03-23T12:27:41.341Z] [DEBUG] [SOCKET_HANDLER] - _tWnM9u5fpUvgnZ8AAAX connected!
-[2022-03-23T12:27:41.341Z] [INFO] [GAME_HANDLER] - Room 4118430c-063d-4fa5-9c98-3aec269e49f1 created
-[2022-03-23T12:27:49.902Z] [DEBUG] [SOCKET_HANDLER] - zGtjUfRyjBZNSZ4YAAAZ connected!
-[2022-03-23T12:28:39.287Z] [INFO] [GAME_HANDLER] - Room 4118430c-063d-4fa5-9c98-3aec269e49f1 removed
-[2022-03-23T12:28:41.951Z] [DEBUG] [SOCKET_HANDLER] - nLY2hqbMV-3YH6bsAAAb connected!
-[2022-03-23T12:28:41.951Z] [INFO] [GAME_HANDLER] - Room 515c00ab-bb12-453d-b0fe-e9bf93ff7b05 created
-[2022-03-23T12:31:25.733Z] [INFO] [GAME_HANDLER] - Room 515c00ab-bb12-453d-b0fe-e9bf93ff7b05 removed
-[2022-03-23T12:33:13.090Z] [DEBUG] [SOCKET_HANDLER] - Ok0bAiV95AULCdIzAAAd connected!
-[2022-03-23T12:33:13.090Z] [INFO] [GAME_HANDLER] - Room e597e478-f28c-4d0b-b9a6-9f775af5a161 created
-[2022-03-23T12:33:30.260Z] [INFO] [GAME_HANDLER] - Room e597e478-f28c-4d0b-b9a6-9f775af5a161 removed
-[2022-03-23T12:35:25.485Z] [DEBUG] [SOCKET_HANDLER] - STuZ2ixza8c_FtcAAAAf connected!
-[2022-03-23T12:35:25.486Z] [INFO] [GAME_HANDLER] - Room a7008624-be97-4e84-931c-fe3c1be1e5b6 created
-[2022-03-23T12:35:44.858Z] [INFO] [GAME_HANDLER] - Room a7008624-be97-4e84-931c-fe3c1be1e5b6 removed
-[2022-03-23T12:35:47.165Z] [DEBUG] [SOCKET_HANDLER] - jzxU-hPVpVOdEr7LAAAh connected!
-[2022-03-23T12:35:47.165Z] [INFO] [GAME_HANDLER] - Room 5a30abe3-1822-4511-adfc-186c3ec38004 created
-[2022-03-23T12:36:02.502Z] [INFO] [GAME_HANDLER] - Room 5a30abe3-1822-4511-adfc-186c3ec38004 removed
-[2022-03-23T12:36:05.139Z] [DEBUG] [SOCKET_HANDLER] - dH2Q2xm-qqTt36wVAAAj connected!
-[2022-03-23T12:36:05.139Z] [INFO] [GAME_HANDLER] - Room 398d727f-a887-4df8-8919-3fb3e6ff0c6e created
-[2022-03-23T12:36:14.130Z] [INFO] [GAME_HANDLER] - Room 398d727f-a887-4df8-8919-3fb3e6ff0c6e removed
-[2022-03-23T12:36:16.376Z] [DEBUG] [SOCKET_HANDLER] - VNa0KYPIqH0kAyKMAAAl connected!
-[2022-03-23T12:36:16.376Z] [INFO] [GAME_HANDLER] - Room 12764601-93fb-4060-9324-4cf91c67c155 created
-[2022-03-23T12:36:36.300Z] [INFO] [GAME_HANDLER] - Room 12764601-93fb-4060-9324-4cf91c67c155 removed
-[2022-03-23T12:36:38.285Z] [DEBUG] [SOCKET_HANDLER] - MKsLLE-NrbIcQBWYAAAn connected!
-[2022-03-23T12:36:38.286Z] [INFO] [GAME_HANDLER] - Room 8b3d6296-d633-4de9-bb18-e80c9d24344a created
-[2022-03-23T12:37:12.362Z] [INFO] [GAME_HANDLER] - Room 8b3d6296-d633-4de9-bb18-e80c9d24344a removed
-[2022-03-23T20:04:59.807Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-23T20:04:59.809Z] [INFO] [SERVER] - Server is Starting
-[2022-03-23T20:05:01.204Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-23T20:11:43.980Z] [DEBUG] [SOCKET_HANDLER] - fYjc-aAwc7mmVxjrAAAB connected!
-[2022-03-23T20:11:43.981Z] [INFO] [GAME_HANDLER] - Room 4a6eabb2-1b83-4289-8175-c1fb6a83b8f7 created
-[2022-03-23T20:20:07.030Z] [INFO] [GAME_HANDLER] - Room 4a6eabb2-1b83-4289-8175-c1fb6a83b8f7 removed
-[2022-03-23T20:22:17.495Z] [DEBUG] [SOCKET_HANDLER] - bTlDdARxlZmW7rcsAAAD connected!
-[2022-03-23T20:22:17.495Z] [INFO] [GAME_HANDLER] - Room ae130e90-ad6a-458f-a214-0cb3998f2d2a created
-[2022-03-23T20:23:10.993Z] [INFO] [GAME_HANDLER] - Room ae130e90-ad6a-458f-a214-0cb3998f2d2a removed
-[2022-03-23T20:23:19.287Z] [DEBUG] [SOCKET_HANDLER] - SHftW70eInP5l38LAAAF connected!
-[2022-03-23T20:23:19.287Z] [INFO] [GAME_HANDLER] - Room 88918afd-fcc1-46a1-8af3-cb10494d7591 created
-[2022-03-23T20:23:44.721Z] [INFO] [GAME_HANDLER] - Room 88918afd-fcc1-46a1-8af3-cb10494d7591 removed
-[2022-03-23T20:24:12.031Z] [DEBUG] [SOCKET_HANDLER] - WTMA6V4jbICNKVWoAAAH connected!
-[2022-03-23T20:24:12.032Z] [INFO] [GAME_HANDLER] - Room ebc5566e-8e6f-42bb-aa50-20d61ce819dd created
-[2022-03-23T20:24:58.940Z] [INFO] [GAME_HANDLER] - Room ebc5566e-8e6f-42bb-aa50-20d61ce819dd removed
-[2022-03-23T20:27:16.180Z] [DEBUG] [SOCKET_HANDLER] - hJj993FmZWj1zR0aAAAJ connected!
-[2022-03-23T20:27:16.181Z] [INFO] [GAME_HANDLER] - Room 8cf5151c-e4ce-45ee-af5d-45df829eaed3 created
-[2022-03-23T20:27:43.878Z] [INFO] [GAME_HANDLER] - Room 8cf5151c-e4ce-45ee-af5d-45df829eaed3 removed
-[2022-03-23T20:27:46.174Z] [DEBUG] [SOCKET_HANDLER] - 3bnr5erHGb0elkIPAAAL connected!
-[2022-03-23T20:27:46.174Z] [INFO] [GAME_HANDLER] - Room 235b79b4-a708-4304-86e0-58ee2cc6b7c1 created
-[2022-03-23T20:28:22.477Z] [INFO] [GAME_HANDLER] - Room 235b79b4-a708-4304-86e0-58ee2cc6b7c1 removed
-[2022-03-23T20:28:24.433Z] [DEBUG] [SOCKET_HANDLER] - 2nQLvXs_ty336wK8AAAN connected!
-[2022-03-23T20:28:24.434Z] [INFO] [GAME_HANDLER] - Room 0e639bab-366d-484b-b544-f697315f6357 created
-[2022-03-23T20:28:44.226Z] [INFO] [GAME_HANDLER] - Room 0e639bab-366d-484b-b544-f697315f6357 removed
-[2022-03-23T20:28:46.296Z] [DEBUG] [SOCKET_HANDLER] - aJ8el-qblL_Ebf4pAAAP connected!
-[2022-03-23T20:28:46.296Z] [INFO] [GAME_HANDLER] - Room a91a9382-ee14-4570-9bf9-8c4b33eadf69 created
-[2022-03-23T20:29:09.543Z] [INFO] [GAME_HANDLER] - Room a91a9382-ee14-4570-9bf9-8c4b33eadf69 removed
-[2022-03-23T20:30:38.176Z] [DEBUG] [SOCKET_HANDLER] - -QSgdEh2TkWYYhRSAAAR connected!
-[2022-03-23T20:30:38.176Z] [INFO] [GAME_HANDLER] - Room ff9c3ab7-7b2f-4e81-916e-8a6b428af4c5 created
-[2022-03-23T20:36:07.815Z] [INFO] [GAME_HANDLER] - Room ff9c3ab7-7b2f-4e81-916e-8a6b428af4c5 removed
-[2022-03-23T20:36:13.861Z] [DEBUG] [SOCKET_HANDLER] - Pb0sL_qNZn8UdF10AAAT connected!
-[2022-03-23T20:36:13.861Z] [INFO] [GAME_HANDLER] - Room a0e32510-0527-4e02-958c-5e45868841f4 created
-[2022-03-23T20:37:29.360Z] [INFO] [GAME_HANDLER] - Room a0e32510-0527-4e02-958c-5e45868841f4 removed
-[2022-03-23T20:37:36.240Z] [DEBUG] [SOCKET_HANDLER] - 80NBwCb7PwyJNMOvAAAV connected!
-[2022-03-23T20:37:36.240Z] [INFO] [GAME_HANDLER] - Room 62fced9b-b147-4e8b-a8b8-3fa9a5f1196a created
-[2022-03-23T20:38:23.680Z] [INFO] [GAME_HANDLER] - Room 62fced9b-b147-4e8b-a8b8-3fa9a5f1196a removed
-[2022-03-23T20:38:31.906Z] [DEBUG] [SOCKET_HANDLER] - GUHNKm6Gw3EK_9yhAAAX connected!
-[2022-03-23T20:38:31.906Z] [INFO] [GAME_HANDLER] - Room 1d9cdec5-b67d-4f17-ace0-bf068341b775 created
-[2022-03-23T20:38:39.868Z] [INFO] [GAME_HANDLER] - Room 1d9cdec5-b67d-4f17-ace0-bf068341b775 removed
-[2022-03-23T20:38:42.934Z] [DEBUG] [SOCKET_HANDLER] - GmE0-fDWtWokEi3HAAAZ connected!
-[2022-03-23T20:38:42.935Z] [INFO] [GAME_HANDLER] - Room 521c9692-b74e-4b3a-8e5a-9ceb0fd56532 created
-[2022-03-23T20:39:11.054Z] [INFO] [GAME_HANDLER] - Room 521c9692-b74e-4b3a-8e5a-9ceb0fd56532 removed
-[2022-03-23T20:39:13.882Z] [DEBUG] [SOCKET_HANDLER] - HZu8kV-VrbY7VdvVAAAb connected!
-[2022-03-23T20:39:13.882Z] [INFO] [GAME_HANDLER] - Room 53e6d038-f3a4-489c-8bad-280270674287 created
-[2022-03-23T20:39:20.927Z] [INFO] [GAME_HANDLER] - Room 53e6d038-f3a4-489c-8bad-280270674287 removed
-[2022-03-23T20:39:32.437Z] [DEBUG] [SOCKET_HANDLER] - vulAA5_drzwv5t_zAAAd connected!
-[2022-03-23T20:39:32.438Z] [INFO] [GAME_HANDLER] - Room b59b7802-9e5a-4e08-8390-6fbf9ca206dd created
-[2022-03-23T20:40:10.853Z] [INFO] [GAME_HANDLER] - Room b59b7802-9e5a-4e08-8390-6fbf9ca206dd removed
-[2022-03-23T20:40:12.698Z] [DEBUG] [SOCKET_HANDLER] - IztVwQV3f0FKb-WqAAAf connected!
-[2022-03-23T20:40:12.698Z] [INFO] [GAME_HANDLER] - Room c43cd402-54cb-44cd-b9a7-fa9e5a5643df created
-[2022-03-23T20:40:57.762Z] [INFO] [GAME_HANDLER] - Room c43cd402-54cb-44cd-b9a7-fa9e5a5643df removed
-[2022-03-23T20:41:00.005Z] [DEBUG] [SOCKET_HANDLER] - 2T_7AQfTe5FNoCg1AAAh connected!
-[2022-03-23T20:41:00.005Z] [INFO] [GAME_HANDLER] - Room f962307f-7340-4ac7-85bc-2230fcd0ef68 created
-[2022-03-23T20:41:37.977Z] [INFO] [GAME_HANDLER] - Room f962307f-7340-4ac7-85bc-2230fcd0ef68 removed
-[2022-03-23T20:54:47.323Z] [DEBUG] [SOCKET_HANDLER] - FldTZpq73vsISMGvAAAj connected!
-[2022-03-23T20:54:47.324Z] [INFO] [GAME_HANDLER] - Room fa04d7b1-2bca-42a3-afba-f19ff7c8f346 created
-[2022-03-23T20:56:57.201Z] [INFO] [GAME_HANDLER] - Room fa04d7b1-2bca-42a3-afba-f19ff7c8f346 removed
-[2022-03-23T20:57:03.807Z] [DEBUG] [SOCKET_HANDLER] - IEJanobssoIOReZdAAAl connected!
-[2022-03-23T20:57:03.808Z] [INFO] [GAME_HANDLER] - Room 1b33fe89-f6af-4bce-b45b-f97ead6a887c created
-[2022-03-23T21:00:26.892Z] [INFO] [GAME_HANDLER] - Room 1b33fe89-f6af-4bce-b45b-f97ead6a887c removed
-[2022-03-23T21:00:40.054Z] [DEBUG] [SOCKET_HANDLER] - HDARz00aIiGhE8KUAAAn connected!
-[2022-03-23T21:00:40.054Z] [INFO] [GAME_HANDLER] - Room a818e766-7e96-4ba5-8d3b-50e9eab29365 created
-[2022-03-23T21:00:49.027Z] [INFO] [GAME_HANDLER] - Room a818e766-7e96-4ba5-8d3b-50e9eab29365 removed
-[2022-03-23T21:03:45.090Z] [DEBUG] [SOCKET_HANDLER] - pySJn3zRv6nN5qX9AAAp connected!
-[2022-03-23T21:03:45.091Z] [INFO] [GAME_HANDLER] - Room 88a73d2e-166c-40b4-ad5d-74652fd1309a created
-[2022-03-23T21:04:58.091Z] [INFO] [GAME_HANDLER] - Room 88a73d2e-166c-40b4-ad5d-74652fd1309a removed
-[2022-03-23T21:21:09.167Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-23T21:21:09.168Z] [INFO] [SERVER] - Server is Starting
-[2022-03-23T21:21:09.314Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-23T21:21:55.412Z] [DEBUG] [SOCKET_HANDLER] - mDXCERinxjIw-tlvAAAB connected!
-[2022-03-23T21:21:55.413Z] [INFO] [GAME_HANDLER] - Room cb6e3190-e62d-46bb-b1b6-1a16e29a5549 created
-[2022-03-23T21:23:08.000Z] [INFO] [GAME_HANDLER] - Room cb6e3190-e62d-46bb-b1b6-1a16e29a5549 removed
-[2022-03-23T21:23:12.809Z] [DEBUG] [SOCKET_HANDLER] - AJCwIZcDaiCOh8xVAAAD connected!
-[2022-03-23T21:23:12.809Z] [INFO] [GAME_HANDLER] - Room 989f5dc2-daa2-4e9f-a2dc-006ce8076ba2 created
-[2022-03-23T21:24:21.624Z] [INFO] [GAME_HANDLER] - Room 989f5dc2-daa2-4e9f-a2dc-006ce8076ba2 removed
-[2022-03-23T21:24:25.153Z] [DEBUG] [SOCKET_HANDLER] - 1c-t5Ij5uGYSSe-TAAAF connected!
-[2022-03-23T21:24:25.153Z] [INFO] [GAME_HANDLER] - Room 4861cc6a-0655-44df-ba23-2ee44ab89859 created
-[2022-03-23T21:25:45.744Z] [INFO] [GAME_HANDLER] - Room 4861cc6a-0655-44df-ba23-2ee44ab89859 removed
-[2022-03-23T21:25:51.293Z] [DEBUG] [SOCKET_HANDLER] - yDZFKU79Pt3i5aBLAAAH connected!
-[2022-03-23T21:25:51.294Z] [INFO] [GAME_HANDLER] - Room ed94671b-a8dc-4539-b0fe-e8c441a96557 created
-[2022-03-23T21:26:09.630Z] [INFO] [GAME_HANDLER] - Room ed94671b-a8dc-4539-b0fe-e8c441a96557 removed
-[2022-03-23T21:26:12.538Z] [DEBUG] [SOCKET_HANDLER] - GK2sNAVA00YkoD9JAAAJ connected!
-[2022-03-23T21:26:12.538Z] [INFO] [GAME_HANDLER] - Room c1f074ae-2184-40dd-8376-3eac51cceab3 created
-[2022-03-23T21:27:15.771Z] [INFO] [GAME_HANDLER] - Room c1f074ae-2184-40dd-8376-3eac51cceab3 removed
-[2022-03-23T21:27:51.817Z] [DEBUG] [SOCKET_HANDLER] - 00Mfa3tGyX9YT8rWAAAL connected!
-[2022-03-23T21:27:51.818Z] [INFO] [GAME_HANDLER] - Room d7304b17-e717-4dda-a6e4-7278f9b412ec created
-[2022-03-23T21:28:09.246Z] [INFO] [GAME_HANDLER] - Room d7304b17-e717-4dda-a6e4-7278f9b412ec removed
-[2022-03-23T21:28:14.187Z] [DEBUG] [SOCKET_HANDLER] - Dwj6WCtcAWlm576bAAAN connected!
-[2022-03-23T21:28:14.188Z] [INFO] [GAME_HANDLER] - Room e9d1d99e-4520-43ca-ae69-a2291816279b created
-[2022-03-23T21:29:58.179Z] [INFO] [GAME_HANDLER] - Room e9d1d99e-4520-43ca-ae69-a2291816279b removed
-[2022-03-23T21:30:02.630Z] [DEBUG] [SOCKET_HANDLER] - YzP2CmdubHg8DwIdAAAP connected!
-[2022-03-23T21:30:02.630Z] [INFO] [GAME_HANDLER] - Room 72e9584a-e376-4b95-b61b-cb6a2a157474 created
-[2022-03-23T21:36:27.581Z] [INFO] [GAME_HANDLER] - Room 72e9584a-e376-4b95-b61b-cb6a2a157474 removed
-[2022-03-23T21:37:26.153Z] [DEBUG] [SOCKET_HANDLER] - JhEHqy-6RV9Mj3sgAAAR connected!
-[2022-03-23T21:37:26.153Z] [INFO] [GAME_HANDLER] - Room 3da607ac-0ebb-4a9e-9c1e-8e4b0e997cd9 created
-[2022-03-23T21:38:08.472Z] [INFO] [GAME_HANDLER] - Room 3da607ac-0ebb-4a9e-9c1e-8e4b0e997cd9 removed
-[2022-03-23T21:38:12.396Z] [DEBUG] [SOCKET_HANDLER] - piV9yNoXIAhG0n-EAAAT connected!
-[2022-03-23T21:38:12.397Z] [INFO] [GAME_HANDLER] - Room d2ba0ad2-003c-4fe6-916b-0d6b984bb8f1 created
-[2022-03-23T21:38:54.944Z] [INFO] [GAME_HANDLER] - Room d2ba0ad2-003c-4fe6-916b-0d6b984bb8f1 removed
-[2022-03-23T21:38:58.367Z] [DEBUG] [SOCKET_HANDLER] - QG2CPULS_VnfepwgAAAV connected!
-[2022-03-23T21:38:58.368Z] [INFO] [GAME_HANDLER] - Room 67577ad2-2e50-42ed-8ab4-c0a7548b050d created
-[2022-03-23T21:39:24.240Z] [INFO] [GAME_HANDLER] - Room 67577ad2-2e50-42ed-8ab4-c0a7548b050d removed
-[2022-03-23T21:39:32.169Z] [DEBUG] [SOCKET_HANDLER] - 5nXq2G_eO41sNibMAAAX connected!
-[2022-03-23T21:39:32.169Z] [INFO] [GAME_HANDLER] - Room 02e7996a-a6b9-41b4-b4c9-dabca3e2d18c created
-[2022-03-23T21:43:22.301Z] [INFO] [GAME_HANDLER] - Room 02e7996a-a6b9-41b4-b4c9-dabca3e2d18c removed
-[2022-03-23T21:43:26.848Z] [DEBUG] [SOCKET_HANDLER] - gbNOjJPhI7OHfX0CAAAZ connected!
-[2022-03-23T21:43:26.849Z] [INFO] [GAME_HANDLER] - Room 03147ef9-ca38-40da-b4b2-06f1f651f14b created
-[2022-03-23T21:43:43.571Z] [INFO] [GAME_HANDLER] - Room 03147ef9-ca38-40da-b4b2-06f1f651f14b removed
-[2022-03-23T21:43:48.540Z] [DEBUG] [SOCKET_HANDLER] - EuoawmoqSOeOIdWLAAAb connected!
-[2022-03-23T21:43:48.540Z] [INFO] [GAME_HANDLER] - Room a42beb48-da2f-416d-be61-c0e69d40c090 created
-[2022-03-23T21:55:30.103Z] [INFO] [GAME_HANDLER] - Room a42beb48-da2f-416d-be61-c0e69d40c090 removed
-[2022-03-23T21:55:42.548Z] [DEBUG] [SOCKET_HANDLER] - zHdo3wwDJsOQoMPYAAAd connected!
-[2022-03-23T21:55:42.548Z] [INFO] [GAME_HANDLER] - Room 394c746f-7966-45be-9a26-3147d7976e4f created
-[2022-03-23T21:56:03.214Z] [INFO] [GAME_HANDLER] - Room 394c746f-7966-45be-9a26-3147d7976e4f removed
-[2022-03-23T21:56:05.698Z] [DEBUG] [SOCKET_HANDLER] - yI001gL1olZ1-J0CAAAf connected!
-[2022-03-23T21:56:05.699Z] [INFO] [GAME_HANDLER] - Room c6891cce-5892-405c-b97f-b94047c53a28 created
-[2022-03-23T21:58:19.873Z] [INFO] [GAME_HANDLER] - Room c6891cce-5892-405c-b97f-b94047c53a28 removed
-[2022-03-23T21:58:24.779Z] [DEBUG] [SOCKET_HANDLER] - LcHzhyuKQHAbA9mgAAAh connected!
-[2022-03-23T21:58:24.780Z] [INFO] [GAME_HANDLER] - Room bda131df-c18e-4dd8-8f17-e5fd5f129942 created
-[2022-03-23T21:59:52.021Z] [INFO] [GAME_HANDLER] - Room bda131df-c18e-4dd8-8f17-e5fd5f129942 removed
-[2022-03-23T22:00:04.646Z] [DEBUG] [SOCKET_HANDLER] - ssriQc8bnAIs7K2OAAAj connected!
-[2022-03-23T22:00:04.646Z] [INFO] [GAME_HANDLER] - Room 8e4a1968-51d1-4516-b995-b30c9e63f163 created
-[2022-03-23T22:00:25.344Z] [INFO] [GAME_HANDLER] - Room 8e4a1968-51d1-4516-b995-b30c9e63f163 removed
-[2022-03-23T22:00:28.763Z] [DEBUG] [SOCKET_HANDLER] - KWfe-4A2C-11V3qNAAAl connected!
-[2022-03-23T22:00:28.763Z] [INFO] [GAME_HANDLER] - Room 2365f396-5ede-46cb-861b-e6b02a5a30cb created
-[2022-03-23T22:01:42.375Z] [INFO] [GAME_HANDLER] - Room 2365f396-5ede-46cb-861b-e6b02a5a30cb removed
-[2022-03-23T22:02:07.551Z] [DEBUG] [SOCKET_HANDLER] - BGpMbQlKqyGb_cS5AAAn connected!
-[2022-03-23T22:02:07.552Z] [INFO] [GAME_HANDLER] - Room 5c537658-8f70-49e3-ad68-af9e7bf035fb created
-[2022-03-23T22:02:46.828Z] [INFO] [GAME_HANDLER] - Room 5c537658-8f70-49e3-ad68-af9e7bf035fb removed
-[2022-03-23T22:02:51.036Z] [DEBUG] [SOCKET_HANDLER] - snt5UbJv73JWw84aAAAp connected!
-[2022-03-23T22:02:51.037Z] [INFO] [GAME_HANDLER] - Room 0f3292c9-66ee-4414-843d-4e6c39af338f created
-[2022-03-23T22:03:05.836Z] [INFO] [GAME_HANDLER] - Room 0f3292c9-66ee-4414-843d-4e6c39af338f removed
-[2022-03-23T22:05:31.343Z] [DEBUG] [SOCKET_HANDLER] - TBnBBbl4Y58qrauQAAAr connected!
-[2022-03-23T22:05:31.344Z] [INFO] [GAME_HANDLER] - Room 72bd49e0-bc5e-432a-8263-d48f33b74ce1 created
-[2022-03-23T22:05:56.036Z] [INFO] [GAME_HANDLER] - Room 72bd49e0-bc5e-432a-8263-d48f33b74ce1 removed
-[2022-03-23T22:06:01.877Z] [DEBUG] [SOCKET_HANDLER] - hFftkyOrrnOPpUvKAAAt connected!
-[2022-03-23T22:06:01.877Z] [INFO] [GAME_HANDLER] - Room 36748e23-4330-4184-836b-166618b61bd0 created
-[2022-03-23T22:06:52.793Z] [INFO] [GAME_HANDLER] - Room 36748e23-4330-4184-836b-166618b61bd0 removed
-[2022-03-23T22:06:56.584Z] [DEBUG] [SOCKET_HANDLER] - LAc6lGE2XeU5mH7jAAAv connected!
-[2022-03-23T22:06:56.584Z] [INFO] [GAME_HANDLER] - Room a712fcd8-dff1-4875-a808-cdb8a86ebcfb created
-[2022-03-23T22:11:28.415Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-23T22:11:28.417Z] [INFO] [SERVER] - Server is Starting
-[2022-03-23T22:11:28.566Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-23T22:11:32.292Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-23T22:11:32.294Z] [INFO] [SERVER] - Server is Starting
-[2022-03-23T22:11:32.437Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-23T22:11:43.267Z] [DEBUG] [SOCKET_HANDLER] - rXQkGTOT-qJlC6mQAAAB connected!
-[2022-03-23T22:11:43.268Z] [INFO] [GAME_HANDLER] - Room f4199b91-cc2f-40d3-9603-cfa9ad48e162 created
-[2022-03-23T22:12:41.020Z] [INFO] [GAME_HANDLER] - Room f4199b91-cc2f-40d3-9603-cfa9ad48e162 removed
-[2022-03-23T22:12:44.091Z] [DEBUG] [SOCKET_HANDLER] - K1ywsMIKVYAyagGKAAAD connected!
-[2022-03-23T22:12:44.092Z] [INFO] [GAME_HANDLER] - Room 98ca0a82-1199-49f2-bf36-f14395b79a81 created
-[2022-03-23T22:15:27.186Z] [INFO] [GAME_HANDLER] - Room 98ca0a82-1199-49f2-bf36-f14395b79a81 removed
-[2022-03-23T22:16:01.994Z] [DEBUG] [SOCKET_HANDLER] - 2hITAcW4FOKP3DIWAAAF connected!
-[2022-03-23T22:16:01.995Z] [INFO] [GAME_HANDLER] - Room 6d761f9a-c7e9-4d80-aa70-15d9bc38cafd created
-[2022-03-23T22:21:23.443Z] [INFO] [GAME_HANDLER] - Room 6d761f9a-c7e9-4d80-aa70-15d9bc38cafd removed
-[2022-03-23T22:21:53.991Z] [DEBUG] [SOCKET_HANDLER] - sP2UbZ08jVTJUqKZAAAH connected!
-[2022-03-23T22:21:53.992Z] [INFO] [GAME_HANDLER] - Room 40e8aa00-c6fc-4ab0-b11b-e7c1d73d6a80 created
-[2022-03-23T22:22:17.666Z] [INFO] [GAME_HANDLER] - Room 40e8aa00-c6fc-4ab0-b11b-e7c1d73d6a80 removed
-[2022-03-23T22:22:28.556Z] [DEBUG] [SOCKET_HANDLER] - bKR9SeaJZE2x3aztAAAJ connected!
-[2022-03-23T22:22:28.556Z] [INFO] [GAME_HANDLER] - Room d06a4af1-d59e-48c2-936f-4caf053f5729 created
-[2022-03-23T22:23:19.122Z] [INFO] [GAME_HANDLER] - Room d06a4af1-d59e-48c2-936f-4caf053f5729 removed
-[2022-03-23T22:23:46.680Z] [DEBUG] [SOCKET_HANDLER] - pVDEVpGGPCYf9y2qAAAL connected!
-[2022-03-23T22:23:46.680Z] [INFO] [GAME_HANDLER] - Room bdb92a88-b093-489b-ad7e-d477e166d36d created
-[2022-03-23T22:25:34.077Z] [INFO] [GAME_HANDLER] - Room bdb92a88-b093-489b-ad7e-d477e166d36d removed
-[2022-03-23T22:25:40.793Z] [DEBUG] [SOCKET_HANDLER] - ByhXoNyYWLCo_SOUAAAN connected!
-[2022-03-23T22:25:40.793Z] [INFO] [GAME_HANDLER] - Room bae4d5c5-6ebe-47bc-98ce-ead35469ebf6 created
-[2022-03-23T22:25:57.751Z] [INFO] [GAME_HANDLER] - Room bae4d5c5-6ebe-47bc-98ce-ead35469ebf6 removed
-[2022-03-23T22:26:19.782Z] [DEBUG] [SOCKET_HANDLER] - 7IlD3oNWpcd6EiHzAAAP connected!
-[2022-03-23T22:26:19.783Z] [INFO] [GAME_HANDLER] - Room b6638baf-371b-4e97-8bc5-f3056a409b6d created
-[2022-03-23T22:27:12.485Z] [INFO] [GAME_HANDLER] - Room b6638baf-371b-4e97-8bc5-f3056a409b6d removed
-[2022-03-24T06:57:17.791Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-24T06:57:17.815Z] [INFO] [SERVER] - Server is Starting
-[2022-03-24T06:57:22.613Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-24T06:59:55.290Z] [DEBUG] [SOCKET_HANDLER] - rRDUd6ZCDmu4laYBAAAB connected!
-[2022-03-24T06:59:55.291Z] [INFO] [GAME_HANDLER] - Room e811990f-e88e-4edf-8b9f-2e09e05cc54e created
-[2022-03-24T07:02:02.801Z] [INFO] [GAME_HANDLER] - Room e811990f-e88e-4edf-8b9f-2e09e05cc54e removed
-[2022-03-24T07:02:05.256Z] [DEBUG] [SOCKET_HANDLER] - 1bej973kNjJ0qUm-AAAD connected!
-[2022-03-24T07:02:05.256Z] [INFO] [GAME_HANDLER] - Room ba07c32f-4b1f-46ab-9105-75824fefd489 created
-[2022-03-24T07:02:36.776Z] [INFO] [GAME_HANDLER] - Room ba07c32f-4b1f-46ab-9105-75824fefd489 removed
-[2022-03-24T07:02:53.874Z] [DEBUG] [SOCKET_HANDLER] - nli3QTbJrPCDlwzAAAAF connected!
-[2022-03-24T07:02:53.875Z] [INFO] [GAME_HANDLER] - Room dd1b290d-76ae-4b33-87ac-99dde9b6fd28 created
-[2022-03-24T07:17:00.563Z] [INFO] [GAME_HANDLER] - Room dd1b290d-76ae-4b33-87ac-99dde9b6fd28 removed
-[2022-03-24T07:17:04.580Z] [DEBUG] [SOCKET_HANDLER] - lhjrP4y8sZlUFuoqAAAH connected!
-[2022-03-24T07:17:04.580Z] [INFO] [GAME_HANDLER] - Room 2edd42bf-e8b8-4393-ad50-9c76f10e2493 created
-[2022-03-24T07:17:20.140Z] [INFO] [GAME_HANDLER] - Room 2edd42bf-e8b8-4393-ad50-9c76f10e2493 removed
-[2022-03-24T07:24:31.239Z] [DEBUG] [SOCKET_HANDLER] - mnXtCnuKGnWdW6zIAAAJ connected!
-[2022-03-24T07:24:31.240Z] [INFO] [GAME_HANDLER] - Room 79d2d517-1cc6-4087-adc3-94059bbf1be8 created
-[2022-03-24T07:24:51.401Z] [INFO] [GAME_HANDLER] - Room 79d2d517-1cc6-4087-adc3-94059bbf1be8 removed
-[2022-03-24T07:24:54.821Z] [DEBUG] [SOCKET_HANDLER] - h9_meO5KMk_J5m6-AAAL connected!
-[2022-03-24T07:24:54.822Z] [INFO] [GAME_HANDLER] - Room 0c28923c-ab5b-4c29-b6bc-b411d53eeb5e created
-[2022-03-24T07:28:21.620Z] [INFO] [GAME_HANDLER] - Room 0c28923c-ab5b-4c29-b6bc-b411d53eeb5e removed
-[2022-03-24T07:28:25.017Z] [DEBUG] [SOCKET_HANDLER] - 4mRoR0aRsaoctPO9AAAN connected!
-[2022-03-24T07:28:25.017Z] [INFO] [GAME_HANDLER] - Room 912c3930-2cc6-4f56-b5c5-c1e330eef857 created
-[2022-03-24T07:28:34.359Z] [INFO] [GAME_HANDLER] - Room 912c3930-2cc6-4f56-b5c5-c1e330eef857 removed
-[2022-03-24T07:29:08.179Z] [DEBUG] [SOCKET_HANDLER] - pqP6CZSgw0PtH-rlAAAP connected!
-[2022-03-24T07:29:08.179Z] [INFO] [GAME_HANDLER] - Room 085fa28a-4f76-4069-b422-f7f554de466f created
-[2022-03-24T07:30:35.327Z] [INFO] [GAME_HANDLER] - Room 085fa28a-4f76-4069-b422-f7f554de466f removed
-[2022-03-24T07:31:29.476Z] [DEBUG] [SOCKET_HANDLER] - kTADyolrLlSGIlxqAAAR connected!
-[2022-03-24T07:31:29.477Z] [INFO] [GAME_HANDLER] - Room d1ca0945-3c43-47ac-9226-07f89b2ed900 created
-[2022-03-24T07:31:38.325Z] [INFO] [GAME_HANDLER] - Room d1ca0945-3c43-47ac-9226-07f89b2ed900 removed
-[2022-03-24T07:32:06.780Z] [DEBUG] [SOCKET_HANDLER] - Gw99Y6kmUtgOjJuTAAAT connected!
-[2022-03-24T07:32:06.780Z] [INFO] [GAME_HANDLER] - Room 45343913-606a-4dca-9104-a5d9265c5003 created
-[2022-03-24T07:32:32.652Z] [INFO] [GAME_HANDLER] - Room 45343913-606a-4dca-9104-a5d9265c5003 removed
-[2022-03-24T07:32:35.463Z] [DEBUG] [SOCKET_HANDLER] - DVeppbsvADerRqQ8AAAV connected!
-[2022-03-24T07:32:35.463Z] [INFO] [GAME_HANDLER] - Room 7149285e-83ef-467e-8d6d-c1744eda767b created
-[2022-03-24T07:33:40.138Z] [INFO] [GAME_HANDLER] - Room 7149285e-83ef-467e-8d6d-c1744eda767b removed
-[2022-03-24T07:34:26.646Z] [DEBUG] [SOCKET_HANDLER] - 39NmU-d6CuoIhaWkAAAX connected!
-[2022-03-24T07:34:26.646Z] [INFO] [GAME_HANDLER] - Room b7d433a0-0e81-4a3b-bd03-fece13b5473f created
-[2022-03-24T07:34:42.452Z] [INFO] [GAME_HANDLER] - Room b7d433a0-0e81-4a3b-bd03-fece13b5473f removed
-[2022-03-24T07:36:21.319Z] [DEBUG] [SOCKET_HANDLER] - feMobtPxFKhuAf6mAAAZ connected!
-[2022-03-24T07:36:21.320Z] [INFO] [GAME_HANDLER] - Room 2939461e-9d90-4b34-9440-dcb049a2ad58 created
-[2022-03-24T07:36:38.715Z] [INFO] [GAME_HANDLER] - Room 2939461e-9d90-4b34-9440-dcb049a2ad58 removed
-[2022-03-24T07:36:40.713Z] [DEBUG] [SOCKET_HANDLER] - FTBkjQ3cBvLswcXsAAAb connected!
-[2022-03-24T07:36:40.713Z] [INFO] [GAME_HANDLER] - Room ae7d389d-5e49-4c03-ba00-99f78da323e7 created
-[2022-03-24T07:37:05.585Z] [INFO] [GAME_HANDLER] - Room ae7d389d-5e49-4c03-ba00-99f78da323e7 removed
-[2022-03-24T07:37:35.744Z] [DEBUG] [SOCKET_HANDLER] - MFXLjl5OgLFNrZt3AAAd connected!
-[2022-03-24T07:37:35.745Z] [INFO] [GAME_HANDLER] - Room a69d899b-9150-49a1-a1a7-7bd7123945f1 created
-[2022-03-24T07:38:18.617Z] [DEBUG] [SOCKET_HANDLER] - -4g0u4Lvc2zZMsXKAAAf connected!
-[2022-03-24T07:38:59.421Z] [INFO] [GAME_HANDLER] - Room a69d899b-9150-49a1-a1a7-7bd7123945f1 removed
-[2022-03-24T07:39:01.508Z] [DEBUG] [SOCKET_HANDLER] - L2U2nJc0_5beTMnLAAAh connected!
-[2022-03-24T07:39:01.508Z] [INFO] [GAME_HANDLER] - Room fd52afde-a807-4b5b-98cd-c32623fc4d84 created
-[2022-03-24T07:39:26.132Z] [DEBUG] [SOCKET_HANDLER] - NO5vZ8tNwPXz_buVAAAj connected!
-[2022-03-24T07:40:09.235Z] [INFO] [GAME_HANDLER] - Room fd52afde-a807-4b5b-98cd-c32623fc4d84 removed
-[2022-03-24T07:40:11.765Z] [DEBUG] [SOCKET_HANDLER] - 7Q8-nRXS9bsMUco8AAAl connected!
-[2022-03-24T07:40:11.766Z] [INFO] [GAME_HANDLER] - Room 7813c762-9094-48d4-9f3d-b8bb04b13597 created
-[2022-03-24T07:40:26.885Z] [DEBUG] [SOCKET_HANDLER] - F4TaDgJIkvDFdhQdAAAn connected!
-[2022-03-24T07:42:05.523Z] [INFO] [GAME_HANDLER] - Room 7813c762-9094-48d4-9f3d-b8bb04b13597 removed
-[2022-03-24T07:42:07.972Z] [DEBUG] [SOCKET_HANDLER] - nxaQfWsTHsRjYw32AAAp connected!
-[2022-03-24T07:42:07.973Z] [INFO] [GAME_HANDLER] - Room 2882ddc0-ac3e-463e-a55f-abb33d7d195a created
-[2022-03-24T07:42:22.756Z] [INFO] [GAME_HANDLER] - Room 2882ddc0-ac3e-463e-a55f-abb33d7d195a removed
-[2022-03-24T07:45:07.517Z] [DEBUG] [SOCKET_HANDLER] - HgZ9T-GbJUGspk2KAAAr connected!
-[2022-03-24T07:45:07.518Z] [INFO] [GAME_HANDLER] - Room eb09bddb-3142-4965-9c66-ac18ece4d0a4 created
-[2022-03-24T07:47:37.223Z] [INFO] [GAME_HANDLER] - Room eb09bddb-3142-4965-9c66-ac18ece4d0a4 removed
-[2022-03-24T07:47:40.086Z] [DEBUG] [SOCKET_HANDLER] - U9wiHqfIp8THykjzAAAt connected!
-[2022-03-24T07:47:40.086Z] [INFO] [GAME_HANDLER] - Room 139766ff-7f8e-4277-8f68-1335bbade1ac created
-[2022-03-24T07:51:14.781Z] [INFO] [GAME_HANDLER] - Room 139766ff-7f8e-4277-8f68-1335bbade1ac removed
-[2022-03-24T07:51:21.487Z] [DEBUG] [SOCKET_HANDLER] - cKVbSZWez9aCMviUAAAv connected!
-[2022-03-24T07:51:21.487Z] [INFO] [GAME_HANDLER] - Room 59b947e2-e7a3-40c5-9d13-560cdc984930 created
-[2022-03-24T07:52:18.793Z] [INFO] [GAME_HANDLER] - Room 59b947e2-e7a3-40c5-9d13-560cdc984930 removed
-[2022-03-24T07:52:24.401Z] [DEBUG] [SOCKET_HANDLER] - Z5Sa1x87XFwWWrRhAAAx connected!
-[2022-03-24T07:52:24.402Z] [INFO] [GAME_HANDLER] - Room 0a58f771-23c5-410f-8583-3de602e06a00 created
-[2022-03-24T07:58:44.666Z] [INFO] [GAME_HANDLER] - Room 0a58f771-23c5-410f-8583-3de602e06a00 removed
-[2022-03-24T07:58:51.257Z] [DEBUG] [SOCKET_HANDLER] - Skc8tZ2WN6V6u-vcAAAz connected!
-[2022-03-24T07:58:51.258Z] [INFO] [GAME_HANDLER] - Room b334a643-597b-458c-890a-4758b0befb43 created
-[2022-03-24T07:59:03.496Z] [INFO] [GAME_HANDLER] - Room b334a643-597b-458c-890a-4758b0befb43 removed
-[2022-03-24T08:03:12.990Z] [DEBUG] [SOCKET_HANDLER] - L-TLOSohbNEgfQ8lAAA1 connected!
-[2022-03-24T08:03:12.991Z] [INFO] [GAME_HANDLER] - Room 4d075675-96fe-4f77-8cd1-ccae7253e680 created
-[2022-03-24T08:04:06.128Z] [INFO] [GAME_HANDLER] - Room 4d075675-96fe-4f77-8cd1-ccae7253e680 removed
-[2022-03-24T08:04:12.405Z] [DEBUG] [SOCKET_HANDLER] - 65GR1wd9QqGtsXtqAAA3 connected!
-[2022-03-24T08:04:12.405Z] [INFO] [GAME_HANDLER] - Room 33c4c4bb-efeb-44bf-8877-e384694365dc created
-[2022-03-24T08:06:27.769Z] [INFO] [GAME_HANDLER] - Room 33c4c4bb-efeb-44bf-8877-e384694365dc removed
-[2022-03-24T08:13:33.429Z] [DEBUG] [SOCKET_HANDLER] - 0Nx7aAYDcdDRdnN0AAA5 connected!
-[2022-03-24T08:13:33.429Z] [INFO] [GAME_HANDLER] - Room 43905879-6dd8-499e-9950-8b25df1453af created
-[2022-03-24T08:15:14.949Z] [INFO] [GAME_HANDLER] - Room 43905879-6dd8-499e-9950-8b25df1453af removed
-[2022-03-24T08:15:18.196Z] [DEBUG] [SOCKET_HANDLER] - YKGT3huDKA6gS3Y8AAA7 connected!
-[2022-03-24T08:15:18.196Z] [INFO] [GAME_HANDLER] - Room 4895adc7-6812-4356-8b47-ca4a5c0d89fc created
-[2022-03-24T08:15:34.474Z] [INFO] [GAME_HANDLER] - Room 4895adc7-6812-4356-8b47-ca4a5c0d89fc removed
-[2022-03-24T08:15:40.196Z] [DEBUG] [SOCKET_HANDLER] - nPNhiqN_zy_0WxKeAAA9 connected!
-[2022-03-24T08:15:40.196Z] [INFO] [GAME_HANDLER] - Room e701a23a-f939-4a7c-8c71-30e892dd5993 created
-[2022-03-24T08:16:48.997Z] [INFO] [GAME_HANDLER] - Room e701a23a-f939-4a7c-8c71-30e892dd5993 removed
-[2022-03-24T08:16:52.053Z] [DEBUG] [SOCKET_HANDLER] - OKu0TzpMToJqjyapAAA_ connected!
-[2022-03-24T08:16:52.054Z] [INFO] [GAME_HANDLER] - Room 02721850-f99c-4a3d-af30-731f404bcdea created
-[2022-03-24T08:17:57.980Z] [INFO] [GAME_HANDLER] - Room 02721850-f99c-4a3d-af30-731f404bcdea removed
-[2022-03-24T08:18:02.264Z] [DEBUG] [SOCKET_HANDLER] - QfTlUYvbSe9F3_nGAABB connected!
-[2022-03-24T08:18:02.264Z] [INFO] [GAME_HANDLER] - Room 5c293d5f-d1da-482a-8a2a-bc4949b4589d created
-[2022-03-24T08:18:27.813Z] [INFO] [GAME_HANDLER] - Room 5c293d5f-d1da-482a-8a2a-bc4949b4589d removed
-[2022-03-24T08:18:30.354Z] [DEBUG] [SOCKET_HANDLER] - dlr0U41-8rLPbbtHAABD connected!
-[2022-03-24T08:18:30.354Z] [INFO] [GAME_HANDLER] - Room 6d4069d6-89a8-4d0b-875e-bff949346d1e created
-[2022-03-24T08:19:03.232Z] [INFO] [GAME_HANDLER] - Room 6d4069d6-89a8-4d0b-875e-bff949346d1e removed
-[2022-03-24T08:19:06.576Z] [DEBUG] [SOCKET_HANDLER] - ZqNbUKteyPb5o7NsAABF connected!
-[2022-03-24T08:19:06.577Z] [INFO] [GAME_HANDLER] - Room 0c29e33f-62b9-4b01-bf0a-de7c8bf88dac created
-[2022-03-24T08:19:15.999Z] [INFO] [GAME_HANDLER] - Room 0c29e33f-62b9-4b01-bf0a-de7c8bf88dac removed
-[2022-03-24T08:19:18.752Z] [DEBUG] [SOCKET_HANDLER] - nXr7VdFDPKuCrnFzAABH connected!
-[2022-03-24T08:19:18.753Z] [INFO] [GAME_HANDLER] - Room 957046f2-e7d0-4f0a-a482-21cef24b9e87 created
-[2022-03-24T08:19:57.612Z] [INFO] [GAME_HANDLER] - Room 957046f2-e7d0-4f0a-a482-21cef24b9e87 removed
-[2022-03-24T08:20:01.336Z] [DEBUG] [SOCKET_HANDLER] - _ruoNwG0fpjUGXVbAABJ connected!
-[2022-03-24T08:20:01.336Z] [INFO] [GAME_HANDLER] - Room 8385228b-df8f-4626-b5bd-53d47762637f created
-[2022-03-24T08:20:24.124Z] [INFO] [GAME_HANDLER] - Room 8385228b-df8f-4626-b5bd-53d47762637f removed
-[2022-03-24T08:20:26.741Z] [DEBUG] [SOCKET_HANDLER] - og40UdMvqKneB-S1AABL connected!
-[2022-03-24T08:20:26.741Z] [INFO] [GAME_HANDLER] - Room 9b58ed45-79c3-402e-bcd5-4d56ef3c98d8 created
-[2022-03-24T08:20:37.886Z] [INFO] [GAME_HANDLER] - Room 9b58ed45-79c3-402e-bcd5-4d56ef3c98d8 removed
-[2022-03-24T08:20:40.159Z] [DEBUG] [SOCKET_HANDLER] - uJS8fN9Pn_lLpx8GAABN connected!
-[2022-03-24T08:20:40.160Z] [INFO] [GAME_HANDLER] - Room c99f1cbd-8873-4c11-b826-204f0039237f created
-[2022-03-24T08:21:49.327Z] [INFO] [GAME_HANDLER] - Room c99f1cbd-8873-4c11-b826-204f0039237f removed
-[2022-03-24T08:21:51.631Z] [DEBUG] [SOCKET_HANDLER] - Men_Ell4QhLlrGMJAABP connected!
-[2022-03-24T08:21:51.631Z] [INFO] [GAME_HANDLER] - Room cba7bb7a-c629-4b91-b4cc-deffe051a8f4 created
-[2022-03-24T08:24:22.262Z] [INFO] [GAME_HANDLER] - Room cba7bb7a-c629-4b91-b4cc-deffe051a8f4 removed
-[2022-03-24T08:25:21.280Z] [DEBUG] [SOCKET_HANDLER] - UEKQH7T40NCWioGaAABR connected!
-[2022-03-24T08:25:21.281Z] [INFO] [GAME_HANDLER] - Room 78ee51e4-8e01-43ab-a042-04f916814483 created
-[2022-03-24T08:27:07.395Z] [INFO] [GAME_HANDLER] - Room 78ee51e4-8e01-43ab-a042-04f916814483 removed
-[2022-03-24T08:27:11.183Z] [DEBUG] [SOCKET_HANDLER] - _VBtava3FzPxozfvAABT connected!
-[2022-03-24T08:27:11.183Z] [INFO] [GAME_HANDLER] - Room 858b7499-9c82-40b3-8832-a614c85013e1 created
-[2022-03-24T08:27:24.512Z] [INFO] [GAME_HANDLER] - Room 858b7499-9c82-40b3-8832-a614c85013e1 removed
-[2022-03-24T08:27:28.277Z] [DEBUG] [SOCKET_HANDLER] - 72KlmSBj9RThWTmnAABV connected!
-[2022-03-24T08:27:28.278Z] [INFO] [GAME_HANDLER] - Room 59685b47-5a7d-4eb2-8cc5-4b64858ee709 created
-[2022-03-24T08:27:53.641Z] [INFO] [GAME_HANDLER] - Room 59685b47-5a7d-4eb2-8cc5-4b64858ee709 removed
-[2022-03-24T08:27:56.529Z] [DEBUG] [SOCKET_HANDLER] - JKvK8zFxOmir8eq0AABX connected!
-[2022-03-24T08:27:56.529Z] [INFO] [GAME_HANDLER] - Room a7d2d909-6b5d-450e-9fcc-90ab2afee708 created
-[2022-03-24T08:28:48.670Z] [INFO] [GAME_HANDLER] - Room a7d2d909-6b5d-450e-9fcc-90ab2afee708 removed
-[2022-03-24T08:28:53.111Z] [DEBUG] [SOCKET_HANDLER] - eswW-crYfUIz_JxzAABZ connected!
-[2022-03-24T08:28:53.111Z] [INFO] [GAME_HANDLER] - Room eb14c769-c0a8-44b9-9603-a4767d8f1d10 created
-[2022-03-24T08:29:51.188Z] [INFO] [GAME_HANDLER] - Room eb14c769-c0a8-44b9-9603-a4767d8f1d10 removed
-[2022-03-24T08:29:53.939Z] [DEBUG] [SOCKET_HANDLER] - VG_Pcg9Tf4fXxmlhAABb connected!
-[2022-03-24T08:29:53.939Z] [INFO] [GAME_HANDLER] - Room c3f6b681-19d7-47c9-bd10-01adaf627687 created
-[2022-03-24T08:30:10.552Z] [INFO] [GAME_HANDLER] - Room c3f6b681-19d7-47c9-bd10-01adaf627687 removed
-[2022-03-24T08:32:46.151Z] [DEBUG] [SOCKET_HANDLER] - qKeJ0Toju1Q0C-03AABd connected!
-[2022-03-24T08:32:46.152Z] [INFO] [GAME_HANDLER] - Room 60c0e1cd-1fb4-48bd-b72f-4e5bbb865ab1 created
-[2022-03-24T08:33:00.886Z] [INFO] [GAME_HANDLER] - Room 60c0e1cd-1fb4-48bd-b72f-4e5bbb865ab1 removed
-[2022-03-24T08:33:05.078Z] [DEBUG] [SOCKET_HANDLER] - atNbVzF1HPjjRSkZAABf connected!
-[2022-03-24T08:33:05.078Z] [INFO] [GAME_HANDLER] - Room f7163fd8-baaf-4e68-8f18-5c2344f0ba7c created
-[2022-03-24T08:33:26.272Z] [INFO] [GAME_HANDLER] - Room f7163fd8-baaf-4e68-8f18-5c2344f0ba7c removed
-[2022-03-24T08:35:29.307Z] [DEBUG] [SOCKET_HANDLER] - W5Z3PGGzYcBxSOlfAABh connected!
-[2022-03-24T08:35:29.308Z] [INFO] [GAME_HANDLER] - Room 11d103a7-edf8-4727-8996-4b6f28407201 created
-[2022-03-24T08:35:38.670Z] [INFO] [GAME_HANDLER] - Room 11d103a7-edf8-4727-8996-4b6f28407201 removed
-[2022-03-24T08:36:45.571Z] [DEBUG] [SOCKET_HANDLER] - AK0AJj7GnxhyObjzAABj connected!
-[2022-03-24T08:36:45.572Z] [INFO] [GAME_HANDLER] - Room f9419e6f-271f-4a88-8ff1-af23c2ac9d1d created
-[2022-03-24T08:37:25.086Z] [INFO] [GAME_HANDLER] - Room f9419e6f-271f-4a88-8ff1-af23c2ac9d1d removed
-[2022-03-24T08:39:38.226Z] [DEBUG] [SOCKET_HANDLER] - xUgFvNtqkvAr1PDAAABl connected!
-[2022-03-24T08:39:38.227Z] [INFO] [GAME_HANDLER] - Room 035ceb90-45ed-4a7c-9d83-3280610ec163 created
-[2022-03-24T08:40:22.244Z] [INFO] [GAME_HANDLER] - Room 035ceb90-45ed-4a7c-9d83-3280610ec163 removed
-[2022-03-24T08:40:25.164Z] [DEBUG] [SOCKET_HANDLER] - 5kXZ1fJCplqBnooBAABn connected!
-[2022-03-24T08:40:25.164Z] [INFO] [GAME_HANDLER] - Room 5785ba8e-d36e-4368-b173-f77a887cf7ca created
-[2022-03-24T08:40:59.969Z] [INFO] [GAME_HANDLER] - Room 5785ba8e-d36e-4368-b173-f77a887cf7ca removed
-[2022-03-24T08:41:05.736Z] [DEBUG] [SOCKET_HANDLER] - mSXWiFAntvsDIDhAAABp connected!
-[2022-03-24T08:41:05.737Z] [INFO] [GAME_HANDLER] - Room 49f8e7e4-3ea0-4841-8af9-c4ad21e8761a created
-[2022-03-24T08:41:22.848Z] [INFO] [GAME_HANDLER] - Room 49f8e7e4-3ea0-4841-8af9-c4ad21e8761a removed
-[2022-03-24T08:44:37.688Z] [DEBUG] [SOCKET_HANDLER] - UOp7Ry3uEJzZGp8EAABr connected!
-[2022-03-24T08:44:37.688Z] [INFO] [GAME_HANDLER] - Room 33f77a4a-6217-4ad7-ad91-83cee9801842 created
-[2022-03-24T08:49:51.429Z] [INFO] [GAME_HANDLER] - Room 33f77a4a-6217-4ad7-ad91-83cee9801842 removed
-[2022-03-24T08:49:55.689Z] [DEBUG] [SOCKET_HANDLER] - pTum2De0xqEtO9dVAABt connected!
-[2022-03-24T08:49:55.689Z] [INFO] [GAME_HANDLER] - Room b7dbac2f-17f7-45c5-9774-679852941dfd created
-[2022-03-24T08:52:54.211Z] [INFO] [GAME_HANDLER] - Room b7dbac2f-17f7-45c5-9774-679852941dfd removed
-[2022-03-24T08:53:10.372Z] [DEBUG] [SOCKET_HANDLER] - hmTeVQBmBRlkymZ5AABv connected!
-[2022-03-24T08:53:10.372Z] [INFO] [GAME_HANDLER] - Room f5aaaad5-b9b2-4a78-a936-aa7bd7d9ae2d created
-[2022-03-24T08:53:21.913Z] [INFO] [GAME_HANDLER] - Room f5aaaad5-b9b2-4a78-a936-aa7bd7d9ae2d removed
-[2022-03-24T08:53:31.499Z] [DEBUG] [SOCKET_HANDLER] - a0FqnQwZbUkzXmpLAABx connected!
-[2022-03-24T08:53:31.500Z] [INFO] [GAME_HANDLER] - Room 32c480c5-f0a8-4c47-b41c-4fa93215ae58 created
-[2022-03-24T08:53:39.558Z] [INFO] [GAME_HANDLER] - Room 32c480c5-f0a8-4c47-b41c-4fa93215ae58 removed
-[2022-03-24T08:53:42.665Z] [DEBUG] [SOCKET_HANDLER] - fHHOa4AJXhyepgo8AABz connected!
-[2022-03-24T08:53:42.665Z] [INFO] [GAME_HANDLER] - Room ea4dde9d-8104-42c5-b5ac-4ff8b0e275e0 created
-[2022-03-24T08:54:19.110Z] [INFO] [GAME_HANDLER] - Room ea4dde9d-8104-42c5-b5ac-4ff8b0e275e0 removed
-[2022-03-24T08:54:29.926Z] [DEBUG] [SOCKET_HANDLER] - -NcqSdYEW6_K-wFjAAB1 connected!
-[2022-03-24T08:54:29.926Z] [INFO] [GAME_HANDLER] - Room fc4fc976-de3e-4ba6-a421-a63149c5ecda created
-[2022-03-24T08:54:46.515Z] [INFO] [GAME_HANDLER] - Room fc4fc976-de3e-4ba6-a421-a63149c5ecda removed
-[2022-03-24T08:54:49.465Z] [DEBUG] [SOCKET_HANDLER] - 1jINk570VGBP33kcAAB3 connected!
-[2022-03-24T08:54:49.465Z] [INFO] [GAME_HANDLER] - Room 31ee3bf4-0891-48fc-91e3-2aa86af75d61 created
-[2022-03-24T08:56:21.834Z] [INFO] [GAME_HANDLER] - Room 31ee3bf4-0891-48fc-91e3-2aa86af75d61 removed
-[2022-03-24T09:02:44.496Z] [DEBUG] [SOCKET_HANDLER] - woiyXW9h6lgi5XnvAAB5 connected!
-[2022-03-24T09:02:44.498Z] [INFO] [GAME_HANDLER] - Room 4a9d4786-d685-43fd-9400-0eda8efb91bc created
-[2022-03-24T09:03:12.804Z] [INFO] [GAME_HANDLER] - Room 4a9d4786-d685-43fd-9400-0eda8efb91bc removed
-[2022-03-24T09:03:15.739Z] [DEBUG] [SOCKET_HANDLER] - MtAQXQDBrghA5lvTAAB7 connected!
-[2022-03-24T09:03:15.739Z] [INFO] [GAME_HANDLER] - Room eb00a7ff-b7b5-41e3-8ac7-d461122a197d created
-[2022-03-24T09:04:32.026Z] [INFO] [GAME_HANDLER] - Room eb00a7ff-b7b5-41e3-8ac7-d461122a197d removed
-[2022-03-24T09:04:36.020Z] [DEBUG] [SOCKET_HANDLER] - RnU3NTgUBXVVWB3EAAB9 connected!
-[2022-03-24T09:04:36.020Z] [INFO] [GAME_HANDLER] - Room 340e5cd3-5fd4-4164-8b95-f14331537355 created
-[2022-03-24T09:05:49.315Z] [DEBUG] [SOCKET_HANDLER] - Aqu4paHSU7DZUF_7AAB_ connected!
-[2022-03-24T09:06:20.779Z] [INFO] [GAME_HANDLER] - Room 340e5cd3-5fd4-4164-8b95-f14331537355 removed
-[2022-03-24T09:06:23.515Z] [DEBUG] [SOCKET_HANDLER] - oR0w6TCPkThG9HAWAACB connected!
-[2022-03-24T09:06:23.515Z] [INFO] [GAME_HANDLER] - Room f9f03fdb-a128-4198-b991-71c283831f22 created
-[2022-03-24T09:06:32.679Z] [DEBUG] [SOCKET_HANDLER] - Fl_8kRP3po2WsHvAAACD connected!
-[2022-03-24T09:06:49.708Z] [INFO] [GAME_HANDLER] - Room f9f03fdb-a128-4198-b991-71c283831f22 removed
-[2022-03-24T09:06:52.163Z] [DEBUG] [SOCKET_HANDLER] - udNC-FlJWcLHBLHjAACF connected!
-[2022-03-24T09:06:52.163Z] [INFO] [GAME_HANDLER] - Room 07c9b2d0-ff7c-4cc3-ba2b-d7df9daa5e74 created
-[2022-03-24T09:07:05.982Z] [INFO] [GAME_HANDLER] - Room 07c9b2d0-ff7c-4cc3-ba2b-d7df9daa5e74 removed
-[2022-03-24T09:07:09.078Z] [DEBUG] [SOCKET_HANDLER] - 4fMTvMRrD-r4mQqdAACH connected!
-[2022-03-24T09:07:09.079Z] [INFO] [GAME_HANDLER] - Room 803a2b71-fee5-47b2-8c23-accf003b7b69 created
-[2022-03-24T09:09:22.279Z] [INFO] [GAME_HANDLER] - Room 803a2b71-fee5-47b2-8c23-accf003b7b69 removed
-[2022-03-24T09:09:38.859Z] [DEBUG] [SOCKET_HANDLER] - MssGOL8VQqLYRg65AACJ connected!
-[2022-03-24T09:09:38.859Z] [INFO] [GAME_HANDLER] - Room 532fe13d-85e1-4f32-9efd-eb13c60057e2 created
-[2022-03-24T09:09:52.264Z] [INFO] [GAME_HANDLER] - Room 532fe13d-85e1-4f32-9efd-eb13c60057e2 removed
-[2022-03-24T09:09:54.517Z] [DEBUG] [SOCKET_HANDLER] - -pnIamTXWj6umaOrAACL connected!
-[2022-03-24T09:09:54.518Z] [INFO] [GAME_HANDLER] - Room d93fbdeb-8823-44b9-8abb-2dc42749cd7c created
-[2022-03-24T09:10:03.538Z] [INFO] [GAME_HANDLER] - Room d93fbdeb-8823-44b9-8abb-2dc42749cd7c removed
-[2022-03-24T09:10:12.209Z] [DEBUG] [SOCKET_HANDLER] - bq1kLBxDzlMhOI3VAACN connected!
-[2022-03-24T09:10:12.209Z] [INFO] [GAME_HANDLER] - Room 71725ded-7c53-458d-b957-9871dfef4eda created
-[2022-03-24T09:13:19.775Z] [INFO] [GAME_HANDLER] - Room 71725ded-7c53-458d-b957-9871dfef4eda removed
-[2022-03-24T09:13:29.051Z] [DEBUG] [SOCKET_HANDLER] - qvKcOsYYhfl4WHCDAACP connected!
-[2022-03-24T09:13:29.052Z] [INFO] [GAME_HANDLER] - Room 12ba18aa-3a1e-4e55-972a-a13044243520 created
-[2022-03-24T09:13:51.855Z] [INFO] [GAME_HANDLER] - Room 12ba18aa-3a1e-4e55-972a-a13044243520 removed
-[2022-03-24T09:13:59.421Z] [DEBUG] [SOCKET_HANDLER] - TrVM4hW3wtANFbszAACR connected!
-[2022-03-24T09:13:59.421Z] [INFO] [GAME_HANDLER] - Room 38ba56a6-3840-4f47-b015-5626d27b8dad created
-[2022-03-24T09:14:05.238Z] [INFO] [GAME_HANDLER] - Room 38ba56a6-3840-4f47-b015-5626d27b8dad removed
-[2022-03-24T09:15:17.796Z] [DEBUG] [SOCKET_HANDLER] - KPrrxa6YpE3tJG0-AACT connected!
-[2022-03-24T09:15:17.797Z] [INFO] [GAME_HANDLER] - Room 12de9e10-675e-439a-a1d8-068f5d751081 created
-[2022-03-24T09:16:06.598Z] [INFO] [GAME_HANDLER] - Room 12de9e10-675e-439a-a1d8-068f5d751081 removed
-[2022-03-24T09:16:09.432Z] [DEBUG] [SOCKET_HANDLER] - dkz-PyjdjMJRbR03AACV connected!
-[2022-03-24T09:16:09.433Z] [INFO] [GAME_HANDLER] - Room 997d499d-612b-4727-acf7-3f58d3957197 created
-[2022-03-24T09:16:33.861Z] [INFO] [GAME_HANDLER] - Room 997d499d-612b-4727-acf7-3f58d3957197 removed
-[2022-03-24T09:16:36.447Z] [DEBUG] [SOCKET_HANDLER] - emEPdmcJG7BmL8EuAACX connected!
-[2022-03-24T09:16:36.448Z] [INFO] [GAME_HANDLER] - Room b4081106-5678-4918-902d-0822441f0706 created
-[2022-03-24T09:16:51.154Z] [INFO] [GAME_HANDLER] - Room b4081106-5678-4918-902d-0822441f0706 removed
-[2022-03-24T09:16:53.596Z] [DEBUG] [SOCKET_HANDLER] - S0j-QPn-pgDSeNUvAACZ connected!
-[2022-03-24T09:16:53.596Z] [INFO] [GAME_HANDLER] - Room f8450f57-14c4-4a9c-bf67-ce8df5be293f created
-[2022-03-24T09:17:24.967Z] [INFO] [GAME_HANDLER] - Room f8450f57-14c4-4a9c-bf67-ce8df5be293f removed
-[2022-03-24T09:17:28.238Z] [DEBUG] [SOCKET_HANDLER] - GmCJ4kgbPbYR77nJAACb connected!
-[2022-03-24T09:17:28.238Z] [INFO] [GAME_HANDLER] - Room dd279b54-0913-4fdb-a4cc-5ae434dd2c0b created
-[2022-03-24T09:17:44.806Z] [INFO] [GAME_HANDLER] - Room dd279b54-0913-4fdb-a4cc-5ae434dd2c0b removed
-[2022-03-24T09:18:44.457Z] [DEBUG] [SOCKET_HANDLER] - mF13v_rGIX0M-D4SAACd connected!
-[2022-03-24T09:18:44.457Z] [INFO] [GAME_HANDLER] - Room 556e4b1d-06ce-45a0-ba88-955e80597a66 created
-[2022-03-24T09:19:01.172Z] [INFO] [GAME_HANDLER] - Room 556e4b1d-06ce-45a0-ba88-955e80597a66 removed
-[2022-03-24T09:21:20.237Z] [DEBUG] [SOCKET_HANDLER] - 9XP4QVCGtNzes9B-AACf connected!
-[2022-03-24T09:21:20.238Z] [INFO] [GAME_HANDLER] - Room 0a03858c-0ff2-49c0-99b8-94583f8799b4 created
-[2022-03-24T09:21:26.099Z] [INFO] [GAME_HANDLER] - Room 0a03858c-0ff2-49c0-99b8-94583f8799b4 removed
-[2022-03-24T09:21:28.932Z] [DEBUG] [SOCKET_HANDLER] - 6UtnerrWQqE8g9ooAACh connected!
-[2022-03-24T09:21:28.933Z] [INFO] [GAME_HANDLER] - Room 041d961e-4347-43c5-a522-cb99957958bc created
-[2022-03-24T09:21:38.200Z] [INFO] [GAME_HANDLER] - Room 041d961e-4347-43c5-a522-cb99957958bc removed
-[2022-03-24T09:21:41.096Z] [DEBUG] [SOCKET_HANDLER] - AqhC4YPqQ9d2pbpQAACj connected!
-[2022-03-24T09:21:41.096Z] [INFO] [GAME_HANDLER] - Room 5e2112ca-268b-49e3-a288-8d02fda0ecb4 created
-[2022-03-24T09:22:08.587Z] [INFO] [GAME_HANDLER] - Room 5e2112ca-268b-49e3-a288-8d02fda0ecb4 removed
-[2022-03-24T09:22:25.794Z] [DEBUG] [SOCKET_HANDLER] - el-q_Jl4z8bE2XoxAACl connected!
-[2022-03-24T09:22:25.795Z] [INFO] [GAME_HANDLER] - Room 8f95fd3c-68d0-44c8-a4fa-d54d8de32233 created
-[2022-03-24T09:22:30.808Z] [INFO] [GAME_HANDLER] - Room 8f95fd3c-68d0-44c8-a4fa-d54d8de32233 removed
-[2022-03-24T09:22:33.167Z] [DEBUG] [SOCKET_HANDLER] - bGm7-fxr0l3Avv9fAACn connected!
-[2022-03-24T09:22:33.168Z] [INFO] [GAME_HANDLER] - Room ae5d5c50-da3e-4c9e-b0dd-4c466fa87f81 created
-[2022-03-24T09:24:21.111Z] [INFO] [GAME_HANDLER] - Room ae5d5c50-da3e-4c9e-b0dd-4c466fa87f81 removed
-[2022-03-24T09:24:31.781Z] [DEBUG] [SOCKET_HANDLER] - SufNuQrhnDp6RoCaAACp connected!
-[2022-03-24T09:24:31.781Z] [INFO] [GAME_HANDLER] - Room 0aeac8b3-03e8-48ec-ac30-7622752a1613 created
-[2022-03-24T09:24:59.169Z] [INFO] [GAME_HANDLER] - Room 0aeac8b3-03e8-48ec-ac30-7622752a1613 removed
-[2022-03-24T09:25:01.982Z] [DEBUG] [SOCKET_HANDLER] - 39BN1ZmKFH8q805mAACr connected!
-[2022-03-24T09:25:01.983Z] [INFO] [GAME_HANDLER] - Room e49ec3dc-fd0f-4609-92aa-8f8d26965d8a created
-[2022-03-24T09:25:29.401Z] [DEBUG] [SOCKET_HANDLER] - pFzqEFqyviVnQK0IAACt connected!
-[2022-03-24T09:26:28.218Z] [INFO] [GAME_HANDLER] - Room e49ec3dc-fd0f-4609-92aa-8f8d26965d8a removed
-[2022-03-24T09:29:01.370Z] [DEBUG] [SOCKET_HANDLER] - d6r-j8qJq5AIhBsBAACv connected!
-[2022-03-24T09:29:01.371Z] [INFO] [GAME_HANDLER] - Room 460d2063-ea57-4cd6-b049-02e41bea51cd created
-[2022-03-24T09:29:41.948Z] [DEBUG] [SOCKET_HANDLER] - vWswVllpjTbG2HsVAACx connected!
-[2022-03-24T09:31:55.844Z] [INFO] [GAME_HANDLER] - Room 460d2063-ea57-4cd6-b049-02e41bea51cd removed
-[2022-03-24T09:32:00.180Z] [DEBUG] [SOCKET_HANDLER] - 5VydqoxkBeM266_1AACz connected!
-[2022-03-24T09:32:00.180Z] [INFO] [GAME_HANDLER] - Room 318ce0c8-d88a-4ff3-a523-0c90ee8faef2 created
-[2022-03-24T09:32:14.832Z] [DEBUG] [SOCKET_HANDLER] - pDoyVRBnJGaEb2VhAAC1 connected!
-[2022-03-24T09:33:08.661Z] [INFO] [GAME_HANDLER] - Room 318ce0c8-d88a-4ff3-a523-0c90ee8faef2 removed
-[2022-03-24T09:33:13.549Z] [DEBUG] [SOCKET_HANDLER] - glYmnvGpDmUoxXKUAAC3 connected!
-[2022-03-24T09:33:13.550Z] [INFO] [GAME_HANDLER] - Room d5c5cc49-4db9-4c16-870d-95f1eb44b418 created
-[2022-03-24T09:35:42.986Z] [INFO] [GAME_HANDLER] - Room d5c5cc49-4db9-4c16-870d-95f1eb44b418 removed
-[2022-03-24T09:35:46.113Z] [DEBUG] [SOCKET_HANDLER] - 3lep54KstZkFrl3cAAC5 connected!
-[2022-03-24T09:35:46.113Z] [INFO] [GAME_HANDLER] - Room 1585bc70-67b8-495c-94b7-970228290403 created
-[2022-03-24T09:41:23.063Z] [INFO] [GAME_HANDLER] - Room 1585bc70-67b8-495c-94b7-970228290403 removed
-[2022-03-24T09:41:54.798Z] [DEBUG] [SOCKET_HANDLER] - xRq24BrGLQfHi0qPAAC7 connected!
-[2022-03-24T09:41:54.798Z] [INFO] [GAME_HANDLER] - Room 2f30efca-ed9e-43ac-a258-907245175940 created
-[2022-03-24T09:42:11.453Z] [DEBUG] [SOCKET_HANDLER] - Z2_Qr1-W290e--k0AAC9 connected!
-[2022-03-24T09:42:34.919Z] [INFO] [GAME_HANDLER] - Room 2f30efca-ed9e-43ac-a258-907245175940 removed
-[2022-03-24T09:43:00.575Z] [DEBUG] [SOCKET_HANDLER] - wjFOeEgReJAkidWHAAC_ connected!
-[2022-03-24T09:43:00.576Z] [INFO] [GAME_HANDLER] - Room b97a739b-8d07-4e2c-96fc-9d4aca87f7f4 created
-[2022-03-24T09:43:25.012Z] [DEBUG] [SOCKET_HANDLER] - hTZKwt1z9ZAk2Jp4AADB connected!
-[2022-03-24T09:43:49.603Z] [INFO] [GAME_HANDLER] - Room b97a739b-8d07-4e2c-96fc-9d4aca87f7f4 removed
-[2022-03-24T09:44:12.813Z] [DEBUG] [SOCKET_HANDLER] - aKtAoGBD8YTppyzAAADD connected!
-[2022-03-24T09:44:12.813Z] [INFO] [GAME_HANDLER] - Room b8b52372-3f58-4a73-a1de-2582ce45765c created
-[2022-03-24T09:44:22.102Z] [DEBUG] [SOCKET_HANDLER] - JT7u0vqFnnvwzBcbAADF connected!
-[2022-03-24T09:45:17.677Z] [INFO] [GAME_HANDLER] - Room b8b52372-3f58-4a73-a1de-2582ce45765c removed
-[2022-03-24T09:45:56.870Z] [DEBUG] [SOCKET_HANDLER] - AlejnDQp5QfKA_S9AADH connected!
-[2022-03-24T09:45:56.871Z] [INFO] [GAME_HANDLER] - Room a356b1c4-9634-45c5-8cc4-69d36d37903c created
-[2022-03-24T09:46:05.586Z] [DEBUG] [SOCKET_HANDLER] - xCDCYn6NeTNft-_VAADJ connected!
-[2022-03-24T09:46:33.301Z] [INFO] [GAME_HANDLER] - Room a356b1c4-9634-45c5-8cc4-69d36d37903c removed
-[2022-03-24T09:48:19.730Z] [INFO] [LOGGER] - Initializing Log
-[2022-03-24T09:48:19.731Z] [INFO] [SERVER] - Server is Starting
-[2022-03-24T09:48:19.875Z] [INFO] [SERVER] - Server started on port 3000
-[2022-03-24T09:49:40.791Z] [DEBUG] [SOCKET_HANDLER] - migOMwobCe4fEAAVAAAB connected!
-[2022-03-24T09:49:40.792Z] [INFO] [GAME_HANDLER] - Room cdad798d-3cd2-4873-b9b3-1ee202efc867 created
-[2022-03-24T09:49:58.384Z] [INFO] [GAME_HANDLER] - Room cdad798d-3cd2-4873-b9b3-1ee202efc867 removed
-[2022-03-24T09:50:00.392Z] [DEBUG] [SOCKET_HANDLER] - dNqUGEXURJCk3TdjAAAD connected!
-[2022-03-24T09:50:00.392Z] [INFO] [GAME_HANDLER] - Room 966e9e1a-92af-400d-b204-d63426470d14 created
-[2022-03-24T09:50:20.167Z] [INFO] [GAME_HANDLER] - Room 966e9e1a-92af-400d-b204-d63426470d14 removed
-[2022-03-24T09:50:22.835Z] [DEBUG] [SOCKET_HANDLER] - 73EWvQdQzayi33GWAAAF connected!
-[2022-03-24T09:50:22.835Z] [INFO] [GAME_HANDLER] - Room d6594922-e3ca-4a1f-8404-250b67ec37d4 created
-[2022-03-24T09:51:20.210Z] [INFO] [GAME_HANDLER] - Room d6594922-e3ca-4a1f-8404-250b67ec37d4 removed
-[2022-03-24T09:51:22.149Z] [DEBUG] [SOCKET_HANDLER] - 2wXZTUZFsYckOxJhAAAH connected!
-[2022-03-24T09:51:22.150Z] [INFO] [GAME_HANDLER] - Room fee87a43-725c-40e8-aa9b-2521f6b3b4ed created
-[2022-03-24T09:51:33.051Z] [INFO] [GAME_HANDLER] - Room fee87a43-725c-40e8-aa9b-2521f6b3b4ed removed
-[2022-03-24T09:51:35.849Z] [DEBUG] [SOCKET_HANDLER] - R2Yl0hmTsFlSx_ykAAAJ connected!
-[2022-03-24T09:51:35.850Z] [INFO] [GAME_HANDLER] - Room 5b67159b-72a0-475e-afa9-dbb867844f3d created
-[2022-03-24T09:51:51.659Z] [INFO] [GAME_HANDLER] - Room 5b67159b-72a0-475e-afa9-dbb867844f3d removed
-[2022-03-24T09:52:01.366Z] [DEBUG] [SOCKET_HANDLER] - gCSvXhQ8IPEDTLh3AAAL connected!
-[2022-03-24T09:52:01.366Z] [INFO] [GAME_HANDLER] - Room a4dbbfae-0b3d-4924-8525-3e2106deb980 created
-[2022-03-24T09:52:19.809Z] [INFO] [GAME_HANDLER] - Room a4dbbfae-0b3d-4924-8525-3e2106deb980 removed
-[2022-03-24T09:52:21.841Z] [DEBUG] [SOCKET_HANDLER] - 5rEMbmVd-1NLVgPDAAAN connected!
-[2022-03-24T09:52:21.841Z] [INFO] [GAME_HANDLER] - Room eb8efe85-e231-488b-8056-7b40cdbff5de created
-[2022-03-24T09:52:42.379Z] [INFO] [GAME_HANDLER] - Room eb8efe85-e231-488b-8056-7b40cdbff5de removed
-[2022-03-24T09:52:44.320Z] [DEBUG] [SOCKET_HANDLER] - vG1AYieR53KPVGVeAAAP connected!
-[2022-03-24T09:52:44.321Z] [INFO] [GAME_HANDLER] - Room a6a3d1b7-6b4c-4e39-b524-a5fac6b0b006 created
-[2022-03-24T09:53:01.269Z] [DEBUG] [SOCKET_HANDLER] - mruLRbnDjRPsYEmgAAAR connected!
-[2022-03-24T09:53:11.573Z] [DEBUG] [SOCKET_HANDLER] - 6ud3AXXCW-Dn1F4NAAAT connected!
-[2022-03-24T09:53:35.424Z] [INFO] [GAME_HANDLER] - Room a6a3d1b7-6b4c-4e39-b524-a5fac6b0b006 removed
-[2022-03-24T09:53:37.758Z] [DEBUG] [SOCKET_HANDLER] - PQPCceG5GjLeHpwTAAAV connected!
-[2022-03-24T09:53:37.759Z] [INFO] [GAME_HANDLER] - Room 6846c87d-93c6-4a5b-9d19-7a59fb06f304 created
-[2022-03-24T09:55:01.485Z] [INFO] [GAME_HANDLER] - Room 6846c87d-93c6-4a5b-9d19-7a59fb06f304 removed
+[2022-03-24T14:40:51.023Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-24T14:40:51.025Z] [INFO] [SERVER] - Server is Starting
+[2022-03-24T14:40:51.507Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-24T14:46:56.796Z] [DEBUG] [SOCKET_HANDLER] - IdKj3Hw0lwCndPTwAAAB connected!
+[2022-03-24T14:46:56.796Z] [INFO] [GAME_HANDLER] - Room 1a72716a-5b04-4641-a593-c9206cfe3802 created
+[2022-03-24T14:51:01.975Z] [INFO] [GAME_HANDLER] - Room 1a72716a-5b04-4641-a593-c9206cfe3802 removed
+[2022-03-24T14:51:04.260Z] [DEBUG] [SOCKET_HANDLER] - kjnaIp8nD1C4mUE8AAAD connected!
+[2022-03-24T14:51:04.260Z] [INFO] [GAME_HANDLER] - Room 76800e59-0d06-4065-9d3d-4ebd81fe68ab created
+[2022-03-24T14:51:28.273Z] [INFO] [GAME_HANDLER] - Room 76800e59-0d06-4065-9d3d-4ebd81fe68ab removed
+[2022-03-24T14:51:31.724Z] [DEBUG] [SOCKET_HANDLER] - 3lGNR-9n0bwd3jp0AAAF connected!
+[2022-03-24T14:51:31.725Z] [INFO] [GAME_HANDLER] - Room 1d80de02-2f71-4693-b2a4-8bd874577957 created
+[2022-03-24T16:00:06.821Z] [INFO] [GAME_HANDLER] - Room 1d80de02-2f71-4693-b2a4-8bd874577957 removed
+[2022-03-24T16:00:10.397Z] [DEBUG] [SOCKET_HANDLER] - 1LXUASzuNBPfXsbrAAAH connected!
+[2022-03-24T16:00:10.397Z] [INFO] [GAME_HANDLER] - Room 527795b4-cfb3-46a1-b799-5f14e47d930a created
+[2022-03-24T16:02:53.677Z] [INFO] [GAME_HANDLER] - Room 527795b4-cfb3-46a1-b799-5f14e47d930a removed
+[2022-03-24T16:03:04.150Z] [DEBUG] [SOCKET_HANDLER] - oAaKIK2yxMgqIB6eAAAJ connected!
+[2022-03-24T16:03:04.151Z] [INFO] [GAME_HANDLER] - Room 2ec8d19a-b95a-4bdb-a098-86b3dbf9487d created
+[2022-03-24T16:03:29.471Z] [DEBUG] [SOCKET_HANDLER] - bJyvVOWr6tIrIWBtAAAL connected!
+[2022-03-24T16:04:23.318Z] [DEBUG] [SOCKET_HANDLER] - r4Ldg8X6_sA3eK8mAAAN connected!
+[2022-03-24T16:05:12.680Z] [INFO] [GAME_HANDLER] - Room 2ec8d19a-b95a-4bdb-a098-86b3dbf9487d removed
+[2022-03-24T17:03:49.378Z] [DEBUG] [SOCKET_HANDLER] - DamSl3G6rzYtPE7nAAAP connected!
+[2022-03-24T17:03:49.378Z] [INFO] [GAME_HANDLER] - Room a9d20869-7883-4e2f-b132-1de16c138f45 created
+[2022-03-24T17:05:18.711Z] [INFO] [GAME_HANDLER] - Room a9d20869-7883-4e2f-b132-1de16c138f45 removed
+[2022-03-24T17:46:48.781Z] [DEBUG] [SOCKET_HANDLER] - kLL2icFys0Ta65l8AAAR connected!
+[2022-03-24T17:46:48.781Z] [INFO] [GAME_HANDLER] - Room 33170d2b-fca5-4fd7-8890-a3402c7fbb5b created
+[2022-03-24T17:47:45.483Z] [INFO] [GAME_HANDLER] - Room 33170d2b-fca5-4fd7-8890-a3402c7fbb5b removed
+[2022-03-24T17:47:47.764Z] [DEBUG] [SOCKET_HANDLER] - qgcTeppyk-IM-2t8AAAT connected!
+[2022-03-24T17:47:47.765Z] [INFO] [GAME_HANDLER] - Room 74a56133-b73f-4c00-8e6c-d8d2fff26cf8 created
+[2022-03-24T17:47:54.498Z] [INFO] [GAME_HANDLER] - Room 74a56133-b73f-4c00-8e6c-d8d2fff26cf8 removed
+[2022-03-24T17:47:56.417Z] [DEBUG] [SOCKET_HANDLER] - sbVpqbOSYevretPQAAAV connected!
+[2022-03-24T17:47:56.417Z] [INFO] [GAME_HANDLER] - Room 1f946f50-100b-402b-8e0d-b2742fd1b4ca created
+[2022-03-24T17:48:03.366Z] [INFO] [GAME_HANDLER] - Room 1f946f50-100b-402b-8e0d-b2742fd1b4ca removed
+[2022-03-24T17:48:05.167Z] [DEBUG] [SOCKET_HANDLER] - NsAZJfCGlT3AQ8WlAAAX connected!
+[2022-03-24T17:48:05.167Z] [INFO] [GAME_HANDLER] - Room 8e0cda78-c8dc-4d59-9415-cd9f465e57d0 created
+[2022-03-24T17:48:25.659Z] [INFO] [GAME_HANDLER] - Room 8e0cda78-c8dc-4d59-9415-cd9f465e57d0 removed
+[2022-03-24T17:48:27.495Z] [DEBUG] [SOCKET_HANDLER] - 87sxMlcca9qd63XzAAAZ connected!
+[2022-03-24T17:48:27.495Z] [INFO] [GAME_HANDLER] - Room 6e9e8208-10f3-4668-860f-af5cfcac53ef created
+[2022-03-24T17:48:32.589Z] [INFO] [GAME_HANDLER] - Room 6e9e8208-10f3-4668-860f-af5cfcac53ef removed
+[2022-03-24T17:48:34.397Z] [DEBUG] [SOCKET_HANDLER] - DxaiaYccXG4sM8S5AAAb connected!
+[2022-03-24T17:48:34.397Z] [INFO] [GAME_HANDLER] - Room a51d8690-e82a-41e1-8e4b-c0162db1e7ad created
+[2022-03-24T17:48:39.266Z] [INFO] [GAME_HANDLER] - Room a51d8690-e82a-41e1-8e4b-c0162db1e7ad removed
+[2022-03-24T17:48:41.131Z] [DEBUG] [SOCKET_HANDLER] - 4Mo0TUe0rOYO_vrNAAAd connected!
+[2022-03-24T17:48:41.132Z] [INFO] [GAME_HANDLER] - Room 1d0d6bc6-c4af-4659-a210-f04c41b140d4 created
+[2022-03-24T17:48:46.715Z] [INFO] [GAME_HANDLER] - Room 1d0d6bc6-c4af-4659-a210-f04c41b140d4 removed
+[2022-03-24T17:48:48.939Z] [DEBUG] [SOCKET_HANDLER] - cz7HiYeKcuqdtRaYAAAf connected!
+[2022-03-24T17:48:48.939Z] [INFO] [GAME_HANDLER] - Room 482b4965-02e8-445e-a83d-c2c43e3e545b created
+[2022-03-24T17:48:54.765Z] [INFO] [GAME_HANDLER] - Room 482b4965-02e8-445e-a83d-c2c43e3e545b removed
+[2022-03-24T17:48:56.679Z] [DEBUG] [SOCKET_HANDLER] - K2uebO2dCMa3DTCHAAAh connected!
+[2022-03-24T17:48:56.680Z] [INFO] [GAME_HANDLER] - Room ddf52f03-8089-49a1-a6c7-76c54b4fa1b5 created
+[2022-03-24T17:49:02.810Z] [INFO] [GAME_HANDLER] - Room ddf52f03-8089-49a1-a6c7-76c54b4fa1b5 removed
+[2022-03-24T17:49:04.652Z] [DEBUG] [SOCKET_HANDLER] - qddKmqFjppQ-lYgpAAAj connected!
+[2022-03-24T17:49:04.652Z] [INFO] [GAME_HANDLER] - Room 59775290-4463-427f-a2a1-641ce030f8b7 created
+[2022-03-24T17:49:08.536Z] [INFO] [GAME_HANDLER] - Room 59775290-4463-427f-a2a1-641ce030f8b7 removed
+[2022-03-24T17:49:10.349Z] [DEBUG] [SOCKET_HANDLER] - md9HmpDg0b6upKKgAAAl connected!
+[2022-03-24T17:49:10.350Z] [INFO] [GAME_HANDLER] - Room 71815e17-4b07-46f5-9ff2-8fa39af47704 created
+[2022-03-24T17:49:22.247Z] [INFO] [GAME_HANDLER] - Room 71815e17-4b07-46f5-9ff2-8fa39af47704 removed
+[2022-03-24T17:49:24.411Z] [DEBUG] [SOCKET_HANDLER] - vUg66WC1gRcE7NfkAAAn connected!
+[2022-03-24T17:49:24.411Z] [INFO] [GAME_HANDLER] - Room 4e41bd58-72e9-40dc-b75c-c9a2c13bd264 created
+[2022-03-24T17:49:32.408Z] [INFO] [GAME_HANDLER] - Room 4e41bd58-72e9-40dc-b75c-c9a2c13bd264 removed
+[2022-03-24T17:49:34.374Z] [DEBUG] [SOCKET_HANDLER] - h0mmc4klcBrBqyiuAAAp connected!
+[2022-03-24T17:49:34.375Z] [INFO] [GAME_HANDLER] - Room eaa4cfd3-95c3-4254-8ffd-be52e3aceea2 created
+[2022-03-24T17:49:44.248Z] [INFO] [GAME_HANDLER] - Room eaa4cfd3-95c3-4254-8ffd-be52e3aceea2 removed
+[2022-03-24T17:49:46.336Z] [DEBUG] [SOCKET_HANDLER] - hGkq5Kl-QXUI47cNAAAr connected!
+[2022-03-24T17:49:46.336Z] [INFO] [GAME_HANDLER] - Room 6240cac2-72ff-402b-a74e-3a5f2aa6d2d3 created
+[2022-03-24T17:49:53.022Z] [INFO] [GAME_HANDLER] - Room 6240cac2-72ff-402b-a74e-3a5f2aa6d2d3 removed
+[2022-03-24T17:49:55.995Z] [DEBUG] [SOCKET_HANDLER] - 6S_wad87iN4cJNB3AAAt connected!
+[2022-03-24T17:49:55.995Z] [INFO] [GAME_HANDLER] - Room 5b598957-2c93-4cde-98d4-dd7c3761015b created
+[2022-03-24T17:50:23.936Z] [INFO] [GAME_HANDLER] - Room 5b598957-2c93-4cde-98d4-dd7c3761015b removed
+[2022-03-24T17:50:27.494Z] [DEBUG] [SOCKET_HANDLER] - 10BNKIWrTQgaOtBXAAAv connected!
+[2022-03-24T17:50:27.494Z] [INFO] [GAME_HANDLER] - Room 0bdad09e-586b-4cd2-a04b-158ea415da8a created
+[2022-03-24T17:50:35.342Z] [INFO] [GAME_HANDLER] - Room 0bdad09e-586b-4cd2-a04b-158ea415da8a removed
+[2022-03-24T17:50:37.347Z] [DEBUG] [SOCKET_HANDLER] - qZf0G0j904GBHCXCAAAx connected!
+[2022-03-24T17:50:37.347Z] [INFO] [GAME_HANDLER] - Room 2d6e6a08-798a-45be-a712-21a1c9d25fd2 created
+[2022-03-24T17:50:41.575Z] [INFO] [GAME_HANDLER] - Room 2d6e6a08-798a-45be-a712-21a1c9d25fd2 removed
+[2022-03-24T17:50:45.659Z] [DEBUG] [SOCKET_HANDLER] - Q_YPts3ALDtNk6X7AAAz connected!
+[2022-03-24T17:50:45.659Z] [INFO] [GAME_HANDLER] - Room 21ac8ee8-b7eb-472c-9871-4fec9d29df83 created
+[2022-03-24T17:50:57.429Z] [INFO] [GAME_HANDLER] - Room 21ac8ee8-b7eb-472c-9871-4fec9d29df83 removed
+[2022-03-24T17:51:09.818Z] [DEBUG] [SOCKET_HANDLER] - WFoNPfqc8e713rKfAAA1 connected!
+[2022-03-24T17:51:09.818Z] [INFO] [GAME_HANDLER] - Room f0178bea-bfcb-4d7b-83aa-c58dcf8f5bc3 created
+[2022-03-24T17:51:30.517Z] [INFO] [GAME_HANDLER] - Room f0178bea-bfcb-4d7b-83aa-c58dcf8f5bc3 removed
+[2022-03-24T17:51:36.299Z] [DEBUG] [SOCKET_HANDLER] - VYtOoBBFtLKRIrBhAAA3 connected!
+[2022-03-24T17:51:36.299Z] [INFO] [GAME_HANDLER] - Room 42a1a52e-9f21-461f-a947-e0a10615ade2 created
+[2022-03-24T17:51:55.236Z] [INFO] [GAME_HANDLER] - Room 42a1a52e-9f21-461f-a947-e0a10615ade2 removed
+[2022-03-24T19:36:30.631Z] [DEBUG] [SOCKET_HANDLER] - t3cVb8IXXxapbMzYAAA5 connected!
+[2022-03-24T19:36:30.634Z] [INFO] [GAME_HANDLER] - Room 69fbe5d1-0938-4e1d-8ceb-6bbf2d044a32 created
+[2022-03-24T19:43:05.500Z] [INFO] [GAME_HANDLER] - Room 69fbe5d1-0938-4e1d-8ceb-6bbf2d044a32 removed
+[2022-03-24T21:45:31.947Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-24T21:45:31.949Z] [INFO] [SERVER] - Server is Starting
+[2022-03-24T21:45:32.102Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-24T21:45:39.480Z] [DEBUG] [SOCKET_HANDLER] - f0RT7kaSv2_7sZ_dAAAB connected!
+[2022-03-24T21:45:39.481Z] [INFO] [GAME_HANDLER] - Room b709ca73-040c-4f05-9325-eba70c0fa30a created
+[2022-03-24T21:47:27.971Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-24T21:47:27.973Z] [INFO] [SERVER] - Server is Starting
+[2022-03-24T21:47:28.107Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-24T21:47:28.358Z] [DEBUG] [SOCKET_HANDLER] - ZiQWYE6PNfn-tgQOAAAB connected!
+[2022-03-24T21:47:28.359Z] [INFO] [GAME_HANDLER] - Room b709ca73-040c-4f05-9325-eba70c0fa30a created
+[2022-03-24T21:48:23.492Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-24T21:48:23.493Z] [INFO] [SERVER] - Server is Starting
+[2022-03-24T21:48:23.632Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-24T21:48:23.653Z] [DEBUG] [SOCKET_HANDLER] - FVpD1N4Bf1-85Wi6AAAB connected!
+[2022-03-24T21:48:23.654Z] [INFO] [GAME_HANDLER] - Room b709ca73-040c-4f05-9325-eba70c0fa30a created
+[2022-03-24T21:50:28.245Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-24T21:50:28.246Z] [INFO] [SERVER] - Server is Starting
+[2022-03-24T21:50:28.482Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-24T21:50:34.009Z] [DEBUG] [SOCKET_HANDLER] - 4a4Utpx-i7pHAgyLAAAB connected!
+[2022-03-24T21:50:34.009Z] [INFO] [GAME_HANDLER] - Room 649bf598-0f58-4d19-bbc8-a98963dc815a created
+[2022-03-24T21:54:34.072Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-24T21:54:34.074Z] [INFO] [SERVER] - Server is Starting
+[2022-03-24T21:54:34.320Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-24T21:54:34.421Z] [DEBUG] [SOCKET_HANDLER] - DSjYfQoOLQcQn4R2AAAB connected!
+[2022-03-24T21:54:34.422Z] [INFO] [GAME_HANDLER] - Room 649bf598-0f58-4d19-bbc8-a98963dc815a created
+[2022-03-24T21:55:00.374Z] [DEBUG] [SOCKET_HANDLER] - gZVL_yDdHUek12S0AAAD connected!
+[2022-03-24T21:55:42.453Z] [DEBUG] [SOCKET_HANDLER] - YoLHqkSL-EpJHYWWAAAF connected!
+[2022-03-24T21:56:19.848Z] [DEBUG] [SOCKET_HANDLER] - 6_RyKpgzrX9FOwREAAAH connected!
+[2022-03-24T21:58:03.933Z] [INFO] [GAME_HANDLER] - Room 649bf598-0f58-4d19-bbc8-a98963dc815a removed
+[2022-03-24T21:58:09.027Z] [DEBUG] [SOCKET_HANDLER] - n1jX_VY7f_Kg5NQ2AAAJ connected!
+[2022-03-24T21:58:09.027Z] [INFO] [GAME_HANDLER] - Room 5e2282b9-6e89-4676-a960-2da138700aa2 created
+[2022-03-24T21:58:46.991Z] [DEBUG] [SOCKET_HANDLER] - hRhUzpSkOh9ktZWlAAAL connected!
+[2022-03-24T22:00:09.111Z] [DEBUG] [SOCKET_HANDLER] - DpjY9SFBCRG2cyKcAAAN connected!
+[2022-03-24T22:00:17.685Z] [DEBUG] [SOCKET_HANDLER] - HzjgmIHGwWMuMxWOAAAP connected!
+[2022-03-24T22:00:27.136Z] [DEBUG] [SOCKET_HANDLER] - WoEnl-qgaESPfbDQAAAR connected!
+[2022-03-24T22:00:37.112Z] [DEBUG] [SOCKET_HANDLER] - BZgz5-uVNUOredExAAAT connected!
+[2022-03-24T22:00:53.474Z] [DEBUG] [SOCKET_HANDLER] - 3o4LvaH4tqVOcggOAAAV connected!
+[2022-03-24T22:03:45.943Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-24T22:03:45.944Z] [INFO] [SERVER] - Server is Starting
+[2022-03-24T22:03:46.181Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-24T22:03:59.508Z] [DEBUG] [SOCKET_HANDLER] - QBmu68IwPImVSHz3AAAB connected!
+[2022-03-24T22:03:59.509Z] [INFO] [GAME_HANDLER] - Room 16e374eb-d1d7-4eb8-97a7-45b582a7bb05 created
+[2022-03-24T22:04:07.572Z] [DEBUG] [SOCKET_HANDLER] - RVflVbzjiELYPNc5AAAD connected!
+[2022-03-24T22:04:15.495Z] [DEBUG] [SOCKET_HANDLER] - a-REgJfuHlHzA5fRAAAF connected!
+[2022-03-24T22:04:24.598Z] [DEBUG] [SOCKET_HANDLER] - amiAmG3G1u4LZKB3AAAH connected!
+[2022-03-24T22:06:17.335Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-24T22:06:17.336Z] [INFO] [SERVER] - Server is Starting
+[2022-03-24T22:06:17.581Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-24T22:06:24.193Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-24T22:06:24.195Z] [INFO] [SERVER] - Server is Starting
+[2022-03-24T22:06:24.437Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-24T22:06:37.073Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-24T22:06:37.074Z] [INFO] [SERVER] - Server is Starting
+[2022-03-24T22:06:37.314Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-24T22:06:43.905Z] [DEBUG] [SOCKET_HANDLER] - -cNO7HSYusos-3BQAAAB connected!
+[2022-03-24T22:06:43.905Z] [INFO] [GAME_HANDLER] - Room 5f651f77-073b-4037-9e82-c9182f980437 created
+[2022-03-24T22:07:39.543Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-24T22:07:39.545Z] [INFO] [SERVER] - Server is Starting
+[2022-03-24T22:07:39.795Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-24T22:07:43.587Z] [DEBUG] [SOCKET_HANDLER] - DEbk3hpoe2xkXoe0AAAB connected!
+[2022-03-24T22:07:43.588Z] [INFO] [GAME_HANDLER] - Room 32d79ac7-7d7f-4cea-ab08-c100a9af960a created
+[2022-03-24T22:07:50.785Z] [DEBUG] [SOCKET_HANDLER] - NZpx0v8TcmauIDBmAAAD connected!
+[2022-03-24T22:07:50.786Z] [ERROR] [SOCKET_HANDLER] - Client id: NZpx0v8TcmauIDBmAAAD - ::1 disconnected due to and error - NICK_TAKEN
+[2022-03-24T22:08:21.005Z] [DEBUG] [SOCKET_HANDLER] - Ghh-d6_i70vMIiziAAAF connected!
+[2022-03-24T22:08:21.005Z] [ERROR] [SOCKET_HANDLER] - Client id: Ghh-d6_i70vMIiziAAAF - ::1 disconnected due to and error - NICK_TAKEN
+[2022-03-24T22:09:14.005Z] [DEBUG] [SOCKET_HANDLER] - j4LhtTaK57jl1EhKAAAH connected!
+[2022-03-24T22:09:34.247Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-24T22:09:34.248Z] [INFO] [SERVER] - Server is Starting
+[2022-03-24T22:09:34.495Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-24T22:09:34.566Z] [DEBUG] [SOCKET_HANDLER] - gn5HDqp_1UDrmf-9AAAC connected!
+[2022-03-24T22:09:34.567Z] [INFO] [GAME_HANDLER] - Room 32d79ac7-7d7f-4cea-ab08-c100a9af960a created
+[2022-03-24T22:09:34.570Z] [DEBUG] [SOCKET_HANDLER] - Es3fC2fSqvlUStpsAAAD connected!
+[2022-03-24T22:09:44.788Z] [DEBUG] [SOCKET_HANDLER] - aav3Cg_l8Ntn8rm4AAAF connected!
+[2022-03-24T22:09:44.789Z] [ERROR] [SOCKET_HANDLER] - Client id: aav3Cg_l8Ntn8rm4AAAF - ::1 disconnected due to and error - NICK_TAKEN
+[2022-03-24T22:10:09.296Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-24T22:10:09.298Z] [INFO] [SERVER] - Server is Starting
+[2022-03-24T22:10:09.546Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-24T22:10:09.610Z] [DEBUG] [SOCKET_HANDLER] - cRqfWyxS7Ly3R3rHAAAC connected!
+[2022-03-24T22:10:09.611Z] [INFO] [GAME_HANDLER] - Room 32d79ac7-7d7f-4cea-ab08-c100a9af960a created
+[2022-03-24T22:10:09.615Z] [DEBUG] [SOCKET_HANDLER] - e4ny1HIQ_C-akIjDAAAD connected!
+[2022-03-24T22:10:33.920Z] [DEBUG] [SOCKET_HANDLER] - KPhDOyhxB3y7O13QAAAF connected!
+[2022-03-24T22:10:33.921Z] [INFO] [GAME_HANDLER] - Room e387a90d-0f90-4d68-bc17-bd59760bf00d created
+[2022-03-24T22:10:36.033Z] [INFO] [GAME_HANDLER] - Room e387a90d-0f90-4d68-bc17-bd59760bf00d removed
+[2022-03-24T22:12:16.303Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-24T22:12:16.304Z] [INFO] [SERVER] - Server is Starting
+[2022-03-24T22:12:16.567Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-24T22:12:16.612Z] [DEBUG] [SOCKET_HANDLER] - xD_lBC0rexmpkVUzAAAC connected!
+[2022-03-24T22:12:16.613Z] [INFO] [GAME_HANDLER] - Room 32d79ac7-7d7f-4cea-ab08-c100a9af960a created
+[2022-03-24T22:12:16.620Z] [DEBUG] [SOCKET_HANDLER] - pfyBAtdtsPbnpYoOAAAD connected!
+[2022-03-24T22:12:30.040Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-24T22:12:30.041Z] [INFO] [SERVER] - Server is Starting
+[2022-03-24T22:12:30.275Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-24T22:12:30.355Z] [DEBUG] [SOCKET_HANDLER] - kuIO8LDTMdnIw6ggAAAC connected!
+[2022-03-24T22:12:30.356Z] [INFO] [GAME_HANDLER] - Room 32d79ac7-7d7f-4cea-ab08-c100a9af960a created
+[2022-03-24T22:12:30.358Z] [DEBUG] [SOCKET_HANDLER] - HnoHHWLdGt3ofGAgAAAD connected!
+[2022-03-24T22:12:42.819Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /join : Error: NICK_TAKEN
+[2022-03-24T22:12:45.392Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /join : Error: NICK_TAKEN
+[2022-03-24T22:12:46.591Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /join : Error: NICK_TAKEN
+[2022-03-24T22:12:47.939Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /join : Error: NICK_TAKEN
+[2022-03-24T22:13:46.313Z] [DEBUG] [SOCKET_HANDLER] - 7-dcGx4kG_867ItqAAAF connected!
+[2022-03-24T22:14:27.325Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-24T22:14:27.326Z] [INFO] [SERVER] - Server is Starting
+[2022-03-24T22:14:27.557Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-24T22:14:27.609Z] [DEBUG] [SOCKET_HANDLER] - iwQHOFntqS0X82SnAAAE connected!
+[2022-03-24T22:14:27.609Z] [ERROR] [SOCKET_HANDLER] - Client id: iwQHOFntqS0X82SnAAAE - ::ffff:127.0.0.1 disconnected due to and error - NOT_FOUND
+[2022-03-24T22:15:03.676Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-24T22:15:03.677Z] [INFO] [SERVER] - Server is Starting
+[2022-03-24T22:15:03.935Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-24T22:15:07.672Z] [DEBUG] [SOCKET_HANDLER] - QMzn82X6IhNwwooeAAAB connected!
+[2022-03-24T22:15:07.673Z] [INFO] [GAME_HANDLER] - Room fe3634cd-6fa8-4f4e-9473-3321531c6b03 created
+[2022-03-24T22:15:15.404Z] [DEBUG] [SOCKET_HANDLER] - 1AJ2TJJPpq7JAqqKAAAD connected!
+[2022-03-24T22:15:23.004Z] [DEBUG] [SOCKET_HANDLER] - 1G1JOQI_h5A7dh1YAAAF connected!
+[2022-03-24T22:15:36.217Z] [DEBUG] [SOCKET_HANDLER] - WTcQfKgiPqgMYTWNAAAH connected!
+[2022-03-24T22:15:47.332Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /join : Error: ROOM_FULL
+[2022-03-24T22:16:04.793Z] [INFO] [GAME_HANDLER] - Room fe3634cd-6fa8-4f4e-9473-3321531c6b03 removed
+[2022-03-24T22:16:13.412Z] [DEBUG] [SOCKET_HANDLER] - D06KkZnwBCbC0j7XAAAJ connected!
+[2022-03-24T22:16:13.413Z] [INFO] [GAME_HANDLER] - Room 11aa47f6-80e3-49d3-a39f-bbda46a85e7b created
+[2022-03-24T22:16:20.758Z] [DEBUG] [SOCKET_HANDLER] - XW5ewSmLJq58RDh5AAAL connected!
+[2022-03-24T22:16:28.082Z] [DEBUG] [SOCKET_HANDLER] - Yl_0vRW4JMLKYpJGAAAN connected!
+[2022-03-24T22:16:37.050Z] [DEBUG] [SOCKET_HANDLER] - GGib9kK8gizQWJorAAAP connected!
+[2022-03-24T22:16:45.687Z] [DEBUG] [SOCKET_HANDLER] - NPjTCuVtQh4HsNFqAAAR connected!
+[2022-03-24T22:16:56.017Z] [DEBUG] [SOCKET_HANDLER] - LReIq1ul7amHqH55AAAT connected!
+[2022-03-24T22:17:04.835Z] [DEBUG] [SOCKET_HANDLER] - lQybYCUn89VPyjsqAAAV connected!
+[2022-03-24T22:17:15.288Z] [DEBUG] [SOCKET_HANDLER] - 12BMQ3oQDE0vLDQDAAAX connected!
+[2022-03-24T22:17:29.944Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /join : Error: ROOM_FULL
+[2022-03-24T22:17:31.923Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /join : Error: ROOM_FULL
+[2022-03-24T22:17:32.964Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /join : Error: ROOM_FULL
+[2022-03-24T22:17:34.011Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /join : Error: ROOM_FULL
+[2022-03-24T22:17:35.891Z] [ERROR] [ERROR_HANDLER] - Unhandled Error at - /join : Error: ROOM_FULL
+[2022-03-24T22:17:56.810Z] [INFO] [LOGGER] - Initializing Log
+[2022-03-24T22:17:56.812Z] [INFO] [SERVER] - Server is Starting
+[2022-03-24T22:17:57.071Z] [INFO] [SERVER] - Server started on port 3000
+[2022-03-24T22:17:57.129Z] [DEBUG] [SOCKET_HANDLER] - QQZ9lnvYssw76VcRAAAH connected!
+[2022-03-24T22:17:57.130Z] [INFO] [GAME_HANDLER] - Room 11aa47f6-80e3-49d3-a39f-bbda46a85e7b created
+[2022-03-24T22:17:57.136Z] [DEBUG] [SOCKET_HANDLER] - Pg_NssylNAyJ9gf9AAAI connected!
+[2022-03-24T22:17:57.142Z] [DEBUG] [SOCKET_HANDLER] - Go5VfwRtKgHSqqNpAAAK connected!
+[2022-03-24T22:17:57.146Z] [DEBUG] [SOCKET_HANDLER] - _3pW4z83ssk_BGBzAAAL connected!
+[2022-03-24T22:17:57.148Z] [DEBUG] [SOCKET_HANDLER] - 1pA4oS6sxiuBWFNtAAAM connected!
+[2022-03-24T22:17:57.151Z] [DEBUG] [SOCKET_HANDLER] - D5RqQtbSJ1BMgF7TAAAN connected!
+[2022-03-24T22:17:57.154Z] [DEBUG] [SOCKET_HANDLER] - VnLJKaYU-ARrABcqAAAO connected!
+[2022-03-24T22:17:57.159Z] [DEBUG] [SOCKET_HANDLER] - RdBkwnCqWYgS5CjPAAAP connected!
+[2022-03-24T22:19:48.159Z] [INFO] [GAME_HANDLER] - Room 11aa47f6-80e3-49d3-a39f-bbda46a85e7b removed

@@ -5,6 +5,8 @@ import { Word } from "./word.model";
 export interface GameState {
   roomId?: string;
   participants: Participant[];
+  blueTeamPlayers: number;
+  redTeamPlayers: number;
   words: Word[];
   currentTeam: Team;
   blueTeamPoints: number;

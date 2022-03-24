@@ -10,8 +10,6 @@ import {
 import { Team } from 'src/app/model/team.model';
 import { Word } from 'src/app/model/word.model';
 import {
-  bounceInAnimation,
-  flipInYAnimation,
   flipInYOnEnterAnimation,
   flipOutXOnLeaveAnimation,
   jackInTheBoxOnEnterAnimation,
@@ -24,7 +22,7 @@ import {
   animations: [
     jackInTheBoxOnEnterAnimation(),
     flipOutXOnLeaveAnimation(),
-    flipInYOnEnterAnimation(),
+    flipInYOnEnterAnimation({ duration: 500 }),
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

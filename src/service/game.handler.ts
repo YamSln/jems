@@ -6,7 +6,12 @@ import { Role } from "../model/role.model";
 import { JoinPayload } from "../model/join.payload";
 import { JoinEvent } from "../event/join.event";
 import jwt from "../auth/jwt.manager";
-import { INCORRECT_PASSWORD, ROOM_FULL, NOT_FOUND } from "../error/error.util";
+import {
+  INCORRECT_PASSWORD,
+  ROOM_FULL,
+  NOT_FOUND,
+  NICK_TAKEN,
+} from "../error/error.util";
 import { WordType } from "../model/word.type";
 import { Team } from "../model/team.model";
 import { CreateGamePayload } from "../model/create-game.payload";
@@ -41,6 +46,11 @@ const joinGame = (joinPayload: JoinPayload): string => {
   } // Verify room has more slots
   if (state.participants.length >= state.maxPlayers) {
     throw new Error(ROOM_FULL);
+  } // Check nick availability
+  for (let player of state.participants) {
+    if (player.nick === joinPayload.nick) {
+      throw new Error(NICK_TAKEN);
+    }
   } // Generate token
   return jwt.generateJwt(joinPayload);
 };
@@ -49,7 +59,7 @@ const onCreateGame = (
   socketId: string,
   joinPayload: CreateGamePayload
 ): GameState => {
-  const gameState = service.createGame(
+  const state = service.createGame(
     joinPayload.password,
     joinPayload.maxPlayers
   );
@@ -59,10 +69,11 @@ const onCreateGame = (
     team: service.getRandomTeam(),
     role: Role.OPERATIVE,
   };
-  gameState.participants.push(newParticipant);
-  rooms.set(joinPayload.room, gameState);
+  state.participants.push(newParticipant);
+  changePlayersCount(newParticipant, state);
+  rooms.set(joinPayload.room, state);
   log.info(REQUESTOR, `Room ${joinPayload.room} created`);
-  return gameState;
+  return state;
 };
 
 const onJoinGame = (socketId: string, joinPayload: JoinPayload): JoinEvent => {
@@ -71,14 +82,20 @@ const onJoinGame = (socketId: string, joinPayload: JoinPayload): JoinEvent => {
   // Verify room existence and password validity
   if (!state || state.password !== joinPayload.password) {
     throw new Error(NOT_FOUND);
-  } // Create participant
+  }
+  // Create participant
   const newParticipant: Participant = {
     id: socketId,
     nick: joinPayload.nick,
-    team: service.getRandomTeam(),
+    team: service.assignTeam(
+      state.participants.length,
+      state.blueTeamPlayers,
+      state.redTeamPlayers
+    ),
     role: Role.OPERATIVE,
   };
   state.participants.push(newParticipant);
+  changePlayersCount(newParticipant, state);
   return { state, joined: newParticipant };
 };
 
@@ -92,6 +109,9 @@ const onNewGame = (room: string): GameState => {
     roomId: room,
   });
   rooms.set(room, newGame);
+  console.log("blue players - " + newGame.blueTeamPlayers);
+  console.log("red players - " + newGame.redTeamPlayers);
+  console.log("here");
   return newGame;
 };
 
@@ -236,6 +256,7 @@ const onDisconnectGame = (
     if (index !== -1) {
       const player = game.participants[index];
       game.participants.splice(index, 1);
+      changePlayersCount(player, game, true);
       if (game.participants.length === 0) {
         // Remove game upon 0 participants
         clearTimer(game, true);
@@ -288,6 +309,20 @@ const otherTeam = (team: Team): Team => {
 
 const otherRole = (role: Role): Role => {
   return role === Role.OPERATIVE ? Role.SPY_MASTER : Role.OPERATIVE;
+};
+
+const changePlayersCount = (
+  player: Participant,
+  game: GameState,
+  decrease: boolean = false
+): void => {
+  player.team === Team.SAPPHIRE
+    ? decrease
+      ? game.blueTeamPlayers--
+      : game.blueTeamPlayers++
+    : decrease
+    ? game.redTeamPlayers--
+    : game.redTeamPlayers++;
 };
 
 export default {

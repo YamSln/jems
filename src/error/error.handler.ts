@@ -5,7 +5,9 @@ import { ClientValidationError } from "./client.validation-error";
 import {
   FORBIDDEN,
   INCORRECT_PASSWORD,
+  NICK_TAKEN,
   NOT_FOUND,
+  ROOM_FULL,
   UNAUTHORIZED,
 } from "./error.util";
 import { CustomValidationError } from "./validation.error";
@@ -45,6 +47,8 @@ export const handleErrors = (
         .status(HttpStatusCode.FORBIDDEN)
         .send(new ClientError(err.message, HttpStatusCode.FORBIDDEN));
     case INCORRECT_PASSWORD:
+    case NICK_TAKEN:
+    case ROOM_FULL:
       return response
         .status(HttpStatusCode.BAD_REQUEST)
         .send(new ClientError(err.message, HttpStatusCode.BAD_REQUEST));

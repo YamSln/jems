@@ -23,6 +23,13 @@ const createGame = (
   const startingTeam: Team = getRandomTeam();
   // Get random words
   const words: Word[] = generateWords(startingTeam, WORDS_COUNT);
+  const players: {
+    participants: Participant[];
+    blueTeamPlayers: number;
+    redTeamPlayers: number;
+  } = currentGame
+    ? shuffleAndResetParticipants(currentGame.participants)
+    : { participants: [], blueTeamPlayers: 0, redTeamPlayers: 0 };
   // Generate new game
   const game: GameState = {
     ...currentGame,
@@ -31,9 +38,9 @@ const createGame = (
       startingTeam === Team.SAPPHIRE ? STARTING_TEAM_WORDS : OTHER_TEAM_WORDS,
     redTeamPoints:
       startingTeam === Team.RUBY ? STARTING_TEAM_WORDS : OTHER_TEAM_WORDS,
-    participants: currentGame
-      ? shuffleAndResetParticipants(currentGame.participants)
-      : [],
+    blueTeamPlayers: players.blueTeamPlayers,
+    redTeamPlayers: players.redTeamPlayers,
+    participants: players.participants,
     turnTime: 0,
     currentTime: 0,
     winningTeam: undefined,
@@ -122,15 +129,23 @@ const shuffleWords = (words: Word[]): Word[] => {
 
 const shuffleAndResetParticipants = (
   participants: Participant[]
-): Participant[] => {
-  const teams = Object.values(Team);
-  let random;
+): {
+  participants: Participant[];
+  blueTeamPlayers: number;
+  redTeamPlayers: number;
+} => {
+  let blueTeamPlayers: number = 0;
+  let redTeamPlayers: number = 0;
   for (let player of participants) {
-    random = Math.random() > 0.5 ? 1 : 0;
-    player.team = teams[random];
+    player.team = assignTeam(
+      participants.length,
+      blueTeamPlayers,
+      redTeamPlayers
+    );
+    player.team === Team.SAPPHIRE ? blueTeamPlayers++ : redTeamPlayers++;
     player.role = Role.OPERATIVE;
   }
-  return participants;
+  return { participants, blueTeamPlayers, redTeamPlayers };
 };
 
 const getRandomNumber = (max: number): number => {
@@ -144,6 +159,19 @@ const getRandomTeam = (): Team => {
   return randomTeam as Team;
 };
 
+const assignTeam = (
+  totalPlayers: number,
+  blueTeamPlayers: number,
+  redTeamPlayers: number
+): Team => {
+  if (blueTeamPlayers >= totalPlayers / 2) {
+    return Team.RUBY;
+  } else if (redTeamPlayers >= totalPlayers / 2) {
+    return Team.SAPPHIRE;
+  }
+  return getRandomTeam();
+};
+
 export default {
   newGame,
   createGame,
@@ -151,5 +179,6 @@ export default {
   getRandomWords,
   getRandomNumber,
   getRandomTeam,
+  assignTeam,
   shuffleWords,
 };
