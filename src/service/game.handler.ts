@@ -191,9 +191,6 @@ const onTeamChange = (socketId: string, room: string): string => {
   const state = getGame(room);
   // Get clicking player
   const player = getPlayer(socketId, state);
-  console.log(state.redTeamPlayers);
-  console.log(state.blueTeamPlayers);
-  console.log(MAXIMUM_MAX_PLAYERS / 2 + 1);
   // Change player team
   if (player.team === Team.SAPPHIRE) {
     // Check if team ruby is full
