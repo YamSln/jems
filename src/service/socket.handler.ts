@@ -1,6 +1,11 @@
 import { Server, Socket } from "socket.io";
 import { JoinType } from "../auth/join.type";
-import { FORBIDDEN, NOT_FOUND, UNAUTHORIZED } from "../error/error.util";
+import {
+  FORBIDDEN,
+  NOT_FOUND,
+  TEAM_FULL,
+  UNAUTHORIZED,
+} from "../error/error.util";
 import { GameEvent } from "../event/game.event";
 import { JoinEvent } from "../event/join.event";
 import { CreateGamePayload } from "../model/create-game.payload";
@@ -60,9 +65,13 @@ const onConnection = (socket: Socket, io: Server) => {
     // Get socket room
     const room = getSocketRoom(socket);
     // Change player team
-    const player = handler.onTeamChange(socket.id, room);
+    try {
+      const player = handler.onTeamChange(socket.id, room);
+      io.to(room).emit(GameEvent.TEAM_CHANGE, player);
+    } catch (err: any) {
+      sendError(socket, TEAM_FULL);
+    }
     // Emit player changed team event
-    io.to(room).emit(GameEvent.TEAM_CHANGE, player);
   });
 
   socket.on(GameEvent.TIME_SET, (timeSpan: number) => {
@@ -147,13 +156,17 @@ const createGame = (socket: Socket, payload: CreateGamePayload) => {
 
 const disconnect = (socket: Socket, message?: string) => {
   if (message) {
-    socket.emit("error", message);
+    sendError(socket, message);
     log.error(
       REQUESTOR,
       `Client id: ${socket.id} - ${socket.handshake.address} disconnected due to and error - ${message}`
     );
   }
   socket.disconnect(true);
+};
+
+const sendError = (socket: Socket, message: string) => {
+  socket.emit("error", message);
 };
 
 const getSocketRoom = (socket: Socket): string => {

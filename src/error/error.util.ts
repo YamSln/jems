@@ -4,3 +4,4 @@ export const NICK_TAKEN = "NICK_TAKEN";
 export const INCORRECT_PASSWORD = "INCORRECT_PASSWORD";
 export const ROOM_FULL = "ROOM_FULL";
 export const UNAUTHORIZED = "UNAUTHORIZED";
+export const TEAM_FULL = "TEAM_FULL";

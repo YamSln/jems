@@ -8,10 +8,7 @@ import { Participant } from 'src/app/model/participant.model';
 import { PlayerAction } from 'src/app/model/player.action.payload';
 import { Team } from 'src/app/model/team.model';
 import { WordClicked } from 'src/app/model/word.clicked.mode';
-import {
-  displayErrorMessage,
-  displayPlayerAction,
-} from 'src/app/shared/state/shared.action';
+import { displayPlayerAction } from 'src/app/shared/state/shared.action';
 import {
   turnChange,
   clearState,
@@ -77,18 +74,31 @@ export class GameFacade {
     this.store.dispatch(
       playerJoinedGame({ players: playerAction.updatedPlayers })
     );
-    this.store.dispatch(
-      displayPlayerAction({ message: playerAction.nick + ' Joined!' })
-    );
+    this.displayPlayerAction(playerAction, ' Joined!');
   }
 
   playerDisconnected(playerAction: PlayerAction): void {
     this.store.dispatch(
       playerDisconnect({ players: playerAction.updatedPlayers })
     );
-    this.store.dispatch(
-      displayPlayerAction({ message: playerAction.nick + ' Left' })
-    );
+    this.displayPlayerAction(playerAction, ' Left');
+  }
+
+  displayPlayerAction(playerAction: PlayerAction, message: string): void {
+    this.displayInGameMessage('none', playerAction.nick + message);
+  }
+
+  displayInGameMessage(action: 'forbidden' | 'none', message: string): void {
+    switch (action) {
+      case 'forbidden':
+      // Implement
+    }
+    this.store.dispatch(displayPlayerAction({ message: message }));
+    this.clearPlayerAction();
+  }
+
+  clearPlayerAction(): void {
+    this.store.dispatch(displayPlayerAction({ message: '' }));
   }
 
   wordClicked(wordClicked: WordClicked): void {

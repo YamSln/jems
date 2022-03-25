@@ -11,6 +11,7 @@ import {
   ROOM_FULL,
   NOT_FOUND,
   NICK_TAKEN,
+  TEAM_FULL,
 } from "../error/error.util";
 import { WordType } from "../model/word.type";
 import { Team } from "../model/team.model";
@@ -19,6 +20,7 @@ import { WordClicked } from "../model/word.clicked.payload";
 import { PlayerAction } from "../model/player.action.payload";
 import { GameEvent } from "../event/game.event";
 import log from "../config/log";
+import { MAXIMUM_MAX_PLAYERS } from "../validation/game.validation";
 const REQUESTOR = "GAME_HANDLER";
 
 const rooms: Map<string, GameState> = new Map<string, GameState>();
@@ -69,6 +71,7 @@ const onCreateGame = (
     team: service.getRandomTeam(),
     role: Role.OPERATIVE,
   };
+  // Add the creator to the game and increase players count
   state.participants.push(newParticipant);
   changePlayersCount(newParticipant, state);
   rooms.set(joinPayload.room, state);
@@ -94,6 +97,7 @@ const onJoinGame = (socketId: string, joinPayload: JoinPayload): JoinEvent => {
     ),
     role: Role.OPERATIVE,
   };
+  // Add joined player to the game and increase players count
   state.participants.push(newParticipant);
   changePlayersCount(newParticipant, state);
   return { state, joined: newParticipant };
@@ -109,9 +113,6 @@ const onNewGame = (room: string): GameState => {
     roomId: room,
   });
   rooms.set(room, newGame);
-  console.log("blue players - " + newGame.blueTeamPlayers);
-  console.log("red players - " + newGame.redTeamPlayers);
-  console.log("here");
   return newGame;
 };
 
@@ -159,7 +160,7 @@ const onWordClick = (
       const winningTeam = otherTeam(player.team);
       winGame(state, winningTeam);
       return { wordIndex, winningTeam };
-  }
+  } // Check if game was won after current operation
   const gameWon = state.blueTeamPoints === 0 || state.redTeamPoints === 0;
   if (gameWon) {
     const winningTeam = state.blueTeamPoints === 0 ? Team.SAPPHIRE : Team.RUBY;
@@ -190,8 +191,20 @@ const onTeamChange = (socketId: string, room: string): string => {
   const state = getGame(room);
   // Get clicking player
   const player = getPlayer(socketId, state);
+  console.log(state.redTeamPlayers);
+  console.log(state.blueTeamPlayers);
+  console.log(MAXIMUM_MAX_PLAYERS / 2 + 1);
   // Change player team
+  if (player.team === Team.SAPPHIRE) {
+    // Check if team ruby is full
+    if (state.redTeamPlayers >= MAXIMUM_MAX_PLAYERS / 2 + 1) {
+      throw new Error(TEAM_FULL);
+    } // Check if team sapphire is full
+  } else if (state.blueTeamPlayers >= MAXIMUM_MAX_PLAYERS / 2 + 1) {
+    throw new Error(TEAM_FULL);
+  }
   player.team = otherTeam(player.team);
+  changePlayersCount(player, state, false, true);
   // Return player id
   return socketId;
 };
@@ -252,7 +265,7 @@ const onDisconnectGame = (
   if (game) {
     const index = game.participants.findIndex(
       (participant) => participant.id === socketId
-    ); // Find and remove participant
+    ); // Find and remove participant, decrease players count
     if (index !== -1) {
       const player = game.participants[index];
       game.participants.splice(index, 1);
@@ -314,15 +327,16 @@ const otherRole = (role: Role): Role => {
 const changePlayersCount = (
   player: Participant,
   game: GameState,
-  decrease: boolean = false
+  decrease: boolean = false,
+  teamChange: boolean = false
 ): void => {
-  player.team === Team.SAPPHIRE
-    ? decrease
-      ? game.blueTeamPlayers--
-      : game.blueTeamPlayers++
-    : decrease
-    ? game.redTeamPlayers--
-    : game.redTeamPlayers++;
+  if (player.team === Team.SAPPHIRE) {
+    decrease ? game.blueTeamPlayers-- : game.blueTeamPlayers++;
+    teamChange ? game.redTeamPlayers-- : undefined;
+  } else {
+    decrease ? game.redTeamPlayers-- : game.redTeamPlayers++;
+    teamChange ? game.blueTeamPlayers-- : undefined;
+  }
 };
 
 export default {

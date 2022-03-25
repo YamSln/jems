@@ -38,6 +38,7 @@ import {
   NICK_TAKEN,
   NOT_FOUND,
   ROOM_FULL,
+  TEAM_FULL,
 } from '../../../../../error/error.util';
 import {
   MAX_PLAYERS_MAX,
@@ -272,12 +273,16 @@ export class GameEffect {
       this.sharedFacade.displayLoading();
     });
     socket.on(GameEvent.ERROR, (err) => {
+      if (err === TEAM_FULL) {
+        this.gameFacade.displayInGameMessage('forbidden', 'Team is Full');
+      } else {
+        this.errorDisconnection(socket);
+      }
+    });
+    socket.on('connect_error', (err: Error) => {
       this.errorDisconnection(socket);
     });
-    socket.on('connect_error', (err) => {
-      this.errorDisconnection(socket);
-    });
-    socket.io.on('reconnect_error', () => {
+    socket.io.on('reconnect_error', (err: Error) => {
       this.errorDisconnection(socket);
     });
     this.socket = socket;

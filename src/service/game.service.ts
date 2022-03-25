@@ -137,12 +137,15 @@ const shuffleAndResetParticipants = (
   let blueTeamPlayers: number = 0;
   let redTeamPlayers: number = 0;
   for (let player of participants) {
+    // Assign player to available team
     player.team = assignTeam(
       participants.length,
       blueTeamPlayers,
       redTeamPlayers
     );
+    // Count each team players
     player.team === Team.SAPPHIRE ? blueTeamPlayers++ : redTeamPlayers++;
+    // Clear players role
     player.role = Role.OPERATIVE;
   }
   return { participants, blueTeamPlayers, redTeamPlayers };
