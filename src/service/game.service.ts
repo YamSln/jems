@@ -5,10 +5,13 @@ import { Team } from "../model/team.model";
 import { Word } from "../model/word.model";
 import { WordType } from "../model/word.type";
 import wordsBase from "../words/words.json";
+import { v4 as uuidv4 } from "uuid";
 
 const WORDS_COUNT = 25;
 const STARTING_TEAM_WORDS = 9;
 const OTHER_TEAM_WORDS = 8;
+const DEFAULT_WORDS_PACK_NAME = "Classic";
+const DEFAULT_WORDS_PACK_ID = uuidv4();
 
 const newGame = (currentGame: GameState): GameState => {
   return createGame(currentGame.password, currentGame.maxPlayers, currentGame);
@@ -48,6 +51,14 @@ const createGame = (
     maxPlayers,
     password,
     words,
+    wordsPacks: [
+      {
+        // Default words pack
+        id: DEFAULT_WORDS_PACK_ID,
+        name: DEFAULT_WORDS_PACK_NAME,
+        selected: true,
+      },
+    ],
   }; // Return new game
   return game;
 };

@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { Observable, Subscription } from 'rxjs';
-import { SharedFacade } from '../../state/shared.facade';
+import { SharedFacade } from '../state/shared.facade';
 
 @Component({
   selector: 'app-player-action',

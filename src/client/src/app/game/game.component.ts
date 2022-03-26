@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  bounceInOnEnterAnimation,
-  bounceOutOnLeaveAnimation,
-  rubberBandAnimation,
+  flipInXOnEnterAnimation,
+  flipOutXOnLeaveAnimation,
 } from 'angular-animations';
 import { Observable } from 'rxjs';
 import { Participant } from '../model/participant.model';
@@ -14,11 +13,7 @@ import { GameState } from './state/game.state';
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss'],
-  animations: [
-    bounceInOnEnterAnimation(),
-    bounceOutOnLeaveAnimation(),
-    rubberBandAnimation(),
-  ],
+  animations: [flipInXOnEnterAnimation(), flipOutXOnLeaveAnimation()],
 })
 export class GameComponent implements OnInit {
   gameState!: Observable<GameState>;

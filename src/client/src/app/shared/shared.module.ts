@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorComponent } from './error/error.component';
 import { GeneralDialogComponent } from './dialog/general-dialog/general-dialog.component';
 import { LoadingComponent } from './loading/loading.component';
-import { PlayerActionComponent } from './player-action/player-action/player-action.component';
+import { PlayerActionComponent } from './player-action/player-action.component';
 import { TruncatedTooltipDirective } from './tooltip/truncated-tooltip.directive';
 
 @NgModule({

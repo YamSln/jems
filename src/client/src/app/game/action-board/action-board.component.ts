@@ -7,6 +7,7 @@ import {
 import { Participant } from 'src/app/model/participant.model';
 import { Role } from 'src/app/model/role.model';
 import { Team } from 'src/app/model/team.model';
+import { WordsPack } from 'src/app/model/words-pack.mode';
 
 @Component({
   selector: 'app-action-board',
@@ -28,11 +29,15 @@ export class ActionBoardComponent implements OnInit {
   @Input() turnTime!: number;
   @Input() playerTeam!: Team;
   @Input() playerRole!: Role;
+  @Input() wordsPacks!: WordsPack[];
 
   @Output() changeTeamEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() changeRoleEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() endTurnEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() setTimeEvent: EventEmitter<number> = new EventEmitter<number>();
+  @Output() selectWordsPackEvent: EventEmitter<string> =
+    new EventEmitter<string>();
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -55,5 +60,11 @@ export class ActionBoardComponent implements OnInit {
 
   getTime(): number {
     return this.timeInputs.findIndex((time) => time === this.turnTime);
+  }
+
+  selectWordsPack(wordsPack: WordsPack): void {
+    if (!wordsPack.selected) {
+      this.selectWordsPackEvent.emit();
+    }
   }
 }

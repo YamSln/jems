@@ -17,8 +17,6 @@ const publicKey = env.devEnv()
   ? fs.readFileSync("public.key", "utf8")
   : process.env.PUBLIC_KEY;
 
-const getPublicKey = (): string => publicKey!;
-
 const generateJwt = (payload: JoinPayload | CreateGamePayload): string => {
   const options: SignOptions = {
     algorithm: "RS256",
@@ -51,7 +49,6 @@ const verifyJwt = (
 };
 
 export default {
-  getPublicKey,
   generateJwt,
   verifyJwt,
 };

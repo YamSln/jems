@@ -10,9 +10,9 @@ import {
 import { Team } from 'src/app/model/team.model';
 import { Word } from 'src/app/model/word.model';
 import {
+  bounceInOnEnterAnimation,
+  bounceOutOnLeaveAnimation,
   flipInYOnEnterAnimation,
-  flipOutXOnLeaveAnimation,
-  jackInTheBoxOnEnterAnimation,
 } from 'angular-animations';
 
 @Component({
@@ -20,8 +20,8 @@ import {
   templateUrl: './game-board.component.html',
   styleUrls: ['./game-board.component.scss'],
   animations: [
-    jackInTheBoxOnEnterAnimation(),
-    flipOutXOnLeaveAnimation(),
+    bounceInOnEnterAnimation({ duration: 1500 }),
+    bounceOutOnLeaveAnimation({ duration: 700 }),
     flipInYOnEnterAnimation({ duration: 500 }),
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,

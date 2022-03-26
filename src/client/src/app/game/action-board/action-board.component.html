@@ -1,5 +1,5 @@
 <mat-card
-  style="width: 220px"
+  style="width: 220px; margin-bottom: 10px"
   fxLayout="column"
   fxLayoutAlign="space-around stretch"
 >
@@ -87,6 +87,7 @@
     </mat-button-toggle-group>
   </mat-card-actions>
   <button
+    style="margin-bottom: 20px"
     mat-raised-button
     [color]="playerTeam === team.SAPPHIRE ? 'primary' : 'warn'"
     [disabled]="playerRole === role.SPY_MASTER || playerTeam !== currentTeam"
@@ -94,4 +95,14 @@
   >
     End Turn
   </button>
+  <div class="wordsPacksList">
+    <div
+      class="wordsPack"
+      [ngClass]="{ 'raw-blue selected': wordsPack.selected }"
+      (click)="selectWordsPack(wordsPack)"
+      *ngFor="let wordsPack of wordsPacks"
+    >
+      {{ wordsPack.name }}
+    </div>
+  </div>
 </mat-card>

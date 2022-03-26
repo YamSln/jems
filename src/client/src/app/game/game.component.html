@@ -7,6 +7,7 @@
     [playerTeam]="game.playerTeam"
     [playerRole]="game.playerRole"
     [turnTime]="game.turnTime"
+    [wordsPacks]="game.wordsPacks"
     (changeTeamEvent)="onTeamChange()"
     (changeRoleEvent)="onRoleChange()"
     (endTurnEvent)="onEndTurn()"
@@ -18,16 +19,13 @@
       fxLayoutAlign="space-between center"
       style="font-size: 2rem; padding: 1rem"
     >
-      <mat-label
-        [@rubberBand]="game.blueTeamPoints"
-        class="raw-blue"
-        id="blue-points"
-        >{{ game.blueTeamPoints }}</mat-label
-      >
+      <mat-label class="raw-blue" id="blue-points">{{
+        game.blueTeamPoints
+      }}</mat-label>
       <app-timer
         *ngIf="game.turnTime"
-        [@bounceInOnEnter]
-        [@bounceOutOnLeave]
+        [@flipInXOnEnter]
+        [@flipOutXOnLeave]
         [currentTeam]="game.currentTeam"
         [display]="!!game.turnTime"
         [time]="game.currentTime"

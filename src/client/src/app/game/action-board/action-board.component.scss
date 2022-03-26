@@ -12,3 +12,16 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.wordsPack {
+  cursor: pointer;
+}
+
+.wordsPacksList {
+  box-sizing: border-box;
+  max-width: 50%;
+}
+
+.selected {
+  font-weight: bold;
+}
