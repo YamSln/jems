@@ -3,7 +3,7 @@
 
 # jems
 
-Jems is an online successor to the code names board game.
+Jems is an online successor to the codenames board game.
 
 ## Features
 
