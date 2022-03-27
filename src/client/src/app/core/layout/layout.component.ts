@@ -31,6 +31,10 @@ export class LayoutComponent implements OnInit {
     this.clipboardService.copy(url);
   }
 
+  hasGithubLink(): boolean {
+    return !!environment.github;
+  }
+
   openGithub(): void {
     window.open(environment.github, '_blank');
   }

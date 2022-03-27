@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  github: '',
+  github: 'https://github.com/YamSln/jems',
   version: '1.0.0',
   api: 'http://localhost:3000',
 };
