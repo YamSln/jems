@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import {
   flipAnimation,
   flipInYOnEnterAnimation,
@@ -27,6 +35,7 @@ export class ActionBoardComponent implements OnInit {
   @Input() currentTeam!: Team;
   @Input() participants!: Participant[];
   @Input() turnTime!: number;
+  @Input() playerId!: string;
   @Input() playerTeam!: Team;
   @Input() playerRole!: Role;
   @Input() wordsPacks!: WordsPack[];

@@ -87,24 +87,19 @@
   animation: redFadeIn 0.3s;
 }
 
-$bomb-color: mat-palette($mat-gray);
+$bomb-color: mat-palette($mat-gray, 900);
 .bomb-word {
-  background-color: mat-color($bomb-color, $hue: default, $opacity: 0.5);
-}
-
-.red-word-selected {
-  background-color: mat-color($jems-web-client-warn);
-  transition: background-color 0.3s ease-out;
+  color: white;
+  background-color: mat-color($bomb-color, $hue: default, $opacity: 0.7);
 }
 
 .bomb-word-selected {
+  color: white;
   background-color: mat-color($bomb-color);
-  animation: bombFadeIn 0.3s;
 }
 
 $word-selected: mat-palette($mat-gray, 400);
 
 .neutral-selected {
   background-color: mat-color($word-selected);
-  transition: background-color 0.5s ease-out !important;
 }

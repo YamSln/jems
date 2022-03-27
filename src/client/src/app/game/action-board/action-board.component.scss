@@ -13,6 +13,12 @@
   text-overflow: ellipsis;
 }
 
+.player-self {
+  font-weight: 550;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+}
+
 .wordsPack {
   cursor: pointer;
 }
