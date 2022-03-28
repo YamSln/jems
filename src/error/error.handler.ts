@@ -59,3 +59,8 @@ export const handleErrors = (
         .send(new ClientError(err.message, HttpStatusCode.ERROR));
   }
 };
+
+export const errorTest = {
+  ERROR_MESSAGE,
+  REQUESTOR,
+};

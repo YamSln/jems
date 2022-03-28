@@ -18,7 +18,7 @@
     "start": "node --optimize_for_size --max_old_space_size=460 dist/index.js",
     "build": "tsc && cd src/client && npm install && npm run build",
     "heroku-postbuild": "tsc && cd src/client && npm install && npm run build --prod",
-    "test": "jest --testPathIgnorePatterns=src/client dist"
+    "test": "ts-node -O '{\"config\":\"commonjs\"}' node_modules/jest/bin/jest.js"
   },
   "author": "Jam",
   "license": "ISC",
@@ -28,7 +28,6 @@
     "express-validator": "^6.9.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
-    "rewire": "^6.0.0",
     "socket.io": "^4.4.1",
     "uuid": "^8.3.2"
   },
@@ -40,7 +39,6 @@
     "@types/lodash": "^4.14.180",
     "@types/morgan": "^1.9.2",
     "@types/node": "^15.0.2",
-    "@types/rewire": "^2.5.28",
     "@types/supertest": "^2.0.11",
     "@types/uuid": "^8.3.0",
     "jest": "^26.6.3",

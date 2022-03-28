@@ -6,14 +6,23 @@
   fxLayoutAlign="center none"
 >
   <mat-toolbar fxLayout="row" fxLayoutAlign="end center">
-    <button
-      *ngIf="roomUrl | async as url"
-      mat-icon-button
-      [matTooltip]="'Get invitation link'"
-      (click)="copyUrlToClipboard(url)"
-    >
-      <mat-icon matSuffix>link</mat-icon>
-    </button>
+    <div *ngIf="roomUrl | async as url; then url; else home"></div>
+    <ng-template #url>
+      <button
+        *ngIf="roomUrl | async as url"
+        mat-icon-button
+        [matTooltip]="'Get invitation link'"
+        (click)="copyUrlToClipboard(url)"
+      >
+        <mat-icon matSuffix>link</mat-icon>
+      </button>
+    </ng-template>
+    <ng-template #home>
+      <button mat-icon-button routerLink="/">
+        <img src="assets/logo.svg" alt="logo" style="max-width: 50%" />
+      </button>
+    </ng-template>
+
     <div style="width: 100%" fxLayout="row" fxLayoutAlign="end center">
       <button
         *ngIf="hasGithubLink()"

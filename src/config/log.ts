@@ -52,3 +52,11 @@ export default {
   warn,
   error,
 };
+
+export const logTest = {
+  writeLog,
+  info,
+  debug,
+  warn,
+  error,
+};
