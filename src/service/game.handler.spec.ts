@@ -1,11 +1,17 @@
 import handler from "../service/game.handler";
+import { handlerTest } from "../service/game.handler";
 import jwt from "jsonwebtoken";
 import { JoinPayload } from "../model/join.payload";
 import { validate as uuid } from "uuid";
 import { GameState } from "../model/game.model";
 import { Team } from "../model/team.model";
 import service from "./game.service";
-import { INCORRECT_PASSWORD, ROOM_FULL } from "../error/error.util";
+import {
+  INCORRECT_PASSWORD,
+  NICK_TAKEN,
+  NOT_FOUND,
+  ROOM_FULL,
+} from "../error/error.util";
 import { Participant } from "../model/participant.model";
 import { Role } from "../model/role.model";
 import { CreateGamePayload } from "../model/create-game.payload";
@@ -38,6 +44,7 @@ describe("Game Handler Unit Tests", () => {
         participants: [],
         maxPlayers: 4,
         password: "password",
+        wordsPacks: [],
         blueTeamPlayers: 0,
         redTeamPlayers: 0,
         currentTime: 0,
@@ -61,6 +68,9 @@ describe("Game Handler Unit Tests", () => {
         gameState.password,
         joinPayload.maxPlayers
       );
+      expect(
+        createdGame.blueTeamPlayers > 0 || createdGame.redTeamPlayers > 0
+      ).toBeTruthy();
       createdGame.participants.forEach((participant) => {
         expect(participant.id).toEqual("socketId");
       });
@@ -79,23 +89,29 @@ describe("Game Handler Unit Tests", () => {
         participants: [],
         maxPlayers: 4,
         password: "password",
+        wordsPacks: [],
         blueTeamPlayers: 0,
         redTeamPlayers: 0,
         currentTime: 0,
         turnTime: 0,
         words: [],
       };
-      const joinPayload: CreateGamePayload = {
+      const createPayload: CreateGamePayload = {
         nick: "player",
         room: "room2",
         password: "password",
         maxPlayers: 5,
       };
+      const joinPayload: JoinPayload = {
+        nick: "player1",
+        room: "room2",
+        password: "password",
+      };
       const socketId = "socketId";
 
       jest.spyOn(service, "createGame").mockReturnValueOnce(gameState);
 
-      handler.onCreateGame(socketId, joinPayload);
+      handler.onCreateGame(socketId, createPayload);
 
       const joinedToken = handler.joinGame(joinPayload);
       const decoded: JoinPayload = jwt.decode(joinedToken) as JoinPayload;
@@ -113,6 +129,7 @@ describe("Game Handler Unit Tests", () => {
         participants: [],
         maxPlayers: 4,
         password: "password",
+        wordsPacks: [],
         blueTeamPlayers: 0,
         redTeamPlayers: 0,
         currentTime: 0,
@@ -151,6 +168,7 @@ describe("Game Handler Unit Tests", () => {
         participants,
         maxPlayers: 4,
         password: "password",
+        wordsPacks: [],
         blueTeamPlayers: 0,
         redTeamPlayers: 0,
         currentTime: 0,
@@ -172,6 +190,74 @@ describe("Game Handler Unit Tests", () => {
       expect(() => handler.joinGame(joinPayload)).toThrow(ROOM_FULL);
     });
 
+    it("should throw error when nick is taken", () => {
+      const gameState: GameState = {
+        blueTeamPoints: 9,
+        redTeamPoints: 8,
+        currentTeam: Team.SAPPHIRE,
+        participants: [],
+        maxPlayers: 4,
+        password: "password",
+        wordsPacks: [],
+        blueTeamPlayers: 0,
+        redTeamPlayers: 0,
+        currentTime: 0,
+        turnTime: 0,
+        words: [],
+      };
+      const createPayload: CreateGamePayload = {
+        nick: "player",
+        room: "room2",
+        password: "password",
+        maxPlayers: 5,
+      };
+      const joinPayload: JoinPayload = {
+        nick: "player",
+        room: "room2",
+        password: "password",
+      };
+      const socketId = "socketId";
+
+      jest.spyOn(service, "createGame").mockReturnValueOnce(gameState);
+
+      handler.onCreateGame(socketId, createPayload);
+
+      expect(() => handler.joinGame(joinPayload)).toThrow(NICK_TAKEN);
+    });
+
+    it("should throw NOT_FOUND when game does not exist", () => {
+      const joinPayload: JoinPayload = {
+        nick: "player",
+        room: "room5",
+        password: "password",
+      };
+      const socketId = "socketId";
+
+      expect(() => handler.onJoinGame(socketId, joinPayload)).toThrow(
+        NOT_FOUND
+      );
+    });
+
+    it("should throw NOT_FOUND when password is incorrect", () => {
+      const createPayload: CreateGamePayload = {
+        nick: "player",
+        room: "room2",
+        password: "password",
+        maxPlayers: 5,
+      };
+      const joinPayload: JoinPayload = {
+        nick: "player",
+        room: "room5",
+        password: "password1",
+      };
+      const socketId = "socketId";
+      handler.onCreateGame(socketId, createPayload);
+
+      expect(() => handler.onJoinGame(socketId, joinPayload)).toThrow(
+        NOT_FOUND
+      );
+    });
+
     it("should join game", () => {
       const gameState: GameState = {
         blueTeamPoints: 9,
@@ -180,6 +266,7 @@ describe("Game Handler Unit Tests", () => {
         participants: [],
         maxPlayers: 4,
         password: "password",
+        wordsPacks: [],
         blueTeamPlayers: 0,
         redTeamPlayers: 0,
         currentTime: 0,
@@ -208,7 +295,48 @@ describe("Game Handler Unit Tests", () => {
       const exists = joinEvent.state.participants.some(
         (participant) => participant.id === joinEvent.joined.id
       );
+      expect(
+        joinEvent.state.redTeamPlayers && joinEvent.state.blueTeamPlayers
+      ).toBeTruthy();
       expect(exists).toBeTruthy();
+    });
+  });
+
+  describe("New Game", () => {
+    afterEach(() => {
+      jest.clearAllMocks();
+    });
+    it("should return new game and clear timer", () => {
+      const gameState: GameState = {
+        blueTeamPoints: 9,
+        redTeamPoints: 8,
+        currentTeam: Team.SAPPHIRE,
+        participants: [],
+        maxPlayers: 4,
+        password: "password",
+        wordsPacks: [],
+        turnInterval: setInterval(() => {}, 1000),
+        blueTeamPlayers: 0,
+        redTeamPlayers: 0,
+        currentTime: 0,
+        turnTime: 0,
+        words: [],
+      };
+      const createPayload: CreateGamePayload = {
+        nick: "player",
+        room: "room2",
+        password: "password",
+        maxPlayers: 5,
+      };
+      const socketId = "socketId";
+
+      jest.spyOn(service, "createGame").mockReturnValueOnce(gameState);
+
+      handler.onCreateGame(socketId, createPayload);
+
+      const newGame = handler.onNewGame("room2");
+
+      expect(newGame.turnInterval).toBeUndefined();
     });
   });
 });

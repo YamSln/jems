@@ -33,7 +33,10 @@
       >
         <mat-icon svgIcon="github" matSuffix></mat-icon>
       </button>
-      <app-theme-toggle (themeToggle)="themeToggleChanged()"></app-theme-toggle>
+      <app-theme-toggle
+        [lightTheme]="isLightTheme"
+        (themeToggle)="themeToggleChanged()"
+      ></app-theme-toggle>
     </div>
   </mat-toolbar>
   <router-outlet style="margin-top: auto"></router-outlet>

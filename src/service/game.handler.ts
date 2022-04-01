@@ -349,3 +349,7 @@ export default {
   onEndTurn,
   onDisconnectGame,
 };
+
+export const handlerTest = {
+  getGame,
+};

@@ -1,6 +1,7 @@
 <div fxLayout="row" fxLayoutAlign="end center">
   <mat-icon>dark_mode</mat-icon>
   <mat-slide-toggle
+    [(ngModel)]="lightTheme"
     (toggleChange)="onToggleChange()"
     style="margin: 0 1rem"
   ></mat-slide-toggle>

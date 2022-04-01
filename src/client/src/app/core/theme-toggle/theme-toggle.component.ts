@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-theme-toggle',
@@ -6,6 +6,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./theme-toggle.component.scss'],
 })
 export class ThemeToggleComponent implements OnInit {
+  @Input() lightTheme!: boolean;
+
   @Output() themeToggle: EventEmitter<any> = new EventEmitter<any>();
   constructor() {}
 
