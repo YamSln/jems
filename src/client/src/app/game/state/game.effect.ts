@@ -14,14 +14,7 @@ import {
   timeChanged,
   wordClicked,
 } from './game.action';
-import {
-  catchError,
-  exhaustMap,
-  finalize,
-  map,
-  tap,
-  throttleTime,
-} from 'rxjs/operators';
+import { catchError, exhaustMap, map, tap, throttleTime } from 'rxjs/operators';
 import { SharedFacade } from 'src/app/shared/state/shared.facade';
 import { GameFacade } from './game.facade';
 import { environment } from 'src/environments/environment';
@@ -77,8 +70,7 @@ export class GameEffect {
             // Dispatch game loaded action
             return createGameApproved(createdGame);
           }),
-          catchError((err) => this.handleError(err)),
-          finalize(() => this.sharedFacade.hideLoading())
+          catchError((err) => this.handleError(err))
         );
       })
     )
@@ -91,11 +83,9 @@ export class GameEffect {
         this.sharedFacade.displayLoading();
         return this.gameService.join(action).pipe(
           map((token) => {
-            this.sharedFacade.hideLoading();
             return joinGameApproved({ token });
           }),
-          catchError((err) => this.handleError(err)),
-          finalize(() => this.sharedFacade.hideLoading())
+          catchError((err) => this.handleError(err))
         );
       })
     )
@@ -234,7 +224,6 @@ export class GameEffect {
     );
     socket.on(GameEvent.CONNECT, () => {
       socket.sendBuffer = [];
-      this.sharedFacade.hideLoading();
     });
     socket.on(GameEvent.PLAYER_JOINED, (playerAction: PlayerAction) => {
       this.gameFacade.playerJoined(playerAction);
@@ -290,7 +279,6 @@ export class GameEffect {
 
   private errorDisconnection(socket: Socket) {
     this.gameFacade.navigateToMain();
-    this.sharedFacade.hideLoading();
     this.sharedFacade.displayError('Lost connection to server');
     socket.disconnect();
   }
@@ -340,6 +328,7 @@ export class GameEffect {
       default:
         message = 'An unexpected error occurred';
     }
+    this.sharedFacade.hideLoading();
     return of(displayErrorMessage({ message }));
   }
 }
