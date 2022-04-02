@@ -8,6 +8,7 @@ import { GeneralDialogComponent } from './dialog/general-dialog/general-dialog.c
 import { LoadingComponent } from './loading/loading.component';
 import { PlayerActionComponent } from './player-action/player-action.component';
 import { TruncatedTooltipDirective } from './tooltip/truncated-tooltip.directive';
+import { InputTrimDirective } from './input-trim/input-trim.directive';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { TruncatedTooltipDirective } from './tooltip/truncated-tooltip.directive
     LoadingComponent,
     PlayerActionComponent,
     TruncatedTooltipDirective,
+    InputTrimDirective,
   ],
   imports: [CommonModule, MaterialModule, FormsModule, ReactiveFormsModule],
   exports: [
@@ -26,6 +28,7 @@ import { TruncatedTooltipDirective } from './tooltip/truncated-tooltip.directive
     ErrorComponent,
     PlayerActionComponent,
     TruncatedTooltipDirective,
+    InputTrimDirective,
   ],
 })
 export class SharedModule {}

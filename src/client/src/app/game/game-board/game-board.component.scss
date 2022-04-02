@@ -5,14 +5,14 @@
   grid-gap: 3px;
 }
 
-@media screen and (min-width: 920px) {
+@media screen and (min-width: 921px) {
   .game-board {
     grid-template-rows: repeat(5, 135px);
     grid-template-columns: repeat(5, 135px);
   }
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1921px) {
   .game-board {
     grid-template-rows: repeat(5, 155px);
     grid-template-columns: repeat(5, 155px);
