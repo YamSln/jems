@@ -67,11 +67,9 @@ const generateWords = (
   startingTeam: Team,
   wordsCount: number = WORDS_COUNT
 ): Word[] => {
-  // Get random words
   const wordsContent: string[] = getRandomWords(wordsCount);
-  // Init words array
   const words: Word[] = [];
-  // Set starting team and other team colors
+
   let startWordType: WordType;
   let otherWordType: WordType;
   if (startingTeam === Team.SAPPHIRE) {
@@ -91,31 +89,29 @@ const generateWords = (
       wordType = WordType.BOMB;
     } else {
       wordType = WordType.NEUTRAL;
-    } // Create new word
+    }
     const word: Word = {
       index: 0,
       content: wordsContent[i],
       selected: false,
       type: wordType,
-    }; // push to words array
+    };
     words.push(word);
-  } // Shuffle words and return
+  }
   return shuffleWords(words);
 };
 
 const getRandomWords = (wordsCount: number = WORDS_COUNT): string[] => {
-  const words: string[] = []; // Words array
-  const indexes: number[] = []; // Random indexes array
-  // Iterate given number of times
+  const words: string[] = [];
+  const indexes: number[] = [];
   while (words.length < wordsCount) {
-    // Get random number
     const random = getRandomNumber(wordsBase.data.length);
-    // If it does not taken, add new word in its index
+    // If word number does not taken, add new word in its index
     if (indexes.indexOf(random) === -1) {
       words.push(wordsBase.data[random - 1]);
       indexes.push(random);
     }
-  } // Return words array
+  }
   return words;
 };
 
@@ -126,15 +122,14 @@ const shuffleWords = (words: Word[]): Word[] => {
   while (currentIndex !== -1) {
     // Get random index
     random = Math.floor(Math.random() * currentIndex);
-    // Set current index word to temp variable
+    // Swap
     temp = words[currentIndex];
-    // Swap word in random index with current index
     words[currentIndex] = words[random];
     words[random] = temp;
-    // Set its index
+    // Set new index
     words[currentIndex].index = currentIndex;
     currentIndex--;
-  } // Return shuffled words
+  }
   return words;
 };
 

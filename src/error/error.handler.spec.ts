@@ -1,7 +1,6 @@
 import httpMocks from "node-mocks-http";
 import { handleErrors, errorTest } from "./error.handler";
 import { CustomValidationError } from "./validation.error";
-import { ValidationError } from "express-validator";
 import {
   FORBIDDEN,
   INCORRECT_PASSWORD,
@@ -25,6 +24,7 @@ describe("Error Handler Unit Tests", () => {
     expect(response._getData().timeStamp).not.toBeUndefined();
     expect(response._getData().errors).toEqual([]);
   });
+
   it("should return NOT_FOUND on not found error", () => {
     const request = httpMocks.createRequest({});
     const response = httpMocks.createResponse();
@@ -37,6 +37,7 @@ describe("Error Handler Unit Tests", () => {
     expect(response._getData().statusCode).toEqual(404);
     expect(response._getData().timeStamp).not.toBeUndefined();
   });
+
   it("should return UNAUTHORIZED on unauthorized error", () => {
     const request = httpMocks.createRequest({});
     const response = httpMocks.createResponse();
@@ -49,6 +50,7 @@ describe("Error Handler Unit Tests", () => {
     expect(response._getData().statusCode).toEqual(401);
     expect(response._getData().timeStamp).not.toBeUndefined();
   });
+
   it("should return FORBIDDEN on forbidden error", () => {
     const request = httpMocks.createRequest({});
     const response = httpMocks.createResponse();
@@ -61,6 +63,7 @@ describe("Error Handler Unit Tests", () => {
     expect(response._getData().statusCode).toEqual(403);
     expect(response._getData().timeStamp).not.toBeUndefined();
   });
+
   it("should return BAD_REQUEST on INCORRECT_PASSWORD error", () => {
     const request = httpMocks.createRequest({});
     const response = httpMocks.createResponse();
@@ -73,6 +76,7 @@ describe("Error Handler Unit Tests", () => {
     expect(response._getData().statusCode).toEqual(400);
     expect(response._getData().timeStamp).not.toBeUndefined();
   });
+
   it("should return BAD_REQUEST on NICK_TAKEN error", () => {
     const request = httpMocks.createRequest({});
     const response = httpMocks.createResponse();
@@ -85,6 +89,7 @@ describe("Error Handler Unit Tests", () => {
     expect(response._getData().statusCode).toEqual(400);
     expect(response._getData().timeStamp).not.toBeUndefined();
   });
+
   it("should return BAD_REQUEST on ROOM_FULL error", () => {
     const request = httpMocks.createRequest({});
     const response = httpMocks.createResponse();
@@ -97,6 +102,7 @@ describe("Error Handler Unit Tests", () => {
     expect(response._getData().statusCode).toEqual(400);
     expect(response._getData().timeStamp).not.toBeUndefined();
   });
+
   it("should return ERROR on unhandled error and log", () => {
     const request = httpMocks.createRequest({});
     const response = httpMocks.createResponse();

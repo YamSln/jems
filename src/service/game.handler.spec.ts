@@ -15,8 +15,12 @@ import {
 import { Participant } from "../model/participant.model";
 import { Role } from "../model/role.model";
 import { CreateGamePayload } from "../model/create-game.payload";
+import { WordType } from "../model/word.type";
 
 describe("Game Handler Unit Tests", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
   describe("Create Game", () => {
     afterEach(() => {
       jest.clearAllMocks();
@@ -74,6 +78,7 @@ describe("Game Handler Unit Tests", () => {
       createdGame.participants.forEach((participant) => {
         expect(participant.id).toEqual("socketId");
       });
+      expect(handlerTest.rooms.get(joinPayload.room)).toEqual(createdGame);
     });
   });
 
@@ -292,13 +297,13 @@ describe("Game Handler Unit Tests", () => {
 
       const joinEvent = handler.onJoinGame(socketId, joinPayload);
 
-      const exists = joinEvent.state.participants.some(
+      const player = joinEvent.state.participants.find(
         (participant) => participant.id === joinEvent.joined.id
       );
       expect(
         joinEvent.state.redTeamPlayers && joinEvent.state.blueTeamPlayers
       ).toBeTruthy();
-      expect(exists).toBeTruthy();
+      expect(player).toBeTruthy();
     });
   });
 
@@ -337,6 +342,125 @@ describe("Game Handler Unit Tests", () => {
       const newGame = handler.onNewGame("room2");
 
       expect(newGame.turnInterval).toBeUndefined();
+      expect(handlerTest.rooms.get(createPayload.room)).toEqual(newGame);
+    });
+  });
+
+  describe("Word Click", () => {
+    afterEach(() => {
+      jest.clearAllMocks();
+    });
+
+    it("should return null when word does not exist", () => {
+      const gameState: GameState = {
+        blueTeamPoints: 9,
+        redTeamPoints: 8,
+        currentTeam: Team.SAPPHIRE,
+        participants: [],
+        maxPlayers: 4,
+        password: "password",
+        wordsPacks: [],
+        blueTeamPlayers: 0,
+        redTeamPlayers: 0,
+        currentTime: 0,
+        turnTime: 0,
+        words: [],
+      };
+      const createPayload: CreateGamePayload = {
+        nick: "player",
+        room: "room2",
+        password: "password",
+        maxPlayers: 5,
+      };
+      const socketId = "socketId";
+      jest.spyOn(service, "createGame").mockReturnValueOnce(gameState);
+
+      handler.onCreateGame(socketId, createPayload);
+
+      const word = handler.onWordClick(-1, socketId, createPayload.room);
+
+      expect(word).toBeNull();
+    });
+
+    it("should return null when word already selected", () => {
+      const wordIndex = 0;
+      const gameState: GameState = {
+        blueTeamPoints: 9,
+        redTeamPoints: 8,
+        currentTeam: Team.SAPPHIRE,
+        participants: [],
+        maxPlayers: 4,
+        password: "password",
+        wordsPacks: [],
+        blueTeamPlayers: 0,
+        redTeamPlayers: 0,
+        currentTime: 0,
+        turnTime: 0,
+        words: [
+          {
+            content: "content",
+            index: wordIndex,
+            selected: true,
+            type: WordType.BLUE,
+          },
+        ],
+      };
+      const createPayload: CreateGamePayload = {
+        nick: "player",
+        room: "room2",
+        password: "password",
+        maxPlayers: 5,
+      };
+      const socketId = "socketId";
+      jest.spyOn(service, "createGame").mockReturnValueOnce(gameState);
+
+      handler.onCreateGame(socketId, createPayload);
+
+      const word = handler.onWordClick(wordIndex, socketId, createPayload.room);
+
+      expect(word).toBeNull();
+    });
+
+    it("should return null when players team not playing right now", () => {
+      const wordIndex = 0;
+      const currentTeam = Team.SAPPHIRE;
+      const gameState: GameState = {
+        blueTeamPoints: 9,
+        redTeamPoints: 8,
+        currentTeam: currentTeam,
+        participants: [],
+        maxPlayers: 4,
+        password: "password",
+        wordsPacks: [],
+        blueTeamPlayers: 0,
+        redTeamPlayers: 0,
+        currentTime: 0,
+        turnTime: 0,
+        words: [
+          {
+            content: "content",
+            index: wordIndex,
+            selected: false,
+            type: WordType.BLUE,
+          },
+        ],
+      };
+      const createPayload: CreateGamePayload = {
+        nick: "player",
+        room: "room2",
+        password: "password",
+        maxPlayers: 5,
+      };
+      const socketId = "socketId";
+      jest.spyOn(service, "createGame").mockReturnValueOnce(gameState);
+
+      const game = handler.onCreateGame(socketId, createPayload);
+
+      game.participants[0].team = Team.RUBY;
+
+      const word = handler.onWordClick(wordIndex, socketId, createPayload.room);
+
+      expect(word).toBeNull();
     });
   });
 });

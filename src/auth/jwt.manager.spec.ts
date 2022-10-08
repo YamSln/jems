@@ -9,11 +9,13 @@ import { FORBIDDEN } from "../error/error.util";
 describe("JWT Manager Unit Tests", () => {
   describe("JWT Generation Unit Tests", () => {
     let publicKey;
+
     beforeAll(() => {
       publicKey = env.devEnv()
         ? fs.readFileSync("public.key", "utf8")
         : process.env.PUBLIC_KEY;
     });
+
     it("should generate JWT from join payload", () => {
       const joinPayload: JoinPayload = {
         nick: "nick",
@@ -27,6 +29,7 @@ describe("JWT Manager Unit Tests", () => {
       expect(verified.password).toEqual(joinPayload.password);
       expect(verified.room).toEqual(joinPayload.room);
     });
+
     it("should generate JWT from create payload", () => {
       const joinPayload: CreateGamePayload = {
         nick: "nick",
@@ -57,6 +60,7 @@ describe("JWT Manager Unit Tests", () => {
 
       expect(next).toHaveBeenCalledWith(new Error(FORBIDDEN));
     });
+
     it("should throw FORBIDDEN when auth header does not contain valid prefix", () => {
       const socket: any = {
         handshake: {
@@ -71,6 +75,7 @@ describe("JWT Manager Unit Tests", () => {
 
       expect(next).toHaveBeenCalledWith(new Error(FORBIDDEN));
     });
+
     it("should throw FORBIDDEN when auth header contains prefix but not the actual token", () => {
       const socket: any = {
         handshake: {
@@ -85,6 +90,7 @@ describe("JWT Manager Unit Tests", () => {
 
       expect(next).toHaveBeenCalledWith(new Error(FORBIDDEN));
     });
+
     it("should throw FORBIDDEN when auth token exists but invalid", () => {
       const socket: any = {
         handshake: {
@@ -99,6 +105,7 @@ describe("JWT Manager Unit Tests", () => {
 
       expect(next).toHaveBeenCalledWith(new Error(FORBIDDEN));
     });
+
     it("should set auth header with decoded game creation token data", () => {
       const createPayload: CreateGamePayload = {
         nick: "nick",
@@ -125,6 +132,7 @@ describe("JWT Manager Unit Tests", () => {
       expect(next).toHaveBeenCalled();
       expect(next).not.toHaveBeenCalledWith(new Error(FORBIDDEN));
     });
+
     it("should set auth header with decoded game join token data", () => {
       const createPayload: JoinPayload = {
         nick: "nick",

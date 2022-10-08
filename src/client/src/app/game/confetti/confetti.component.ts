@@ -7,8 +7,8 @@ import {
   OnChanges,
   SimpleChanges,
   AfterViewInit,
+  OnDestroy,
 } from '@angular/core';
-import { Team } from 'src/app/model/team.model';
 import * as confetti from 'canvas-confetti';
 
 @Component({
@@ -17,7 +17,7 @@ import * as confetti from 'canvas-confetti';
   styleUrls: ['./confetti.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ConfettiComponent implements OnInit, OnChanges, AfterViewInit {
+export class ConfettiComponent implements OnChanges, OnDestroy {
   @Input() winningTeam: boolean = false;
 
   winningConfetti: any;
@@ -26,10 +26,6 @@ export class ConfettiComponent implements OnInit, OnChanges, AfterViewInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
-
-  ngAfterViewInit(): void {}
-
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.winningTeam.currentValue) {
       this.triggerConfetti();
@@ -37,6 +33,8 @@ export class ConfettiComponent implements OnInit, OnChanges, AfterViewInit {
       this.clearConfetti();
     }
   }
+
+  /* Credit to the js confetti project on the confetti design */
 
   triggerConfetti(): void {
     this.winningConfetti = confetti.create(this.confettiCanvas.nativeElement, {
@@ -73,6 +71,10 @@ export class ConfettiComponent implements OnInit, OnChanges, AfterViewInit {
         })
       );
     }, 250);
+  }
+
+  ngOnDestroy(): void {
+    this.clearConfetti();
   }
 
   clearConfetti(): void {

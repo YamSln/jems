@@ -18,9 +18,11 @@ describe("Logger Unit Tests", () => {
   afterAll(() => {
     logTest.info("UNIT TESTS", "------- Done ------");
   });
+
   it("should create write stream and write to log file", () => {
     logTest.writeLog("test");
   });
+
   it("should log info without object", () => {
     let logged;
     console.info = (message: string, params: []) => {
@@ -33,6 +35,7 @@ describe("Logger Unit Tests", () => {
     expect(logged).toContain("[TEST]");
     expect(logged).toContain("test");
   });
+
   it("should log info with object", () => {
     let logged;
     console.info = (message: string, params: []) => {
@@ -47,6 +50,7 @@ describe("Logger Unit Tests", () => {
     expect(logged).toContain("test");
     expect(logged).toContain(logObject);
   });
+
   it("should log debug without object", () => {
     let logged;
     console.debug = (message: string, params: []) => {
@@ -59,6 +63,7 @@ describe("Logger Unit Tests", () => {
     expect(logged).toContain("[TEST]");
     expect(logged).toContain("test");
   });
+
   it("should log debug with object", () => {
     let logged;
     console.debug = (message: string, params: []) => {
@@ -73,6 +78,7 @@ describe("Logger Unit Tests", () => {
     expect(logged).toContain("test");
     expect(logged).toContain(logObject);
   });
+
   it("should log warn without object", () => {
     let logged;
     console.warn = (message: string, params: []) => {
@@ -85,6 +91,7 @@ describe("Logger Unit Tests", () => {
     expect(logged).toContain("[TEST]");
     expect(logged).toContain("test");
   });
+
   it("should log warn with object", () => {
     let logged;
     console.warn = (message: string, params: []) => {
@@ -99,6 +106,7 @@ describe("Logger Unit Tests", () => {
     expect(logged).toContain("test");
     expect(logged).toContain(logObject);
   });
+
   it("should log error without object", () => {
     let logged;
     console.error = (message: string, params: []) => {
@@ -111,6 +119,7 @@ describe("Logger Unit Tests", () => {
     expect(logged).toContain("[TEST]");
     expect(logged).toContain("test");
   });
+
   it("should log error with object", () => {
     let logged;
     console.error = (message: string, params: []) => {

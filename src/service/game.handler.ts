@@ -40,9 +40,7 @@ const createGame = (
 };
 
 const joinGame = (joinPayload: JoinPayload): string => {
-  // Find game
   const state = getGame(joinPayload.room);
-  // Check password
   if (state.password !== joinPayload.password) {
     throw new Error(INCORRECT_PASSWORD);
   } // Verify room has more slots
@@ -80,7 +78,6 @@ const onCreateGame = (
 };
 
 const onJoinGame = (socketId: string, joinPayload: JoinPayload): JoinEvent => {
-  // Get room
   const state = getGame(joinPayload.room);
   // Verify room existence and password validity
   if (!state || state.password !== joinPayload.password) {
@@ -104,10 +101,8 @@ const onJoinGame = (socketId: string, joinPayload: JoinPayload): JoinEvent => {
 };
 
 const onNewGame = (room: string): GameState => {
-  // Get room
   const state = getGame(room);
   clearTimer(state);
-  // Get new game
   const newGame = service.newGame({
     ...state,
     roomId: room,
@@ -121,13 +116,11 @@ const onWordClick = (
   socketId: string,
   room: string
 ): WordClicked | null => {
-  // Get game state
   const state = getGame(room);
-  // Get word clicked
   const word = state.words[wordIndex];
-  // Get clicking player
   const player = getPlayer(socketId, state);
   if (
+    !word ||
     word.selected || // Check if word is already selected
     player.team !== state.currentTeam || // Check if clicking player is in current selecting team
     player.role !== Role.OPERATIVE || // Check if selecting player is operative
@@ -137,9 +130,9 @@ const onWordClick = (
   ) {
     return null;
   }
-  // Set word clicked
+
   word.selected = true;
-  // Return word event according to word type and word - player relation
+
   switch (word.type) {
     case WordType.BLUE:
       state.blueTeamPoints -= 1;
@@ -176,40 +169,29 @@ const winGame = (state: GameState, winningTeam: Team): void => {
 };
 
 const onRoleChange = (socketId: string, room: string): string => {
-  // Get game state
   const state = getGame(room);
-  // Get clicking player
   const player = getPlayer(socketId, state);
-  // Change player role
   player.role = otherRole(player.role);
-  // Return player id
   return socketId;
 };
 
 const onTeamChange = (socketId: string, room: string): string => {
-  // Get game state
   const state = getGame(room);
-  // Get clicking player
   const player = getPlayer(socketId, state);
-  // Change player team
   if (player.team === Team.SAPPHIRE) {
-    // Check if team ruby is full
     if (state.redTeamPlayers >= MAXIMUM_MAX_PLAYERS / 2 + 1) {
       throw new Error(TEAM_FULL);
-    } // Check if team sapphire is full
+    }
   } else if (state.blueTeamPlayers >= MAXIMUM_MAX_PLAYERS / 2 + 1) {
     throw new Error(TEAM_FULL);
   }
   player.team = otherTeam(player.team);
   changePlayersCount(player, state, false, true);
-  // Return player id
   return socketId;
 };
 
 const onTimerSet = (room: string, timeSpan: number, io: any): number => {
-  // Get game state
   const state = getGame(room);
-  // Set game timer
   state.turnTime = timeSpan;
   state.currentTime = state.turnTime;
   // Clear timer interval
@@ -227,19 +209,15 @@ const onTimerSet = (room: string, timeSpan: number, io: any): number => {
       }
     }, 1000);
   }
-  // Return new time span
   return timeSpan;
 };
 
 const onEndTurn = (socketId: string, room: string): Team | null => {
-  // Get game state
   const state = getGame(room);
-  // Get clicking player
   const player = getPlayer(socketId, state);
-  // Check turn ending permissions
   if (player.team !== state.currentTeam || player.role === Role.SPY_MASTER) {
     return null;
-  } // Change turn
+  }
   return changeTurn(state);
 };
 
@@ -257,7 +235,6 @@ const onDisconnectGame = (
   socketId: string,
   room: string
 ): PlayerAction | null => {
-  // Fetch game
   const game = rooms.get(room);
   if (game) {
     const index = game.participants.findIndex(
@@ -284,7 +261,6 @@ const onDisconnectGame = (
 };
 
 const changeTurn = (room: GameState): Team => {
-  // change current turn
   room.currentTeam = otherTeam(room.currentTeam);
   // Reset timer if exists
   if (room.turnTime) {
@@ -294,12 +270,10 @@ const changeTurn = (room: GameState): Team => {
 };
 
 const getGame = (room: string): GameState => {
-  // Get room
   const state = rooms.get(room);
-  // Verify room existence and password validity
   if (!state) {
     throw new Error(NOT_FOUND);
-  } // Return game state
+  }
   return state;
 };
 
@@ -352,4 +326,5 @@ export default {
 
 export const handlerTest = {
   getGame,
+  rooms,
 };
