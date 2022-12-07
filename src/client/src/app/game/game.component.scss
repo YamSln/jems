@@ -1,35 +1,14 @@
-.game {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 90%;
+@use '../../theme.scss' as theme;
+
+mat-label {
+    font-size: 3em;
+    line-height: 1.5;
 }
 
-@media screen and (max-width: 920px) {
-  .game {
-    flex-direction: column;
-    #action-board {
-      order: 3;
-    }
-    #action-board {
-      order: 1;
-    }
-    #action-board {
-      order: 2;
-    }
-  }
+.raw-blue {
+    color: theme.$primary-color;
 }
 
-@media screen and (max-width: 920px) {
-  #action-board {
-    margin-right: 6px;
-  }
-}
-
-@media screen and (min-width: 920px) {
-  .action-board {
-    float: left;
-  }
+.raw-red {
+    color: theme.$warn-color;
 }

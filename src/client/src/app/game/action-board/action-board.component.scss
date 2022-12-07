@@ -1,3 +1,5 @@
+@use '../../../theme.scss' as theme;
+
 .team {
   min-width: 50%;
 }
@@ -30,4 +32,12 @@
 
 .selected {
   font-weight: bold;
+}
+
+.raw-red {
+  color: theme.$warn-color;
+}
+
+.raw-blue {
+  color: theme.$primary-color;
 }

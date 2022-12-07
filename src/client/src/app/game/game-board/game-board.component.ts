@@ -14,6 +14,7 @@ import {
   flipInYOnEnterAnimation,
   tadaOnEnterAnimation,
 } from 'angular-animations';
+import { WordType } from 'src/app/model/word.type';
 
 @Component({
   selector: 'app-game-board',

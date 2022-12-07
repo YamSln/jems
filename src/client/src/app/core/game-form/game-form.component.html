@@ -1,4 +1,4 @@
-<div class="login-container" fxLayout="row" fxLayoutAlign="center center">
+<div fxFlex fxLayout="row" fxLayoutAlign="center center">
   <form
     (ngSubmit)="submit()"
     [formGroup]="gameForm"
@@ -7,13 +7,10 @@
     fxFlex.xs="90%"
   >
     <mat-card>
-      <div
-        *ngIf="!create"
-        style="width: 100%; display: flex; justify-content: center"
-      >
+      <div *ngIf="!create">
         <img src="assets/logo.svg" alt="logo" style="max-width: 12%" />
       </div>
-      <mat-card-title style="display: flex">
+      <mat-card-title fxLayout="row">
         <img
           *ngIf="create"
           src="assets/logo.svg"
@@ -23,7 +20,7 @@
         <h1 style="font-weight: bold">{{ formHeading }}</h1>
       </mat-card-title>
       <mat-card-content>
-        <mat-form-field class="full-width">
+        <mat-form-field fxLayout="column">
           <mat-label> Nick </mat-label>
           <input
             matInput

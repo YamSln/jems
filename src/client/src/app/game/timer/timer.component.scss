@@ -1,0 +1,14 @@
+@use '../../../theme.scss' as theme;
+
+div {
+    font-size: 3em;
+    line-height: 1.5;
+}
+
+.raw-red {
+    color: theme.$warn-color;
+  }
+  
+  .raw-blue {
+    color: theme.$primary-color;
+  }

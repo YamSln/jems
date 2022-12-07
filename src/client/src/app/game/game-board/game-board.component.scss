@@ -1,37 +1,9 @@
-.game-board {
-  display: inline-grid;
-  grid-template-rows: repeat(5, 90px);
-  grid-template-columns: repeat(5, 90px);
-  grid-gap: 3px;
-}
-
-@media screen and (min-width: 921px) {
-  .game-board {
-    grid-template-rows: repeat(5, 135px);
-    grid-template-columns: repeat(5, 135px);
-  }
-}
-
-@media screen and (min-width: 1921px) {
-  .game-board {
-    grid-template-rows: repeat(5, 155px);
-    grid-template-columns: repeat(5, 155px);
-  }
-}
-
-.word {
-  justify-self: center;
-}
-
-.winning-banner {
-  align-self: center;
-  justify-self: center;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.winning-content {
-  z-index: 5;
+.win-banner {
+    align-self: center;
+    justify-self: center;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
 }

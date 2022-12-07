@@ -1,11 +1,10 @@
 <div
-  class="mat-app-background layout"
+  class="mat-app-background"
   style="min-height: 100%"
   [ngClass]="{ 'theme-dark': !isLightTheme }"
   fxLayout="column"
-  fxLayoutAlign="center none"
 >
-  <mat-toolbar fxLayout="row" fxLayoutAlign="end center">
+  <mat-toolbar fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="end center">
     <div *ngIf="roomUrl | async as url; then url; else home"></div>
     <ng-template #url>
       <button
@@ -22,8 +21,7 @@
         <img src="assets/logo.svg" alt="logo" style="max-width: 50%" />
       </button>
     </ng-template>
-
-    <div style="width: 100%" fxLayout="row" fxLayoutAlign="end center">
+    <div fxFlex fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
       <button
         *ngIf="hasGithubLink()"
         [matTooltip]="'Github'"
@@ -39,6 +37,8 @@
       ></app-theme-toggle>
     </div>
   </mat-toolbar>
-  <router-outlet style="margin-top: auto"></router-outlet>
-  <div class="footer">jems {{ version }}</div>
+  <div fxFlex="auto" fxLayout="column" fxLayoutAlign="center">
+    <router-outlet></router-outlet>
+  </div>
+  <div fxFlex="0 1 auto">jems {{ version }}</div>
 </div>

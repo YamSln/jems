@@ -1,20 +1,24 @@
-<div class="game-board">
-  <div *ngFor="let word of words" [@flipInYOnEnter]>
-    <app-word
-      class="word"
-      [word]="word"
-      [hideColor]="hideColors"
-      (wordClickEvent)="onWordClicked(word.index)"
-    ></app-word>
-  </div>
+<div
+  gdRows.gt-xs="auto auto auto auto auto"
+  gdColumns.gt-xs="auto auto auto auto auto"
+  gdRows.xs="auto auto auto auto auto auto"
+  gdColumns.xs="auto auto auto auto"
+  gdGap="10px"
+>
+  <app-word
+    [@flipInYOnEnter]
+    *ngFor="let word of words"
+    [word]="word"
+    [hideColor]="hideColors"
+    (wordClickEvent)="onWordClicked(word.index)"
+  ></app-word>
   <div
-    class="winning-banner"
+    class="win-banner"
     *ngIf="winningTeam"
     [@tadaOnEnter]
     [@bounceOutOnLeave]
   >
     <img
-      class="winning-content"
       [src]="
         'assets/' +
         (winningTeam === team.SAPPHIRE ? 'sapphire_wins.svg' : 'ruby_wins.svg')

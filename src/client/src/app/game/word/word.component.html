@@ -1,22 +1,30 @@
-<mat-card
-  [style]="'transition: background-color 0.3s ease-out'"
-  class="word-container mat-elevation-z1"
-  [ngClass]="{
-    'red-word': word.type === wordType.RED && !word.selected && !hideColor,
-    'blue-word': word.type === wordType.BLUE && !word.selected && !hideColor,
-    'red-word-selected': word.type === wordType.RED && word.selected,
-    'blue-word-selected': word.type === wordType.BLUE && word.selected,
-    'bomb-word': word.type === wordType.BOMB && !word.selected && !hideColor,
-    'bomb-word-selected': word.type === wordType.BOMB && word.selected,
-    'neutral-selected': word.type === wordType.NEUTRAL && word.selected
-  }"
-  (click)="onWordClick()"
->
-  <span
+<mat-grid-list cols="1" rowHeight="1:1">
+  <mat-grid-tile
+    [style]="'transition: background-color 0.3s ease-out; text-align: center'"
+    class="word-container mat-elevation-z2"
     [ngClass]="{
-      'regular-word': word.content.length < 10,
-      'large-word': word.content.length >= 10
+      'red-word': word.type === wordType.RED && !word.selected && !hideColor,
+      'blue-word': word.type === wordType.BLUE && !word.selected && !hideColor,
+      'red-word-selected': word.type === wordType.RED && word.selected,
+      'blue-word-selected': word.type === wordType.BLUE && word.selected,
+      'bomb-word': word.type === wordType.BOMB && !word.selected && !hideColor,
+      'bomb-word-selected': word.type === wordType.BOMB && word.selected,
+      'neutral-selected': word.type === wordType.NEUTRAL && word.selected
     }"
-    >{{ word.content }}</span
+    (click)="onWordClick()"
   >
-</mat-card>
+    <svg
+      [attr.viewBox]="
+        word.content.length < 10
+          ? '0 0 80 20'
+          : word.content.length < 13
+          ? '0 0 100 20'
+          : '0 0 130 20'
+      "
+    >
+      <text x="50%" y="14" font-family="sans-serif" text-anchor="middle">
+        {{ word.content }}
+      </text>
+    </svg>
+  </mat-grid-tile>
+</mat-grid-list>

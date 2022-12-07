@@ -31,6 +31,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DomSanitizer } from '@angular/platform-browser';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [],
@@ -60,6 +61,7 @@ import { DomSanitizer } from '@angular/platform-browser';
     MatSnackBarModule,
     MatTooltipModule,
     FlexLayoutModule,
+    MatGridListModule,
   ],
   exports: [
     MatCheckboxModule,
@@ -86,6 +88,7 @@ import { DomSanitizer } from '@angular/platform-browser';
     MatSnackBarModule,
     MatTooltipModule,
     FlexLayoutModule,
+    MatGridListModule,
   ],
 })
 export class MaterialModule {

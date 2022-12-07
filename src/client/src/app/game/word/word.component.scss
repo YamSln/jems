@@ -1,104 +1,62 @@
-@import "/src/styles.scss";
-@import "~@angular/material/theming";
-
-@include mat-core();
+@use '../../../theme.scss' as theme;
 
 .word-container {
-  height: 50px;
-  width: 50px;
   border-radius: 15%;
-  text-align: center;
-  padding: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
+  background-color: #fafcff;
+  color: #070606;
 }
 
 .regular-word {
-  font-size: 1em;
+  font-size: 1.5em;
 }
 
 .large-word {
   font-size: 0.8em;
 }
 
-@media screen and (min-width: 921px) {
-  .word-container {
-    height: 90px;
-    width: 90px;
-    margin: 10px;
-  }
-  .regular-word {
-    font-size: 1.4em;
-  }
-
-  .large-word {
-    font-size: 1.2em;
-  }
-}
-
-@media screen and (min-width: 1921px) {
-  .word-container {
-    height: 110px;
-    width: 110px;
-    margin: 10px;
-  }
-  .regular-word {
-    font-size: 1.6em;
-  }
-
-  .large-word {
-    font-size: 1.4em;
-  }
-}
-
 .blue-word {
-  background-color: mat-color(
-    $jems-web-client-primary,
-    $hue: default,
-    $opacity: 0.5
-  );
+  background-color:theme.$primary-color;
+  opacity: 0.5;
 }
 
 @keyframes blue-fade-in {
   from {
   }
   to {
-    background-color: mat-color($jems-web-client-primary);
+    background-color: theme.$primary-color;
   }
 }
 
 .blue-word-selected {
   transition: all 0.3s ease-out;
-  background-color: mat-color($jems-web-client-primary);
+  background-color: theme.$primary-color;
 }
 
 .red-word {
-  background-color: mat-color(
-    $jems-web-client-warn,
-    $hue: default,
-    $opacity: 0.5
-  );
+  background-color: theme.$warn-color;
+  opacity: 0.5;
 }
 
 .red-word-selected {
-  background-color: mat-color($jems-web-client-warn);
+  background-color: theme.$warn-color;
   animation: redFadeIn 0.3s;
 }
 
-$bomb-color: mat-palette($mat-gray, 900);
+$bomb-color: #070606;
+
 .bomb-word {
-  color: white;
-  background-color: mat-color($bomb-color, $hue: default, $opacity: 0.7);
+  fill: #fafcff;
+  background-color: $bomb-color;
+  opacity: 0.7;
 }
 
 .bomb-word-selected {
-  color: white;
-  background-color: mat-color($bomb-color);
+  fill: #fafcff;
+  background-color: $bomb-color;
 }
 
-$word-selected: mat-palette($mat-gray, 400);
+$word-selected: #d3d3d3;
 
 .neutral-selected {
   background-color: mat-color($word-selected);
