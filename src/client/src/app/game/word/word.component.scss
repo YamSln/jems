@@ -20,14 +20,6 @@
   opacity: 0.5;
 }
 
-@keyframes blue-fade-in {
-  from {
-  }
-  to {
-    background-color: theme.$primary-color;
-  }
-}
-
 .blue-word-selected {
   transition: all 0.3s ease-out;
   background-color: theme.$primary-color;
@@ -59,5 +51,5 @@ $bomb-color: #070606;
 $word-selected: #d3d3d3;
 
 .neutral-selected {
-  background-color: mat-color($word-selected);
+  background-color: $word-selected;
 }

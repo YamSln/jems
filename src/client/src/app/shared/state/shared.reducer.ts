@@ -3,6 +3,7 @@ import {
   displayErrorMessage,
   displayLoading,
   displayPlayerAction,
+  toggleMenu,
 } from './shared.action';
 import { sharedInitialState, SharedState } from './shared.state';
 
@@ -16,6 +17,9 @@ const _sharedReducer = createReducer(
   }),
   on(displayPlayerAction, (state: SharedState, action: any): SharedState => {
     return { ...state, playerAction: action.message };
+  }),
+  on(toggleMenu, (state: SharedState, action: any): SharedState => {
+    return { ...state, menuOpen: !state.menuOpen };
   })
 );
 

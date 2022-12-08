@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClipboardService } from 'ngx-clipboard';
 import { Observable } from 'rxjs';
 import { GameFacade } from 'src/app/game/state/game.facade';
+import { SharedFacade } from 'src/app/shared/state/shared.facade';
 import { environment } from 'src/environments/environment';
 
 const PREF_THEME = 'preferred_theme';
@@ -20,6 +21,7 @@ export class LayoutComponent implements OnInit {
 
   constructor(
     private gameFacade: GameFacade,
+    private sharedFacade: SharedFacade,
     private clipboardService: ClipboardService
   ) {}
 
@@ -43,5 +45,9 @@ export class LayoutComponent implements OnInit {
 
   openGithub(): void {
     window.open(environment.github, '_blank');
+  }
+
+  toggleMenu(): void {
+    this.sharedFacade.toggleMenu();
   }
 }

@@ -27,11 +27,13 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSidenavModule } from '@angular/material/sidenav';
 // Material Data tables
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [],
@@ -62,6 +64,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatTooltipModule,
     FlexLayoutModule,
     MatGridListModule,
+    MatSidenavModule,
+    MatListModule,
   ],
   exports: [
     MatCheckboxModule,
@@ -89,6 +93,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatTooltipModule,
     FlexLayoutModule,
     MatGridListModule,
+    MatSidenavModule,
+    MatListModule,
   ],
 })
 export class MaterialModule {

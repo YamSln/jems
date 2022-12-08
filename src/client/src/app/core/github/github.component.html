@@ -1,0 +1,27 @@
+<!-- Desktop -->
+<button
+  *ngIf="hasGithubLink() && !menu"
+  [matTooltip]="'Github'"
+  mat-icon-button
+  (click)="openGithub()"
+>
+  <ng-container *ngTemplateOutlet="icon"> </ng-container>
+</button>
+<!-- Mobile -->
+<a
+  style="cursor: pointer"
+  mat-list-item
+  *ngIf="hasGithubLink() && menu"
+  (click)="openGithub()"
+>
+  <ng-container *ngTemplateOutlet="icon"> </ng-container>
+  <div matListItemTitle>Visit Our Repo!</div>
+</a>
+<!-- Github Icon -->
+<ng-template #icon>
+  <mat-icon
+    matListIcon
+    style="vertical-align: middle"
+    svgIcon="github"
+  ></mat-icon>
+</ng-template>

@@ -12,18 +12,30 @@
     [hideColor]="hideColors"
     (wordClickEvent)="onWordClicked(word.index)"
   ></app-word>
-  <div
-    class="win-banner"
+  <svg
     *ngIf="winningTeam"
-    [@tadaOnEnter]
-    [@bounceOutOnLeave]
+    class="win-banner"
+    [@zoomInOnEnter]
+    [@zoomOutOnLeave]
+    viewBox="0 0 150 40"
   >
-    <img
-      [src]="
-        'assets/' +
-        (winningTeam === team.SAPPHIRE ? 'sapphire_wins.svg' : 'ruby_wins.svg')
+    <text
+      style="
+        stroke: #f2f2f2;
+        stroke-width: 0.01px;
+        stroke-linejoin: round;
+        background-color: aqua;
       "
-      alt="wining"
-    />
-  </div>
+      [ngClass]="{
+        'raw-blue': winningTeam === team.SAPPHIRE,
+        'raw-red': winningTeam === team.RUBY
+      }"
+      x="50%"
+      y="14"
+      font-family="sans-serif"
+      text-anchor="middle"
+    >
+      Team {{ winningTeam === team.SAPPHIRE ? "Sapphire" : "Ruby" }} Wins!
+    </text>
+  </svg>
 </div>

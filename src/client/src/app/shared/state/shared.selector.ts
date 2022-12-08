@@ -19,3 +19,8 @@ export const getPlayerAction = createSelector(
   getSharedState,
   (state: SharedState) => state.playerAction
 );
+
+export const getMenuOpen = createSelector(
+  getSharedState,
+  (state: SharedState) => state.menuOpen
+);

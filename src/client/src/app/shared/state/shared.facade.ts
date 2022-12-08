@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { displayErrorMessage, displayLoading } from './shared.action';
+import {
+  displayErrorMessage,
+  displayLoading,
+  toggleMenu,
+} from './shared.action';
 import {
   getErrorMessage,
   getLoadingStatus,
+  getMenuOpen,
   getPlayerAction,
 } from './shared.selector';
 import { SharedState } from './shared.state';
@@ -25,6 +30,10 @@ export class SharedFacade {
     return this.store.select(getPlayerAction);
   }
 
+  getMenuOpen(): Observable<boolean> {
+    return this.store.select(getMenuOpen);
+  }
+
   displayLoading(): void {
     this.alterLoadingStatus(true);
   }
@@ -39,6 +48,10 @@ export class SharedFacade {
 
   clearError(): void {
     this.store.dispatch(displayErrorMessage({ message: '' }));
+  }
+
+  toggleMenu(): void {
+    this.store.dispatch(toggleMenu());
   }
 
   private alterLoadingStatus(status: boolean) {

@@ -1,3 +1,5 @@
+@use '../../../theme.scss' as theme;
+
 .win-banner {
     align-self: center;
     justify-self: center;
@@ -5,5 +7,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 5;
+    z-index: 99;
+}
+
+.raw-blue {
+    fill: theme.$primary-color;
+}
+
+.raw-red {
+    fill: theme.$warn-color;
 }

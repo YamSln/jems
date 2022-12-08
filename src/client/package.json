@@ -11,13 +11,13 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/cli": "^11.2.18",
-    "@angular/compiler-cli": "^11.2.14",
     "@angular-devkit/build-angular": "^0.1102.18",
     "@angular/animations": "^11.2.14",
     "@angular/cdk": "^11.2.13",
+    "@angular/cli": "^11.2.18",
     "@angular/common": "^11.2.14",
     "@angular/compiler": "^11.2.14",
+    "@angular/compiler-cli": "^11.2.14",
     "@angular/core": "^11.2.14",
     "@angular/flex-layout": "^11.0.0-beta.33",
     "@angular/forms": "^11.2.14",
@@ -29,7 +29,7 @@
     "@ngrx/store": "^11.1.1",
     "@ngrx/store-devtools": "^11.1.1",
     "angular-animations": "^0.11.0",
-    "canvas-confetti": "^1.5.1",
+    "js-confetti": "^0.11.0",
     "ngx-clipboard": "^14.0.2",
     "rxjs": "~6.6.0",
     "socket.io-client": "^4.4.1",
@@ -37,7 +37,6 @@
     "zone.js": "^0.11.5"
   },
   "devDependencies": {
-    "@types/canvas-confetti": "^1.4.2",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.20.47",
     "codelyzer": "^6.0.0",

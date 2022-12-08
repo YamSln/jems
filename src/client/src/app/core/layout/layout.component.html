@@ -35,10 +35,18 @@
         [lightTheme]="isLightTheme"
         (themeToggle)="themeToggleChanged()"
       ></app-theme-toggle>
+      <button
+        *ngIf="roomUrl | async as url"
+        [fxHide.gt-sm]="true"
+        mat-icon-button
+        (click)="toggleMenu()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
     </div>
   </mat-toolbar>
   <div fxFlex="auto" fxLayout="column" fxLayoutAlign="center">
     <router-outlet></router-outlet>
   </div>
-  <div fxFlex="0 1 auto">jems {{ version }}</div>
+  <app-footer [version]="version"></app-footer>
 </div>

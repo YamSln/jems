@@ -7,8 +7,8 @@ import { LeaveGuard } from './guard/leave.guard';
 const routes: Routes = [
   {
     path: '',
-    //canActivate: [GameGuard],
-    //canDeactivate: [LeaveGuard],
+    canActivate: [GameGuard],
+    canDeactivate: [LeaveGuard],
     component: GameComponent,
   },
 ];

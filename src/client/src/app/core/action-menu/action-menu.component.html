@@ -1,0 +1,12 @@
+<div fxFill fxLayout="column" fxLayoutAlign="space-between">
+  <mat-list>
+    <!-- Github Link -->
+    <div class="list-item">
+      <app-github [menu]="true" [isLightTheme]="isLightTheme"></app-github>
+    </div>
+    <mat-divider></mat-divider>
+  </mat-list>
+  <span fxFlex></span>
+  <!-- Footer -->
+  <app-footer [version]="version"></app-footer>
+</div>

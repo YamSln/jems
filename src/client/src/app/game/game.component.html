@@ -1,14 +1,15 @@
-<div *ngIf="gameState | async as game">
-  <div fxFlex="5" fxFlex.gt-lg="20"></div>
-  <div fxFlex fxLayout.lt-md="column" fxLayout.gt-sm="row" fxLayoutGap="20px">
-    <div fxFlexOrder="1" fxFlex.gt-lg="5"></div>
-    <div
-      fxFlexOrder.gt-sm="1"
-      fxFlexOrder.lt-md="2"
-      fxLayoutAlign="center center"
-    >
-      <!-- Action Board -->
+<mat-drawer-container fxFlex *ngIf="gameState | async as game">
+  <mat-drawer
+    *ngIf="isMenuOpen | async as menuOpen"
+    style="width: 70%; height: 100%"
+    position="end"
+    [opened]="menuOpen"
+    (closed)="menuClosed(menuOpen)"
+    ><mat-divider></mat-divider>
+    <!-- Mobile Action Board -->
+    <div fxLayout="row" fxLayoutAlign="center">
       <app-action-board
+        style="margin-top: 10px; margin-bottom: 10px"
         [currentTeam]="game.currentTeam"
         [participants]="game.participants"
         [playerId]="game.playerId"
@@ -22,41 +23,75 @@
         (setTimeEvent)="onTimeSet($event)"
       ></app-action-board>
     </div>
-    <!-- Game Board -->
-    <div
-      fxFlex
-      fxLayout="column"
-      fxLayoutAlign="space-between stretch"
-      fxFlexOrder.gt-sm="2"
-      fxFlexOrder.lt-md="1"
-    >
-      <div fxLayout="row" fxLayoutAlign="space-between center">
-        <mat-label class="raw-blue">{{ game.blueTeamPoints }}</mat-label>
-        <app-timer
-          *ngIf="game.turnTime"
-          [@flipInXOnEnter]
-          [@flipOutXOnLeave]
-          [currentTeam]="game.currentTeam"
-          [display]="!!game.turnTime"
-          [time]="game.currentTime"
-        ></app-timer>
-        <mat-label class="raw-red">{{ game.redTeamPoints }}</mat-label>
+    <mat-divider></mat-divider>
+  </mat-drawer>
+  <mat-drawer-content fxLayout="column">
+    <div>
+      <!-- App Content -->
+      <div fxFlex="5" fxFlex.gt-lg="20"></div>
+      <div
+        fxFlex
+        fxLayout.lt-md="column"
+        fxLayout.gt-sm="row"
+        fxLayoutGap="20px"
+      >
+        <div fxFlexOrder="1" fxFlex.gt-lg="5"></div>
+        <div
+          fxFlexOrder.gt-sm="1"
+          fxFlexOrder.lt-md="2"
+          fxLayoutAlign="center center"
+        >
+          <!-- Action Board -->
+          <mat-card fxHide.lt-sm="true"
+            ><app-action-board
+              [currentTeam]="game.currentTeam"
+              [participants]="game.participants"
+              [playerId]="game.playerId"
+              [playerTeam]="game.playerTeam"
+              [playerRole]="game.playerRole"
+              [turnTime]="game.turnTime"
+              [wordsPacks]="game.wordsPacks"
+              (changeTeamEvent)="onTeamChange()"
+              (changeRoleEvent)="onRoleChange()"
+              (endTurnEvent)="onEndTurn()"
+              (setTimeEvent)="onTimeSet($event)"
+            ></app-action-board
+          ></mat-card>
+        </div>
+        <!-- Game Board -->
+        <div
+          fxFlex
+          fxLayout="column"
+          fxLayoutAlign="space-between stretch"
+          fxFlexOrder.gt-sm="2"
+          fxFlexOrder.lt-md="1"
+        >
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-label class="raw-blue">{{ game.blueTeamPoints }}</mat-label>
+            <app-timer
+              *ngIf="game.turnTime"
+              [@flipInXOnEnter]
+              [@flipOutXOnLeave]
+              [currentTeam]="game.currentTeam"
+              [display]="!!game.turnTime"
+              [time]="game.currentTime"
+            ></app-timer>
+            <mat-label class="raw-red">{{ game.redTeamPoints }}</mat-label>
+          </div>
+          <app-game-board
+            style="margin-bottom: 15px"
+            [words]="game.words"
+            [winningTeam]="game.winningTeam"
+            [hideColors]="game.playerRole === role.OPERATIVE"
+            (wordClicked)="onWordClicked($event)"
+          ></app-game-board>
+          <app-action-buttons></app-action-buttons>
+        </div>
+        <div fxFlexOrder="3" fxFlex="15" fxFlex.gt-lg="20"></div>
       </div>
-      <app-game-board
-        style="margin-bottom: 15px"
-        [words]="game.words"
-        [winningTeam]="game.winningTeam"
-        [hideColors]="game.playerRole === role.OPERATIVE"
-        (wordClicked)="onWordClicked($event)"
-      ></app-game-board>
-      <app-action-buttons></app-action-buttons>
-    </div>
-    <div fxFlexOrder="3" fxFlex="15" fxFlex.gt-lg="20"></div>
-  </div>
 
-  <div fxFlex="5" fxFlex.gt-lg="20"></div>
-  <app-confetti
-    style="position: absolute; z-index: 0; width: 0; height: 0"
-    [winningTeam]="!!game.winningTeam"
-  ></app-confetti>
-</div>
+      <div fxFlex="5" fxFlex.gt-lg="20"></div>
+    </div>
+  </mat-drawer-content>
+  <app-confetti [winningTeam]="game.winningTeam"></app-confetti>
+</mat-drawer-container>
