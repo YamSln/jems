@@ -1,15 +1,22 @@
 <mat-drawer-container fxFlex *ngIf="gameState | async as game">
+  <input
+    #subscriber
+    style="display: none"
+    type="text"
+    value="{{ isMenuOpen | async }}"
+  />
   <mat-drawer
-    *ngIf="isMenuOpen | async as menuOpen"
-    style="width: 70%; height: 100%"
+    style="height: 100%; padding: 15px"
     position="end"
-    [opened]="menuOpen"
-    (closed)="menuClosed(menuOpen)"
+    [opened]="isMenuOpen | async"
+    (closed)="menuClosed(subscriber.value)"
     ><mat-divider></mat-divider>
     <!-- Mobile Action Board -->
-    <div fxLayout="row" fxLayoutAlign="center">
+    <ng-container *ngTemplateOutlet="score"></ng-container>
+    <mat-divider></mat-divider>
+    <mat-card class="mat-elevation-z0" fxLayoutAlign="center center">
       <app-action-board
-        style="margin-top: 10px; margin-bottom: 10px"
+        style="margin-top: 10px"
         [currentTeam]="game.currentTeam"
         [participants]="game.participants"
         [playerId]="game.playerId"
@@ -22,7 +29,7 @@
         (endTurnEvent)="onEndTurn()"
         (setTimeEvent)="onTimeSet($event)"
       ></app-action-board>
-    </div>
+    </mat-card>
     <mat-divider></mat-divider>
   </mat-drawer>
   <mat-drawer-content fxLayout="column">
@@ -66,26 +73,14 @@
           fxFlexOrder.gt-sm="2"
           fxFlexOrder.lt-md="1"
         >
-          <div fxLayout="row" fxLayoutAlign="space-between center">
-            <mat-label class="raw-blue">{{ game.blueTeamPoints }}</mat-label>
-            <app-timer
-              *ngIf="game.turnTime"
-              [@flipInXOnEnter]
-              [@flipOutXOnLeave]
-              [currentTeam]="game.currentTeam"
-              [display]="!!game.turnTime"
-              [time]="game.currentTime"
-            ></app-timer>
-            <mat-label class="raw-red">{{ game.redTeamPoints }}</mat-label>
-          </div>
+          <ng-container *ngTemplateOutlet="score"></ng-container>
           <app-game-board
-            style="margin-bottom: 15px"
             [words]="game.words"
             [winningTeam]="game.winningTeam"
             [hideColors]="game.playerRole === role.OPERATIVE"
             (wordClicked)="onWordClicked($event)"
           ></app-game-board>
-          <app-action-buttons></app-action-buttons>
+          <app-action-buttons style="margin: 10px"></app-action-buttons>
         </div>
         <div fxFlexOrder="3" fxFlex="15" fxFlex.gt-lg="20"></div>
       </div>
@@ -94,4 +89,18 @@
     </div>
   </mat-drawer-content>
   <app-confetti [winningTeam]="game.winningTeam"></app-confetti>
+  <ng-template #score>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <mat-label class="raw-blue">{{ game.blueTeamPoints }}</mat-label>
+      <app-timer
+        *ngIf="game.turnTime"
+        [@flipInXOnEnter]
+        [@flipOutXOnLeave]
+        [currentTeam]="game.currentTeam"
+        [display]="!!game.turnTime"
+        [time]="game.currentTime"
+      ></app-timer>
+      <mat-label class="raw-red">{{ game.redTeamPoints }}</mat-label>
+    </div>
+  </ng-template>
 </mat-drawer-container>

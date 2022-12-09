@@ -13,6 +13,7 @@ import { JoinPayload } from "../model/join.payload";
 import { WordClicked } from "../model/word.clicked.payload";
 import handler from "./game.handler";
 import log from "../config/log";
+import { Game, GameState } from "../model/game.model";
 
 const REQUESTOR = "SOCKET_HANDLER";
 
@@ -124,7 +125,7 @@ const joinGame = (socket: Socket, joinPayload: JoinPayload) => {
     socket.join(joinPayload.room);
     socket.emit(
       GameEvent.JOIN_GAME,
-      { ...event.state, turnInterval: "" },
+      event.state,
       joinPayload.room,
       event.joined
     );
@@ -140,7 +141,7 @@ const joinGame = (socket: Socket, joinPayload: JoinPayload) => {
 
 const createGame = (socket: Socket, payload: CreateGamePayload) => {
   try {
-    const game = handler.onCreateGame(socket.id, payload);
+    const game: Game = handler.onCreateGame(socket.id, payload);
     socket.emit(
       GameEvent.CREATE_GAME,
       game,

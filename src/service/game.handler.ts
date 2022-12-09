@@ -1,4 +1,4 @@
-import { GameState } from "../model/game.model";
+import { Game, GameState } from "../model/game.model";
 import { v4 as uuidv4 } from "uuid";
 import service from "./game.service";
 import { Participant } from "../model/participant.model";
@@ -58,7 +58,7 @@ const joinGame = (joinPayload: JoinPayload): string => {
 const onCreateGame = (
   socketId: string,
   joinPayload: CreateGamePayload
-): GameState => {
+): Game => {
   const state = service.createGame(
     joinPayload.password,
     joinPayload.maxPlayers
@@ -74,7 +74,8 @@ const onCreateGame = (
   changePlayersCount(newParticipant, state);
   rooms.set(joinPayload.room, state);
   log.info(REQUESTOR, `Room ${joinPayload.room} created`);
-  return state;
+  const { password, turnInterval, ...game } = state;
+  return game;
 };
 
 const onJoinGame = (socketId: string, joinPayload: JoinPayload): JoinEvent => {
@@ -97,10 +98,11 @@ const onJoinGame = (socketId: string, joinPayload: JoinPayload): JoinEvent => {
   // Add joined player to the game and increase players count
   state.participants.push(newParticipant);
   changePlayersCount(newParticipant, state);
-  return { state, joined: newParticipant };
+  const { password, turnInterval, ...game } = state;
+  return { state: game, joined: newParticipant };
 };
 
-const onNewGame = (room: string): GameState => {
+const onNewGame = (room: string): Game => {
   const state = getGame(room);
   clearTimer(state);
   const newGame = service.newGame({
@@ -108,7 +110,8 @@ const onNewGame = (room: string): GameState => {
     roomId: room,
   });
   rooms.set(room, newGame);
-  return newGame;
+  const { password, turnInterval, ...game } = newGame;
+  return game;
 };
 
 const onWordClick = (

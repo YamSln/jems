@@ -1,7 +1,7 @@
-import { GameState } from "../model/game.model";
+import { Game } from "../model/game.model";
 import { Participant } from "../model/participant.model";
 
 export interface JoinEvent {
-  state: GameState;
+  state: Game;
   joined: Participant;
 }

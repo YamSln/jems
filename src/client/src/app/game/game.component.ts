@@ -4,7 +4,7 @@ import {
   flipOutXOnLeaveAnimation,
 } from 'angular-animations';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 import { Participant } from '../model/participant.model';
 import { Role } from '../model/role.model';
 import { SharedFacade } from '../shared/state/shared.facade';
@@ -54,8 +54,8 @@ export class GameComponent implements OnInit {
     this.gameFacade.endTurn();
   }
 
-  menuClosed(isOpen: boolean): void {
-    if (isOpen) {
+  menuClosed(isOpen: string): void {
+    if (isOpen === 'true') {
       this.sharedFacade.toggleMenu();
     }
   }

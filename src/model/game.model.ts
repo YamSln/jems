@@ -3,7 +3,7 @@ import { Team } from "./team.model";
 import { Word } from "./word.model";
 import { WordsPack } from "./words-pack.model";
 
-export interface GameState {
+export interface Game {
   roomId?: string;
   participants: Participant[];
   blueTeamPlayers: number;
@@ -15,8 +15,11 @@ export interface GameState {
   redTeamPoints: number;
   turnTime: number;
   currentTime: number;
-  turnInterval?: NodeJS.Timeout;
-  password: string;
   maxPlayers: number;
   winningTeam?: Team;
+}
+
+export interface GameState extends Game {
+  turnInterval?: NodeJS.Timeout;
+  password: string;
 }

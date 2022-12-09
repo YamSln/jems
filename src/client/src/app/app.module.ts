@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedReducer } from './shared/state/shared.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment.prod';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,10 +24,11 @@ import { environment } from '../environments/environment.prod';
     SharedModule,
     EffectsModule.forRoot([]),
     StoreModule.forRoot({ shared: SharedReducer }),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25,
-      logOnly: environment.production,
-    }),
+    !environment.production
+      ? StoreDevtoolsModule.instrument({
+          maxAge: 25,
+        })
+      : [],
   ],
   providers: [],
   bootstrap: [AppComponent],
