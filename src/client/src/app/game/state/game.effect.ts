@@ -181,7 +181,6 @@ export class GameEffect {
           const socket = io(environment.api, {
             auth: { token: `Bearer ${action.token}` },
             query: { join: JoinType.CREATE },
-            transports: ['websocket'],
             reconnection: true,
             reconnectionDelay: 1000,
             reconnectionDelayMax: 5000,
@@ -203,7 +202,6 @@ export class GameEffect {
           const socket = io(environment.api, {
             auth: { token: `Bearer ${action.token}` },
             query: { join: JoinType.JOIN },
-            transports: ['websocket'],
             reconnection: true,
             reconnectionDelay: 1000,
             reconnectionDelayMax: 5000,
