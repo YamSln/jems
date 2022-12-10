@@ -22,6 +22,7 @@ const SERVER = {
       }
     : undefined,
   ioOptions: {
+    allowUpgrades: false,
     pingInterval: 2000,
     pingTimeout: 5000,
     cors: env.devEnv() ? { origin: ALLOWED_ORIGIN } : undefined,
