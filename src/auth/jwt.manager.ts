@@ -20,7 +20,6 @@ const publicKey = env.devEnv()
 const generateJwt = (payload: JoinPayload | CreateGamePayload): string => {
   const options: SignOptions = {
     algorithm: "RS256",
-    expiresIn: "5m",
   }; // Signs new jwt with join payload
   return jwt.sign(payload, privateKey!, options);
 };
