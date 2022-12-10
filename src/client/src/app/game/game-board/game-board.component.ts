@@ -9,21 +9,13 @@ import {
 } from '@angular/core';
 import { Team } from 'src/app/model/team.model';
 import { Word } from 'src/app/model/word.model';
-import {
-  flipInYOnEnterAnimation,
-  zoomInOnEnterAnimation,
-  zoomOutOnLeaveAnimation,
-} from 'angular-animations';
+import { flipInYOnEnterAnimation } from 'angular-animations';
 
 @Component({
   selector: 'app-game-board',
   templateUrl: './game-board.component.html',
   styleUrls: ['./game-board.component.scss'],
-  animations: [
-    zoomInOnEnterAnimation({ duration: 700 }),
-    zoomOutOnLeaveAnimation({ duration: 800 }),
-    flipInYOnEnterAnimation({ duration: 500 }),
-  ],
+  animations: [flipInYOnEnterAnimation({ duration: 500 })],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GameBoardComponent implements OnInit, AfterViewInit {

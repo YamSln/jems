@@ -12,6 +12,7 @@ import { TimerComponent } from './timer/timer.component';
 import { TimerPipe } from './pipe/timer.pipe';
 import { ActionButtonsComponent } from './action-buttons/action-buttons.component';
 import { ConfettiComponent } from './confetti/confetti.component';
+import { AngularFittextModule } from 'angular-fittext';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,12 @@ import { ConfettiComponent } from './confetti/confetti.component';
     ActionButtonsComponent,
     ConfettiComponent,
   ],
-  imports: [CommonModule, GameRoutingModule, SharedModule, FormsModule],
+  imports: [
+    CommonModule,
+    GameRoutingModule,
+    SharedModule,
+    FormsModule,
+    AngularFittextModule,
+  ],
 })
 export class GameModule {}

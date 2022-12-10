@@ -1,5 +1,6 @@
 <div fxLayout="column" fxLayoutAlign="space-around stretch">
   <div fxLayout="column" fxLayoutAlign="space-between center">
+    <!-- Current Playing Team Icon -->
     <mat-icon
       style="margin-bottom: 10px"
       [svgIcon]="currentTeam === team.SAPPHIRE ? 'sapphire' : 'ruby'"
@@ -18,12 +19,15 @@
       Playing</span
     >
   </div>
+  <!-- Change Team Button -->
   <button (click)="changePlayerTeam()" mat-stroked-button>Change Team</button>
+  <!-- Players Table -->
   <div
     fxLayout="row"
     fxLayoutAlign="space-between start"
     style="min-height: 11rem; padding-top: 3vh"
   >
+    <!-- Ruby Players -->
     <div class="team" fxLayout="column" fxLayoutAlign="center start">
       <span *ngFor="let participant of participants">
         <span
@@ -48,6 +52,7 @@
         </span>
       </span>
     </div>
+    <!-- Sapphire Players -->
     <div class="team" fxLayout="column" fxLayoutAlign="center start">
       <span *ngFor="let participant of participants">
         <span
@@ -73,6 +78,7 @@
       </span>
     </div>
   </div>
+  <!-- Timer -->
   <span style="text-align: center" *ngIf="turnTime"
     >Timer: {{ turnTime }} Seconds</span
   >
@@ -87,6 +93,7 @@
     [matTooltipPosition]="'before'"
   ></mat-slider>
   <mat-card-actions>
+    <!-- Change Role Buttons -->
     <mat-button-toggle-group
       [(ngModel)]="playerRole"
       (change)="changePlayerRole()"
@@ -99,6 +106,7 @@
       </mat-button-toggle>
     </mat-button-toggle-group>
   </mat-card-actions>
+  <!-- End Turn Button -->
   <button
     style="margin-bottom: 20px"
     mat-raised-button
@@ -108,6 +116,7 @@
   >
     End Turn
   </button>
+  <!-- Word Pack Selection -->
   <div class="wordsPacksList">
     <div
       class="wordsPack"

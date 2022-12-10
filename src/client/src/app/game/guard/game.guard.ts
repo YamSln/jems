@@ -27,6 +27,7 @@ export class GameGuard implements CanActivate {
     this.gameState = this.facade.getGameState();
     return this.gameState.pipe(
       map((state) => {
+        // Allow navigation to game only is state is present
         if (state.roomId) {
           return true;
         } else {

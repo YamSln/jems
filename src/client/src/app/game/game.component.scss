@@ -12,3 +12,21 @@ mat-label {
 .raw-red {
     color: theme.$warn-color;
 }
+
+.win-banner {
+    top: 0;
+    bottom: 0;
+    align-self: center;
+    justify-self: center;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    text-align: center;
+    margin-top: 20em;
+    margin-bottom: 20em;
+    line-height: 1.5;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #1f1e1e;
+}

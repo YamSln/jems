@@ -23,6 +23,7 @@ export class LeaveGuard implements CanDeactivate<unknown> {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
+    // Disconnect player upon any leaving action
     this.gameFacade.quitGame();
     return true;
   }

@@ -1,3 +1,4 @@
+<!-- Square Word Container -->
 <mat-grid-list cols="1" rowHeight="1:1">
   <mat-grid-tile
     style="transition: background-color 0.3s ease-out; text-align: center"
@@ -13,18 +14,20 @@
     }"
     (click)="onWordClick()"
   >
-    <svg
-      [attr.viewBox]="
-        word.content.length < 10
-          ? '0 0 80 20'
-          : word.content.length < 13
-          ? '0 0 100 20'
-          : '0 0 130 20'
-      "
+    <div
+      [ngStyle]="{
+        width:
+          word.content.length <= 3
+            ? '40%'
+            : word.content.length <= 5
+            ? '50%'
+            : word.content.length <= 8
+            ? '70%'
+            : '100%'
+      }"
     >
-      <text x="50%" y="14" font-family="sans-serif" text-anchor="middle">
-        {{ word.content }}
-      </text>
-    </svg>
+      <!-- Fitted Word Content -->
+      <div [fittext]="true">{{ word.content }}</div>
+    </div>
   </mat-grid-tile>
 </mat-grid-list>

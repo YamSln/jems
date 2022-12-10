@@ -38,6 +38,7 @@ export class ConfettiComponent implements OnChanges, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.winningTeam.currentValue) {
+      // Trigger confetti for winning team
       this.triggerConfetti(changes.winningTeam.currentValue);
     } else {
       this.clearConfetti();
@@ -45,6 +46,7 @@ export class ConfettiComponent implements OnChanges, OnDestroy {
   }
 
   triggerConfetti(team: Team): void {
+    // 5 times confetti interval
     this.throwConfetti(team);
     let i = 1;
     this.confettiInterval = setInterval(() => {
