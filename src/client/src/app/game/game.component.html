@@ -87,8 +87,30 @@
 
       <div fxFlex="5" fxFlex.gt-lg="20"></div>
     </div>
+    <!-- Winning Banner -->
+    <div
+      *ngIf="game.winningTeam"
+      [ngClass]="{
+        'raw-blue': game.winningTeam === team.SAPPHIRE,
+        'raw-red': game.winningTeam === team.RUBY
+      }"
+      [ngStyle.xs]="{ width: '80%' }"
+      [ngStyle.sm]="{ width: '50%' }"
+      [ngStyle.gt-sm]="{ width: '40%' }"
+      [ngStyle.gt-lg]="{ width: '30%' }"
+      [@zoomInOnEnter]
+      [@zoomOutOnLeave]
+      class="win-banner"
+    >
+      <div [fittext]="true" style="background-color: #f9f9f959">
+        Team
+        {{ game.winningTeam === team.SAPPHIRE ? "Sapphire" : "Ruby" }} Wins!
+      </div>
+    </div>
   </mat-drawer-content>
+  <!-- Winning Confetti -->
   <app-confetti [winningTeam]="game.winningTeam"></app-confetti>
+  <!-- Score and Timer -->
   <ng-template #score>
     <div fxLayout="row" fxLayoutAlign="space-between center">
       <mat-label class="raw-blue">{{ game.blueTeamPoints }}</mat-label>

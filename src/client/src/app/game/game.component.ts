@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import {
   flipInXOnEnterAnimation,
   flipOutXOnLeaveAnimation,
+  zoomInOnEnterAnimation,
+  zoomOutOnLeaveAnimation,
 } from 'angular-animations';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Participant } from '../model/participant.model';
 import { Role } from '../model/role.model';
+import { Team } from '../model/team.model';
 import { SharedFacade } from '../shared/state/shared.facade';
 import { GameFacade } from './state/game.facade';
 import { GameState } from './state/game.state';
@@ -15,7 +18,12 @@ import { GameState } from './state/game.state';
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss'],
-  animations: [flipInXOnEnterAnimation(), flipOutXOnLeaveAnimation()],
+  animations: [
+    flipInXOnEnterAnimation(),
+    flipOutXOnLeaveAnimation(),
+    zoomInOnEnterAnimation({ duration: 700 }),
+    zoomOutOnLeaveAnimation({ duration: 800 }),
+  ],
 })
 export class GameComponent implements OnInit {
   version: string = environment.version;
@@ -23,6 +31,7 @@ export class GameComponent implements OnInit {
   isMenuOpen!: Observable<boolean>;
   user!: Participant;
   role = Role;
+  team = Team;
 
   constructor(
     private gameFacade: GameFacade,

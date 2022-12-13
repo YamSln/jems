@@ -341,7 +341,7 @@ describe("Game Handler Unit Tests", () => {
 
       const newGame = handler.onNewGame("room2");
 
-      expect(newGame.turnInterval).toBeUndefined();
+      expect(newGame.currentTime).toEqual(0);
       expect(handlerTest.rooms.get(createPayload.room)).toEqual(newGame);
     });
   });
