@@ -137,6 +137,9 @@ describe("Game Service Unit Tests", () => {
         turnTime: 0,
         maxPlayers: 4,
         currentTime: 0,
+        blueTeamPlayers: 0,
+        redTeamPlayers: 0,
+        wordsPacks: [],
         words,
       };
 

@@ -4,8 +4,16 @@
   [ngClass]="{ 'theme-dark': !isLightTheme }"
   fxLayout="column"
 >
-  <mat-toolbar fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="end center">
+  <!-- Header -->
+  <mat-toolbar
+    fxFlex="0 1 auto"
+    fxLayout="row"
+    fxLayoutAlign="end center"
+    class="mat-elevation-z1"
+    style="z-index: 2"
+  >
     <div *ngIf="roomUrl | async as url; then url; else home"></div>
+    <!-- Join URL Button -->
     <ng-template #url>
       <button
         *ngIf="roomUrl | async as url"
@@ -16,11 +24,13 @@
         <mat-icon matSuffix>link</mat-icon>
       </button>
     </ng-template>
+    <!-- Home Button -->
     <ng-template #home>
       <button mat-icon-button routerLink="/">
         <img src="assets/logo.svg" alt="logo" style="max-width: 50%" />
       </button>
     </ng-template>
+    <!-- Github Link-->
     <div fxFlex fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
       <button
         *ngIf="hasGithubLink()"
@@ -31,10 +41,12 @@
       >
         <mat-icon svgIcon="github" matSuffix></mat-icon>
       </button>
+      <!-- Theme Toggle -->
       <app-theme-toggle
         [lightTheme]="isLightTheme"
         (themeToggle)="themeToggleChanged()"
       ></app-theme-toggle>
+      <!-- Menu Button -->
       <button
         *ngIf="roomUrl | async as url"
         [fxHide.gt-sm]="true"
@@ -45,8 +57,13 @@
       </button>
     </div>
   </mat-toolbar>
-  <div fxFlex="auto" fxLayout="column" fxLayoutAlign="center">
-    <router-outlet></router-outlet>
-  </div>
-  <app-footer [version]="version"></app-footer>
+  <!-- Content -->
+  <mat-drawer-container fxFlex>
+    <mat-drawer-content fxLayout="column">
+      <div fxFlex="auto" fxLayout="column" fxLayoutAlign="center">
+        <router-outlet></router-outlet>
+      </div>
+      <app-footer [version]="version"></app-footer>
+    </mat-drawer-content>
+  </mat-drawer-container>
 </div>
