@@ -222,6 +222,7 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 
 .theme-dark {
   @include angular-material-theme($theme);
+  color: #f2f2f2;
 }
 
 
