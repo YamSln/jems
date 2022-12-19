@@ -1,6 +1,7 @@
+import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { SharedFacade } from './shared/state/shared.facade';
 
@@ -12,10 +13,18 @@ import { SharedFacade } from './shared/state/shared.facade';
 export class AppComponent implements OnInit, OnDestroy {
   title = 'jems';
   events!: Subscription;
+  lightTheme!: Subscription;
 
-  constructor(private router: Router, private sharedFacade: SharedFacade) {}
+  isLightTheme!: Observable<boolean>;
+
+  constructor(
+    private router: Router,
+    private sharedFacade: SharedFacade,
+    private overlay: OverlayContainer
+  ) {}
 
   ngOnInit(): void {
+    this.isLightTheme = this.sharedFacade.getIsLightTheme();
     this.events = this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event) => {
@@ -23,11 +32,21 @@ export class AppComponent implements OnInit, OnDestroy {
           this.sharedFacade.hideLoading();
         }
       });
+    this.lightTheme = this.isLightTheme.subscribe((isLightTheme) => {
+      if (isLightTheme) {
+        this.overlay.getContainerElement().classList.remove('theme-dark');
+      } else {
+        this.overlay.getContainerElement().classList.add('theme-dark');
+      }
+    });
   }
 
   ngOnDestroy(): void {
     if (this.events) {
       this.events.unsubscribe();
+    }
+    if (this.lightTheme) {
+      this.lightTheme.unsubscribe();
     }
   }
 }

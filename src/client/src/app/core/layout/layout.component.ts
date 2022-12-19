@@ -5,10 +5,6 @@ import { GameFacade } from 'src/app/game/state/game.facade';
 import { SharedFacade } from 'src/app/shared/state/shared.facade';
 import { environment } from 'src/environments/environment';
 
-const PREF_THEME = 'preferred_theme';
-const LIGHT = 'light';
-const DARK = 'dark';
-
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -16,8 +12,9 @@ const DARK = 'dark';
 })
 export class LayoutComponent implements OnInit {
   version: string = environment.version;
-  isLightTheme!: boolean;
   roomUrl!: Observable<string>;
+
+  isLightTheme!: Observable<boolean>;
 
   constructor(
     private gameFacade: GameFacade,
@@ -26,13 +23,12 @@ export class LayoutComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.isLightTheme = this.sharedFacade.getIsLightTheme();
     this.roomUrl = this.gameFacade.getRoomUrl();
-    this.isLightTheme = localStorage.getItem(PREF_THEME) === LIGHT;
   }
 
   themeToggleChanged(): void {
-    this.isLightTheme = !this.isLightTheme;
-    localStorage.setItem(PREF_THEME, this.isLightTheme ? LIGHT : DARK);
+    this.sharedFacade.toggleTheme();
   }
 
   copyUrlToClipboard(url: string): void {

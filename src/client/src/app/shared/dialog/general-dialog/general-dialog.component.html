@@ -5,8 +5,13 @@
   fxLayoutGap="2rem"
   [ngSwitch]="dialogData.dialogDefinition"
 >
-  <mat-icon color="warn">{{ dialogIcon }}</mat-icon>
-  <div style="font-size: 2vh; display: inline-block; line-height: 50px">
+  <mat-icon
+    color="warn"
+    style="font-size: 3rem; line-height: 1"
+    [inline]="true"
+    >{{ dialogIcon }}</mat-icon
+  >
+  <div style="font-size: 2rem; line-height: 1; text-align: center">
     {{ dialogData.dialogMessage }}
   </div>
   <button

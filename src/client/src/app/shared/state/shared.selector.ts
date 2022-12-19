@@ -24,3 +24,8 @@ export const getMenuOpen = createSelector(
   getSharedState,
   (state: SharedState) => state.menuOpen
 );
+
+export const getIsLightTheme = createSelector(
+  getSharedState,
+  (state: SharedState) => state.isLightTheme
+);

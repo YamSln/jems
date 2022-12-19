@@ -5,12 +5,14 @@ import {
   displayErrorMessage,
   displayLoading,
   toggleMenu,
+  toggleTheme,
 } from './shared.action';
 import {
   getErrorMessage,
   getLoadingStatus,
   getMenuOpen,
   getPlayerAction,
+  getIsLightTheme,
 } from './shared.selector';
 import { SharedState } from './shared.state';
 
@@ -34,6 +36,10 @@ export class SharedFacade {
     return this.store.select(getMenuOpen);
   }
 
+  getIsLightTheme(): Observable<boolean> {
+    return this.store.select(getIsLightTheme);
+  }
+
   displayLoading(): void {
     this.alterLoadingStatus(true);
   }
@@ -52,6 +58,10 @@ export class SharedFacade {
 
   toggleMenu(): void {
     this.store.dispatch(toggleMenu());
+  }
+
+  toggleTheme(): void {
+    this.store.dispatch(toggleTheme());
   }
 
   private alterLoadingStatus(status: boolean) {

@@ -3,6 +3,7 @@ export interface SharedState {
   errorMessage: string;
   playerAction: string;
   menuOpen: boolean;
+  isLightTheme: boolean;
 }
 
 export const sharedInitialState: SharedState = {
@@ -10,4 +11,5 @@ export const sharedInitialState: SharedState = {
   errorMessage: '',
   playerAction: '',
   menuOpen: false,
+  isLightTheme: false,
 };

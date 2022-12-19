@@ -13,7 +13,6 @@ export class DialogService {
   openDialog(dialogData: MatDialogData): Observable<any> {
     const dialogRef = this.dialog.open(GeneralDialogComponent, {
       data: dialogData.data,
-      panelClass: dialogData.panelClass,
       autoFocus: false,
     });
     return dialogRef.afterClosed();

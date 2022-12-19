@@ -1,12 +1,7 @@
-<div
-  class="mat-app-background"
-  style="min-height: 100%"
-  [ngClass]="{ 'theme-dark': !isLightTheme }"
-  fxLayout="column"
->
+<div class="mat-app-background" style="height: 100%" fxLayout="column">
   <!-- Header -->
   <mat-toolbar
-    fxFlex="0 1 auto"
+    fxFlex="0 0 auto"
     fxLayout="row"
     fxLayoutAlign="end center"
     class="mat-elevation-z1"
@@ -43,7 +38,7 @@
       </button>
       <!-- Theme Toggle -->
       <app-theme-toggle
-        [lightTheme]="isLightTheme"
+        [lightTheme]="(isLightTheme | async) || false"
         (themeToggle)="themeToggleChanged()"
       ></app-theme-toggle>
       <!-- Menu Button -->
@@ -58,6 +53,7 @@
     </div>
   </mat-toolbar>
   <!-- Content -->
+<<<<<<< HEAD
   <mat-drawer-container fxFlex>
     <mat-drawer-content fxLayout="column">
       <div fxFlex="auto" fxLayout="column" fxLayoutAlign="center">
@@ -66,4 +62,11 @@
     </mat-drawer-content>
   </mat-drawer-container>
   <app-footer fxFlex="0 1 auto" [version]="version"></app-footer>
+=======
+  <div fxFlex></div>
+  <div style="overflow-y: auto" fxFlex="1 1 auto">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer fxFlex="0 0 auto" [version]="version"></app-footer>
+>>>>>>> main
 </div>
