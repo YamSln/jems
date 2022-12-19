@@ -1,5 +1,6 @@
-<img align="right" alt="Logo" width="80px" src="https://github.com/YamSln/jems/blob/main/src/client/src/assets/logo.svg" />
-<br>
+<p align="center">
+  <img alt="Logo" width="80px" src="https://github.com/YamSln/jems/blob/main/src/client/src/assets/logo.svg" />
+</p>
 
 # jems
 
