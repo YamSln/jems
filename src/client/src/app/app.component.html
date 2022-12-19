@@ -1,4 +1,6 @@
-<router-outlet></router-outlet>
-<app-error></app-error>
-<app-loading></app-loading>
-<app-player-action></app-player-action>
+<div [ngClass]="{ 'theme-dark': !(isLightTheme | async) }" style="height: 100%">
+  <router-outlet></router-outlet>
+  <app-error></app-error>
+  <app-loading></app-loading>
+  <app-player-action></app-player-action>
+</div>

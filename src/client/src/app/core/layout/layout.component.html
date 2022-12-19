@@ -1,9 +1,4 @@
-<div
-  class="mat-app-background"
-  style="height: 100%"
-  [ngClass]="{ 'theme-dark': !isLightTheme }"
-  fxLayout="column"
->
+<div class="mat-app-background" style="height: 100%" fxLayout="column">
   <!-- Header -->
   <mat-toolbar
     fxFlex="0 0 auto"
@@ -43,7 +38,7 @@
       </button>
       <!-- Theme Toggle -->
       <app-theme-toggle
-        [lightTheme]="isLightTheme"
+        [lightTheme]="(isLightTheme | async) || false"
         (themeToggle)="themeToggleChanged()"
       ></app-theme-toggle>
       <!-- Menu Button -->

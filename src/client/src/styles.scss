@@ -12,7 +12,8 @@
 // Fonts
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons+Round';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
-     
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Patua+One&family=Roboto&family=Scada&display=swap');
+
 $fontConfig: (
   display-4: mat-typography-level(112px, 112px, 300, 'Roboto', -0.0134em),
   display-3: mat-typography-level(56px, 56px, 400, 'Roboto', -0.0089em),
@@ -253,7 +254,7 @@ html,
 body {
   height: 100%;
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 

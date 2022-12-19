@@ -4,6 +4,7 @@ import {
   displayLoading,
   displayPlayerAction,
   toggleMenu,
+  toggleTheme,
 } from './shared.action';
 import { sharedInitialState, SharedState } from './shared.state';
 
@@ -20,6 +21,9 @@ const _sharedReducer = createReducer(
   }),
   on(toggleMenu, (state: SharedState, action: any): SharedState => {
     return { ...state, menuOpen: !state.menuOpen };
+  }),
+  on(toggleTheme, (state: SharedState, action: any): SharedState => {
+    return { ...state, isLightTheme: !state.isLightTheme };
   })
 );
 
