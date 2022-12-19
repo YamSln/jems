@@ -15,9 +15,10 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { ActionMenuComponent } from './action-menu/action-menu.component';
 import { GithubComponent } from './github/github.component';
 import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-  declarations: [LayoutComponent, GameFormComponent, ThemeToggleComponent, ActionMenuComponent, GithubComponent, FooterComponent],
+  declarations: [LayoutComponent, GameFormComponent, ThemeToggleComponent, ActionMenuComponent, GithubComponent, FooterComponent, HeaderComponent],
   imports: [
     CommonModule,
     CoreRoutingModule,

@@ -31,12 +31,8 @@ export class LayoutComponent implements OnInit {
     this.sharedFacade.toggleTheme();
   }
 
-  copyUrlToClipboard(url: string): void {
-    this.clipboardService.copy(url);
-  }
-
-  hasGithubLink(): boolean {
-    return !!environment.github;
+  copyUrlToClipboard($url: string): void {
+    this.clipboardService.copy($url);
   }
 
   openGithub(): void {

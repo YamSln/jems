@@ -1,57 +1,16 @@
 <div class="mat-app-background" style="height: 100%" fxLayout="column">
   <!-- Header -->
-  <mat-toolbar
+  <app-header
     fxFlex="0 0 auto"
-    fxLayout="row"
-    fxLayoutAlign="end center"
-    class="mat-elevation-z1"
+    class="mat-elevation-z4"
     style="z-index: 2"
-  >
-    <div *ngIf="roomUrl | async as url; then url; else home"></div>
-    <!-- Join URL Button -->
-    <ng-template #url>
-      <button
-        *ngIf="roomUrl | async as url"
-        mat-icon-button
-        [matTooltip]="'Get invitation link'"
-        (click)="copyUrlToClipboard(url)"
-      >
-        <mat-icon matSuffix>link</mat-icon>
-      </button>
-    </ng-template>
-    <!-- Home Button -->
-    <ng-template #home>
-      <button mat-icon-button routerLink="/">
-        <img src="assets/logo.svg" alt="logo" style="max-width: 50%" />
-      </button>
-    </ng-template>
-    <!-- Github Link-->
-    <div fxFlex fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
-      <button
-        *ngIf="hasGithubLink()"
-        [matTooltip]="'Github'"
-        style="top: -1px; margin-right: 5px"
-        mat-icon-button
-        (click)="openGithub()"
-      >
-        <mat-icon svgIcon="github" matSuffix></mat-icon>
-      </button>
-      <!-- Theme Toggle -->
-      <app-theme-toggle
-        [lightTheme]="(isLightTheme | async) || false"
-        (themeToggle)="themeToggleChanged()"
-      ></app-theme-toggle>
-      <!-- Menu Button -->
-      <button
-        *ngIf="roomUrl | async as url"
-        [fxHide.gt-sm]="true"
-        mat-icon-button
-        (click)="toggleMenu()"
-      >
-        <mat-icon>menu</mat-icon>
-      </button>
-    </div>
-  </mat-toolbar>
+    [roomUrl]="roomUrl"
+    [isLightTheme]="isLightTheme"
+    (themeToggle)="themeToggleChanged()"
+    (copyLink)="copyUrlToClipboard($event)"
+    (github)="openGithub()"
+    (menu)="toggleMenu()"
+  ></app-header>
   <!-- Content -->
   <div fxFlex></div>
   <div style="overflow-y: auto" fxFlex="1 1 auto">
