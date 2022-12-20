@@ -4,8 +4,7 @@
   border-radius: 15%;
   cursor: pointer;
   background-color: #fafcff;
-  color: #070606;
-  font-family: 'Scada', 'Roboto', sans-serif;
+  color: theme.$black;
 }
 
 .blue-word {
@@ -28,7 +27,7 @@
   animation: redFadeIn 0.3s;
 }
 
-$bomb-color: #070606;
+$bomb-color: theme.$black;
 
 .bomb-word {
   color: #fafcff;

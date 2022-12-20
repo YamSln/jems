@@ -3,7 +3,7 @@
 * https://materialtheme.arcsine.dev
 * Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48IzQzYTZjNiIsIj9lcjwjYzdlNGVlIiwiO2VyPCMyYzhiYjF$LCIlPmBePCM0M2E2YzYiLCI~ZXI8I2M3ZTRlZSIsIjtlcjwjMmM4YmIxfiwid2Fybj5gXjwjZTk0NDQ0IiwiP2VyPCNmOGM3YzciLCI7ZXI8I2RmMmQyZH4sIj9UZXh0PCMzNjM5M2YiLCI~PTwjZjJmMmYyIiwiO1RleHQ8I2YyZjJmMiIsIjs9PCMzNjM5M2Z$LCJmb250cz5bYEA8KC00fixgQDwoLTN$LGBAPCgtMn4sYEA8KC0xfixgQDxoZWFkbGluZX4sYEA8dGl0bGV$LGBAPHN1YiktMn4sYEA8c3ViKS0xfixgQDxib2R5LTJ$LGBAPGJvZHktMX4sYEA8YnV0dG9ufixgQDxjYXB0aW9ufixgQDxpbnB1dCIsInNpemU$bnVsbH1dLCJpY29uczxSb3VuZGVkIiwiP25lc3M$ZmFsc2UsInZlcnNpb24$MTF9
 */
-
+@use './theme.scss' as theme;
 @import '~@angular/material/theming';
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -11,23 +11,22 @@
 
 // Fonts
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons+Round';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Acme&family=Patua+One&family=Roboto&family=Scada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
 $fontConfig: (
-  display-4: mat-typography-level(112px, 112px, 300, 'Roboto', -0.0134em),
-  display-3: mat-typography-level(56px, 56px, 400, 'Roboto', -0.0089em),
-  display-2: mat-typography-level(45px, 48px, 400, 'Roboto', 0.0000em),
-  display-1: mat-typography-level(34px, 40px, 400, 'Roboto', 0.0074em),
-  headline: mat-typography-level(24px, 32px, 400, 'Roboto', 0.0000em),
-  title: mat-typography-level(20px, 32px, 500, 'Roboto', 0.0075em),
-  subheading-2: mat-typography-level(16px, 28px, 400, 'Roboto', 0.0094em),
-  subheading-1: mat-typography-level(15px, 24px, 500, 'Roboto', 0.0067em),
-  body-2: mat-typography-level(14px, 24px, 500, 'Roboto', 0.0179em),
-  body-1: mat-typography-level(14px, 20px, 400, 'Roboto', 0.0179em),
-  button: mat-typography-level(14px, 14px, 500, 'Roboto', 0.0893em),
-  caption: mat-typography-level(12px, 20px, 400, 'Roboto', 0.0333em),
-  input: mat-typography-level(inherit, 1.125, 400, 'Roboto', 1.5px)
+  display-4: mat-typography-level(112px, 112px, 300, 'Poppins', -0.0134em),
+  display-3: mat-typography-level(56px, 56px, 400, 'Poppins', -0.0089em),
+  display-2: mat-typography-level(45px, 48px, 400, 'Poppins', 0.0000em),
+  display-1: mat-typography-level(34px, 40px, 400, 'Poppins', 0.0074em),
+  headline: mat-typography-level(24px, 32px, 400, 'Poppins', 0.0000em),
+  title: mat-typography-level(20px, 32px, 500, 'Poppins', 0.0075em),
+  subheading-2: mat-typography-level(16px, 28px, 400, 'Poppins', 0.0094em),
+  subheading-1: mat-typography-level(15px, 24px, 500, 'Poppins', 0.0067em),
+  body-2: mat-typography-level(14px, 24px, 500, 'Poppins', 0.0179em),
+  body-1: mat-typography-level(14px, 20px, 400, 'Poppins', 0.0179em),
+  button: mat-typography-level(14px, 14px, 500, 'Poppins', 0.0893em),
+  caption: mat-typography-level(12px, 20px, 400, 'Poppins', 0.0333em),
+  input: mat-typography-level(inherit, 1.125, 400, 'Poppins', 1.5px)
 );
 
 // Foreground Elements
@@ -88,7 +87,7 @@ $mat-dark-theme-foreground: (
 
 // Background config
 // Light bg
-$light-background:    #f2f2f2;
+$light-background:    theme.$white;
 $light-bg-darker-5:   darken($light-background, 5%);
 $light-bg-darker-10:  darken($light-background, 10%);
 $light-bg-darker-20:  darken($light-background, 20%);
@@ -122,8 +121,8 @@ $dark-bg-lighter-5:   lighten($dark-background, 5%);
 $dark-bg-lighter-10:  lighten($dark-background, 10%);
 $dark-bg-lighter-20:  lighten($dark-background, 20%);
 $dark-bg-lighter-30:  lighten($dark-background, 30%);
-$light-bg-alpha-4:    rgba(#f2f2f2, 0.04);
-$light-bg-alpha-12:   rgba(#f2f2f2, 0.12);
+$light-bg-alpha-4:    rgba(theme.$white, 0.04);
+$light-bg-alpha-12:   rgba(theme.$white, 0.12);
 
 // Background palette for dark themes.
 $mat-dark-theme-background: (
@@ -223,7 +222,7 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
 
 .theme-dark {
   @include angular-material-theme($theme);
-  color: #f2f2f2;
+  color: theme.$white;
 }
 
 
@@ -246,7 +245,7 @@ $altTheme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
   font-size: 24px;
   font-family: 'Material Icons Round', 'Material Icons';  
   .mat-badge-content {
-    font-family: 'Roboto';
+    font-family: 'Poppins';
   }
 }
 
@@ -254,7 +253,7 @@ html,
 body {
   height: 100%;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
