@@ -12,6 +12,7 @@ import { SharedReducer } from './shared/state/shared.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { SharedMetaReducer } from './shared/state/shared.meta_reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +24,10 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     SharedModule,
     EffectsModule.forRoot([]),
-    StoreModule.forRoot({ shared: SharedReducer }),
+    StoreModule.forRoot(
+      { shared: SharedReducer },
+      { metaReducers: [SharedMetaReducer] }
+    ),
     !environment.production
       ? StoreDevtoolsModule.instrument({
           maxAge: 25,
