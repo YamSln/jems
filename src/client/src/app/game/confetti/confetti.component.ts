@@ -9,7 +9,7 @@ import {
   OnDestroy,
 } from '@angular/core';
 import JSConfetti from 'js-confetti';
-import { Team } from 'src/app/model/team.model';
+import { Team } from '../../../../../model/team.model';
 
 @Component({
   selector: 'app-confetti',
@@ -20,18 +20,18 @@ import { Team } from 'src/app/model/team.model';
 export class ConfettiComponent implements OnChanges, OnDestroy {
   @Input() winningTeam?: Team;
 
-  blueConfetti: any;
-  redConfetti: any;
+  sapphireConfetti: any;
+  rubyConfetti: any;
   confettiInterval: any;
   @ViewChildren('confetti') confettiCanvas: any;
 
   constructor() {}
 
   ngOnInit(): void {
-    this.blueConfetti = new JSConfetti({
+    this.sapphireConfetti = new JSConfetti({
       canvas: this.confettiCanvas,
     });
-    this.redConfetti = new JSConfetti({
+    this.rubyConfetti = new JSConfetti({
       canvas: this.confettiCanvas,
     });
   }
@@ -61,10 +61,16 @@ export class ConfettiComponent implements OnChanges, OnDestroy {
   throwConfetti(team: Team): void {
     switch (team) {
       case Team.SAPPHIRE:
-        this.blueConfetti.addConfetti({ confettiColors: ['#43a6c6'] });
+        this.sapphireConfetti.addConfetti({
+          confettiColors: ['#43a6c6'],
+          confettiNumber: 50,
+        });
         break;
       case Team.RUBY:
-        this.redConfetti.addConfetti({ confettiColors: ['#e94444'] });
+        this.rubyConfetti.addConfetti({
+          confettiColors: ['#e94444'],
+          confettiNumber: 50,
+        });
         break;
     }
   }

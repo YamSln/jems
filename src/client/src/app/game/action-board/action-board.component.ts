@@ -1,20 +1,12 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   flipAnimation,
   flipInYOnEnterAnimation,
   flipOutYOnLeaveAnimation,
 } from 'angular-animations';
-import { Participant } from 'src/app/model/participant.model';
-import { Role } from 'src/app/model/role.model';
-import { Team } from 'src/app/model/team.model';
+import { Player } from '../../../../../model/player.model';
+import { Role } from '../../../../../model/role.model';
+import { Team } from '../../../../../model/team.model';
 import { WordsPack } from 'src/app/model/words-pack.mode';
 
 @Component({
@@ -33,7 +25,7 @@ export class ActionBoardComponent implements OnInit {
   timeInputs: number[] = [0, 60, 90, 120];
 
   @Input() currentTeam!: Team;
-  @Input() participants!: Participant[];
+  @Input() players!: Player[];
   @Input() turnTime!: number;
   @Input() playerId!: string;
   @Input() playerTeam!: Team;

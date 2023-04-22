@@ -15,4 +15,5 @@ export enum GameEvent {
   TIME_TICK = "timeTick",
   CHANGE_TURN = "changeTurn",
   PLAYER_DISCONNECTED = "playerDisconnected",
+  ERROR = "error",
 }

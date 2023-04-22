@@ -12,10 +12,10 @@ import {
   NOT_FOUND,
   ROOM_FULL,
 } from "../error/error.util";
-import { Participant } from "../model/participant.model";
 import { Role } from "../model/role.model";
 import { CreateGamePayload } from "../model/create-game.payload";
 import { WordType } from "../model/word.type";
+import { Player } from "../model/player.model";
 
 describe("Game Handler Unit Tests", () => {
   afterEach(() => {
@@ -32,7 +32,7 @@ describe("Game Handler Unit Tests", () => {
 
       const gameToken: string = handler.createGame(nick, password, maxPlayers);
       const decoded: CreateGamePayload = jwt.decode(
-        gameToken
+        gameToken,
       ) as CreateGamePayload;
 
       expect(decoded.nick).toEqual(nick);
@@ -40,17 +40,17 @@ describe("Game Handler Unit Tests", () => {
       expect(uuid(decoded.room)).toBeTruthy();
     });
 
-    it("should create new game state and insert creator as participant", () => {
+    it("should create new game state and insert creator as player", () => {
       const gameState: GameState = {
-        blueTeamPoints: 9,
-        redTeamPoints: 8,
+        sapphirePoints: 9,
+        rubyPoints: 8,
         currentTeam: Team.SAPPHIRE,
-        participants: [],
+        players: [],
         maxPlayers: 4,
         password: "password",
         wordsPacks: [],
-        blueTeamPlayers: 0,
-        redTeamPlayers: 0,
+        sapphirePlayers: 0,
+        rubyPlayers: 0,
         currentTime: 0,
         turnTime: 0,
         words: [],
@@ -70,13 +70,13 @@ describe("Game Handler Unit Tests", () => {
 
       expect(gameCreationSpy).toHaveBeenCalledWith(
         gameState.password,
-        joinPayload.maxPlayers
+        joinPayload.maxPlayers,
       );
       expect(
-        createdGame.blueTeamPlayers > 0 || createdGame.redTeamPlayers > 0
+        createdGame.sapphirePlayers > 0 || createdGame.rubyPlayers > 0,
       ).toBeTruthy();
-      createdGame.participants.forEach((participant) => {
-        expect(participant.id).toEqual("socketId");
+      createdGame.players.forEach((player) => {
+        expect(player.id).toEqual("socketId");
       });
       expect(handlerTest.rooms.get(joinPayload.room)).toEqual(createdGame);
     });
@@ -88,15 +88,15 @@ describe("Game Handler Unit Tests", () => {
     });
     it("should generate join token", () => {
       const gameState: GameState = {
-        blueTeamPoints: 9,
-        redTeamPoints: 8,
+        sapphirePoints: 9,
+        rubyPoints: 8,
         currentTeam: Team.SAPPHIRE,
-        participants: [],
+        players: [],
         maxPlayers: 4,
         password: "password",
         wordsPacks: [],
-        blueTeamPlayers: 0,
-        redTeamPlayers: 0,
+        sapphirePlayers: 0,
+        rubyPlayers: 0,
         currentTime: 0,
         turnTime: 0,
         words: [],
@@ -128,15 +128,15 @@ describe("Game Handler Unit Tests", () => {
 
     it("should throw error when password is incorrect", () => {
       const gameState: GameState = {
-        blueTeamPoints: 9,
-        redTeamPoints: 8,
+        sapphirePoints: 9,
+        rubyPoints: 8,
         currentTeam: Team.SAPPHIRE,
-        participants: [],
+        players: [],
         maxPlayers: 4,
         password: "password",
         wordsPacks: [],
-        blueTeamPlayers: 0,
-        redTeamPlayers: 0,
+        sapphirePlayers: 0,
+        rubyPlayers: 0,
         currentTime: 0,
         turnTime: 0,
         words: [],
@@ -157,25 +157,25 @@ describe("Game Handler Unit Tests", () => {
     });
 
     it("should throw error when room is full", () => {
-      const participants: Participant[] = [];
+      const players: Player[] = [];
       for (let i = 0; i < 8; i++) {
-        participants[i] = {
+        players[i] = {
           id: "playerid",
           nick: "player",
-          role: Role.OPERATIVE,
+          role: Role.JEMOLOGIST,
           team: Team.SAPPHIRE,
         };
       }
       const gameState: GameState = {
-        blueTeamPoints: 9,
-        redTeamPoints: 8,
+        sapphirePoints: 9,
+        rubyPoints: 8,
         currentTeam: Team.SAPPHIRE,
-        participants,
+        players,
         maxPlayers: 4,
         password: "password",
         wordsPacks: [],
-        blueTeamPlayers: 0,
-        redTeamPlayers: 0,
+        sapphirePlayers: 0,
+        rubyPlayers: 0,
         currentTime: 0,
         turnTime: 0,
         words: [],
@@ -197,15 +197,15 @@ describe("Game Handler Unit Tests", () => {
 
     it("should throw error when nick is taken", () => {
       const gameState: GameState = {
-        blueTeamPoints: 9,
-        redTeamPoints: 8,
+        sapphirePoints: 9,
+        rubyPoints: 8,
         currentTeam: Team.SAPPHIRE,
-        participants: [],
+        players: [],
         maxPlayers: 4,
         password: "password",
         wordsPacks: [],
-        blueTeamPlayers: 0,
-        redTeamPlayers: 0,
+        sapphirePlayers: 0,
+        rubyPlayers: 0,
         currentTime: 0,
         turnTime: 0,
         words: [],
@@ -239,7 +239,7 @@ describe("Game Handler Unit Tests", () => {
       const socketId = "socketId";
 
       expect(() => handler.onJoinGame(socketId, joinPayload)).toThrow(
-        NOT_FOUND
+        NOT_FOUND,
       );
     });
 
@@ -259,21 +259,21 @@ describe("Game Handler Unit Tests", () => {
       handler.onCreateGame(socketId, createPayload);
 
       expect(() => handler.onJoinGame(socketId, joinPayload)).toThrow(
-        NOT_FOUND
+        NOT_FOUND,
       );
     });
 
     it("should join game", () => {
       const gameState: GameState = {
-        blueTeamPoints: 9,
-        redTeamPoints: 8,
+        sapphirePoints: 9,
+        rubyPoints: 8,
         currentTeam: Team.SAPPHIRE,
-        participants: [],
+        players: [],
         maxPlayers: 4,
         password: "password",
         wordsPacks: [],
-        blueTeamPlayers: 0,
-        redTeamPlayers: 0,
+        sapphirePlayers: 0,
+        rubyPlayers: 0,
         currentTime: 0,
         turnTime: 0,
         words: [],
@@ -297,11 +297,11 @@ describe("Game Handler Unit Tests", () => {
 
       const joinEvent = handler.onJoinGame(socketId, joinPayload);
 
-      const player = joinEvent.state.participants.find(
-        (participant) => participant.id === joinEvent.joined.id
+      const player = joinEvent.state.players.find(
+        (player) => player.id === joinEvent.joined.id,
       );
       expect(
-        joinEvent.state.redTeamPlayers && joinEvent.state.blueTeamPlayers
+        joinEvent.state.rubyPlayers && joinEvent.state.sapphirePlayers,
       ).toBeTruthy();
       expect(player).toBeTruthy();
     });
@@ -313,16 +313,16 @@ describe("Game Handler Unit Tests", () => {
     });
     it("should return new game and clear timer", () => {
       const gameState: GameState = {
-        blueTeamPoints: 9,
-        redTeamPoints: 8,
+        sapphirePoints: 9,
+        rubyPoints: 8,
         currentTeam: Team.SAPPHIRE,
-        participants: [],
+        players: [],
         maxPlayers: 4,
         password: "password",
         wordsPacks: [],
         turnInterval: setInterval(() => {}, 1000),
-        blueTeamPlayers: 0,
-        redTeamPlayers: 0,
+        sapphirePlayers: 0,
+        rubyPlayers: 0,
         currentTime: 0,
         turnTime: 0,
         words: [],
@@ -353,15 +353,15 @@ describe("Game Handler Unit Tests", () => {
 
     it("should return null when word does not exist", () => {
       const gameState: GameState = {
-        blueTeamPoints: 9,
-        redTeamPoints: 8,
+        sapphirePoints: 9,
+        rubyPoints: 8,
         currentTeam: Team.SAPPHIRE,
-        participants: [],
+        players: [],
         maxPlayers: 4,
         password: "password",
         wordsPacks: [],
-        blueTeamPlayers: 0,
-        redTeamPlayers: 0,
+        sapphirePlayers: 0,
+        rubyPlayers: 0,
         currentTime: 0,
         turnTime: 0,
         words: [],
@@ -385,15 +385,15 @@ describe("Game Handler Unit Tests", () => {
     it("should return null when word already selected", () => {
       const wordIndex = 0;
       const gameState: GameState = {
-        blueTeamPoints: 9,
-        redTeamPoints: 8,
+        sapphirePoints: 9,
+        rubyPoints: 8,
         currentTeam: Team.SAPPHIRE,
-        participants: [],
+        players: [],
         maxPlayers: 4,
         password: "password",
         wordsPacks: [],
-        blueTeamPlayers: 0,
-        redTeamPlayers: 0,
+        sapphirePlayers: 0,
+        rubyPlayers: 0,
         currentTime: 0,
         turnTime: 0,
         words: [
@@ -401,7 +401,7 @@ describe("Game Handler Unit Tests", () => {
             content: "content",
             index: wordIndex,
             selected: true,
-            type: WordType.BLUE,
+            type: WordType.SAPPHIRE,
           },
         ],
       };
@@ -425,15 +425,15 @@ describe("Game Handler Unit Tests", () => {
       const wordIndex = 0;
       const currentTeam = Team.SAPPHIRE;
       const gameState: GameState = {
-        blueTeamPoints: 9,
-        redTeamPoints: 8,
+        sapphirePoints: 9,
+        rubyPoints: 8,
         currentTeam: currentTeam,
-        participants: [],
+        players: [],
         maxPlayers: 4,
         password: "password",
         wordsPacks: [],
-        blueTeamPlayers: 0,
-        redTeamPlayers: 0,
+        sapphirePlayers: 0,
+        rubyPlayers: 0,
         currentTime: 0,
         turnTime: 0,
         words: [
@@ -441,7 +441,7 @@ describe("Game Handler Unit Tests", () => {
             content: "content",
             index: wordIndex,
             selected: false,
-            type: WordType.BLUE,
+            type: WordType.SAPPHIRE,
           },
         ],
       };
@@ -456,7 +456,7 @@ describe("Game Handler Unit Tests", () => {
 
       const game = handler.onCreateGame(socketId, createPayload);
 
-      game.participants[0].team = Team.RUBY;
+      game.players[0].team = Team.RUBY;
 
       const word = handler.onWordClick(wordIndex, socketId, createPayload.room);
 

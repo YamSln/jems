@@ -1,4 +1,4 @@
-import { WordType } from "./word.type";
+import { WordType } from '../../../../model/word.type';
 
 export interface Word {
   index: number;

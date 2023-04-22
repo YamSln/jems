@@ -1,9 +1,9 @@
 import { server } from "./app";
 import log from "./config/log";
-import { serverConfig } from "./config/server-config";
+import serverConfig from "./config/server-config";
 
 const REQUESTOR = "SERVER";
-const port = serverConfig.server.port;
+const port = serverConfig.port;
 const serverVersion = process.env.npm_package_version;
 
 server.listen(port, () => {

@@ -20,7 +20,8 @@ import { Subscription } from 'rxjs';
   ],
 })
 export class PasswordFieldComponent
-  implements ControlValueAccessor, OnInit, OnDestroy {
+  implements ControlValueAccessor, OnInit, OnDestroy
+{
   passwordControl: FormControl;
   passwordSubscription!: Subscription;
   hide: boolean = true;
@@ -35,8 +36,15 @@ export class PasswordFieldComponent
 
   ngOnInit(): void {
     this.required // Register required validator depending on required status
-      ? this.passwordControl.setValidators([Validators.required])
-      : null;
+      ? this.passwordControl.setValidators([
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(10),
+        ])
+      : this.passwordControl.setValidators([
+          Validators.minLength(3),
+          Validators.maxLength(10),
+        ]);
     // Subscribe to changes of the password field and call on change method to set the value
     this.passwordSubscription = this.passwordControl.valueChanges.subscribe(
       (value) => {

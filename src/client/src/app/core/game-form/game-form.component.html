@@ -36,10 +36,10 @@
           <mat-error *ngIf="gameForm.controls['nick'].hasError('required')">
             Nick is <b>required</b>
           </mat-error>
-          <mat-error *ngIf="gameForm.controls['nick'].hasError('minLength')">
+          <mat-error *ngIf="gameForm.controls['nick'].hasError('minlength')">
             Nick must contain at least 2 characters
           </mat-error>
-          <mat-error *ngIf="gameForm.controls['nick'].hasError('maxLength')">
+          <mat-error *ngIf="gameForm.controls['nick'].hasError('maxlength')">
             Nick cannot contain more than 15 characters
           </mat-error>
         </mat-form-field>

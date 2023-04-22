@@ -12,8 +12,8 @@
     <span
       style="margin-bottom: 5px; font-weight: 550"
       [ngClass]="{
-        'raw-red': currentTeam === team.RUBY,
-        'raw-blue': currentTeam === team.SAPPHIRE
+        sapphire: currentTeam === team.SAPPHIRE,
+        ruby: currentTeam === team.RUBY
       }"
       >Team {{ currentTeam === team.RUBY ? "Ruby" : "Sapphire" }} is
       Playing</span
@@ -29,50 +29,50 @@
   >
     <!-- Ruby Players -->
     <div class="team" fxLayout="column" fxLayoutAlign="center start">
-      <span *ngFor="let participant of participants">
+      <span *ngFor="let player of players">
         <span
           class="player"
-          *ngIf="participant.team === team.RUBY"
-          [matTooltip]="participant.nick"
+          *ngIf="player.team === team.RUBY"
+          [matTooltip]="player.nick"
           appTruncatedTooltip
         >
           <mat-icon
             style="position: absolute; left: 5%"
             color="warn"
             matSuffix
-            *ngIf="participant.role === role.SPY_MASTER"
+            *ngIf="player.role === role.JEM_MASTER"
             >zoom_in</mat-icon
           >
           <span
-            class="raw-red"
-            [ngClass]="{ 'player-self': playerId === participant.id }"
+            class="ruby"
+            [ngClass]="{ 'player-self': playerId === player.id }"
           >
-            {{ participant.nick }}
+            {{ player.nick }}
           </span>
         </span>
       </span>
     </div>
     <!-- Sapphire Players -->
     <div class="team" fxLayout="column" fxLayoutAlign="center start">
-      <span *ngFor="let participant of participants">
+      <span *ngFor="let player of players">
         <span
           class="player"
-          *ngIf="participant.team === team.SAPPHIRE"
-          [matTooltip]="participant.nick"
+          *ngIf="player.team === team.SAPPHIRE"
+          [matTooltip]="player.nick"
           appTruncatedTooltip
         >
           <mat-icon
             style="position: absolute; left: 48%"
             color="primary"
             matSuffix
-            *ngIf="participant.role === role.SPY_MASTER"
+            *ngIf="player.role === role.JEM_MASTER"
             >zoom_in</mat-icon
           >
           <span
-            class="raw-blue"
-            [ngClass]="{ 'player-self': playerId === participant.id }"
+            class="sapphire"
+            [ngClass]="{ 'player-self': playerId === player.id }"
           >
-            {{ participant.nick }}
+            {{ player.nick }}
           </span>
         </span>
       </span>
@@ -98,10 +98,10 @@
       [(ngModel)]="playerRole"
       (change)="changePlayerRole()"
     >
-      <mat-button-toggle [value]="role.OPERATIVE">
+      <mat-button-toggle [value]="role.JEMOLOGIST">
         Jemologist
       </mat-button-toggle>
-      <mat-button-toggle [value]="role.SPY_MASTER">
+      <mat-button-toggle [value]="role.JEM_MASTER">
         Jem-Master
       </mat-button-toggle>
     </mat-button-toggle-group>
@@ -111,7 +111,7 @@
     style="margin-bottom: 20px"
     mat-raised-button
     [color]="playerTeam === team.SAPPHIRE ? 'primary' : 'warn'"
-    [disabled]="playerRole === role.SPY_MASTER || playerTeam !== currentTeam"
+    [disabled]="playerRole === role.JEM_MASTER || playerTeam !== currentTeam"
     (click)="endTurn()"
   >
     End Turn
@@ -120,7 +120,7 @@
   <div class="wordsPacksList">
     <div
       class="wordsPack"
-      [ngClass]="{ 'raw-blue selected': wordsPack.selected }"
+      [ngClass]="{ 'sapphire selected': wordsPack.selected }"
       (click)="selectWordsPack(wordsPack)"
       *ngFor="let wordsPack of wordsPacks"
     >

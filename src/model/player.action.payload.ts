@@ -1,6 +1,6 @@
-import { Participant } from "./participant.model";
+import { Player } from "./player.model";
 
 export interface PlayerAction {
   nick: string;
-  updatedPlayers: Participant[];
+  updatedPlayers: Player[];
 }

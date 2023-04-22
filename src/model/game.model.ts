@@ -1,18 +1,18 @@
-import { Participant } from "./participant.model";
+import { Player } from "./player.model";
 import { Team } from "./team.model";
 import { Word } from "./word.model";
 import { WordsPack } from "./words-pack.model";
 
 export interface Game {
   roomId?: string;
-  participants: Participant[];
-  blueTeamPlayers: number;
-  redTeamPlayers: number;
+  players: Player[];
+  sapphirePlayers: number;
+  rubyPlayers: number;
   words: Word[];
   wordsPacks: WordsPack[];
   currentTeam: Team;
-  blueTeamPoints: number;
-  redTeamPoints: number;
+  sapphirePoints: number;
+  rubyPoints: number;
   turnTime: number;
   currentTime: number;
   maxPlayers: number;

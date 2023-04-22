@@ -18,7 +18,7 @@
       <app-action-board
         style="margin-top: 10px"
         [currentTeam]="game.currentTeam"
-        [participants]="game.participants"
+        [players]="game.players"
         [playerId]="game.playerId"
         [playerTeam]="game.playerTeam"
         [playerRole]="game.playerRole"
@@ -52,7 +52,7 @@
           <mat-card fxHide.lt-sm="true"
             ><app-action-board
               [currentTeam]="game.currentTeam"
-              [participants]="game.participants"
+              [players]="game.players"
               [playerId]="game.playerId"
               [playerTeam]="game.playerTeam"
               [playerRole]="game.playerRole"
@@ -77,7 +77,7 @@
           <app-game-board
             [words]="game.words"
             [winningTeam]="game.winningTeam"
-            [hideColors]="game.playerRole === role.OPERATIVE"
+            [hideColors]="game.playerRole === role.JEMOLOGIST"
             (wordClicked)="onWordClicked($event)"
           ></app-game-board>
           <app-action-buttons style="margin: 10px"></app-action-buttons>
@@ -91,8 +91,8 @@
     <div
       *ngIf="game.winningTeam"
       [ngClass]="{
-        'raw-blue': game.winningTeam === team.SAPPHIRE,
-        'raw-red': game.winningTeam === team.RUBY
+        sapphire: game.winningTeam === team.SAPPHIRE,
+        ruby: game.winningTeam === team.RUBY
       }"
       [ngStyle.xs]="{ width: '80%' }"
       [ngStyle.sm]="{ width: '50%' }"
@@ -113,7 +113,7 @@
   <!-- Score and Timer -->
   <ng-template #score>
     <div fxLayout="row" fxLayoutAlign="space-between center">
-      <mat-label class="raw-blue">{{ game.blueTeamPoints }}</mat-label>
+      <mat-label class="sapphire">{{ game.sapphirePoints }}</mat-label>
       <app-timer
         *ngIf="game.turnTime"
         [@flipInXOnEnter]
@@ -122,7 +122,7 @@
         [display]="!!game.turnTime"
         [time]="game.currentTime"
       ></app-timer>
-      <mat-label class="raw-red">{{ game.redTeamPoints }}</mat-label>
+      <mat-label class="ruby">{{ game.rubyPoints }}</mat-label>
     </div>
   </ng-template>
 </mat-drawer-container>

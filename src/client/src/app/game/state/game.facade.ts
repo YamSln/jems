@@ -4,10 +4,10 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { CreateGamePayload } from 'src/app/model/create-game.payload';
 import { JoinGamePayload } from 'src/app/model/join-game.payload';
-import { Participant } from 'src/app/model/participant.model';
-import { PlayerAction } from 'src/app/model/player.action.payload';
-import { Team } from 'src/app/model/team.model';
-import { WordClicked } from 'src/app/model/word.clicked.mode';
+import { Player } from '../../../../../model/player.model';
+import { PlayerAction } from '../../../../../model/player.action.payload';
+import { Team } from '../../../../../model/team.model';
+import { WordClicked } from '../../../../../model/word.clicked.payload';
 import { displayPlayerAction } from 'src/app/shared/state/shared.action';
 import {
   turnChange,
@@ -145,12 +145,12 @@ export class GameFacade {
     this.store.dispatch(playerTeamChanged());
   }
 
-  gameLoaded(game: GameState, room: string, player: Participant): void {
+  gameLoaded(game: GameState, room: string, player: Player): void {
     this.navigateToGame();
     this.store.dispatch(createGameSuccess({ game, room, player }));
   }
 
-  gameReceived(game: GameState, room: string, player: Participant): void {
+  gameReceived(game: GameState, room: string, player: Player): void {
     this.navigateToGame();
     this.store.dispatch(joinGameSuccess({ game, room, player }));
   }

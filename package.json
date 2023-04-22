@@ -22,7 +22,6 @@
   "author": "Jam",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-validator": "^6.9.0",
     "jsonwebtoken": "^8.5.1",
@@ -31,7 +30,6 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.10",
     "@types/express": "^4.17.11",
     "@types/jest": "^26.0.24",
     "@types/jsonwebtoken": "^8.5.1",

@@ -7,9 +7,9 @@ import {
 } from 'angular-animations';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Participant } from '../model/participant.model';
-import { Role } from '../model/role.model';
-import { Team } from '../model/team.model';
+import { Player } from '../../../../model/player.model';
+import { Role } from '../../../../model/role.model';
+import { Team } from '../../../../model/team.model';
 import { SharedFacade } from '../shared/state/shared.facade';
 import { GameFacade } from './state/game.facade';
 import { GameState } from './state/game.state';
@@ -29,7 +29,7 @@ export class GameComponent implements OnInit {
   version: string = environment.version;
   gameState!: Observable<GameState>;
   isMenuOpen!: Observable<boolean>;
-  user!: Participant;
+  player!: Player;
   role = Role;
   team = Team;
 

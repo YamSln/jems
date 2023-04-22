@@ -7,7 +7,7 @@ import {
   Output,
 } from '@angular/core';
 import { Word } from 'src/app/model/word.model';
-import { WordType } from 'src/app/model/word.type';
+import { WordType } from '../../../../../model/word.type';
 
 @Component({
   selector: 'app-word',

@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "jems-web-client"
+  "defaultProject": "jems-web-client",
+  "cli": {
+    "analytics": false
+  }
 }

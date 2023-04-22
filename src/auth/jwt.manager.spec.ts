@@ -11,7 +11,7 @@ describe("JWT Manager Unit Tests", () => {
     let publicKey;
 
     beforeAll(() => {
-      publicKey = env.devEnv()
+      publicKey = env.DEV_ENV
         ? fs.readFileSync("public.key", "utf8")
         : process.env.PUBLIC_KEY;
     });
@@ -127,7 +127,7 @@ describe("JWT Manager Unit Tests", () => {
       expect(socket.handshake.auth.nick).toEqual(createPayload.nick);
       expect(socket.handshake.auth.password).toEqual(createPayload.password);
       expect(socket.handshake.auth.maxPlayers).toEqual(
-        createPayload.maxPlayers
+        createPayload.maxPlayers,
       );
       expect(next).toHaveBeenCalled();
       expect(next).not.toHaveBeenCalledWith(new Error(FORBIDDEN));

@@ -7,7 +7,7 @@ import {
   Output,
   AfterViewInit,
 } from '@angular/core';
-import { Team } from 'src/app/model/team.model';
+import { Team } from '../../../../../model/team.model';
 import { Word } from 'src/app/model/word.model';
 import { flipInYOnEnterAnimation } from 'angular-animations';
 

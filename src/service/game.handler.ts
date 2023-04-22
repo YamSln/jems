@@ -1,7 +1,7 @@
 import { Game, GameState } from "../model/game.model";
 import { v4 as uuidv4 } from "uuid";
 import service from "./game.service";
-import { Participant } from "../model/participant.model";
+import { Player } from "../model/player.model";
 import { Role } from "../model/role.model";
 import { JoinPayload } from "../model/join.payload";
 import { JoinEvent } from "../event/join.event";
@@ -28,7 +28,7 @@ const rooms: Map<string, GameState> = new Map<string, GameState>();
 const createGame = (
   nick: string,
   password: string,
-  maxPlayers: number
+  maxPlayers: number,
 ): string => {
   const room = uuidv4();
   return jwt.generateJwt({
@@ -44,10 +44,10 @@ const joinGame = (joinPayload: JoinPayload): string => {
   if (state.password !== joinPayload.password) {
     throw new Error(INCORRECT_PASSWORD);
   } // Verify room has more slots
-  if (state.participants.length >= state.maxPlayers) {
+  if (state.players.length >= state.maxPlayers) {
     throw new Error(ROOM_FULL);
   } // Check nick availability
-  for (let player of state.participants) {
+  for (let player of state.players) {
     if (player.nick === joinPayload.nick) {
       throw new Error(NICK_TAKEN);
     }
@@ -57,21 +57,21 @@ const joinGame = (joinPayload: JoinPayload): string => {
 
 const onCreateGame = (
   socketId: string,
-  joinPayload: CreateGamePayload
+  joinPayload: CreateGamePayload,
 ): Game => {
   const state = service.createGame(
     joinPayload.password,
-    joinPayload.maxPlayers
+    joinPayload.maxPlayers,
   );
-  const newParticipant: Participant = {
+  const newPlayer: Player = {
     id: socketId,
     nick: joinPayload.nick,
     team: service.getRandomTeam(),
-    role: Role.OPERATIVE,
+    role: Role.JEMOLOGIST,
   };
   // Add the creator to the game and increase players count
-  state.participants.push(newParticipant);
-  changePlayersCount(newParticipant, state);
+  state.players.push(newPlayer);
+  changePlayersCount(newPlayer, state);
   rooms.set(joinPayload.room, state);
   log.info(REQUESTOR, `Room ${joinPayload.room} created`);
   const { password, turnInterval, ...game } = state;
@@ -84,22 +84,22 @@ const onJoinGame = (socketId: string, joinPayload: JoinPayload): JoinEvent => {
   if (!state || state.password !== joinPayload.password) {
     throw new Error(NOT_FOUND);
   }
-  // Create participant
-  const newParticipant: Participant = {
+  // Create player
+  const newPlayer: Player = {
     id: socketId,
     nick: joinPayload.nick,
     team: service.assignTeam(
-      state.participants.length,
-      state.blueTeamPlayers,
-      state.redTeamPlayers
+      state.players.length,
+      state.sapphirePlayers,
+      state.rubyPlayers,
     ),
-    role: Role.OPERATIVE,
+    role: Role.JEMOLOGIST,
   };
   // Add joined player to the game and increase players count
-  state.participants.push(newParticipant);
-  changePlayersCount(newParticipant, state);
+  state.players.push(newPlayer);
+  changePlayersCount(newPlayer, state);
   const { password, turnInterval, ...game } = state;
-  return { state: game, joined: newParticipant };
+  return { state: game, joined: newPlayer };
 };
 
 const onNewGame = (room: string): Game => {
@@ -117,7 +117,7 @@ const onNewGame = (room: string): Game => {
 const onWordClick = (
   wordIndex: number,
   socketId: string,
-  room: string
+  room: string,
 ): WordClicked | null => {
   const state = getGame(room);
   const word = state.words[wordIndex];
@@ -126,9 +126,9 @@ const onWordClick = (
     !word ||
     word.selected || // Check if word is already selected
     player.team !== state.currentTeam || // Check if clicking player is in current selecting team
-    player.role !== Role.OPERATIVE || // Check if selecting player is operative
-    state.blueTeamPoints === 0 || // Either of the points is 0
-    state.redTeamPoints === 0 ||
+    player.role !== Role.JEMOLOGIST || // Check if selecting player is jemologist
+    state.sapphirePoints === 0 || // Either of the points is 0
+    state.rubyPoints === 0 ||
     state.winningTeam
   ) {
     return null;
@@ -137,14 +137,14 @@ const onWordClick = (
   word.selected = true;
 
   switch (word.type) {
-    case WordType.BLUE:
-      state.blueTeamPoints -= 1;
+    case WordType.SAPPHIRE:
+      state.sapphirePoints -= 1;
       if (player.team !== Team.SAPPHIRE) {
         changeTurn(state);
       }
       break;
-    case WordType.RED:
-      state.redTeamPoints -= 1;
+    case WordType.RUBY:
+      state.rubyPoints -= 1;
       if (player.team !== Team.RUBY) {
         changeTurn(state);
       }
@@ -157,9 +157,9 @@ const onWordClick = (
       winGame(state, winningTeam);
       return { wordIndex, winningTeam };
   } // Check if game was won after current operation
-  const gameWon = state.blueTeamPoints === 0 || state.redTeamPoints === 0;
+  const gameWon = state.sapphirePoints === 0 || state.rubyPoints === 0;
   if (gameWon) {
-    const winningTeam = state.blueTeamPoints === 0 ? Team.SAPPHIRE : Team.RUBY;
+    const winningTeam = state.sapphirePoints === 0 ? Team.SAPPHIRE : Team.RUBY;
     winGame(state, winningTeam);
     return { wordIndex, winningTeam };
   }
@@ -182,10 +182,10 @@ const onTeamChange = (socketId: string, room: string): string => {
   const state = getGame(room);
   const player = getPlayer(socketId, state);
   if (player.team === Team.SAPPHIRE) {
-    if (state.redTeamPlayers >= MAXIMUM_MAX_PLAYERS / 2 + 1) {
+    if (state.rubyPlayers >= MAXIMUM_MAX_PLAYERS / 2 + 1) {
       throw new Error(TEAM_FULL);
     }
-  } else if (state.blueTeamPlayers >= MAXIMUM_MAX_PLAYERS / 2 + 1) {
+  } else if (state.sapphirePlayers >= MAXIMUM_MAX_PLAYERS / 2 + 1) {
     throw new Error(TEAM_FULL);
   }
   player.team = otherTeam(player.team);
@@ -218,7 +218,7 @@ const onTimerSet = (room: string, timeSpan: number, io: any): number => {
 const onEndTurn = (socketId: string, room: string): Team | null => {
   const state = getGame(room);
   const player = getPlayer(socketId, state);
-  if (player.team !== state.currentTeam || player.role === Role.SPY_MASTER) {
+  if (player.team !== state.currentTeam || player.role === Role.JEM_MASTER) {
     return null;
   }
   return changeTurn(state);
@@ -236,19 +236,17 @@ const clearTimer = (state: GameState, erase: boolean = false): void => {
 
 const onDisconnectGame = (
   socketId: string,
-  room: string
+  room: string,
 ): PlayerAction | null => {
   const game = rooms.get(room);
   if (game) {
-    const index = game.participants.findIndex(
-      (participant) => participant.id === socketId
-    ); // Find and remove participant, decrease players count
+    const index = game.players.findIndex((player) => player.id === socketId); // Find and remove player, decrease players count
     if (index !== -1) {
-      const player = game.participants[index];
-      game.participants.splice(index, 1);
+      const player = game.players[index];
+      game.players.splice(index, 1);
       changePlayersCount(player, game, true);
-      if (game.participants.length === 0) {
-        // Remove game upon 0 participants
+      if (game.players.length === 0) {
+        // Remove game upon 0 players
         clearTimer(game, true);
         rooms.delete(room);
         log.info(REQUESTOR, `Room ${room} removed`);
@@ -256,7 +254,7 @@ const onDisconnectGame = (
       }
       return {
         nick: player.nick,
-        updatedPlayers: Array.from(game.participants),
+        updatedPlayers: Array.from(game.players),
       };
     }
   }
@@ -280,10 +278,8 @@ const getGame = (room: string): GameState => {
   return state;
 };
 
-const getPlayer = (playerId: string, game: GameState): Participant => {
-  const player = game.participants.find(
-    (participant) => participant.id === playerId
-  );
+const getPlayer = (playerId: string, game: GameState): Player => {
+  const player = game.players.find((player) => player.id === playerId);
   if (!player) {
     throw new Error(NOT_FOUND);
   }
@@ -295,21 +291,21 @@ const otherTeam = (team: Team): Team => {
 };
 
 const otherRole = (role: Role): Role => {
-  return role === Role.OPERATIVE ? Role.SPY_MASTER : Role.OPERATIVE;
+  return role === Role.JEMOLOGIST ? Role.JEM_MASTER : Role.JEMOLOGIST;
 };
 
 const changePlayersCount = (
-  player: Participant,
+  player: Player,
   game: GameState,
   decrease: boolean = false,
-  teamChange: boolean = false
+  teamChange: boolean = false,
 ): void => {
   if (player.team === Team.SAPPHIRE) {
-    decrease ? game.blueTeamPlayers-- : game.blueTeamPlayers++;
-    teamChange ? game.redTeamPlayers-- : undefined;
+    decrease ? game.sapphirePlayers-- : game.sapphirePlayers++;
+    teamChange ? game.rubyPlayers-- : undefined;
   } else {
-    decrease ? game.redTeamPlayers-- : game.redTeamPlayers++;
-    teamChange ? game.blueTeamPlayers-- : undefined;
+    decrease ? game.rubyPlayers-- : game.rubyPlayers++;
+    teamChange ? game.sapphirePlayers-- : undefined;
   }
 };
 

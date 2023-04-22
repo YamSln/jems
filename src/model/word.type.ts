@@ -1,6 +1,6 @@
 export enum WordType {
-  BLUE = "BLUE",
-  RED = "RED",
+  SAPPHIRE = "SAPPHIRE",
+  RUBY = "RUBY",
   BOMB = "BOMB",
   NEUTRAL = "NEUTRAL",
 }

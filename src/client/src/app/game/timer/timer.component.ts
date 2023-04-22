@@ -7,7 +7,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { headShakeAnimation } from 'angular-animations';
-import { Team } from 'src/app/model/team.model';
+import { Team } from '../../../../../model/team.model';
 
 @Component({
   selector: 'app-timer',

@@ -1,4 +1,4 @@
-@use '../../../theme.scss' as theme;
+@use "../../../theme.scss" as theme;
 
 .word-container {
   border-radius: 15%;
@@ -7,22 +7,22 @@
   color: theme.$black;
 }
 
-.blue-word {
-  background-color:theme.$primary-color;
+.sapphire-word {
+  background-color: theme.$primary-color;
   opacity: 0.5;
 }
 
-.blue-word-selected {
+.sapphire-word-selected {
   transition: all 0.3s ease-out;
   background-color: theme.$primary-color;
 }
 
-.red-word {
+.ruby-word {
   background-color: theme.$warn-color;
   opacity: 0.5;
 }
 
-.red-word-selected {
+.ruby-word-selected {
   background-color: theme.$warn-color;
   animation: redFadeIn 0.3s;
 }

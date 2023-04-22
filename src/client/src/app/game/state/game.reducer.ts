@@ -1,9 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
-import { Participant } from '../../model/participant.model';
-import { Role } from '../../model/role.model';
-import { Team } from '../../model/team.model';
+import { Player } from '../../../../../model/player.model';
+import { Role } from '../../../../../model/role.model';
+import { Team } from '../../../../../model/team.model';
 import { Word } from '../../model/word.model';
-import { WordType } from '../../model/word.type';
+import { WordType } from '../../../../../model/word.type';
 import {
   turnChange,
   clearState,
@@ -43,24 +43,24 @@ const _gameReducer = createReducer(
     };
   }),
   on(playerJoinedGame, (state: GameState, action: any): GameState => {
-    return { ...state, participants: action.players };
+    return { ...state, players: action.players };
   }),
   on(wordClickedSuccess, (state: GameState, action: any): GameState => {
     const clickedWord: Word = state.words[action.wordIndex];
     switch (clickedWord.type) {
-      case WordType.BLUE:
+      case WordType.SAPPHIRE:
         state = {
           ...state,
-          blueTeamPoints: state.blueTeamPoints - 1,
+          sapphirePoints: state.sapphirePoints - 1,
         };
         if (state.currentTeam !== Team.SAPPHIRE) {
           state = changeTurn(state);
         }
         break;
-      case WordType.RED:
+      case WordType.RUBY:
         state = {
           ...state,
-          redTeamPoints: state.redTeamPoints - 1,
+          rubyPoints: state.rubyPoints - 1,
         };
         if (state.currentTeam !== Team.RUBY) {
           state = changeTurn(state);
@@ -88,14 +88,13 @@ const _gameReducer = createReducer(
   on(teamChangedSuccess, (state: GameState, action: any): GameState => {
     return {
       ...state,
-      participants: state.participants.map((participant) =>
-        participant.id == action.player
+      players: state.players.map((player) =>
+        player.id == action.player
           ? {
-              ...participant,
-              team:
-                participant.team === Team.SAPPHIRE ? Team.RUBY : Team.SAPPHIRE,
+              ...player,
+              team: player.team === Team.SAPPHIRE ? Team.RUBY : Team.SAPPHIRE,
             }
-          : participant
+          : player
       ),
     };
   }),
@@ -112,16 +111,16 @@ const _gameReducer = createReducer(
   on(roleChangedSuccess, (state: GameState, action: any): GameState => {
     return {
       ...state,
-      participants: state.participants.map((participant) =>
-        participant.id == action.player
+      players: state.players.map((player) =>
+        player.id == action.player
           ? {
-              ...participant,
+              ...player,
               role:
-                participant.role === Role.OPERATIVE
-                  ? Role.SPY_MASTER
-                  : Role.OPERATIVE,
+                player.role === Role.JEMOLOGIST
+                  ? Role.JEM_MASTER
+                  : Role.JEMOLOGIST,
             }
-          : participant
+          : player
       ),
     };
   }),
@@ -129,7 +128,9 @@ const _gameReducer = createReducer(
     return {
       ...state,
       playerRole:
-        state.playerRole === Role.OPERATIVE ? Role.SPY_MASTER : Role.OPERATIVE,
+        state.playerRole === Role.JEMOLOGIST
+          ? Role.JEM_MASTER
+          : Role.JEMOLOGIST,
     };
   }),
   on(timeChangedSuccess, (state: GameState, action: any): GameState => {
@@ -144,18 +145,18 @@ const _gameReducer = createReducer(
   }),
   on(newGameSuccess, (state: GameState, action: any): GameState => {
     const game: GameState = action.game;
-    const player = game.participants.find(
-      (player: Participant) => player.id == state.playerId
+    const player = game.players.find(
+      (player: Player) => player.id == state.playerId
     );
     return {
       ...game,
       playerId: player ? player.id : '',
-      playerRole: player ? player.role : Role.OPERATIVE,
+      playerRole: player ? player.role : Role.JEMOLOGIST,
       playerTeam: player ? player.team : Team.SAPPHIRE,
     };
   }),
   on(playerDisconnect, (state: GameState, action: any): GameState => {
-    return { ...state, participants: action.players };
+    return { ...state, players: action.players };
   }),
   on(clearState, (state: GameState, action: any): GameState => {
     return { ...initialState };

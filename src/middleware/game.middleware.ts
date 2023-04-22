@@ -1,31 +1,28 @@
 import { NextFunction, Request, Response } from "express";
 import { JoinPayload } from "../model/join.payload";
 import handler from "../service/game.handler";
+import { HttpStatusCode } from "../util/http-status-code";
 
 const createGame = async (
   request: Request,
   response: Response,
-  next: NextFunction
+  next: NextFunction,
 ): Promise<any> => {
-  // Get create payload
   const { nick, password, maxPlayers } = request.body;
-  // Generate token
   const token = handler.createGame(nick, password, maxPlayers);
-  // Return response
-  return response.status(201).json({ token, maxPlayers: maxPlayers || 4 });
+  return response
+    .status(HttpStatusCode.CREATED)
+    .json({ token, maxPlayers: maxPlayers || 4 });
 };
 
 const joinGame = async (
   request: Request,
   response: Response,
-  next: NextFunction
+  next: NextFunction,
 ): Promise<any> => {
-  // Get join payload
   const joinPayload: JoinPayload = request.body;
-  // Generate token
   const token = handler.joinGame(joinPayload);
-  // Return response
-  return response.status(200).json(token);
+  return response.status(HttpStatusCode.OK).json(token);
 };
 
 export default {

@@ -46,7 +46,7 @@ const onConnection = (socket: Socket, io: Server) => {
     const wordClicked: WordClicked | null = handler.onWordClick(
       wordIndex,
       socket.id,
-      room
+      room,
     ); // Emit received event
     if (wordClicked) {
       io.to(room).emit(GameEvent.WORD_CLICK, wordClicked);
@@ -127,11 +127,11 @@ const joinGame = (socket: Socket, joinPayload: JoinPayload) => {
       GameEvent.JOIN_GAME,
       event.state,
       joinPayload.room,
-      event.joined
+      event.joined,
     );
     socket.broadcast.to(joinPayload.room).emit(GameEvent.PLAYER_JOINED, {
       nick: event.joined.nick,
-      updatedPlayers: event.state.participants,
+      updatedPlayers: event.state.players,
     });
   } catch (err: any) {
     handler.onDisconnectGame(socket.id, joinPayload.room);
@@ -142,12 +142,7 @@ const joinGame = (socket: Socket, joinPayload: JoinPayload) => {
 const createGame = (socket: Socket, payload: CreateGamePayload) => {
   try {
     const game: Game = handler.onCreateGame(socket.id, payload);
-    socket.emit(
-      GameEvent.CREATE_GAME,
-      game,
-      payload.room,
-      game.participants[0]
-    );
+    socket.emit(GameEvent.CREATE_GAME, game, payload.room, game.players[0]);
     socket.join(payload.room);
   } catch (err: any) {
     handler.onDisconnectGame(socket.id, payload.room);
@@ -160,7 +155,7 @@ const disconnect = (socket: Socket, message?: string) => {
     sendError(socket, message);
     log.error(
       REQUESTOR,
-      `Client id: ${socket.id} - ${socket.handshake.address} disconnected due to and error - ${message}`
+      `Client id: ${socket.id} - ${socket.handshake.address} disconnected due to and error - ${message}`,
     );
   }
   socket.disconnect(true);

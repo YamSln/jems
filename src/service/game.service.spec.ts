@@ -1,5 +1,5 @@
 import { GameState } from "../model/game.model";
-import { Participant } from "../model/participant.model";
+import { Player } from "../model/player.model";
 import { Role } from "../model/role.model";
 import { Team } from "../model/team.model";
 import { WordType } from "../model/word.type";
@@ -40,17 +40,17 @@ describe("Game Service Unit Tests", () => {
 
       expect(words.length).toEqual(wordsCount);
 
-      let blueWords: number = 0;
-      let redWords: number = 0;
+      let sapphireWords: number = 0;
+      let rubyWords: number = 0;
       let bombs: number = 0;
       let neutralWords: number = 0;
       words.forEach((word) => {
         switch (word.type) {
-          case WordType.BLUE:
-            blueWords++;
+          case WordType.SAPPHIRE:
+            sapphireWords++;
             break;
-          case WordType.RED:
-            redWords++;
+          case WordType.RUBY:
+            rubyWords++;
             break;
           case WordType.BOMB:
             bombs++;
@@ -61,10 +61,12 @@ describe("Game Service Unit Tests", () => {
         }
       });
 
-      expect(blueWords).toEqual(9);
-      expect(redWords).toEqual(8);
+      expect(sapphireWords).toEqual(9);
+      expect(rubyWords).toEqual(8);
       expect(bombs).toEqual(1);
-      expect(neutralWords).toEqual(wordsCount - blueWords - redWords - bombs);
+      expect(neutralWords).toEqual(
+        wordsCount - sapphireWords - rubyWords - bombs,
+      );
       const index = 24;
       expect(words[index].index).toEqual(index);
     });
@@ -87,12 +89,12 @@ describe("Game Service Unit Tests", () => {
       const password = "password";
       const game = service.createGame(password, 4);
 
-      const points = [game.blueTeamPoints, game.redTeamPoints];
+      const points = [game.sapphirePoints, game.rubyPoints];
 
       expect(game).toBeDefined();
       expect(points).toEqual(expect.arrayContaining([8, 9]));
       expect(game.currentTeam).toBeDefined();
-      expect(game.participants).toEqual([]);
+      expect(game.players).toEqual([]);
       expect(game.password).toEqual(password);
       expect(game.turnTime).toEqual(0);
       expect(game.words.length).toEqual(25);
@@ -102,53 +104,50 @@ describe("Game Service Unit Tests", () => {
   describe("New Game", () => {
     it("should create new game", () => {
       const words = service.generateWords(Team.SAPPHIRE);
-      const participants: Participant[] = [
+      const players: Player[] = [
         {
           id: "id",
           nick: "part1",
-          role: Role.SPY_MASTER,
+          role: Role.JEM_MASTER,
           team: Team.SAPPHIRE,
         },
         {
           id: "id",
           nick: "part2",
-          role: Role.SPY_MASTER,
+          role: Role.JEM_MASTER,
           team: Team.RUBY,
         },
         {
           id: "id",
           nick: "part3",
-          role: Role.OPERATIVE,
+          role: Role.JEMOLOGIST,
           team: Team.SAPPHIRE,
         },
         {
           id: "id",
           nick: "part4",
-          role: Role.OPERATIVE,
+          role: Role.JEMOLOGIST,
           team: Team.RUBY,
         },
       ];
       const game: GameState = {
-        blueTeamPoints: 0,
-        redTeamPoints: 0,
+        sapphirePoints: 0,
+        rubyPoints: 0,
         currentTeam: Team.SAPPHIRE,
-        participants,
+        players,
         password: "password",
         turnTime: 0,
         maxPlayers: 4,
         currentTime: 0,
-        blueTeamPlayers: 0,
-        redTeamPlayers: 0,
+        sapphirePlayers: 0,
+        rubyPlayers: 0,
         wordsPacks: [],
         words,
       };
 
       const newGame = service.newGame(game);
 
-      const teamPoints: number[] = [
-        newGame.blueTeamPoints,
-        newGame.redTeamPoints,
-      ];
+      const teamPoints: number[] = [newGame.sapphirePoints, newGame.rubyPoints];
 
       const equalTeams = [Team.SAPPHIRE, Team.SAPPHIRE, Team.RUBY, Team.RUBY];
 
@@ -156,13 +155,13 @@ describe("Game Service Unit Tests", () => {
       expect(newGame.password).toEqual(game.password);
       expect(newGame.currentTeam in Team).toBeTruthy();
       expect(newGame.words.length).toEqual(25);
-      expect(newGame.participants.length).toEqual(game.participants.length);
-      newGame.participants.forEach((participants) => {
-        expect(participants.role).toEqual(Role.OPERATIVE);
+      expect(newGame.players.length).toEqual(game.players.length);
+      newGame.players.forEach((players) => {
+        expect(players.role).toEqual(Role.JEMOLOGIST);
       });
       const teams: Team[] = [];
-      for (let i = 0; i < newGame.participants.length; i++) {
-        teams[i] = newGame.participants[i].team;
+      for (let i = 0; i < newGame.players.length; i++) {
+        teams[i] = newGame.players[i].team;
       }
       expect(teams).toEqual(expect.arrayContaining(equalTeams));
       expect(newGame.turnTime).toEqual(0);

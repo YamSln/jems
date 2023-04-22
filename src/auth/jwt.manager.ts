@@ -10,10 +10,10 @@ import env from "../config/env";
 
 export const TOKEN_PREFIX = "Bearer";
 
-const privateKey = env.devEnv()
+const privateKey = env.DEV_ENV
   ? fs.readFileSync("private.key", "utf8")
   : process.env.PRIVATE_KEY;
-const publicKey = env.devEnv()
+const publicKey = env.DEV_ENV
   ? fs.readFileSync("public.key", "utf8")
   : process.env.PUBLIC_KEY;
 
@@ -27,7 +27,7 @@ const generateJwt = (payload: JoinPayload | CreateGamePayload): string => {
 
 const verifyJwt = (
   socket: Socket,
-  next: (err?: ExtendedError | undefined) => any
+  next: (err?: ExtendedError | undefined) => any,
 ) => {
   let authHeader = socket.handshake.auth.token; // Get token from auth header
   // Verify auth header and token prefix
