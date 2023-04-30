@@ -8,12 +8,12 @@ import {
 } from "../error/error.util";
 import { GameEvent } from "../event/game.event";
 import { JoinEvent } from "../event/join.event";
-import { CreateGamePayload } from "../model/create-game.payload";
-import { JoinPayload } from "../model/join.payload";
-import { WordClicked } from "../model/word.clicked.payload";
+import { CreateGamePayload } from "../payload/create-game.payload";
+import { JoinPayload } from "../payload/join.payload";
+import { WordClicked } from "../payload/word.clicked.payload";
 import handler from "./game.handler";
 import log from "../config/log";
-import { Game, GameState } from "../model/game.model";
+import { Game } from "../model/game.model";
 
 const REQUESTOR = "SOCKET_HANDLER";
 
@@ -40,65 +40,48 @@ const onConnection = (socket: Socket, io: Server) => {
   }
 
   socket.on(GameEvent.WORD_CLICK, (wordIndex: number) => {
-    // Get socket room
     const room = getSocketRoom(socket);
-    // Handle word click event
     const wordClicked: WordClicked | null = handler.onWordClick(
       wordIndex,
       socket.id,
       room,
-    ); // Emit received event
+    );
     if (wordClicked) {
       io.to(room).emit(GameEvent.WORD_CLICK, wordClicked);
     }
   });
 
   socket.on(GameEvent.ROLE_CHANGE, () => {
-    // Get socket room
     const room = getSocketRoom(socket);
-    // Change player role
     const player = handler.onRoleChange(socket.id, room);
-    // Emit player changed role event
     io.to(room).emit(GameEvent.ROLE_CHANGE, player);
   });
 
   socket.on(GameEvent.TEAM_CHANGE, () => {
-    // Get socket room
     const room = getSocketRoom(socket);
-    // Change player team
     try {
       const player = handler.onTeamChange(socket.id, room);
       io.to(room).emit(GameEvent.TEAM_CHANGE, player);
     } catch (err: any) {
       sendError(socket, TEAM_FULL);
     }
-    // Emit player changed team event
   });
 
   socket.on(GameEvent.TIME_SET, (timeSpan: number) => {
-    // Get socket room
     const room = getSocketRoom(socket);
-    // Set new timer time span
     const time = handler.onTimerSet(room, timeSpan, io);
-    // Emit timer time span set event
     io.to(room).emit(GameEvent.TIME_SET, time);
   });
 
-  socket.on(GameEvent.NEW_GAME, () => {
-    // Get socket room
+  socket.on(GameEvent.NEW_GAME, (wordPackIndex?: number) => {
     const room = getSocketRoom(socket);
-    // Get new game state
-    const newGame = handler.onNewGame(room);
-    // Emit new game state
+    const newGame = handler.onNewGame(room, wordPackIndex);
     io.to(room).emit(GameEvent.NEW_GAME, newGame);
   });
 
   socket.on(GameEvent.END_TURN, () => {
-    // Get socket room
     const room = getSocketRoom(socket);
-    // Get new game state
     const next = handler.onEndTurn(socket.id, room);
-    // Emit new game state
     io.to(room).emit(GameEvent.CHANGE_TURN, next);
   });
 
@@ -155,7 +138,7 @@ const disconnect = (socket: Socket, message?: string) => {
     sendError(socket, message);
     log.error(
       REQUESTOR,
-      `Client id: ${socket.id} - ${socket.handshake.address} disconnected due to and error - ${message}`,
+      `Client id: ${socket.id} - ${socket.handshake.address} disconnected due to an error - ${message}`,
     );
   }
   socket.disconnect(true);

@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { Team } from '../../../../../model/team.model';
-import { WordClicked } from '../../../../../model/word.clicked.payload';
+import { WordClicked } from '../../../../../payload/word.clicked.payload';
 import { CreateGamePayload } from '../../model/create-game.payload';
 import { CreateGameResponse } from '../../model/create-game.response';
 import { JoinGamePayload } from '../../model/join-game.payload';
@@ -105,7 +105,10 @@ export const timeUpdate = createAction(
   props<{ currentTime: number }>()
 );
 
-export const newGame = createAction(NEW_GAME);
+export const newGame = createAction(
+  NEW_GAME,
+  props<{ wordPackIndex?: number }>()
+);
 export const newGameSuccess = createAction(
   NEW_GAME_SUCCESS,
   props<{ game: GameState }>()

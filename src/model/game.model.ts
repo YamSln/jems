@@ -1,7 +1,6 @@
 import { Player } from "./player.model";
 import { Team } from "./team.model";
 import { Word } from "./word.model";
-import { WordsPack } from "./words-pack.model";
 
 export interface Game {
   roomId?: string;
@@ -9,17 +8,23 @@ export interface Game {
   sapphirePlayers: number;
   rubyPlayers: number;
   words: Word[];
-  wordsPacks: WordsPack[];
   currentTeam: Team;
   sapphirePoints: number;
   rubyPoints: number;
   turnTime: number;
   currentTime: number;
   maxPlayers: number;
+  wordPacks: string[];
+  selectedWordPack: number;
   winningTeam?: Team;
 }
 
 export interface GameState extends Game {
   turnInterval?: NodeJS.Timeout;
   password: string;
+}
+
+export interface GamePack {
+  state: GameState;
+  wordsSource: string[];
 }

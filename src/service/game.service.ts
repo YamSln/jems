@@ -4,28 +4,31 @@ import { Role } from "../model/role.model";
 import { Team } from "../model/team.model";
 import { Word } from "../model/word.model";
 import { WordType } from "../model/word.type";
-import wordsBase from "../words/words.json";
-import { v4 as uuidv4 } from "uuid";
+import {
+  OTHER_TEAM_WORDS,
+  STARTING_TEAM_WORDS,
+  WORDS_COUNT,
+} from "../util/game.constants";
 
-const WORDS_COUNT = 25;
-const STARTING_TEAM_WORDS = 9;
-const OTHER_TEAM_WORDS = 8;
-const DEFAULT_WORDS_PACK_NAME = "Classic";
-const DEFAULT_WORDS_PACK_ID = uuidv4();
-
-const newGame = (currentGame: GameState): GameState => {
-  return createGame(currentGame.password, currentGame.maxPlayers, currentGame);
+const newGame = (currentGame: GameState, wordsSource: string[]): GameState => {
+  return createGame(
+    currentGame.password,
+    currentGame.maxPlayers,
+    wordsSource,
+    currentGame,
+  );
 };
 
 const createGame = (
   password: string,
   maxPlayers: number,
+  wordsSource: string[],
   currentGame?: GameState,
 ): GameState => {
   // Get starting team
   const startingTeam: Team = getRandomTeam();
   // Get random words
-  const words: Word[] = generateWords(startingTeam, WORDS_COUNT);
+  const words: Word[] = generateWords(startingTeam, wordsSource, WORDS_COUNT);
   const players: {
     players: Player[];
     sapphirePlayers: number;
@@ -51,23 +54,19 @@ const createGame = (
     maxPlayers,
     password,
     words,
-    wordsPacks: [
-      {
-        // Default words pack
-        id: DEFAULT_WORDS_PACK_ID,
-        name: DEFAULT_WORDS_PACK_NAME,
-        selected: true,
-      },
-    ],
+    selectedWordPack: currentGame ? currentGame.selectedWordPack : 0,
+    wordPacks: currentGame ? currentGame.wordPacks : [],
   }; // Return new game
+
   return game;
 };
 
 const generateWords = (
   startingTeam: Team,
+  wordsSource: string[],
   wordsCount: number = WORDS_COUNT,
 ): Word[] => {
-  const wordsContent: string[] = getRandomWords(wordsCount);
+  const wordsContent: string[] = getRandomWords(wordsCount, wordsSource);
   const words: Word[] = [];
 
   let startWordType: WordType;
@@ -101,14 +100,17 @@ const generateWords = (
   return shuffleWords(words);
 };
 
-const getRandomWords = (wordsCount: number = WORDS_COUNT): string[] => {
+const getRandomWords = (
+  wordsCount: number = WORDS_COUNT,
+  wordsSource: string[],
+): string[] => {
   const words: string[] = [];
   const indexes: number[] = [];
   while (words.length < wordsCount) {
-    const random = getRandomNumber(wordsBase.data.length);
+    const random = getRandomNumber(wordsSource.length);
     // If word number does not taken, add new word in its index
     if (indexes.indexOf(random) === -1) {
-      words.push(wordsBase.data[random - 1]);
+      words.push(wordsSource[random - 1]);
       indexes.push(random);
     }
   }

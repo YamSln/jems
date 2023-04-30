@@ -20,12 +20,10 @@
 }
 
 .wordsPack {
-  cursor: pointer;
-}
-
-.wordsPacksList {
-  box-sizing: border-box;
-  max-width: 50%;
+  width: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .selected {

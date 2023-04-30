@@ -17,11 +17,7 @@ const REQUESTOR = "ERROR_HANDLER";
 const ERROR_MESSAGE = "Errors during parameters validation";
 
 // Handles errors from api endpoints, sending matching error response
-export const handleErrors = (
-  request: Request,
-  err: Error,
-  response: Response
-) => {
+const handleErrors = (request: Request, err: Error, response: Response) => {
   if (err instanceof CustomValidationError) {
     return response // Validation errors
       .status(HttpStatusCode.BAD_REQUEST)
@@ -29,8 +25,8 @@ export const handleErrors = (
         new ClientValidationError(
           ERROR_MESSAGE,
           HttpStatusCode.BAD_REQUEST,
-          err.err // Array that contains error messages
-        )
+          err.err, // Array that contains error messages
+        ),
       );
   }
   switch (err.message) {
@@ -59,6 +55,8 @@ export const handleErrors = (
         .send(new ClientError(err.message, HttpStatusCode.ERROR));
   }
 };
+
+export default handleErrors;
 
 export const errorTest = {
   ERROR_MESSAGE,

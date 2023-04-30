@@ -3,6 +3,7 @@ import {
   MAX_PLAYERS_MAX,
   MAX_PLAYERS_MIN,
   MAX_PLAYERS_REQUIRED,
+  MAX_WORD_PACKS,
   NICK_MAX_LENGTH,
   NICK_MIN_LENGTH,
   NICK_REQUIRED,
@@ -10,13 +11,75 @@ import {
   PASSWORD_MIN_LENGTH,
   PASSWORD_REQUIRED,
 } from "./validation.messages";
+import {
+  MAXIMUM_MAX_PLAYERS,
+  MAX_NICK_LENGTH,
+  MAX_PASSWORD_LENGTH,
+  MAX_WORDS_PER_PACK,
+  MAX_WORD_LENGTH,
+  MAX_WORD_PACKS_COUNT,
+  MINIMUM_MAX_PLAYERS,
+  MIN_NICK_LENGTH,
+  MIN_PASSWORD_LENGTH,
+  MIN_WORDS_PER_PACK,
+  SUPPORTED_FILE_EXT,
+} from "../util/game.constants";
+import { WordPackFile } from "../model/word-pack.model";
 
-const MIN_NICK_LENGTH = 2;
-const MAX_NICK_LENGTH = 15;
-const MIN_PASSWORD_LENGTH = 3;
-const MAX_PASSWORD_LENGTH = 10;
-const MINIMUM_MAX_PLAYERS = 4;
-export const MAXIMUM_MAX_PLAYERS = 8;
+const validateWordPacks = check("wordPacks")
+  .optional()
+  .isArray({ min: 1, max: MAX_WORD_PACKS_COUNT }) // Max word packs
+  .withMessage(MAX_WORD_PACKS)
+  .custom((wordPacks) => {
+    if (wordPacks) {
+      wordPacks.forEach((wordPack: WordPackFile) => {
+        wordPackExtCheck(wordPack);
+        wordPackNumberOfWordsCheck(wordPack);
+        wordPackWordsLengthCheck(wordPack);
+      });
+    }
+    return true;
+  });
+
+const wordPackExtCheck = (wordPack: WordPackFile): void => {
+  if (!SUPPORTED_FILE_EXT.includes(wordPack.fileExtention)) {
+    throw new Error(
+      `Word pack ${wordPack.name} has a file extention ${
+        wordPack.fileExtention
+      } which is not supported, supported extentions are: ${SUPPORTED_FILE_EXT.toString()}`,
+    );
+  }
+};
+
+const wordPackNumberOfWordsCheck = (wordPack: WordPackFile): void => {
+  // Minimum words per pack
+  if (wordPack.words.length < MIN_WORDS_PER_PACK) {
+    throw new Error(
+      `Word pack ${wordPack.name} contains less words than the minimum allowed of ${MIN_WORDS_PER_PACK}`,
+    );
+  }
+  // Maximum words per pack
+  if (wordPack.words.length > MAX_WORDS_PER_PACK) {
+    throw new Error(
+      `Word pack ${wordPack.name} contains more words than the maximum allowed of ${MAX_WORDS_PER_PACK}`,
+    );
+  }
+};
+
+const wordPackWordsLengthCheck = (wordPack: WordPackFile): void => {
+  wordPack.words.forEach((word) => {
+    if (word.length > MAX_WORD_LENGTH) {
+      throw new Error(
+        `Word pack ${wordPack.name} contains the word ${word.substring(
+          0,
+          7,
+        )}... that has the length of ${
+          word.length
+        } which exceeds the maximum length of ${MAX_WORD_LENGTH}`,
+      );
+    }
+  });
+};
 
 const validateNick = check("nick")
   .exists()
@@ -43,6 +106,7 @@ const validateMaxPlayers = check("maxPlayers")
   .withMessage(MAX_PLAYERS_MAX);
 
 export const validateCreatePayload = [
+  validateWordPacks,
   validateNick,
   validatePassword,
   validateMaxPlayers,

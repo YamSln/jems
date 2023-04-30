@@ -23,11 +23,13 @@
         [playerTeam]="game.playerTeam"
         [playerRole]="game.playerRole"
         [turnTime]="game.turnTime"
-        [wordsPacks]="game.wordsPacks"
+        [wordPacks]="game.wordPacks"
+        [selectedWordPack]="game.selectedWordPack"
         (changeTeamEvent)="onTeamChange()"
         (changeRoleEvent)="onRoleChange()"
         (endTurnEvent)="onEndTurn()"
         (setTimeEvent)="onTimeSet($event)"
+        (selectWordPackEvent)="onWordPackSelected($event)"
       ></app-action-board>
     </mat-card>
     <mat-divider></mat-divider>
@@ -57,11 +59,13 @@
               [playerTeam]="game.playerTeam"
               [playerRole]="game.playerRole"
               [turnTime]="game.turnTime"
-              [wordsPacks]="game.wordsPacks"
+              [wordPacks]="game.wordPacks"
+              [selectedWordPack]="game.selectedWordPack"
               (changeTeamEvent)="onTeamChange()"
               (changeRoleEvent)="onRoleChange()"
               (endTurnEvent)="onEndTurn()"
               (setTimeEvent)="onTimeSet($event)"
+              (selectWordPackEvent)="onWordPackSelected($event)"
             ></app-action-board
           ></mat-card>
         </div>

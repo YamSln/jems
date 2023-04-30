@@ -1,16 +1,25 @@
+import { HttpHeader } from "../util/http.header";
+import { HttpMethod } from "../util/http.method";
 import env from "./env";
 
 const SERVER_HOST = env.HOST;
 const SERVER_PORT = env.PORT;
 const ALLOWED_ORIGIN = env.ORIGIN;
 const ALLOWED_HEADERS = [
-  "Origin",
-  "X-Requested-With",
-  "Content-Type",
-  "Accept",
-  "Authorization",
+  HttpHeader.ORIGIN,
+  HttpHeader.X_REQESTED_WITH,
+  HttpHeader.CONTENT_TYPE,
+  HttpHeader.ACCEPT,
+  HttpHeader.AUTHORIZATION,
 ];
-const METHODS = ["GET", "OPTIONS", "POST", "PUT", "PATCH", "DELETE"];
+const METHODS = [
+  HttpMethod.GET,
+  HttpMethod.OPTIONS,
+  HttpMethod.POST,
+  HttpMethod.PUT,
+  HttpMethod.PATCH,
+  HttpMethod.DELETE,
+];
 const CORS_OPTIONS = {
   allowedHeaders: ALLOWED_HEADERS,
   methods: METHODS,

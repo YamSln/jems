@@ -3,7 +3,7 @@ import { SignOptions } from "jsonwebtoken";
 import jwt from "jsonwebtoken";
 import { Socket } from "socket.io";
 import { FORBIDDEN } from "../error/error.util";
-import { JoinPayload } from "../model/join.payload";
+import { JoinPayload } from "../payload/join.payload";
 import { ExtendedError } from "socket.io/dist/namespace";
 import { CreateGamePayload } from "../client/src/app/model/create-game.payload";
 import env from "../config/env";

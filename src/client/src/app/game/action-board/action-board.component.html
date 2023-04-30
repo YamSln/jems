@@ -117,14 +117,20 @@
     End Turn
   </button>
   <!-- Word Pack Selection -->
-  <div class="wordsPacksList">
-    <div
+  <mat-selection-list fxLayout="row wrap" *ngIf="wordPacks.length > 1">
+    <button
+      fxFlex="50%"
+      mat-button
       class="wordsPack"
-      [ngClass]="{ 'sapphire selected': wordsPack.selected }"
-      (click)="selectWordsPack(wordsPack)"
-      *ngFor="let wordsPack of wordsPacks"
+      appTruncatedTooltip
+      [matTooltip]="wordPack"
+      [color]="selectedWordPack == i ? 'primary' : ''"
+      (click)="selectWordsPack(i)"
+      *ngFor="let wordPack of wordPacks; let i = index"
     >
-      {{ wordsPack.name }}
-    </div>
-  </div>
+      <span [ngClass]="{ selected: selectedWordPack == i }">{{
+        wordPack
+      }}</span>
+    </button>
+  </mat-selection-list>
 </div>

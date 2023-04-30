@@ -1,5 +1,11 @@
+import { MaxSizeValidator } from '@angular-material-components/file-input';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { GameFacade } from 'src/app/game/state/game.facade';
 import { CreateGamePayload } from 'src/app/model/create-game.payload';
@@ -17,16 +23,30 @@ export class GameFormComponent implements OnInit {
   formButtonText!: string;
   sliderValue: number = 4;
 
+  wordPacksFormControl!: FormControl;
+  wordPacks!: File[];
+
   constructor(
     private formBuilder: FormBuilder,
     private gameFacade: GameFacade,
     private activatedRoute: ActivatedRoute
-  ) {}
+  ) {
+    this.wordPacksFormControl = new FormControl(this.wordPacks, [
+      MaxSizeValidator(10 * 1024),
+    ]);
+  }
 
   ngOnInit(): void {
     this.create = !this.activatedRoute.snapshot.url.toString().includes('join');
     this.formHeading = this.create ? 'Create Game' : '';
     this.formButtonText = this.create ? 'Create' : 'Join';
+    this.wordPacksFormControl.valueChanges.subscribe((wordPacks: any) => {
+      if (!Array.isArray(wordPacks)) {
+        this.wordPacks = [wordPacks];
+      } else {
+        this.wordPacks = wordPacks;
+      }
+    });
     this.gameForm = this.formBuilder.group({
       nick: [
         '',
@@ -44,10 +64,12 @@ export class GameFormComponent implements OnInit {
           Validators.maxLength(10),
         ],
       ],
+      wordPacks: this.wordPacksFormControl,
     });
   }
 
   submit(): void {
+    console.log(this.wordPacks);
     if (!this.gameForm.valid) {
       return;
     }
@@ -56,6 +78,7 @@ export class GameFormComponent implements OnInit {
         nick: this.gameForm.controls['nick'].value,
         password: this.gameForm.controls['password'].value,
         maxPlayers: this.sliderValue,
+        wordPacks: this.wordPacks || [],
       };
       this.gameFacade.createGame(game);
     } else {

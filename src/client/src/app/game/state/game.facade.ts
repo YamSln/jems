@@ -5,9 +5,9 @@ import { Observable } from 'rxjs';
 import { CreateGamePayload } from 'src/app/model/create-game.payload';
 import { JoinGamePayload } from 'src/app/model/join-game.payload';
 import { Player } from '../../../../../model/player.model';
-import { PlayerAction } from '../../../../../model/player.action.payload';
+import { PlayerAction } from '../../../../../payload/player.action.payload';
 import { Team } from '../../../../../model/team.model';
-import { WordClicked } from '../../../../../model/word.clicked.payload';
+import { WordClicked } from '../../../../../payload/word.clicked.payload';
 import { displayPlayerAction } from 'src/app/shared/state/shared.action';
 import {
   turnChange,
@@ -39,11 +39,7 @@ import { GameState } from './game.state';
 
 @Injectable({ providedIn: 'root' })
 export class GameFacade {
-  constructor(
-    private store: Store<GameState>,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {}
+  constructor(private store: Store<GameState>, private router: Router) {}
 
   createGame(game: CreateGamePayload): void {
     this.store.dispatch(createGame(game));
@@ -53,8 +49,8 @@ export class GameFacade {
     this.store.dispatch(joinGame(joinPayload));
   }
 
-  newGame(): void {
-    this.store.dispatch(newGame());
+  newGame(wordPackIndex?: number): void {
+    this.store.dispatch(newGame({ wordPackIndex }));
   }
 
   endTurn(): void {
@@ -68,6 +64,10 @@ export class GameFacade {
 
   clickWord(index: number): void {
     this.store.dispatch(wordClicked({ index }));
+  }
+
+  selectWordPack(index: number): void {
+    this.store.dispatch(newGame({ wordPackIndex: index }));
   }
 
   playerJoined(playerAction: PlayerAction): void {

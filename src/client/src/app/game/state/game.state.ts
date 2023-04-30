@@ -1,5 +1,4 @@
 import { Role } from '../../../../../model/role.model';
-import { WordsPack } from 'src/app/model/words-pack.mode';
 import { Player } from '../../../../../model/player.model';
 import { Team } from '../../../../../model/team.model';
 import { Word } from '../../model/word.model';
@@ -8,7 +7,6 @@ export interface GameState {
   roomId: string;
   players: Player[];
   words: Word[];
-  wordsPacks: WordsPack[];
   currentTeam: Team;
   sapphirePoints: number;
   rubyPoints: number;
@@ -19,13 +17,14 @@ export interface GameState {
   playerRole: Role;
   playerTeam: Team;
   winningTeam?: Team;
+  wordPacks: string[];
+  selectedWordPack: number;
 }
 
 export const initialState: GameState = {
   roomId: '',
   players: [],
   words: [],
-  wordsPacks: [],
   currentTeam: Team.SAPPHIRE,
   sapphirePoints: 0,
   rubyPoints: 0,
@@ -35,4 +34,6 @@ export const initialState: GameState = {
   playerId: '',
   playerRole: Role.JEMOLOGIST,
   playerTeam: Team.SAPPHIRE,
+  wordPacks: [],
+  selectedWordPack: 0,
 };

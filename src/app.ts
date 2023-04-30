@@ -5,18 +5,18 @@ import { GameEvent } from "./event/game.event";
 import socketHandler from "./service/socket.handler";
 import gameRoutes from "./routes/game.route";
 import jwtManager from "./auth/jwt.manager";
-import { handleErrors } from "./error/error.handler";
+import handleErrors from "./error/error.handler";
 import morgan from "morgan";
 import serverConfig from "./config/server-config";
 import path from "path";
 import env from "./config/env";
-import { options } from "./middleware/options.middleware";
+import options from "./middleware/options.middleware";
+import { HttpHeader } from "./util/http.header";
 
 export const app = express();
 
 // CORS and options request
-// CORS and options request
-app.disable("x-powered-by");
+app.disable(HttpHeader.X_POWERED_BY);
 app.use(options);
 
 // Body and url parsing

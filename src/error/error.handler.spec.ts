@@ -1,5 +1,5 @@
 import httpMocks from "node-mocks-http";
-import { handleErrors, errorTest } from "./error.handler";
+import handleErrors, { errorTest } from "./error.handler";
 import { CustomValidationError } from "./validation.error";
 import {
   FORBIDDEN,

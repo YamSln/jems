@@ -1,4 +1,4 @@
-import { Team } from "./team.model";
+import { Team } from "../model/team.model";
 
 export interface WordClicked {
   wordIndex: number;

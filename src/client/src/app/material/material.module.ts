@@ -7,6 +7,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 // Material Navigation
 import { MatToolbarModule } from '@angular/material/toolbar';
 // Material Layout
@@ -66,6 +67,7 @@ import { MatListModule } from '@angular/material/list';
     MatGridListModule,
     MatSidenavModule,
     MatListModule,
+    NgxMatFileInputModule,
   ],
   exports: [
     MatCheckboxModule,
@@ -95,6 +97,7 @@ import { MatListModule } from '@angular/material/list';
     MatGridListModule,
     MatSidenavModule,
     MatListModule,
+    NgxMatFileInputModule,
   ],
 })
 export class MaterialModule {

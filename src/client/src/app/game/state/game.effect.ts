@@ -23,7 +23,7 @@ import { GameEvent } from '../../../../../event/game.event';
 import { GameState } from './game.state';
 import { io, Socket } from 'socket.io-client';
 import { Player } from '../../../../../model/player.model';
-import { WordClicked } from '../../../../../model/word.clicked.payload';
+import { WordClicked } from '../../../../../payload/word.clicked.payload';
 import { Observable, of } from 'rxjs';
 import { displayErrorMessage } from 'src/app/shared/state/shared.action';
 import {
@@ -44,7 +44,7 @@ import {
   PASSWORD_MIN_LENGTH,
   PASSWORD_REQUIRED,
 } from '../../../../../validation/validation.messages';
-import { PlayerAction } from '../../../../../model/player.action.payload';
+import { PlayerAction } from '../../../../../payload/player.action.payload';
 import { Team } from '../../../../../model/team.model';
 
 @Injectable()
@@ -96,8 +96,8 @@ export class GameEffect {
       this.action$.pipe(
         ofType(newGame),
         throttleTime(1500),
-        tap(() => {
-          this.socket.emit(GameEvent.NEW_GAME);
+        tap((action) => {
+          this.socket.emit(GameEvent.NEW_GAME, action.wordPackIndex);
         })
       ),
     { dispatch: false }

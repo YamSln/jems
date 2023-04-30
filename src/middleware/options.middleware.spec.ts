@@ -1,5 +1,5 @@
 import httpMocks from "node-mocks-http";
-import { options } from "./options.middleware";
+import options from "./options.middleware";
 
 describe("Options Middleware Unit Tets", () => {
   afterEach(() => {

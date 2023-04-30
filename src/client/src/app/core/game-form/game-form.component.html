@@ -45,7 +45,7 @@
         </mat-form-field>
         <app-password-field formControlName="password"> </app-password-field>
         <mat-label *ngIf="create"> Max Players </mat-label>
-        <div fxLayout="row" *ngIf="create">
+        <div fxLayout="row" *ngIf="create" style="font-size: 1.5rem">
           <mat-slider
             [value]="sliderValue"
             (input)="sliderValue = $event.value || 4"
@@ -57,9 +57,19 @@
           ></mat-slider>
           {{ sliderValue }}
         </div>
+        <mat-form-field fxLayout="column">
+          <mat-label> Upload Word Packs </mat-label>
+          <ngx-mat-file-input
+            [multiple]="true"
+            [accept]="'.txt'"
+            [formControl]="wordPacksFormControl"
+          >
+            <mat-icon ngxMatFileInputIcon>attachment</mat-icon>
+          </ngx-mat-file-input>
+        </mat-form-field>
       </mat-card-content>
       <mat-card-actions fxLayout="row" fxLayoutAlign="center center">
-        <button fxFlex="50" mat-raised-button color="primary" type="submit">
+        <button fxFlex="50" mat-stroked-button type="submit">
           {{ formButtonText }}
         </button>
       </mat-card-actions>

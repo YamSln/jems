@@ -47,6 +47,10 @@ export class GameComponent implements OnInit {
     this.gameFacade.clickWord(wordIndex);
   }
 
+  onWordPackSelected(wordPackIndex?: number): void {
+    this.gameFacade.newGame(wordPackIndex);
+  }
+
   onTeamChange(): void {
     this.gameFacade.changeTeam();
   }

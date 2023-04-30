@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import {
   flipAnimation,
   flipInYOnEnterAnimation,
@@ -7,7 +14,6 @@ import {
 import { Player } from '../../../../../model/player.model';
 import { Role } from '../../../../../model/role.model';
 import { Team } from '../../../../../model/team.model';
-import { WordsPack } from 'src/app/model/words-pack.mode';
 
 @Component({
   selector: 'app-action-board',
@@ -18,6 +24,7 @@ import { WordsPack } from 'src/app/model/words-pack.mode';
     flipInYOnEnterAnimation(),
     flipOutYOnLeaveAnimation(),
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ActionBoardComponent implements OnInit {
   team = Team;
@@ -30,14 +37,15 @@ export class ActionBoardComponent implements OnInit {
   @Input() playerId!: string;
   @Input() playerTeam!: Team;
   @Input() playerRole!: Role;
-  @Input() wordsPacks!: WordsPack[];
+  @Input() wordPacks!: string[];
+  @Input() selectedWordPack!: number;
 
   @Output() changeTeamEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() changeRoleEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() endTurnEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() setTimeEvent: EventEmitter<number> = new EventEmitter<number>();
-  @Output() selectWordsPackEvent: EventEmitter<string> =
-    new EventEmitter<string>();
+  @Output() selectWordPackEvent: EventEmitter<number> =
+    new EventEmitter<number>();
 
   constructor() {}
 
@@ -63,9 +71,9 @@ export class ActionBoardComponent implements OnInit {
     return this.timeInputs.findIndex((time) => time === this.turnTime);
   }
 
-  selectWordsPack(wordsPack: WordsPack): void {
-    if (!wordsPack.selected) {
-      this.selectWordsPackEvent.emit();
+  selectWordsPack(index: number): void {
+    if (index != this.selectedWordPack) {
+      this.selectWordPackEvent.emit(index);
     }
   }
 }
