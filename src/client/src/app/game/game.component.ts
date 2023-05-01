@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {
   flipInXOnEnterAnimation,
   flipOutXOnLeaveAnimation,
@@ -24,6 +24,7 @@ import { GameState } from './state/game.state';
     zoomInOnEnterAnimation({ duration: 700 }),
     zoomOutOnLeaveAnimation({ duration: 800 }),
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GameComponent implements OnInit {
   version: string = environment.version;

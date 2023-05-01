@@ -32,7 +32,7 @@ export class GameFormComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) {
     this.wordPacksFormControl = new FormControl(this.wordPacks, [
-      MaxSizeValidator(10 * 1024),
+      MaxSizeValidator(3 * 10 * 1024),
     ]);
   }
 

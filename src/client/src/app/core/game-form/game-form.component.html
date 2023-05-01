@@ -57,7 +57,7 @@
           ></mat-slider>
           {{ sliderValue }}
         </div>
-        <mat-form-field fxLayout="column">
+        <mat-form-field *ngIf="create" fxHide.lt-sm fxLayout="column">
           <mat-label> Upload Word Packs </mat-label>
           <ngx-mat-file-input
             [multiple]="true"

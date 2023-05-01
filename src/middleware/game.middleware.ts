@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { JoinPayload } from "../payload/join.payload";
-import handler from "../service/game.handler";
+import handler from "../service/game.service";
 import { HttpStatusCode } from "../util/http-status-code";
 import { MINIMUM_MAX_PLAYERS } from "../util/game.constants";
 

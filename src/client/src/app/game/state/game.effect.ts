@@ -290,48 +290,53 @@ export class GameEffect {
 
   private handleError(err: any): Observable<any> {
     let message = err.error.message;
-    switch (message) {
-      case INCORRECT_PASSWORD:
-        message = 'Incorrect Password';
-        break;
-      case NOT_FOUND:
-        message = 'Game does not exist';
-        break;
-      case ROOM_FULL:
-        message = 'Game is Full';
-        break;
-      case NICK_TAKEN:
-        message = 'Nick is already taken';
-        break;
-      case MAX_PLAYERS_MAX:
-        message = MAX_PLAYERS_MAX;
-        break;
-      case MAX_PLAYERS_MIN:
-        message = MAX_PLAYERS_MIN;
-        break;
-      case MAX_PLAYERS_REQUIRED:
-        message = MAX_PLAYERS_REQUIRED;
-        break;
-      case NICK_MAX_LENGTH:
-        message = NICK_MAX_LENGTH;
-        break;
-      case NICK_MIN_LENGTH:
-        message = NICK_MIN_LENGTH;
-        break;
-      case NICK_REQUIRED:
-        message = NICK_REQUIRED;
-        break;
-      case PASSWORD_MAX_LENGTH:
-        message = PASSWORD_MAX_LENGTH;
-        break;
-      case PASSWORD_MIN_LENGTH:
-        message = PASSWORD_MIN_LENGTH;
-        break;
-      case PASSWORD_REQUIRED:
-        message = PASSWORD_REQUIRED;
-        break;
-      default:
-        message = 'An unexpected error occurred';
+    const validationErrors = err.error.errors;
+    if (validationErrors) {
+      message = validationErrors[0];
+    } else {
+      switch (message) {
+        case INCORRECT_PASSWORD:
+          message = 'Incorrect Password';
+          break;
+        case NOT_FOUND:
+          message = 'Game does not exist';
+          break;
+        case ROOM_FULL:
+          message = 'Game is Full';
+          break;
+        case NICK_TAKEN:
+          message = 'Nick is already taken';
+          break;
+        case MAX_PLAYERS_MAX:
+          message = MAX_PLAYERS_MAX;
+          break;
+        case MAX_PLAYERS_MIN:
+          message = MAX_PLAYERS_MIN;
+          break;
+        case MAX_PLAYERS_REQUIRED:
+          message = MAX_PLAYERS_REQUIRED;
+          break;
+        case NICK_MAX_LENGTH:
+          message = NICK_MAX_LENGTH;
+          break;
+        case NICK_MIN_LENGTH:
+          message = NICK_MIN_LENGTH;
+          break;
+        case NICK_REQUIRED:
+          message = NICK_REQUIRED;
+          break;
+        case PASSWORD_MAX_LENGTH:
+          message = PASSWORD_MAX_LENGTH;
+          break;
+        case PASSWORD_MIN_LENGTH:
+          message = PASSWORD_MIN_LENGTH;
+          break;
+        case PASSWORD_REQUIRED:
+          message = PASSWORD_REQUIRED;
+          break;
+        default:
+          message = 'An unexpected error occurred';
+      }
     }
     this.sharedFacade.hideLoading();
     return of(displayErrorMessage({ message }));
