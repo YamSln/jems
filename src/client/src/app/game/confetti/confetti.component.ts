@@ -63,13 +63,13 @@ export class ConfettiComponent implements OnChanges, OnDestroy {
       case Team.SAPPHIRE:
         this.sapphireConfetti.addConfetti({
           confettiColors: ['#43a6c6'],
-          confettiNumber: 50,
+          confettiNumber: 70,
         });
         break;
       case Team.RUBY:
         this.rubyConfetti.addConfetti({
           confettiColors: ['#e94444'],
-          confettiNumber: 50,
+          confettiNumber: 70,
         });
         break;
     }

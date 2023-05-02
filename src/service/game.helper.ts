@@ -90,6 +90,7 @@ const generateWords = (
       wordType = WordType.NEUTRAL;
     }
     const word: Word = {
+      id: Date.now(),
       index: 0,
       content: wordsContent[i],
       selected: false,

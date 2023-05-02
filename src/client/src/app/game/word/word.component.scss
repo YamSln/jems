@@ -5,6 +5,8 @@
   cursor: pointer;
   background-color: #fafcff;
   color: theme.$black;
+  transition: background-color 0.3s ease-out;
+  text-align: center;
 }
 
 .sapphire-word {
@@ -23,8 +25,8 @@
 }
 
 .ruby-word-selected {
+  transition: all 0.3s ease-out;
   background-color: theme.$warn-color;
-  animation: redFadeIn 0.3s;
 }
 
 $bomb-color: theme.$black;

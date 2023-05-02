@@ -8,7 +8,7 @@
 >
   <app-word
     [@flipInYOnEnter]
-    *ngFor="let word of words"
+    *ngFor="let word of words; trackBy: trackWordChange"
     [word]="word"
     [hideColor]="hideColors"
     (wordClickEvent)="onWordClicked(word.index)"
