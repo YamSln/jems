@@ -13,12 +13,15 @@ const wordPackCollections: Map<string, WordPackCollection> = new Map<
 const clearingScheduler: ToadScheduler = new ToadScheduler();
 
 const REQUESTOR: string = "GAME_REPOSITORY";
+const FIVE_MINUTES_MILLIS: number = 5 * 60 * 1000;
 
 const setGame = (gameId: string, gameState: GameState): GamePack => {
+  // No word packs uploaded
   if (gameState.wordPacks.length == 0) {
     gameState.wordPacks.push(DEFAULT_WORDS_PACK_NAME);
   }
   const wordPackCollection = wordPackCollections.get(gameId);
+  // Mark word packs as claimed
   if (wordPackCollection && wordPackCollection.timeStamp != 0) {
     wordPackCollection.timeStamp = 0;
     wordPackCollection.wordPackFiles.forEach((wordPack) => {
@@ -42,6 +45,7 @@ const getGamePack = (gameId: string): GamePack | undefined => {
   if (!state) {
     return undefined;
   }
+  // Set words source to selected or default
   let wordsSource: string[] = [];
   if (!state.selectedWordPack || !wordsPackCollection) {
     wordsSource = wordBase.data;
@@ -94,7 +98,7 @@ const initClearingScheduler = (): void => {
   const wordPacksTask = new Task("Remove expiered unclaimed word packs", () => {
     for (let wordPackCollection of wordPackCollections) {
       const timeStamp: number = wordPackCollection[1].timeStamp;
-      if (timeStamp != 0 && timeStamp + 5 < Date.now()) {
+      if (timeStamp != 0 && timeStamp + FIVE_MINUTES_MILLIS < Date.now()) {
         log.info(
           REQUESTOR,
           `Word packs signed under ${wordPackCollection[0]} has been removed due to time expiry`,
@@ -103,9 +107,14 @@ const initClearingScheduler = (): void => {
       }
     }
   });
-  const wordPacksJob = new SimpleIntervalJob({ seconds: 2 }, wordPacksTask);
+  const wordPacksJob = new SimpleIntervalJob(
+    { milliseconds: FIVE_MINUTES_MILLIS },
+    wordPacksTask,
+  );
   clearingScheduler.addSimpleIntervalJob(wordPacksJob);
 };
+
+initClearingScheduler();
 
 export default {
   setGame,

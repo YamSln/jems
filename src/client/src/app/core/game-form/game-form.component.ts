@@ -10,6 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 import { GameFacade } from 'src/app/game/state/game.facade';
 import { CreateGamePayload } from 'src/app/model/create-game.payload';
 import { JoinGamePayload } from 'src/app/model/join-game.payload';
+import * as CONSTANTS from '../../../../../util/game.constants';
+import { DialogService } from 'src/app/shared/dialog/service/dialog.service';
 
 @Component({
   selector: 'app-game-form',
@@ -21,7 +23,7 @@ export class GameFormComponent implements OnInit {
   create!: boolean;
   formHeading!: string;
   formButtonText!: string;
-  sliderValue: number = 4;
+  sliderValue: number = CONSTANTS.MINIMUM_MAX_PLAYERS;
 
   wordPacksFormControl!: FormControl;
   wordPacks!: File[];
@@ -29,10 +31,13 @@ export class GameFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private gameFacade: GameFacade,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private dialogService: DialogService
   ) {
     this.wordPacksFormControl = new FormControl(this.wordPacks, [
-      MaxSizeValidator(3 * 10 * 1024),
+      MaxSizeValidator(
+        CONSTANTS.MAX_WORD_PACKS_COUNT * CONSTANTS.MAX_WORD_PACK_SIZE
+      ),
     ]);
   }
 
@@ -52,16 +57,16 @@ export class GameFormComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(2),
-          Validators.maxLength(15),
+          Validators.minLength(CONSTANTS.MIN_NICK_LENGTH),
+          Validators.maxLength(CONSTANTS.MAX_NICK_LENGTH),
         ],
       ],
       password: [
         '',
         [
           Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(10),
+          Validators.minLength(CONSTANTS.MIN_PASSWORD_LENGTH),
+          Validators.maxLength(CONSTANTS.MAX_PASSWORD_LENGTH),
         ],
       ],
       wordPacks: this.wordPacksFormControl,
@@ -69,8 +74,13 @@ export class GameFormComponent implements OnInit {
   }
 
   submit(): void {
-    console.log(this.wordPacks);
     if (!this.gameForm.valid) {
+      return;
+    }
+    if (
+      this.wordPacks &&
+      this.wordPacks.length > CONSTANTS.MAX_WORD_PACKS_COUNT
+    ) {
       return;
     }
     if (this.create) {
@@ -89,5 +99,9 @@ export class GameFormComponent implements OnInit {
       };
       this.gameFacade.joinGame(game);
     }
+  }
+
+  onAboutClick(): void {
+    this.dialogService.openUploadDialog();
   }
 }

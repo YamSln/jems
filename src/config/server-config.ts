@@ -5,6 +5,7 @@ import env from "./env";
 const SERVER_HOST = env.HOST;
 const SERVER_PORT = env.PORT;
 const ALLOWED_ORIGIN = env.ORIGIN;
+const VERSION = env.VERSION;
 const ALLOWED_HEADERS = [
   HttpHeader.ORIGIN,
   HttpHeader.X_REQESTED_WITH,
@@ -35,6 +36,7 @@ const IO_OPTIONS = {
 const SERVER_CONFIG = {
   hostName: SERVER_HOST,
   port: SERVER_PORT,
+  version: VERSION,
   allowedOrigin: ALLOWED_ORIGIN,
   allowedHeaders: ALLOWED_HEADERS,
   methods: METHODS,

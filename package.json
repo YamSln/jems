@@ -13,6 +13,7 @@
     ]
   },
   "scripts": {
+    "lint": "tslint'",
     "dev": "nodemon src/index.ts",
     "debug": "tsc && node --inspect dist/index.js",
     "start": "node --optimize_for_size --max_old_space_size=460 dist/index.js",
@@ -30,6 +31,8 @@
     "morgan": "^1.10.0",
     "socket.io": "^4.4.1",
     "toad-scheduler": "^2.2.0",
+    "tslint": "^6.1.3",
+    "uninstall": "^0.0.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

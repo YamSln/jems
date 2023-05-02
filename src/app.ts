@@ -29,7 +29,7 @@ if (env.DEV_ENV) {
   // Morgan logging
   app.use(morgan("combined"));
   app.use("/", express.static(__dirname + "/client/dist/jems-web-client"));
-  app.use("*", function (req, res) {
+  app.use("*", (req, res) => {
     res.sendFile(
       path.join(__dirname, "/client/dist/jems-web-client/index.html"),
     );
@@ -37,7 +37,7 @@ if (env.DEV_ENV) {
 } else {
   // Static app root endpoint
   app.use("/", express.static(__dirname + "/client"));
-  app.use("*", function (req, res) {
+  app.use("*", (req, res) => {
     res.sendFile(path.join(__dirname, "/client/index.html"));
   });
 }
@@ -50,7 +50,7 @@ app.use(
 );
 
 // Http server creation
-export const server = http.createServer(app);
+const server = http.createServer(app);
 // Socket io endpoint
 const io = new Server(server, serverConfig.ioOptions);
 // Socket connection authentication
@@ -59,3 +59,5 @@ io.use(jwtManager.verifyJwt);
 io.on(GameEvent.CONNECT, (socket: Socket) =>
   socketHandler.onConnection(socket, io),
 );
+
+export default server;

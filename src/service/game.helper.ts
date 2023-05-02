@@ -118,9 +118,9 @@ const getRandomWords = (
 };
 
 const shuffleWords = (words: Word[]): Word[] => {
-  let currentIndex = words.length - 1,
-    temp,
-    random;
+  let currentIndex = words.length - 1;
+  let temp;
+  let random;
   while (currentIndex !== -1) {
     // Get random index
     random = Math.floor(Math.random() * currentIndex);

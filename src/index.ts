@@ -1,10 +1,10 @@
-import { server } from "./app";
+import server from "./app";
 import log from "./config/log";
 import serverConfig from "./config/server-config";
 
 const REQUESTOR = "SERVER";
 const port = serverConfig.port;
-const serverVersion = process.env.npm_package_version;
+const serverVersion = serverConfig.version;
 
 server.listen(port, () => {
   const serverArt = String.raw`

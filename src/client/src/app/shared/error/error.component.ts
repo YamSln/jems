@@ -43,7 +43,7 @@ export class ErrorComponent implements OnInit, OnDestroy {
   private openErrorDialog(errorMessage: string) {
     this.dialogData.data.dialogMessage = errorMessage;
     return this.dialogService
-      .openDialog(this.dialogData)
+      .openGeneralDialog(this.dialogData)
       .subscribe(() => this.facade.clearError());
   }
 

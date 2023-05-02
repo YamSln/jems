@@ -53,6 +53,7 @@ const wordPackNumberOfWordsCheck = (wordPack: WordPackFile): void => {
 
 const wordPackWordsLengthCheck = (wordPack: WordPackFile): void => {
   wordPack.words.forEach((word) => {
+    // Max word length
     if (word.length > CONSTANTS.MAX_WORD_LENGTH) {
       throw new Error(
         `Word pack '${takeHead(wordPack.name)}' contains the word '${takeHead(
@@ -60,6 +61,16 @@ const wordPackWordsLengthCheck = (wordPack: WordPackFile): void => {
         )}...' that has the length of ${
           word.length
         } which exceeds the maximum length of ${CONSTANTS.MAX_WORD_LENGTH}`,
+      );
+    }
+    // Min word length
+    if (word.length > CONSTANTS.MAX_WORD_LENGTH) {
+      throw new Error(
+        `Word pack '${takeHead(
+          wordPack.name,
+        )}' contains the word '${word}...' that has the length of ${
+          word.length
+        } which is below the minimum length of ${CONSTANTS.MAX_WORD_LENGTH}`,
       );
     }
   });

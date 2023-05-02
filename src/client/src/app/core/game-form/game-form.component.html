@@ -40,7 +40,7 @@
             Nick must contain at least 2 characters
           </mat-error>
           <mat-error *ngIf="gameForm.controls['nick'].hasError('maxlength')">
-            Nick cannot contain more than 15 characters
+            Nick cannot contain more than 8 characters
           </mat-error>
         </mat-form-field>
         <app-password-field formControlName="password"> </app-password-field>
@@ -57,16 +57,26 @@
           ></mat-slider>
           {{ sliderValue }}
         </div>
-        <mat-form-field *ngIf="create" fxHide.lt-sm fxLayout="column">
-          <mat-label> Upload Word Packs </mat-label>
-          <ngx-mat-file-input
-            [multiple]="true"
-            [accept]="'.txt'"
-            [formControl]="wordPacksFormControl"
+        <div fxHide.lt-sm>
+          <button
+            type="button"
+            mat-icon-button
+            [matTooltip]="'About Uploading'"
+            (click)="onAboutClick()"
           >
-            <mat-icon ngxMatFileInputIcon>attachment</mat-icon>
-          </ngx-mat-file-input>
-        </mat-form-field>
+            <mat-icon>question_mark</mat-icon>
+          </button>
+          <mat-form-field *ngIf="create" fxFlex>
+            <mat-label> Upload Word Packs </mat-label>
+            <ngx-mat-file-input
+              [multiple]="true"
+              [accept]="'.txt'"
+              [formControl]="wordPacksFormControl"
+            >
+              <mat-icon ngxMatFileInputIcon>attachment</mat-icon>
+            </ngx-mat-file-input>
+          </mat-form-field>
+        </div>
       </mat-card-content>
       <mat-card-actions fxLayout="row" fxLayoutAlign="center center">
         <button fxFlex="50" mat-stroked-button type="submit">

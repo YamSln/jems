@@ -21,7 +21,7 @@ const options = (
     HttpHeader.ACCESS_CONTROL_ALLOW_HEADERS,
     serverConfig.allowedHeaders.toString(),
   );
-  if (request.method == HttpMethod.OPTIONS) {
+  if (request.method === HttpMethod.OPTIONS) {
     response.status(HttpStatusCode.OK);
   }
   next();

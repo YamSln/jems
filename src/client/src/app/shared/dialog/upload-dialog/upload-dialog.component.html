@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>
+  <img style="width: 20px; margin-top: 10px" src="assets/logo.svg" />
+  Uploading Word Packs
+  <img style="width: 20px; margin-top: 10px" src="assets/logo.svg" />
+</h1>
+<mat-dialog-content
+  ><h2>
+    You can upload your own word packs by clicking on the attachment icon
+    located to the right of the word packs upload field
+  </h2>
+  <p>There are several limitations and rules when uploading your own words:</p>
+  <ul>
+    <li>
+      You can upload up to {{ _gameConstatnts.MAX_WORD_PACKS_COUNT }} word
+      packs.
+    </li>
+    <li>
+      Word pack must be a {{ _gameConstatnts.SUPPORTED_FILE_EXT }} file, where
+      the words are separated by a comma ( , ).
+    </li>
+    <li>
+      Word pack size cannot excced the size of
+      {{ _gameConstatnts.MAX_WORD_PACK_SIZE_KB }}KB's each.
+    </li>
+    <li>
+      Each word pack must contain between
+      {{ _gameConstatnts.MIN_WORDS_PER_PACK }} to
+      {{ _gameConstatnts.MAX_WORDS_PER_PACK }} words.
+    </li>
+    <li>
+      Each word must contain at least
+      {{ _gameConstatnts.MIN_WORD_LENGTH }} characters and
+      {{ _gameConstatnts.MAX_WORD_LENGTH }} at most.
+    </li>
+  </ul>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Ok</button>
+</mat-dialog-actions>

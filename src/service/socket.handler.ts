@@ -150,8 +150,8 @@ const sendError = (socket: Socket, message: string) => {
 };
 
 const getSocketRoom = (socket: Socket): string => {
-  let rooms = Array.from(socket.rooms);
-  return rooms.filter((room) => room != socket.id)[0];
+  const rooms = Array.from(socket.rooms);
+  return rooms.filter((room) => room !== socket.id)[0];
 };
 
 export default { onConnection };

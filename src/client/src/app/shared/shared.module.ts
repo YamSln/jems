@@ -9,6 +9,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { PlayerActionComponent } from './player-action/player-action.component';
 import { TruncatedTooltipDirective } from './tooltip/truncated-tooltip.directive';
 import { InputTrimDirective } from './input-trim/input-trim.directive';
+import { UploadDialogComponent } from './dialog/upload-dialog/upload-dialog.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { InputTrimDirective } from './input-trim/input-trim.directive';
     PlayerActionComponent,
     TruncatedTooltipDirective,
     InputTrimDirective,
+    UploadDialogComponent,
   ],
   imports: [CommonModule, MaterialModule, FormsModule, ReactiveFormsModule],
   exports: [

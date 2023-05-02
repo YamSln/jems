@@ -29,7 +29,7 @@ const verifyJwt = (
   socket: Socket,
   next: (err?: ExtendedError | undefined) => any,
 ) => {
-  let authHeader = socket.handshake.auth.token; // Get token from auth header
+  const authHeader = socket.handshake.auth.token; // Get token from auth header
   // Verify auth header and token prefix
   if (!authHeader || authHeader.indexOf(TOKEN_PREFIX) === -1) {
     return next(new Error(FORBIDDEN));

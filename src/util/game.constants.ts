@@ -1,5 +1,5 @@
 export const MIN_NICK_LENGTH = 2;
-export const MAX_NICK_LENGTH = 15;
+export const MAX_NICK_LENGTH = 8;
 export const MIN_PASSWORD_LENGTH = 3;
 export const MAX_PASSWORD_LENGTH = 10;
 export const MINIMUM_MAX_PLAYERS = 4;

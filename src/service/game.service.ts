@@ -58,7 +58,7 @@ const joinGame = (joinPayload: JoinPayload): string => {
   if (state.players.length >= state.maxPlayers) {
     throw new Error(ROOM_FULL);
   } // Check nick availability
-  for (let player of state.players) {
+  for (const player of state.players) {
     if (player.nick === joinPayload.nick) {
       throw new Error(NICK_TAKEN);
     }
@@ -116,10 +116,7 @@ const onJoinGame = (socketId: string, joinPayload: JoinPayload): JoinEvent => {
 
 const onNewGame = (room: string, wordPackIndex?: number): Game => {
   const gamePack =
-    wordPackIndex != undefined
-      ? updateGame(room, wordPackIndex)
-      : getGamePack(room);
-  clearTimer(gamePack.state);
+    wordPackIndex != null ? updateGame(room, wordPackIndex) : getGamePack(room);
   const newGame = helper.newGame(
     {
       ...gamePack.state,
@@ -258,7 +255,8 @@ const onDisconnectGame = (
 ): PlayerAction | null => {
   const game = repository.getGame(room);
   if (game) {
-    const index = game.players.findIndex((player) => player.id === socketId); // Find and remove player, decrease players count
+    // Find and remove player, decrease players count
+    const index = game.players.findIndex((player) => player.id === socketId);
     if (index !== -1) {
       const player = game.players[index];
       game.players.splice(index, 1);
@@ -305,7 +303,7 @@ const getGame = (room: string): GameState => {
 };
 
 const getPlayer = (playerId: string, game: GameState): Player => {
-  const player = game.players.find((player) => player.id === playerId);
+  const player = game.players.find((p) => p.id === playerId);
   if (!player) {
     throw new Error(NOT_FOUND);
   }

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { GeneralDialogComponent } from '../general-dialog/general-dialog.component';
 import { MatDialogData } from '../model/mat-dialog.data';
+import { UploadDialogComponent } from '../upload-dialog/upload-dialog.component';
 
 @Injectable({
   providedIn: 'root',
@@ -10,11 +11,15 @@ import { MatDialogData } from '../model/mat-dialog.data';
 export class DialogService {
   constructor(private dialog: MatDialog) {}
 
-  openDialog(dialogData: MatDialogData): Observable<any> {
+  openGeneralDialog(dialogData: MatDialogData): Observable<any> {
     const dialogRef = this.dialog.open(GeneralDialogComponent, {
       data: dialogData.data,
       autoFocus: false,
     });
     return dialogRef.afterClosed();
+  }
+
+  openUploadDialog(): void {
+    this.dialog.open(UploadDialogComponent, { maxWidth: 800 });
   }
 }
