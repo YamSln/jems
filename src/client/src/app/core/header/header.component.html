@@ -19,28 +19,19 @@
   </ng-template>
   <!-- Github Link-->
   <div fxFlex fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
-    <button
-      *ngIf="hasGithubLink()"
-      [matTooltip]="'Github'"
-      style="top: -1px; margin-right: 5px"
-      mat-icon-button
-      (click)="openGithub()"
-    >
-      <mat-icon svgIcon="github" matSuffix></mat-icon>
-    </button>
     <!-- Theme Toggle -->
     <app-theme-toggle
       [lightTheme]="(isLightTheme | async) || false"
       (themeToggle)="themeToggleChanged()"
     ></app-theme-toggle>
+    <span>|</span>
+    <app-github></app-github>
     <!-- Menu Button -->
-    <button
-      *ngIf="roomUrl | async as url"
-      [fxHide.gt-sm]="true"
-      mat-icon-button
-      (click)="toggleMenu()"
-    >
-      <mat-icon>menu</mat-icon>
-    </button>
+    <span fxHide.gt-sm="true" *ngIf="roomUrl | async as url">|</span>
+    <div fxHide.gt-sm="true" *ngIf="roomUrl | async as url">
+      <button mat-icon-button (click)="toggleMenu()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
   </div>
 </mat-toolbar>

@@ -1,49 +1,10 @@
-@use "../../../theme.scss" as theme;
-
 .word-container {
   border-radius: 15%;
-  cursor: pointer;
-  background-color: #fafcff;
-  color: theme.$black;
-  transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out,
+    transform 200ms cubic-bezier(0.5, 1.75, 0.75, 1.25);
   text-align: center;
 }
 
-.sapphire-word {
-  background-color: theme.$primary-color;
-  opacity: 0.5;
-}
-
-.sapphire-word-selected {
-  transition: all 0.3s ease-out;
-  background-color: theme.$primary-color;
-}
-
-.ruby-word {
-  background-color: theme.$warn-color;
-  opacity: 0.5;
-}
-
-.ruby-word-selected {
-  transition: all 0.3s ease-out;
-  background-color: theme.$warn-color;
-}
-
-$bomb-color: theme.$black;
-
-.bomb-word {
-  color: #fafcff;
-  background-color: $bomb-color;
-  opacity: 0.7;
-}
-
-.bomb-word-selected {
-  color: #fafcff;
-  background-color: $bomb-color;
-}
-
-$word-selected: #d3d3d3;
-
-.neutral-selected {
-  background-color: $word-selected;
+.word-hover:hover {
+  transform: scale(1.1);
 }

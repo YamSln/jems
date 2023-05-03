@@ -1,0 +1,16 @@
+.player-self {
+  font-weight: 550;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+}
+
+.player {
+  text-align: left;
+  display: inline-block;
+  font-size: 17px;
+  margin-left: 20px;
+  width: 70px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

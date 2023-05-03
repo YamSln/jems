@@ -16,17 +16,20 @@ import { WordType } from '../../../../../model/word.type';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WordComponent implements OnInit {
-  wordType = WordType;
   @Input() hideColor!: boolean;
   @Input() word!: Word;
+  @Input() selectable!: boolean;
+
   @Output() wordClickEvent: EventEmitter<number> = new EventEmitter<number>();
 
+  _wordType = WordType;
+
   private BACKGROUND_COLORS = [
-    '#fafcffff',
+    '#fafcff',
     '#43a6c680',
     '#e9444480',
     '#07060680',
-    '#fafcff80',
+    '#979797',
     '#43a6c6ff',
     '#e94444ff',
     '#070606ff',

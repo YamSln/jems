@@ -13,9 +13,6 @@ import { environment } from 'src/environments/environment';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GithubComponent implements OnInit {
-  @Input() isLightTheme!: boolean;
-  @Input() menu: boolean = false;
-
   constructor() {}
 
   ngOnInit(): void {}

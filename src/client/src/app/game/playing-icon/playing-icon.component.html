@@ -1,0 +1,20 @@
+<div fxLayout="column" fxLayoutAlign="space-between center">
+  <!-- Current Playing Team Icon -->
+  <img
+    style="width: 2rem; margin-bottom: 0.5rem"
+    [src]="currentTeam | jemImage"
+    [@flip]="{
+      value: currentTeam === team.SAPPHIRE,
+      params: { duration: 500 }
+    }"
+  />
+  <!-- Current Playing Team -->
+  <span
+    style="margin-bottom: 5px; font-weight: 550"
+    [ngClass]="{
+      sapphire: currentTeam === team.SAPPHIRE,
+      ruby: currentTeam === team.RUBY
+    }"
+    >Team {{ currentTeam === team.RUBY ? "Ruby" : "Sapphire" }} is Playing</span
+  >
+</div>

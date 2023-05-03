@@ -1,0 +1,21 @@
+.word-pack {
+  text-align: left;
+  display: inline-block;
+  font-size: 17px;
+  margin-left: 20px;
+  width: 70px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wordsPack {
+  max-width: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.clickable {
+  cursor: pointer;
+}

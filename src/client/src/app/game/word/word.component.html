@@ -1,11 +1,20 @@
 <!-- Square Word Container -->
 <mat-grid-list cols="1" rowHeight="1:1">
   <mat-grid-tile
-    class="word-container mat-elevation-z2"
+    class="word-container mat-elevation-z4"
+    [ngClass]="{ 'word-hover': !word.selected && hideColor && selectable }"
     [style.background-color]="background()"
     [style.color]="fontColor()"
+    [style.cursor]="
+      selectable && hideColor && !word.selected ? 'pointer' : 'default'
+    "
     (click)="onWordClick()"
   >
+    <img
+      *ngIf="!hideColor || word.selected"
+      style="position: absolute; width: 1.5rem; top: 0.5rem; left: 0.5rem"
+      [src]="word.type | jemImage"
+    />
     <div [style.width]="wordWidth()">
       <!-- Fitted Word Content -->
       <div [fittext]="true">

@@ -12,13 +12,19 @@ import { StoreModule } from '@ngrx/store';
 import { GAME_STATE_NAME } from '../game/state/game.selector';
 import { GameReducer } from '../game/state/game.reducer';
 import { ClipboardModule } from 'ngx-clipboard';
-import { ActionMenuComponent } from './action-menu/action-menu.component';
 import { GithubComponent } from './github/github.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-  declarations: [LayoutComponent, GameFormComponent, ThemeToggleComponent, ActionMenuComponent, GithubComponent, FooterComponent, HeaderComponent],
+  declarations: [
+    LayoutComponent,
+    GameFormComponent,
+    ThemeToggleComponent,
+    GithubComponent,
+    FooterComponent,
+    HeaderComponent,
+  ],
   imports: [
     CommonModule,
     CoreRoutingModule,

@@ -14,24 +14,23 @@ import { flipInYOnEnterAnimation } from 'angular-animations';
   selector: 'app-game-board',
   templateUrl: './game-board.component.html',
   styleUrls: ['./game-board.component.scss'],
-  animations: [flipInYOnEnterAnimation()],
+  animations: [flipInYOnEnterAnimation({ anchor: 'enter' })],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GameBoardComponent implements OnInit {
   @Input() words!: Word[];
   @Input() hideColors!: boolean;
+  @Input() playing!: boolean;
   @Input() winningTeam?: Team;
 
   @Output() wordClicked: EventEmitter<number> = new EventEmitter<number>();
-
-  team = Team;
 
   constructor() {}
 
   ngOnInit(): void {}
 
   onWordClicked(wordIndex: number): void {
-    if (this.hideColors && !this.winningTeam) {
+    if (this.hideColors && !this.winningTeam && this.playing) {
       this.wordClicked.emit(wordIndex);
     }
   }

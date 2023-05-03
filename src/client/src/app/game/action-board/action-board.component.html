@@ -1,83 +1,13 @@
 <div fxLayout="column" fxLayoutAlign="space-around stretch">
-  <div fxLayout="column" fxLayoutAlign="space-between center">
-    <!-- Current Playing Team Icon -->
-    <mat-icon
-      style="margin-bottom: 10px"
-      [svgIcon]="currentTeam === team.SAPPHIRE ? 'sapphire' : 'ruby'"
-      [@flip]="{
-        value: currentTeam === team.SAPPHIRE,
-        params: { duration: 500 }
-      }"
-    ></mat-icon>
-    <span
-      style="margin-bottom: 5px; font-weight: 550"
-      [ngClass]="{
-        sapphire: currentTeam === team.SAPPHIRE,
-        ruby: currentTeam === team.RUBY
-      }"
-      >Team {{ currentTeam === team.RUBY ? "Ruby" : "Sapphire" }} is
-      Playing</span
-    >
-  </div>
+  <!-- Playing Icon and Team -->
+  <app-playing-icon [currentTeam]="currentTeam"></app-playing-icon>
   <!-- Change Team Button -->
   <button (click)="changePlayerTeam()" mat-stroked-button>Change Team</button>
   <!-- Players Table -->
-  <div
-    fxLayout="row"
-    fxLayoutAlign="space-between start"
-    style="min-height: 11rem; padding-top: 3vh"
-  >
-    <!-- Ruby Players -->
-    <div class="team" fxLayout="column" fxLayoutAlign="center start">
-      <span *ngFor="let player of players">
-        <span
-          class="player"
-          *ngIf="player.team === team.RUBY"
-          [matTooltip]="player.nick"
-          appTruncatedTooltip
-        >
-          <mat-icon
-            style="position: absolute; left: 5%"
-            color="warn"
-            matSuffix
-            *ngIf="player.role === role.JEM_MASTER"
-            >zoom_in</mat-icon
-          >
-          <span
-            class="ruby"
-            [ngClass]="{ 'player-self': playerId === player.id }"
-          >
-            {{ player.nick }}
-          </span>
-        </span>
-      </span>
-    </div>
-    <!-- Sapphire Players -->
-    <div class="team" fxLayout="column" fxLayoutAlign="center start">
-      <span *ngFor="let player of players">
-        <span
-          class="player"
-          *ngIf="player.team === team.SAPPHIRE"
-          [matTooltip]="player.nick"
-          appTruncatedTooltip
-        >
-          <mat-icon
-            style="position: absolute; left: 48%"
-            color="primary"
-            matSuffix
-            *ngIf="player.role === role.JEM_MASTER"
-            >zoom_in</mat-icon
-          >
-          <span
-            class="sapphire"
-            [ngClass]="{ 'player-self': playerId === player.id }"
-          >
-            {{ player.nick }}
-          </span>
-        </span>
-      </span>
-    </div>
-  </div>
+  <app-players-table
+    [players]="players"
+    [playerId]="playerId"
+  ></app-players-table>
   <!-- Timer -->
   <span style="text-align: center" *ngIf="turnTime"
     >Timer: {{ turnTime }} Seconds</span
@@ -117,60 +47,9 @@
     End Turn
   </button>
   <!-- Word Pack Selection -->
-  <div
-    *ngIf="wordPacks.length > 1"
-    fxLayout="row"
-    fxLayoutAlign="space-between start"
-  >
-    <div style="min-width: 50%" fxLayout="column" fxLayoutAlign="center start">
-      <span *ngFor="let wordPack of wordPacks; let i = index">
-        <span
-          *ngIf="i % 2 == 0"
-          class="word-pack"
-          [matTooltip]="wordPack"
-          appTruncatedTooltip
-        >
-          <mat-icon
-            *ngIf="selectedWordPack == i"
-            style="position: absolute; left: 5%"
-            color="primary"
-            matSuffix
-          >
-            arrow_right_alt
-          </mat-icon>
-          <span
-            class="clickable"
-            [ngClass]="{ sapphire: selectedWordPack == i }"
-            (click)="selectWordsPack(i)"
-            >{{ wordPack }}</span
-          >
-        </span>
-      </span>
-    </div>
-    <div style="min-width: 50%" fxLayout="column" fxLayoutAlign="center start">
-      <span *ngFor="let wordPack of wordPacks; let i = index">
-        <span
-          *ngIf="i % 2 == 1"
-          class="word-pack"
-          [matTooltip]="wordPack"
-          appTruncatedTooltip
-        >
-          <mat-icon
-            *ngIf="selectedWordPack == i"
-            style="position: absolute; left: 48%"
-            color="primary"
-            matSuffix
-          >
-            arrow_right_alt
-          </mat-icon>
-          <span
-            class="clickable"
-            [ngClass]="{ sapphire: selectedWordPack == i }"
-            (click)="selectWordsPack(i)"
-            >{{ wordPack }}</span
-          >
-        </span>
-      </span>
-    </div>
-  </div>
+  <app-word-packs-list
+    [wordPacks]="wordPacks"
+    [selectedWordPack]="selectedWordPack"
+    (selectWordPackEvent)="onSelectWordsPack($event)"
+  ></app-word-packs-list>
 </div>

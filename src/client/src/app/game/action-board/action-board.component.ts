@@ -6,11 +6,6 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import {
-  flipAnimation,
-  flipInYOnEnterAnimation,
-  flipOutYOnLeaveAnimation,
-} from 'angular-animations';
 import { Player } from '../../../../../model/player.model';
 import { Role } from '../../../../../model/role.model';
 import { Team } from '../../../../../model/team.model';
@@ -19,11 +14,6 @@ import { Team } from '../../../../../model/team.model';
   selector: 'app-action-board',
   templateUrl: './action-board.component.html',
   styleUrls: ['./action-board.component.scss'],
-  animations: [
-    flipAnimation(),
-    flipInYOnEnterAnimation(),
-    flipOutYOnLeaveAnimation(),
-  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ActionBoardComponent implements OnInit {
@@ -71,7 +61,7 @@ export class ActionBoardComponent implements OnInit {
     return this.timeInputs.findIndex((time) => time === this.turnTime);
   }
 
-  selectWordsPack(index: number): void {
+  onSelectWordsPack(index: number): void {
     if (index != this.selectedWordPack) {
       this.selectWordPackEvent.emit(index);
     }

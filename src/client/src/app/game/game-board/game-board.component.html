@@ -7,10 +7,11 @@
   gdGap="10px"
 >
   <app-word
-    [@flipInYOnEnter]
-    *ngFor="let word of words; trackBy: trackWordChange"
+    [@enter]="{ value: '', params: { delay: i * 15 } }"
+    *ngFor="let word of words; let i = index; trackBy: trackWordChange"
     [word]="word"
     [hideColor]="hideColors"
+    [selectable]="playing && !winningTeam"
     (wordClickEvent)="onWordClicked(word.index)"
   ></app-word>
 </div>

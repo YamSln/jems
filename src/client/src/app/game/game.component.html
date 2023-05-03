@@ -82,6 +82,7 @@
             [words]="game.words"
             [winningTeam]="game.winningTeam"
             [hideColors]="game.playerRole === role.JEMOLOGIST"
+            [playing]="game.currentTeam == game.playerTeam"
             (wordClicked)="onWordClicked($event)"
           ></app-game-board>
           <app-action-buttons style="margin: 10px"></app-action-buttons>
@@ -106,7 +107,7 @@
       [@zoomOutOnLeave]
       class="win-banner"
     >
-      <div [fittext]="true" style="background-color: #f9f9f959">
+      <div [fittext]="true" style="box-shadow: 0 0 10px #9ecaed">
         Team
         {{ game.winningTeam === team.SAPPHIRE ? "Sapphire" : "Ruby" }} Wins!
       </div>

@@ -13,6 +13,9 @@ import { TimerPipe } from './pipe/timer.pipe';
 import { ActionButtonsComponent } from './action-buttons/action-buttons.component';
 import { ConfettiComponent } from './confetti/confetti.component';
 import { AngularFittextModule } from 'angular-fittext';
+import { WordPacksListComponent } from './word-packs-list/word-packs-list.component';
+import { PlayersTableComponent } from './players-table/players-table.component';
+import { PlayingIconComponent } from './playing-icon/playing-icon.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { AngularFittextModule } from 'angular-fittext';
     TimerPipe,
     ActionButtonsComponent,
     ConfettiComponent,
+    WordPacksListComponent,
+    PlayersTableComponent,
+    PlayingIconComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,56 @@
+<div
+  *ngIf="wordPacks.length > 1"
+  fxLayout="row"
+  fxLayoutAlign="space-between start"
+>
+  <div style="min-width: 50%" fxLayout="column" fxLayoutAlign="center start">
+    <span *ngFor="let wordPack of wordPacks; let i = index">
+      <span
+        *ngIf="i % 2 == 0"
+        class="word-pack"
+        [matTooltip]="wordPack"
+        appTruncatedTooltip
+      >
+        <mat-icon
+          *ngIf="selectedWordPack == i"
+          style="position: absolute; left: 5%"
+          color="primary"
+          matSuffix
+        >
+          arrow_right_alt
+        </mat-icon>
+        <span
+          class="clickable"
+          [ngClass]="{ sapphire: selectedWordPack == i }"
+          (click)="selectWordsPack(i)"
+          >{{ wordPack }}</span
+        >
+      </span>
+    </span>
+  </div>
+  <div style="min-width: 50%" fxLayout="column" fxLayoutAlign="center start">
+    <span *ngFor="let wordPack of wordPacks; let i = index">
+      <span
+        *ngIf="i % 2 == 1"
+        class="word-pack"
+        [matTooltip]="wordPack"
+        appTruncatedTooltip
+      >
+        <mat-icon
+          *ngIf="selectedWordPack == i"
+          style="position: absolute; left: 48%"
+          color="primary"
+          matSuffix
+        >
+          arrow_right_alt
+        </mat-icon>
+        <span
+          class="clickable"
+          [ngClass]="{ sapphire: selectedWordPack == i }"
+          (click)="selectWordsPack(i)"
+          >{{ wordPack }}</span
+        >
+      </span>
+    </span>
+  </div>
+</div>

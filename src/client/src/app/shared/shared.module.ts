@@ -10,6 +10,7 @@ import { PlayerActionComponent } from './player-action/player-action.component';
 import { TruncatedTooltipDirective } from './tooltip/truncated-tooltip.directive';
 import { InputTrimDirective } from './input-trim/input-trim.directive';
 import { UploadDialogComponent } from './dialog/upload-dialog/upload-dialog.component';
+import { JemImagePipe } from './pipe/jem-image.pipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { UploadDialogComponent } from './dialog/upload-dialog/upload-dialog.comp
     TruncatedTooltipDirective,
     InputTrimDirective,
     UploadDialogComponent,
+    JemImagePipe,
   ],
   imports: [CommonModule, MaterialModule, FormsModule, ReactiveFormsModule],
   exports: [
@@ -31,6 +33,7 @@ import { UploadDialogComponent } from './dialog/upload-dialog/upload-dialog.comp
     PlayerActionComponent,
     TruncatedTooltipDirective,
     InputTrimDirective,
+    JemImagePipe,
   ],
 })
 export class SharedModule {}
