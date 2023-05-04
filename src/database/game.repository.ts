@@ -1,5 +1,5 @@
 import { SimpleIntervalJob, Task, ToadScheduler } from "toad-scheduler";
-import log from "../config/log";
+import log from "../log/log";
 import { GamePack, GameState } from "../model/game.model";
 import { WordPackCollection } from "../model/word-pack.model";
 import wordBase from "./words.json";

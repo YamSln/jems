@@ -14,7 +14,7 @@ import { WordClicked } from "../payload/word.clicked.payload";
 import { Game } from "../model/game.model";
 
 import service from "./game.service";
-import log from "../config/log";
+import log from "../log/log";
 
 const REQUESTOR = "SOCKET_HANDLER";
 

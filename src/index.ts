@@ -1,5 +1,5 @@
 import server from "./app";
-import log from "./config/log";
+import log from "./log/log";
 import serverConfig from "./config/server-config";
 
 const REQUESTOR = "SERVER";

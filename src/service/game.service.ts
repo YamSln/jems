@@ -23,7 +23,7 @@ import { WordPackCollection, WordPackFile } from "../model/word-pack.model";
 
 import helper from "./game.helper";
 import repository from "../database/game.repository";
-import log from "../config/log";
+import log from "../log/log";
 
 const REQUESTOR = "GAME_SERVICE";
 

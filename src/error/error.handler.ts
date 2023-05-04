@@ -11,7 +11,7 @@ import {
   UNAUTHORIZED,
 } from "./error.util";
 import { CustomValidationError } from "./validation.error";
-import log from "../config/log";
+import log from "../log/log";
 
 const REQUESTOR = "ERROR_HANDLER";
 const ERROR_MESSAGE = "Errors during parameters validation";
