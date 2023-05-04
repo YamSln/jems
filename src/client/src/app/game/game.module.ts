@@ -16,6 +16,7 @@ import { AngularFittextModule } from 'angular-fittext';
 import { WordPacksListComponent } from './word-packs-list/word-packs-list.component';
 import { PlayersTableComponent } from './players-table/players-table.component';
 import { PlayingIconComponent } from './playing-icon/playing-icon.component';
+import { TimeSelectorComponent } from './time-selector/time-selector.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PlayingIconComponent } from './playing-icon/playing-icon.component';
     WordPacksListComponent,
     PlayersTableComponent,
     PlayingIconComponent,
+    TimeSelectorComponent,
   ],
   imports: [
     CommonModule,

@@ -8,20 +8,11 @@
     [players]="players"
     [playerId]="playerId"
   ></app-players-table>
-  <!-- Timer -->
-  <span style="text-align: center" *ngIf="turnTime"
-    >Timer: {{ turnTime }} Seconds</span
-  >
-  <mat-slider
-    min="0"
-    max="3"
-    step="1"
-    value="0"
-    (change)="setTime($event)"
-    [value]="getTime()"
-    [matTooltip]="'Set Timer'"
-    [matTooltipPosition]="'before'"
-  ></mat-slider>
+  <!-- Time Selection -->
+  <app-time-selector
+    [turnTime]="turnTime"
+    (setTimeEvent)="onSetTime($event)"
+  ></app-time-selector>
   <mat-card-actions>
     <!-- Change Role Buttons -->
     <mat-button-toggle-group

@@ -24,6 +24,7 @@ export class GameFormComponent implements OnInit {
   formHeading!: string;
   formButtonText!: string;
   sliderValue: number = CONSTANTS.MINIMUM_MAX_PLAYERS;
+  supportedFileExt: string = CONSTANTS.SUPPORTED_FILE_EXT.join(',');
 
   wordPacksFormControl!: FormControl;
   wordPacks!: File[];

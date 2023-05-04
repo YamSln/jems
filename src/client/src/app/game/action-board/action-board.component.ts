@@ -17,10 +17,6 @@ import { Team } from '../../../../../model/team.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ActionBoardComponent implements OnInit {
-  team = Team;
-  role = Role;
-  timeInputs: number[] = [0, 60, 90, 120];
-
   @Input() currentTeam!: Team;
   @Input() players!: Player[];
   @Input() turnTime!: number;
@@ -37,6 +33,9 @@ export class ActionBoardComponent implements OnInit {
   @Output() selectWordPackEvent: EventEmitter<number> =
     new EventEmitter<number>();
 
+  team = Team;
+  role = Role;
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -49,16 +48,12 @@ export class ActionBoardComponent implements OnInit {
     this.changeRoleEvent.emit();
   }
 
-  setTime(event: any): void {
-    this.setTimeEvent.emit(this.timeInputs[event.value]);
-  }
-
   endTurn(): void {
     this.endTurnEvent.emit();
   }
 
-  getTime(): number {
-    return this.timeInputs.findIndex((time) => time === this.turnTime);
+  onSetTime(time: number): void {
+    this.setTimeEvent.emit(time);
   }
 
   onSelectWordsPack(index: number): void {

@@ -58,24 +58,24 @@
           {{ sliderValue }}
         </div>
         <div fxHide.lt-sm *ngIf="create">
-          <button
-            type="button"
-            mat-icon-button
-            [matTooltip]="'About Uploading'"
-            (click)="onAboutClick()"
-          >
-            <mat-icon>question_mark</mat-icon>
-          </button>
           <mat-form-field fxFlex>
             <mat-label> Upload Word Packs </mat-label>
             <ngx-mat-file-input
               [multiple]="true"
-              [accept]="'.txt'"
+              [accept]="supportedFileExt"
               [formControl]="wordPacksFormControl"
+              [color]="'warn'"
             >
               <mat-icon ngxMatFileInputIcon>attachment</mat-icon>
             </ngx-mat-file-input>
           </mat-form-field>
+          <span
+            class="about-button"
+            matTooltip="About Uploading"
+            (click)="onAboutClick()"
+          >
+            ?
+          </span>
         </div>
       </mat-card-content>
       <mat-card-actions fxLayout="row" fxLayoutAlign="center center">

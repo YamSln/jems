@@ -1,0 +1,15 @@
+<div fxLayout="column" fxLayoutAlign="center">
+  <span style="text-align: center" *ngIf="turnTime"
+    >Timer: {{ turnTime }} Seconds</span
+  >
+  <mat-slider
+    min="0"
+    max="3"
+    step="1"
+    value="0"
+    (change)="setTime($event)"
+    [value]="getTime()"
+    [matTooltip]="'Set Timer'"
+    [matTooltipPosition]="'before'"
+  ></mat-slider>
+</div>
