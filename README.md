@@ -11,7 +11,7 @@ Jems is an online successor to the codenames board game.
 - Material design UI
 - Dark theme
 - Timed turns
-- Upload your custom words!
+- Upload your own words
 
 ## About The Game
 
