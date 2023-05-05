@@ -1,6 +1,6 @@
 import server from "./app";
-import log from "./log/log";
-import serverConfig from "./config/server-config";
+import { log } from "./log";
+import { serverConfig } from "./config";
 
 const REQUESTOR = "SERVER";
 const port = serverConfig.port;

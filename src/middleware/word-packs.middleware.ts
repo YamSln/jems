@@ -34,4 +34,4 @@ const parseWordPacksBuffer = (fileBuffer: Buffer): string[] => {
     .map((word) => word.trim());
 };
 
-export default parseWordPackFiles;
+export default { parseWordPackFiles };

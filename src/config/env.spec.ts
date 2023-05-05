@@ -1,4 +1,4 @@
-import env from "./env";
+import { env } from ".";
 
 describe("Env configuration tests", () => {
   it("should return true when env is production, otherwise false", () => {

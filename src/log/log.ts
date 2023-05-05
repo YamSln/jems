@@ -3,7 +3,7 @@ import { LogType } from "./log.type";
 
 const logFile = fs.createWriteStream("debug.log", { flags: "a" });
 
-function printLog(message: string, logType: LogType): void {
+const printLog = (message: string, logType: LogType): void => {
   switch (logType) {
     case LogType.DEBUG:
       console.debug(message);
@@ -18,11 +18,15 @@ function printLog(message: string, logType: LogType): void {
     default:
       console.log(message);
   }
-}
+};
 
-function writeLog(message: string) {
+const writeLog = (message: string): void => {
   logFile.write(message + "\r\n");
-}
+};
+
+const currentTimeStamp = (): string => {
+  return new Date().toISOString();
+};
 
 const logMessage = (
   requestor: string,
@@ -54,10 +58,6 @@ const warn = (requestor: string, message: string, object?: any): void => {
 const error = (requestor: string, message: string, object?: any): void => {
   logMessage(requestor, message, LogType.ERROR, object);
 };
-
-function currentTimeStamp(): string {
-  return new Date().toISOString();
-}
 
 info("SERVER", "Server is Starting");
 

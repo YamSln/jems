@@ -1,20 +1,14 @@
 import { Server, Socket } from "socket.io";
 import { JoinType } from "../auth/join.type";
-import {
-  FORBIDDEN,
-  NOT_FOUND,
-  TEAM_FULL,
-  UNAUTHORIZED,
-} from "../error/error.util";
-import { GameEvent } from "../event/game.event";
-import { JoinEvent } from "../event/join.event";
+import { FORBIDDEN, NOT_FOUND, TEAM_FULL, UNAUTHORIZED } from "../error";
+import { JoinEvent, GameEvent } from "../event";
 import { CreateGamePayload } from "../payload/create-game.payload";
 import { JoinPayload } from "../payload/join.payload";
 import { WordClicked } from "../payload/word.clicked.payload";
 import { Game } from "../model/game.model";
+import { log } from "../log";
 
 import service from "./game.service";
-import log from "../log/log";
 
 const REQUESTOR = "SOCKET_HANDLER";
 

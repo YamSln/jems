@@ -1,6 +1,6 @@
 import { HttpHeader } from "../util/http.header";
 import { HttpMethod } from "../util/http.method";
-import env from "./env";
+import { env } from ".";
 
 const SERVER_HOST = env.HOST;
 const SERVER_PORT = env.PORT;

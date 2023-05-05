@@ -8,7 +8,7 @@ import {
   NOT_FOUND,
   ROOM_FULL,
   UNAUTHORIZED,
-} from "./error.util";
+} from ".";
 
 describe("Error Handler Unit Tests", () => {
   it("should return BAD_REQUEST on CustomValidationError", () => {

@@ -3,27 +3,26 @@ import { v4 as uuidv4 } from "uuid";
 import { Player } from "../model/player.model";
 import { Role } from "../model/role.model";
 import { JoinPayload } from "../payload/join.payload";
-import { JoinEvent } from "../event/join.event";
-import jwt from "../auth/jwt.manager";
+import { JoinEvent, GameEvent } from "../event";
+import { jwtManager } from "../auth";
 import {
   INCORRECT_PASSWORD,
   ROOM_FULL,
   NOT_FOUND,
   NICK_TAKEN,
   TEAM_FULL,
-} from "../error/error.util";
+} from "../error";
 import { WordType } from "../model/word.type";
 import { Team } from "../model/team.model";
 import { CreateGamePayload } from "../payload/create-game.payload";
 import { WordClicked } from "../payload/word.clicked.payload";
 import { PlayerAction } from "../payload/player.action.payload";
-import { GameEvent } from "../event/game.event";
 import { MAXIMUM_MAX_PLAYERS } from "../util/game.constants";
 import { WordPackCollection, WordPackFile } from "../model/word-pack.model";
+import { log } from "../log";
+import { gameRepository } from "../database";
 
 import helper from "./game.helper";
-import repository from "../database/game.repository";
-import log from "../log/log";
 
 const REQUESTOR = "GAME_SERVICE";
 
@@ -40,9 +39,9 @@ const createGame = (
       timeStamp: Date.now(),
       wordPackFiles,
     };
-    repository.setWordPackCollection(room, wordPackCollection);
+    gameRepository.setWordPackCollection(room, wordPackCollection);
   }
-  return jwt.generateJwt({
+  return jwtManager.generateJwt({
     room,
     nick,
     password,
@@ -63,7 +62,7 @@ const joinGame = (joinPayload: JoinPayload): string => {
       throw new Error(NICK_TAKEN);
     }
   } // Generate token
-  return jwt.generateJwt(joinPayload);
+  return jwtManager.generateJwt(joinPayload);
 };
 
 const onCreateGame = (
@@ -73,7 +72,7 @@ const onCreateGame = (
   const state = helper.createGame(
     joinPayload.password,
     joinPayload.maxPlayers,
-    repository.defaultWordsSource(),
+    gameRepository.defaultWordsSource(),
   );
   const newPlayer: Player = {
     id: socketId,
@@ -84,7 +83,7 @@ const onCreateGame = (
   // Add the creator to the game and increase players count
   state.players.push(newPlayer);
   changePlayersCount(newPlayer, state);
-  repository.setGame(joinPayload.room, state);
+  gameRepository.setGame(joinPayload.room, state);
   log.info(REQUESTOR, `Room ${joinPayload.room} created`);
   const { password, turnInterval, ...game } = state;
   return game;
@@ -124,7 +123,7 @@ const onNewGame = (room: string, wordPackIndex?: number): Game => {
     },
     gamePack.wordsSource,
   );
-  repository.setGame(room, newGame);
+  gameRepository.setGame(room, newGame);
   const { password, turnInterval, ...game } = newGame;
   return game;
 };
@@ -253,7 +252,7 @@ const onDisconnectGame = (
   socketId: string,
   room: string,
 ): PlayerAction | null => {
-  const game = repository.getGame(room);
+  const game = gameRepository.getGame(room);
   if (game) {
     // Find and remove player, decrease players count
     const index = game.players.findIndex((player) => player.id === socketId);
@@ -264,7 +263,7 @@ const onDisconnectGame = (
       if (game.players.length === 0) {
         // Remove game upon 0 players
         clearTimer(game, true);
-        repository.removeGame(room);
+        gameRepository.removeGame(room);
         log.info(REQUESTOR, `Room ${room} removed`);
         return null;
       }
@@ -287,7 +286,7 @@ const changeTurn = (room: GameState): Team => {
 };
 
 const getGamePack = (room: string): GamePack => {
-  const gamePackCollection = repository.getGamePack(room);
+  const gamePackCollection = gameRepository.getGamePack(room);
   if (!gamePackCollection) {
     throw new Error(NOT_FOUND);
   }
@@ -295,7 +294,7 @@ const getGamePack = (room: string): GamePack => {
 };
 
 const getGame = (room: string): GameState => {
-  const game = repository.getGame(room);
+  const game = gameRepository.getGame(room);
   if (!game) {
     throw new Error(NOT_FOUND);
   }
@@ -311,7 +310,7 @@ const getPlayer = (playerId: string, game: GameState): Player => {
 };
 
 const updateGame = (room: string, wordPackIndex: number): GamePack => {
-  const gamePack = repository.updateGamePack(room, wordPackIndex);
+  const gamePack = gameRepository.updateGamePack(room, wordPackIndex);
   if (!gamePack) {
     throw new Error(NOT_FOUND);
   }

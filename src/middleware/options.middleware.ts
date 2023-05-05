@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { HttpStatusCode } from "../util/http-status-code";
-import serverConfig from "../config/server-config";
+import { serverConfig } from "../config";
 import { HttpHeader } from "../util/http.header";
 import { HttpMethod } from "../util/http.method";
 
@@ -27,4 +27,4 @@ const options = (
   next();
 };
 
-export default options;
+export default { options };

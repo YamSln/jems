@@ -19,7 +19,7 @@ import { SharedFacade } from 'src/app/shared/state/shared.facade';
 import { GameFacade } from './game.facade';
 import { environment } from 'src/environments/environment';
 import { JoinType } from 'src/app/model/join.type';
-import { GameEvent } from '../../../../../event/game.event';
+import { GameEvent } from '../../../../../event';
 import { GameState } from './game.state';
 import { io, Socket } from 'socket.io-client';
 import { Player } from '../../../../../model/player.model';

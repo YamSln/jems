@@ -9,9 +9,9 @@ import {
   NOT_FOUND,
   ROOM_FULL,
   UNAUTHORIZED,
-} from "./error.util";
+} from ".";
 import { CustomValidationError } from "./validation.error";
-import log from "../log/log";
+import { log } from "../log";
 
 const REQUESTOR = "ERROR_HANDLER";
 const ERROR_MESSAGE = "Errors during parameters validation";
