@@ -2,8 +2,39 @@ import fs from "fs";
 import { LogType } from "./log.type";
 
 const logFile = fs.createWriteStream("debug.log", { flags: "a" });
+info("SERVER", "Server is Starting");
+info("LOGGER", "Initializing Log");
 
-const printLog = (message: string, logType: LogType): void => {
+function info(requestor: string, message: string, object?: any): void {
+  logMessage(requestor, message, LogType.INFO, object);
+}
+
+function debug(requestor: string, message: string, object?: any): void {
+  logMessage(requestor, message, LogType.DEBUG, object);
+}
+
+function warn(requestor: string, message: string, object?: any): void {
+  logMessage(requestor, message, LogType.WARN, object);
+}
+
+function error(requestor: string, message: string, object?: any): void {
+  logMessage(requestor, message, LogType.ERROR, object);
+}
+
+function logMessage(
+  requestor: string,
+  message: string,
+  logType: LogType,
+  object?: any,
+): void {
+  const log = object
+    ? `[${currentTimeStamp()}] [${logType}] [${requestor}] - ${message} : ${object}`
+    : `[${currentTimeStamp()}] [${logType}] [${requestor}] - ${message}`;
+  printLog(log, logType);
+  writeLog(log);
+}
+
+function printLog(message: string, logType: LogType): void {
   switch (logType) {
     case LogType.DEBUG:
       console.debug(message);
@@ -18,48 +49,15 @@ const printLog = (message: string, logType: LogType): void => {
     default:
       console.log(message);
   }
-};
+}
 
-const writeLog = (message: string): void => {
+function writeLog(message: string): void {
   logFile.write(message + "\r\n");
-};
+}
 
-const currentTimeStamp = (): string => {
+function currentTimeStamp(): string {
   return new Date().toISOString();
-};
-
-const logMessage = (
-  requestor: string,
-  message: string,
-  logType: LogType,
-  object?: any,
-): void => {
-  const log = object
-    ? `[${currentTimeStamp()}] [${logType}] [${requestor}] - ${message} : ${object}`
-    : `[${currentTimeStamp()}] [${logType}] [${requestor}] - ${message}`;
-  printLog(log, logType);
-  writeLog(log);
-};
-
-const info = (requestor: string, message: string, object?: any): void => {
-  logMessage(requestor, message, LogType.INFO, object);
-};
-
-info("LOGGER", "Initializing Log");
-
-const debug = (requestor: string, message: string, object?: any): void => {
-  logMessage(requestor, message, LogType.DEBUG, object);
-};
-
-const warn = (requestor: string, message: string, object?: any): void => {
-  logMessage(requestor, message, LogType.WARN, object);
-};
-
-const error = (requestor: string, message: string, object?: any): void => {
-  logMessage(requestor, message, LogType.ERROR, object);
-};
-
-info("SERVER", "Server is Starting");
+}
 
 export default {
   info,

@@ -7,7 +7,7 @@ export class CustomValidationError extends Error {
     this.errors = errors.map((validationError) => validationError.msg);
   }
 
-  get err() {
+  public get err() {
     return this.errors;
   }
 }

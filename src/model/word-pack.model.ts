@@ -1,10 +1,10 @@
-export interface WordPackFile {
+export interface WordPack {
   name: string;
   words: string[];
   fileExtention: string;
 }
 
 export interface WordPackCollection {
-  wordPackFiles: WordPackFile[];
+  wordPacks: WordPack[];
   timeStamp: number;
 }

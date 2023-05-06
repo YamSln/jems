@@ -17,7 +17,7 @@ const REQUESTOR = "ERROR_HANDLER";
 const ERROR_MESSAGE = "Errors during parameters validation";
 
 // Handles errors from api endpoints, sending matching error response
-const handleErrors = (request: Request, err: Error, response: Response) => {
+function handleErrors(request: Request, err: Error, response: Response) {
   if (err instanceof CustomValidationError) {
     return response // Validation errors
       .status(HttpStatusCode.BAD_REQUEST)
@@ -54,7 +54,7 @@ const handleErrors = (request: Request, err: Error, response: Response) => {
         .status(HttpStatusCode.ERROR)
         .send(new ClientError(err.message, HttpStatusCode.ERROR));
   }
-};
+}
 
 export default handleErrors;
 

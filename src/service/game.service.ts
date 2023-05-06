@@ -18,28 +18,25 @@ import { CreateGamePayload } from "../payload/create-game.payload";
 import { WordClicked } from "../payload/word.clicked.payload";
 import { PlayerAction } from "../payload/player.action.payload";
 import { MAXIMUM_MAX_PLAYERS } from "../util/game.constants";
-import { WordPackCollection, WordPackFile } from "../model/word-pack.model";
+import { WordPack } from "../model/word-pack.model";
 import { log } from "../log";
-import { gameRepository } from "../database";
+import { Word } from "../model/word.model";
 
+import gamePackService from "./game-pack.service";
 import helper from "./game.helper";
 
 const REQUESTOR = "GAME_SERVICE";
 
-const createGame = (
+function createGame(
   nick: string,
   password: string,
   maxPlayers: number,
-  wordPackFiles: WordPackFile[],
-): string => {
-  const room = uuidv4();
+  wordPacks: WordPack[],
+): string {
+  const room: string = uuidv4();
   // Keep word packs if exists
-  if (wordPackFiles && wordPackFiles.length > 0) {
-    const wordPackCollection: WordPackCollection = {
-      timeStamp: Date.now(),
-      wordPackFiles,
-    };
-    gameRepository.setWordPackCollection(room, wordPackCollection);
+  if (wordPacks && wordPacks.length > 0) {
+    gamePackService.setWordPackCollection(room, Date.now(), wordPacks);
   }
   return jwtManager.generateJwt({
     room,
@@ -47,32 +44,29 @@ const createGame = (
     password,
     maxPlayers,
   });
-};
+}
 
-const joinGame = (joinPayload: JoinPayload): string => {
-  const state = getGame(joinPayload.room);
-  if (state.password !== joinPayload.password) {
+function joinGame(joinPayload: JoinPayload): string {
+  const gameState: GameState = gamePackService.getGame(joinPayload.room);
+  if (gameState.password !== joinPayload.password) {
     throw new Error(INCORRECT_PASSWORD);
   } // Verify room has more slots
-  if (state.players.length >= state.maxPlayers) {
+  if (gameState.players.length >= gameState.maxPlayers) {
     throw new Error(ROOM_FULL);
   } // Check nick availability
-  for (const player of state.players) {
+  for (const player of gameState.players) {
     if (player.nick === joinPayload.nick) {
       throw new Error(NICK_TAKEN);
     }
   } // Generate token
   return jwtManager.generateJwt(joinPayload);
-};
+}
 
-const onCreateGame = (
-  socketId: string,
-  joinPayload: CreateGamePayload,
-): Game => {
-  const state = helper.createGame(
+function onCreateGame(socketId: string, joinPayload: CreateGamePayload): Game {
+  const gameState: GameState = helper.createGame(
     joinPayload.password,
     joinPayload.maxPlayers,
-    gameRepository.defaultWordsSource(),
+    gamePackService.defaultWordsSource(),
   );
   const newPlayer: Player = {
     id: socketId,
@@ -81,18 +75,18 @@ const onCreateGame = (
     role: Role.JEMOLOGIST,
   };
   // Add the creator to the game and increase players count
-  state.players.push(newPlayer);
-  changePlayersCount(newPlayer, state);
-  gameRepository.setGame(joinPayload.room, state);
+  gameState.players.push(newPlayer);
+  changePlayersCount(newPlayer, gameState);
+  gamePackService.setGamePack(joinPayload.room, gameState);
   log.info(REQUESTOR, `Room ${joinPayload.room} created`);
-  const { password, turnInterval, ...game } = state;
+  const { password, turnInterval, ...game } = gameState;
   return game;
-};
+}
 
-const onJoinGame = (socketId: string, joinPayload: JoinPayload): JoinEvent => {
-  const state = getGame(joinPayload.room);
+function onJoinGame(socketId: string, joinPayload: JoinPayload): JoinEvent {
+  const gameState: GameState = gamePackService.getGame(joinPayload.room);
   // Verify room existence and password validity
-  if (!state || state.password !== joinPayload.password) {
+  if (gameState.password !== joinPayload.password) {
     throw new Error(NOT_FOUND);
   }
   // Create player
@@ -100,50 +94,52 @@ const onJoinGame = (socketId: string, joinPayload: JoinPayload): JoinEvent => {
     id: socketId,
     nick: joinPayload.nick,
     team: helper.assignTeam(
-      state.players.length,
-      state.sapphirePlayers,
-      state.rubyPlayers,
+      gameState.players.length,
+      gameState.sapphirePlayers,
+      gameState.rubyPlayers,
     ),
     role: Role.JEMOLOGIST,
   };
   // Add joined player to the game and increase players count
-  state.players.push(newPlayer);
-  changePlayersCount(newPlayer, state);
-  const { password, turnInterval, ...game } = state;
-  return { state: game, joined: newPlayer };
-};
+  gameState.players.push(newPlayer);
+  changePlayersCount(newPlayer, gameState);
+  const { password, turnInterval, ...state } = gameState;
+  return { state, joined: newPlayer };
+}
 
-const onNewGame = (room: string, wordPackIndex?: number): Game => {
-  const gamePack =
-    wordPackIndex != null ? updateGame(room, wordPackIndex) : getGamePack(room);
-  const newGame = helper.newGame(
+function onNewGame(room: string, wordPackIndex?: number): Game {
+  const gamePack: GamePack =
+    wordPackIndex != null
+      ? gamePackService.updateGamePack(room, wordPackIndex)
+      : gamePackService.getGamePack(room);
+  const newGame: GameState = helper.newGame(
     {
-      ...gamePack.state,
+      ...gamePack.gameState,
       roomId: room,
     },
     gamePack.wordsSource,
   );
-  gameRepository.setGame(room, newGame);
+  gamePackService.setGamePack(room, newGame);
   const { password, turnInterval, ...game } = newGame;
   return game;
-};
+}
 
-const onWordClick = (
+function onWordClick(
   wordIndex: number,
   socketId: string,
   room: string,
-): WordClicked | null => {
-  const state = getGame(room);
-  const word = state.words[wordIndex];
-  const player = getPlayer(socketId, state);
+): WordClicked | null {
+  const gameState: GameState = gamePackService.getGame(room);
+  const word: Word = gameState.words[wordIndex];
+  const player: Player = getPlayer(socketId, gameState);
   if (
     !word ||
     word.selected || // Check if word is already selected
-    player.team !== state.currentTeam || // Check if clicking player is in current selecting team
+    player.team !== gameState.currentTeam || // Check if clicking player is in current selecting team
     player.role !== Role.JEMOLOGIST || // Check if selecting player is jemologist
-    state.sapphirePoints === 0 || // Either of the points is 0
-    state.rubyPoints === 0 ||
-    state.winningTeam
+    gameState.sapphirePoints === 0 || // Either of the points is 0
+    gameState.rubyPoints === 0 ||
+    gameState.winningTeam
   ) {
     return null;
   }
@@ -152,93 +148,98 @@ const onWordClick = (
 
   switch (word.type) {
     case WordType.SAPPHIRE:
-      state.sapphirePoints -= 1;
+      gameState.sapphirePoints -= 1;
       if (player.team !== Team.SAPPHIRE) {
-        changeTurn(state);
+        changeTurn(gameState);
       }
       break;
     case WordType.RUBY:
-      state.rubyPoints -= 1;
+      gameState.rubyPoints -= 1;
       if (player.team !== Team.RUBY) {
-        changeTurn(state);
+        changeTurn(gameState);
       }
       break;
     case WordType.NEUTRAL:
-      changeTurn(state);
+      changeTurn(gameState);
       break;
     case WordType.BOMB:
-      const winningTeam = otherTeam(player.team);
-      winGame(state, winningTeam);
+      const winningTeam: Team = otherTeam(player.team);
+      winGame(gameState, winningTeam);
       return { wordIndex, winningTeam };
   } // Check if game was won after current operation
-  const gameWon = state.sapphirePoints === 0 || state.rubyPoints === 0;
+  const gameWon: boolean =
+    gameState.sapphirePoints === 0 || gameState.rubyPoints === 0;
   if (gameWon) {
-    const winningTeam = state.sapphirePoints === 0 ? Team.SAPPHIRE : Team.RUBY;
-    winGame(state, winningTeam);
+    const winningTeam: Team =
+      gameState.sapphirePoints === 0 ? Team.SAPPHIRE : Team.RUBY;
+    winGame(gameState, winningTeam);
     return { wordIndex, winningTeam };
   }
   return { wordIndex };
-};
+}
 
-const winGame = (state: GameState, winningTeam: Team): void => {
-  state.winningTeam = winningTeam;
-  clearTimer(state, true);
-};
+function winGame(gameState: GameState, winningTeam: Team): void {
+  gameState.winningTeam = winningTeam;
+  clearTimer(gameState, true);
+}
 
-const onRoleChange = (socketId: string, room: string): string => {
-  const state = getGame(room);
-  const player = getPlayer(socketId, state);
+function onRoleChange(socketId: string, room: string): string {
+  const gameState: GameState = gamePackService.getGame(room);
+  const player: Player = getPlayer(socketId, gameState);
   player.role = otherRole(player.role);
   return socketId;
-};
+}
 
-const onTeamChange = (socketId: string, room: string): string => {
-  const state = getGame(room);
-  const player = getPlayer(socketId, state);
+function onTeamChange(socketId: string, room: string): string {
+  const gameState: GameState = gamePackService.getGame(room);
+  const player: Player = getPlayer(socketId, gameState);
   if (player.team === Team.SAPPHIRE) {
-    if (state.rubyPlayers >= MAXIMUM_MAX_PLAYERS / 2 + 1) {
+    if (gameState.rubyPlayers >= MAXIMUM_MAX_PLAYERS / 2 + 1) {
       throw new Error(TEAM_FULL);
     }
-  } else if (state.sapphirePlayers >= MAXIMUM_MAX_PLAYERS / 2 + 1) {
+  } else if (gameState.sapphirePlayers >= MAXIMUM_MAX_PLAYERS / 2 + 1) {
     throw new Error(TEAM_FULL);
   }
   player.team = otherTeam(player.team);
-  changePlayersCount(player, state, false, true);
+  changePlayersCount(player, gameState, false, true);
   return socketId;
-};
+}
 
-const onTimerSet = (room: string, timeSpan: number, io: any): number => {
-  const state = getGame(room);
-  state.turnTime = timeSpan;
-  state.currentTime = state.turnTime;
+function onTimerSet(room: string, timeSpan: number, io: any): number {
+  const gameState: GameState = gamePackService.getGame(room);
+  gameState.turnTime = timeSpan;
+  gameState.currentTime = gameState.turnTime;
   // Clear timer interval
-  clearTimer(state);
+  clearTimer(gameState);
   if (timeSpan > 0) {
-    state.turnInterval = setInterval(() => {
-      state.currentTime--;
-      if (state.currentTime >= 0) {
+    gameState.turnInterval = setInterval(() => {
+      gameState.currentTime--;
+      if (gameState.currentTime >= 0) {
         // Timer ticking
-        io.to(room).emit(GameEvent.TIME_TICK, state.currentTime);
+        io.to(room).emit(GameEvent.TIME_TICK, gameState.currentTime);
       } else {
         // TimeOut - reset timer and change turn
-        changeTurn(state);
-        io.to(room).emit(GameEvent.CHANGE_TURN, state.currentTeam);
+        changeTurn(gameState);
+        io.to(room).emit(GameEvent.CHANGE_TURN, gameState.currentTeam);
       }
     }, 1000);
   }
   return timeSpan;
-};
+}
 
-const onEndTurn = (socketId: string, room: string): Team | null => {
-  const state = getGame(room);
-  const player = getPlayer(socketId, state);
-  if (player.team !== state.currentTeam || player.role === Role.JEM_MASTER) {
+function onEndTurn(socketId: string, room: string): Team | null {
+  const gameState: GameState = gamePackService.getGame(room);
+  const player: Player = getPlayer(socketId, gameState);
+  if (
+    player.team !== gameState.currentTeam ||
+    player.role === Role.JEM_MASTER
+  ) {
     return null;
   }
-  return changeTurn(state);
-};
+  return changeTurn(gameState);
+}
 
-const clearTimer = (state: GameState, erase: boolean = false): void => {
+function clearTimer(state: GameState, erase: boolean = false): void {
   if (state.turnInterval) {
     clearInterval(state.turnInterval);
   }
@@ -246,91 +247,68 @@ const clearTimer = (state: GameState, erase: boolean = false): void => {
     state.turnTime = 0;
     state.currentTime = 0;
   }
-};
+}
 
-const onDisconnectGame = (
-  socketId: string,
-  room: string,
-): PlayerAction | null => {
-  const game = gameRepository.getGame(room);
-  if (game) {
+function onDisconnectGame(socketId: string, room: string): PlayerAction | null {
+  const gameState: GameState = gamePackService.getGame(room);
+  if (gameState) {
     // Find and remove player, decrease players count
-    const index = game.players.findIndex((player) => player.id === socketId);
+    const index: number = gameState.players.findIndex(
+      (player) => player.id === socketId,
+    );
     if (index !== -1) {
-      const player = game.players[index];
-      game.players.splice(index, 1);
-      changePlayersCount(player, game, true);
-      if (game.players.length === 0) {
+      const player: Player = gameState.players[index];
+      gameState.players.splice(index, 1);
+      changePlayersCount(player, gameState, true);
+      if (gameState.players.length === 0) {
         // Remove game upon 0 players
-        clearTimer(game, true);
-        gameRepository.removeGame(room);
+        clearTimer(gameState, true);
+        gamePackService.deleteGamePack(room);
         log.info(REQUESTOR, `Room ${room} removed`);
         return null;
       }
       return {
         nick: player.nick,
-        updatedPlayers: Array.from(game.players),
+        updatedPlayers: Array.from(gameState.players),
       };
     }
   }
   return null;
-};
+}
 
-const changeTurn = (room: GameState): Team => {
+function changeTurn(room: GameState): Team {
   room.currentTeam = otherTeam(room.currentTeam);
   // Reset timer if exists
   if (room.turnTime) {
     room.currentTime = room.turnTime;
   }
   return room.currentTeam;
-};
+}
 
-const getGamePack = (room: string): GamePack => {
-  const gamePackCollection = gameRepository.getGamePack(room);
-  if (!gamePackCollection) {
-    throw new Error(NOT_FOUND);
-  }
-  return gamePackCollection;
-};
-
-const getGame = (room: string): GameState => {
-  const game = gameRepository.getGame(room);
-  if (!game) {
-    throw new Error(NOT_FOUND);
-  }
-  return game;
-};
-
-const getPlayer = (playerId: string, game: GameState): Player => {
-  const player = game.players.find((p) => p.id === playerId);
+function getPlayer(playerId: string, game: GameState): Player {
+  const player: Player | undefined = game.players.find(
+    (p) => p.id === playerId,
+  );
   if (!player) {
     throw new Error(NOT_FOUND);
   }
   return player;
-};
+}
 
-const updateGame = (room: string, wordPackIndex: number): GamePack => {
-  const gamePack = gameRepository.updateGamePack(room, wordPackIndex);
-  if (!gamePack) {
-    throw new Error(NOT_FOUND);
-  }
-  return gamePack;
-};
-
-const otherTeam = (team: Team): Team => {
+function otherTeam(team: Team): Team {
   return team === Team.SAPPHIRE ? Team.RUBY : Team.SAPPHIRE;
-};
+}
 
-const otherRole = (role: Role): Role => {
+function otherRole(role: Role): Role {
   return role === Role.JEMOLOGIST ? Role.JEM_MASTER : Role.JEMOLOGIST;
-};
+}
 
-const changePlayersCount = (
+function changePlayersCount(
   player: Player,
   game: GameState,
   decrease: boolean = false,
   teamChange: boolean = false,
-): void => {
+): void {
   if (player.team === Team.SAPPHIRE) {
     decrease ? game.sapphirePlayers-- : game.sapphirePlayers++;
     teamChange ? game.rubyPlayers-- : undefined;
@@ -338,7 +316,7 @@ const changePlayersCount = (
     decrease ? game.rubyPlayers-- : game.rubyPlayers++;
     teamChange ? game.sapphirePlayers-- : undefined;
   }
-};
+}
 
 export default {
   createGame,
@@ -352,8 +330,4 @@ export default {
   onNewGame,
   onEndTurn,
   onDisconnectGame,
-};
-
-export const handlerTest = {
-  getGame,
 };

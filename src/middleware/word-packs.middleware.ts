@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { WordPackFile } from "../model/word-pack.model";
+import { WordPack } from "../model/word-pack.model";
 import path from "path";
 import { UploadedFile } from "express-fileupload";
 
@@ -10,7 +10,7 @@ const parseWordPackFiles = (
 ) => {
   if (request.files) {
     const wordPacks = request.files.file;
-    const processedWordPacks: WordPackFile[] = Array.isArray(wordPacks)
+    const processedWordPacks: WordPack[] = Array.isArray(wordPacks)
       ? wordPacks.map((wordPack) => extractWordPack(wordPack))
       : [extractWordPack(wordPacks)];
     request.body.wordPacks = processedWordPacks;
@@ -18,7 +18,7 @@ const parseWordPackFiles = (
   next();
 };
 
-const extractWordPack = (file: UploadedFile): WordPackFile => {
+const extractWordPack = (file: UploadedFile): WordPack => {
   return {
     fileExtention: path.extname(file.name),
     name: path.parse(file.name).name,

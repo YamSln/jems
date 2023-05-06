@@ -25,6 +25,6 @@ export interface GameState extends Game {
 }
 
 export interface GamePack {
-  state: GameState;
+  gameState: GameState;
   wordsSource: string[];
 }

@@ -12,7 +12,7 @@ import { env, serverConfig } from "./config";
 import { optionsMiddleware } from "./middleware";
 import { HttpHeader } from "./util/http.header";
 
-export const app = express();
+export const app: express.Express = express();
 
 // CORS and options request
 app.disable(HttpHeader.X_POWERED_BY);
@@ -49,9 +49,9 @@ app.use(
 );
 
 // Http server creation
-const server = http.createServer(app);
+const server: http.Server = http.createServer(app);
 // Socket io endpoint
-const io = new Server(server, serverConfig.ioOptions);
+const io: Server = new Server(server, serverConfig.ioOptions);
 // Socket connection authentication
 io.use(jwtManager.verifyJwt);
 // Socket connection event

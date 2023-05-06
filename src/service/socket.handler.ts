@@ -9,10 +9,12 @@ import { Game } from "../model/game.model";
 import { log } from "../log";
 
 import service from "./game.service";
+import { Team } from "../model/team.model";
+import { PlayerAction } from "../payload/player.action.payload";
 
 const REQUESTOR = "SOCKET_HANDLER";
 
-const onConnection = (socket: Socket, io: Server) => {
+function onConnection(socket: Socket, io: Server) {
   log.debug(REQUESTOR, `${socket.id} connected!`);
   // On socket connection
   const auth: CreateGamePayload = socket.handshake.auth as CreateGamePayload;
@@ -35,7 +37,7 @@ const onConnection = (socket: Socket, io: Server) => {
   }
 
   socket.on(GameEvent.WORD_CLICK, (wordIndex: number) => {
-    const room = getSocketRoom(socket);
+    const room: string = getSocketRoom(socket);
     const wordClicked: WordClicked | null = service.onWordClick(
       wordIndex,
       socket.id,
@@ -47,13 +49,13 @@ const onConnection = (socket: Socket, io: Server) => {
   });
 
   socket.on(GameEvent.ROLE_CHANGE, () => {
-    const room = getSocketRoom(socket);
-    const player = service.onRoleChange(socket.id, room);
+    const room: string = getSocketRoom(socket);
+    const player: string = service.onRoleChange(socket.id, room);
     io.to(room).emit(GameEvent.ROLE_CHANGE, player);
   });
 
   socket.on(GameEvent.TEAM_CHANGE, () => {
-    const room = getSocketRoom(socket);
+    const room: string = getSocketRoom(socket);
     try {
       const player = service.onTeamChange(socket.id, room);
       io.to(room).emit(GameEvent.TEAM_CHANGE, player);
@@ -63,21 +65,23 @@ const onConnection = (socket: Socket, io: Server) => {
   });
 
   socket.on(GameEvent.TIME_SET, (timeSpan: number) => {
-    const room = getSocketRoom(socket);
-    const time = service.onTimerSet(room, timeSpan, io);
+    const room: string = getSocketRoom(socket);
+    const time: number = service.onTimerSet(room, timeSpan, io);
     io.to(room).emit(GameEvent.TIME_SET, time);
   });
 
   socket.on(GameEvent.NEW_GAME, (wordPackIndex?: number) => {
-    const room = getSocketRoom(socket);
-    const newGame = service.onNewGame(room, wordPackIndex);
+    const room: string = getSocketRoom(socket);
+    const newGame: Game = service.onNewGame(room, wordPackIndex);
     io.to(room).emit(GameEvent.NEW_GAME, newGame);
   });
 
   socket.on(GameEvent.END_TURN, () => {
-    const room = getSocketRoom(socket);
-    const next = service.onEndTurn(socket.id, room);
-    io.to(room).emit(GameEvent.CHANGE_TURN, next);
+    const room: string = getSocketRoom(socket);
+    const next: Team | null = service.onEndTurn(socket.id, room);
+    if (next) {
+      io.to(room).emit(GameEvent.CHANGE_TURN, next);
+    }
   });
 
   socket.on(GameEvent.DISCONNECT_SELF, () => {
@@ -85,9 +89,12 @@ const onConnection = (socket: Socket, io: Server) => {
   });
 
   socket.on(GameEvent.DISCONNECTING, () => {
-    const room = getSocketRoom(socket);
+    const room: string = getSocketRoom(socket);
     // Disconnect player from its room
-    const playerAction = service.onDisconnectGame(socket.id, room);
+    const playerAction: PlayerAction | null = service.onDisconnectGame(
+      socket.id,
+      room,
+    );
     // Emit player disconnected event
     if (playerAction) {
       socket.broadcast
@@ -95,9 +102,9 @@ const onConnection = (socket: Socket, io: Server) => {
         .emit(GameEvent.PLAYER_DISCONNECTED, playerAction);
     }
   });
-};
+}
 
-const joinGame = (socket: Socket, joinPayload: JoinPayload) => {
+function joinGame(socket: Socket, joinPayload: JoinPayload) {
   try {
     const event: JoinEvent = service.onJoinGame(socket.id, joinPayload);
     socket.join(joinPayload.room);
@@ -115,9 +122,9 @@ const joinGame = (socket: Socket, joinPayload: JoinPayload) => {
     service.onDisconnectGame(socket.id, joinPayload.room);
     disconnect(socket, err.message);
   }
-};
+}
 
-const createGame = (socket: Socket, payload: CreateGamePayload) => {
+function createGame(socket: Socket, payload: CreateGamePayload) {
   try {
     const game: Game = service.onCreateGame(socket.id, payload);
     socket.emit(GameEvent.CREATE_GAME, game, payload.room, game.players[0]);
@@ -126,9 +133,9 @@ const createGame = (socket: Socket, payload: CreateGamePayload) => {
     service.onDisconnectGame(socket.id, payload.room);
     disconnect(socket, err.message);
   }
-};
+}
 
-const disconnect = (socket: Socket, message?: string) => {
+function disconnect(socket: Socket, message?: string) {
   if (message) {
     sendError(socket, message);
     log.error(
@@ -137,15 +144,15 @@ const disconnect = (socket: Socket, message?: string) => {
     );
   }
   socket.disconnect(true);
-};
+}
 
-const sendError = (socket: Socket, message: string) => {
+function sendError(socket: Socket, message: string) {
   socket.emit("error", message);
-};
+}
 
-const getSocketRoom = (socket: Socket): string => {
-  const rooms = Array.from(socket.rooms);
+function getSocketRoom(socket: Socket): string {
+  const rooms: string[] = Array.from(socket.rooms);
   return rooms.filter((room) => room !== socket.id)[0];
-};
+}
 
 export default { onConnection };

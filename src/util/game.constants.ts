@@ -16,3 +16,5 @@ export const WORDS_COUNT = 25;
 export const STARTING_TEAM_WORDS = 9;
 export const OTHER_TEAM_WORDS = 8;
 export const DEFAULT_WORDS_PACK_NAME = "Classic";
+export const FIVE_MINUTES_MILLIS: number = 5 * 60 * 1000;
+export const WORD_PACK_EXPIRITY_OFFSET = FIVE_MINUTES_MILLIS;

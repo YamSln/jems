@@ -7,6 +7,7 @@ import { JoinPayload } from "../payload/join.payload";
 import { ExtendedError } from "socket.io/dist/namespace";
 import { CreateGamePayload } from "../client/src/app/model/create-game.payload";
 import env from "../config/env";
+import { NextFunction } from "express";
 
 export const TOKEN_PREFIX = "Bearer";
 
@@ -17,18 +18,18 @@ const publicKey = env.DEV_ENV
   ? fs.readFileSync("public.key", "utf8")
   : process.env.PUBLIC_KEY;
 
-const generateJwt = (payload: JoinPayload | CreateGamePayload): string => {
+function generateJwt(payload: JoinPayload | CreateGamePayload): string {
   const options: SignOptions = {
     algorithm: "RS256",
     expiresIn: "5m",
   }; // Signs new jwt with join payload
   return jwt.sign(payload, privateKey!, options);
-};
+}
 
-const verifyJwt = (
+function verifyJwt(
   socket: Socket,
   next: (err?: ExtendedError | undefined) => any,
-) => {
+): NextFunction {
   const authHeader = socket.handshake.auth.token; // Get token from auth header
   // Verify auth header and token prefix
   if (!authHeader || authHeader.indexOf(TOKEN_PREFIX) === -1) {
@@ -46,7 +47,7 @@ const verifyJwt = (
     return next(new Error(FORBIDDEN));
   }
   return next();
-};
+}
 
 export default {
   generateJwt,

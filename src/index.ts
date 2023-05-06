@@ -2,12 +2,12 @@ import server from "./app";
 import { log } from "./log";
 import { serverConfig } from "./config";
 
-const REQUESTOR = "SERVER";
-const port = serverConfig.port;
-const serverVersion = serverConfig.version;
+const REQUESTOR: string = "SERVER";
+const port: number = serverConfig.port;
+const serverVersion: string = serverConfig.version;
 
 server.listen(port, () => {
-  const serverArt = String.raw`
+  const serverArt: string = String.raw`
                ___  _______  __   __  _______ 
    ____       |   ||       ||  |_|  ||       |    ____
   /\__/\      |   ||    ___||       ||  _____|   /\__/\

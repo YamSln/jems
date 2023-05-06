@@ -10,21 +10,21 @@ import {
   WORDS_COUNT,
 } from "../util/game.constants";
 
-const newGame = (currentGame: GameState, wordsSource: string[]): GameState => {
+function newGame(currentGame: GameState, wordsSource: string[]): GameState {
   return createGame(
     currentGame.password,
     currentGame.maxPlayers,
     wordsSource,
     currentGame,
   );
-};
+}
 
-const createGame = (
+function createGame(
   password: string,
   maxPlayers: number,
   wordsSource: string[],
   currentGame?: GameState,
-): GameState => {
+): GameState {
   // Get starting team
   const startingTeam: Team = getRandomTeam();
   // Get random words
@@ -59,13 +59,13 @@ const createGame = (
   }; // Return new game
 
   return game;
-};
+}
 
-const generateWords = (
+function generateWords(
   startingTeam: Team,
   wordsSource: string[],
   wordsCount: number = WORDS_COUNT,
-): Word[] => {
+): Word[] {
   const wordsContent: string[] = getRandomWords(wordsCount, wordsSource);
   const words: Word[] = [];
 
@@ -99,12 +99,12 @@ const generateWords = (
     words.push(word);
   }
   return shuffleWords(words);
-};
+}
 
-const getRandomWords = (
+function getRandomWords(
   wordsCount: number = WORDS_COUNT,
   wordsSource: string[],
-): string[] => {
+): string[] {
   const words: string[] = [];
   const indexes: number[] = [];
   while (words.length < wordsCount) {
@@ -116,9 +116,9 @@ const getRandomWords = (
     }
   }
   return words;
-};
+}
 
-const shuffleWords = (words: Word[]): Word[] => {
+function shuffleWords(words: Word[]): Word[] {
   let currentIndex = words.length - 1;
   let temp;
   let random;
@@ -134,15 +134,13 @@ const shuffleWords = (words: Word[]): Word[] => {
     currentIndex--;
   }
   return words;
-};
+}
 
-const shuffleAndResetPlayers = (
-  players: Player[],
-): {
+function shuffleAndResetPlayers(players: Player[]): {
   players: Player[];
   sapphirePlayers: number;
   rubyPlayers: number;
-} => {
+} {
   let sapphirePlayers: number = 0;
   let rubyPlayers: number = 0;
   for (let player of players) {
@@ -154,31 +152,31 @@ const shuffleAndResetPlayers = (
     player.role = Role.JEMOLOGIST;
   }
   return { players, sapphirePlayers, rubyPlayers };
-};
+}
 
-const getRandomNumber = (max: number): number => {
+function getRandomNumber(max: number): number {
   return Math.floor(Math.random() * max) + 1;
-};
+}
 
-const getRandomTeam = (): Team => {
+function getRandomTeam(): Team {
   const teams = Object.keys(Team);
   const randomIndex = getRandomNumber(teams.length);
   const randomTeam = teams[randomIndex - 1];
   return randomTeam as Team;
-};
+}
 
-const assignTeam = (
+function assignTeam(
   totalPlayers: number,
   sapphirePlayers: number,
   rubyPlayers: number,
-): Team => {
+): Team {
   if (sapphirePlayers >= totalPlayers / 2) {
     return Team.RUBY;
   } else if (rubyPlayers >= totalPlayers / 2) {
     return Team.SAPPHIRE;
   }
   return getRandomTeam();
-};
+}
 
 export default {
   newGame,

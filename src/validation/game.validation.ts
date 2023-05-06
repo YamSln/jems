@@ -1,7 +1,7 @@
 import { check } from "express-validator";
 import * as MESSAGES from "./validation.messages";
 import * as CONSTANTS from "../util/game.constants";
-import { WordPackFile } from "../model/word-pack.model";
+import { WordPack } from "../model/word-pack.model";
 
 const validateWordPacks = check("wordPacks")
   .optional()
@@ -9,7 +9,7 @@ const validateWordPacks = check("wordPacks")
   .withMessage(MESSAGES.MAX_WORD_PACKS)
   .custom((wordPacks) => {
     if (wordPacks) {
-      wordPacks.forEach((wordPack: WordPackFile) => {
+      wordPacks.forEach((wordPack: WordPack) => {
         wordPackExtCheck(wordPack);
         wordPackNumberOfWordsCheck(wordPack);
         wordPackWordsLengthCheck(wordPack);
@@ -18,7 +18,7 @@ const validateWordPacks = check("wordPacks")
     return true;
   });
 
-const wordPackExtCheck = (wordPack: WordPackFile): void => {
+function wordPackExtCheck(wordPack: WordPack): void {
   if (!CONSTANTS.SUPPORTED_FILE_EXT.includes(wordPack.fileExtention)) {
     throw new Error(
       `Word pack '${takeHead(wordPack.name)}' has a file extention ${
@@ -26,9 +26,9 @@ const wordPackExtCheck = (wordPack: WordPackFile): void => {
       } which is not supported, supported extentions are: ${CONSTANTS.SUPPORTED_FILE_EXT.toString()}`,
     );
   }
-};
+}
 
-const wordPackNumberOfWordsCheck = (wordPack: WordPackFile): void => {
+function wordPackNumberOfWordsCheck(wordPack: WordPack): void {
   // Minimum words per pack
   if (wordPack.words.length < CONSTANTS.MIN_WORDS_PER_PACK) {
     throw new Error(
@@ -49,9 +49,9 @@ const wordPackNumberOfWordsCheck = (wordPack: WordPackFile): void => {
       }`,
     );
   }
-};
+}
 
-const wordPackWordsLengthCheck = (wordPack: WordPackFile): void => {
+function wordPackWordsLengthCheck(wordPack: WordPack): void {
   wordPack.words.forEach((word) => {
     // Max word length
     if (word.length > CONSTANTS.MAX_WORD_LENGTH) {
@@ -74,11 +74,11 @@ const wordPackWordsLengthCheck = (wordPack: WordPackFile): void => {
       );
     }
   });
-};
+}
 
-const takeHead = (name: string): string => {
+function takeHead(name: string): string {
   return name.substring(0, 7);
-};
+}
 
 const validateNick = check("nick")
   .exists()
