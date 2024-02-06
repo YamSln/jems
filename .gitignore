@@ -1,6 +1,8 @@
 node_modules
 src/client/node_modules
 
+package-lock.json
+
 private.key
 public.key
 
