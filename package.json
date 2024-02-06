@@ -17,8 +17,7 @@
     "dev": "nodemon src/index.ts",
     "debug": "tsc && node --inspect dist/index.js",
     "start": "node --optimize_for_size --max_old_space_size=460 dist/index.js",
-    "build": "tsc && cd src/client && npm install && npm run build",
-    "heroku-postbuild": "tsc && cd src/client && npm install && npm run build",
+    "build": "npm install && tsc && cd src/client && npm install && npm run build",
     "test": "ts-node -O '{\"config\":\"commonjs\"}' node_modules/jest/bin/jest.js"
   },
   "author": "Jam",
